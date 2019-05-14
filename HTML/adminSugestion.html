@@ -10,15 +10,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Our Css -->
-    <link rel="stylesheet" href="/CSS/style.css">
-
-     <!-- Our Favicon -->
-     <link rel="icon" type="image/png" href="/Images/Logo2.png">
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="/CSS/adminStyle.css">
+    <!-- Our Favicon -->
+    <link rel="icon" type="image/png" href="/Images/Logo2.png">
 </head>
 
 <body>
@@ -60,65 +57,152 @@
         </div>
     </nav>
 
-    <!-- Quizz Title -->
-    <div class="container-fluid">
+    <div class="container-fluid sugestions">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center catalog">
-                <img src="/Images/Quizz.png" alt="Quizz" class="mt-5">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center sugestion">
+                <img src="/Images/sugestoes.png" alt="Sugestões" class="mt-5 mb-2">
+                <h1 class="display-5 mb-5">Sugestões</h1>
             </div>
-        </div>
-        <div class="row">
-            <h1 class="display-4 mx-auto mt-3"> <span style="color:blue">Q</span><span style="color:#FF8F0E">U</span><span
-                    style="color:#39A32B">I</span><span style="color:#F80E3C">Z</span><span
-                    style="color:#39A32B">Z</span><span style="color:#FF8F0E">E</span><span style="color:blue">S</span>
-            </h1>
         </div>
     </div>
 
-    <!--Quizzes Cards-->
-    <div class="container-fluid quizzCardsContainer">
+    <div class="container-fluid sugestionCard">
         <div class="row">
-            <div class="col-lg-4">
-                <div class="card quizzCards africa" style="width: 18rem;">
-                    <div class="card-header text-center">África</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
+            <div class="card-deck mx-auto">
+                <div class="card sugestionCards" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <p>sugestões Aprovadas</p>
+                        <p><img src="/Images/ideias.png" class="userImage" alt="Catálogo" style="width: 30%;"> 2
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards america" style="width: 18rem;">
-                    <div class="card-header text-center">América</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
+                <div class="card sugestionCards" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <p>Sugestões Reprovadas</p>
+                        <p><img src="/Images/ideias.png" class="userImage" alt="Catálogo" style="width: 30%;"> 2
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards asia" style="width: 18rem;">
-                    <div class="card-header text-center">Ásia</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card quizzCards europa" style="width: 18rem;">
-                    <div class="card-header text-center">Europa</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards oceania" style="width: 18rem;">
-                    <div class="card-header text-center">Ôceania</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards mundo" style="width: 18rem;">
-                    <div class="card-header text-center">Mundo</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
+                <div class="card sugestionCards" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <p>Sugestões por Visualizar</p>
+                        <p><img src="/Images/ideias.png" class="userImage" alt="Catálogo" style="width: 30%;"> 2
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
+    <!-- Table -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center sugestionTable">
+                <h1 class="display-5 mt-5 mb-5">Tabela de Sugestões</h1>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center sugestionTable">
+                <!-- FILTER -->
+                <form class="form-inline mb-5">
+                    <div class="form-group">
+                        <label for="stlGenre" class="mr-3">Mostrar: </label>
+                        <select class="form-control" id="stlOrder">
+                            <option value="">Todas</option>
+                            <option value="naoLidas">Não lidas</option>
+                            <option value="reprovado">Reprovadas</option>
+                            <option value="aprovado">Aprovadas</option>
+                        </select>
+                    </div>
+                </form>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered mx-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Utilizador</th>
+                                <th scope="col">Oservação</th>
+                                <th scope="col">Abrir</th>
+                                <th scope="col">Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Nuno Sousa</td>
+                                <td>Por ler</td>
+                                <td><button type="button" class="btn btn-success read">Abrir</button></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Titas</td>
+                                <td>Por ler</td>
+                                <td><button type="button" class="btn btn-success read">Abrir</button></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>André</td>
+                                <td>Reprovado</td>
+                                <td><button type="button" class="btn btn-success read">Abrir</button></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Marcos</td>
+                                <td>Reprovado</td>
+                                <td><button type="button" class="btn btn-success read">Abrir</button></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Vitali</td>
+                                <td>Aprovado</td>
+                                <td><button type="button" class="btn btn-success read">Abrir</button></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>Miguel</td>
+                                <td>Aprovado</td>
+                                <td><button type="button" class="btn btn-success read" data-toggle="modal"
+                                        data-target="#sugestionModal">Abrir</button></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="sugestionModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Cabeçalho da Modal -->
+                <div class="modal-header">
+                    <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" style="color:#ffff">Voltar</button>
+                </div>
+                <!-- Corpo da Modal -->
+                <div class="modal-body text-center">
+                    Queria saber se poderiam implementar ,no catálogo, Cabo Verde.
+                    É um país da costa ocidental africana, cuja capital é Praia. A oeste está
+                    delimitado pelo Oceano Atlântico e foi colônia portuguesa.
+                </div>
+                <!-- Rodapé da Modal -->
+                <div class="modal-footer">
+                        <button type="button" class="btn">Aprovar</button>
+                        <button type="button" class="btn">Reprovar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  -->
+
+
+
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
         <!-- Footer Links -->
@@ -230,17 +314,17 @@
     </footer>
 
     <!-- Optional JavaScript -->
-    <script src="/JS/controler/quizz.js"></script>
+    <script src="/JS/controler/adminSugestion.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>

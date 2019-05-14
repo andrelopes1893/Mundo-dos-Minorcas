@@ -10,7 +10,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -19,106 +18,66 @@
 
      <!-- Our Favicon -->
      <link rel="icon" type="image/png" href="/Images/Logo2.png">
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">
-            <img src="/Images/logo.png" alt="Logo" class="logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item line">
-                    <a class="nav-link" href="#">Página Inicial</a>
-                </li>
-                <li class="nav-item line">
-                    <a class="nav-link" href="#">Ver Catálogo</a>
-                </li>
-                <li class="nav-item line">
-                    <a class="nav-link" href="#">Jogar Quizzes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link estatistic" href="#">Estatísticas</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <img src="/Images/avatar.png" alt="Avatar" class="avatar">
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Perfil</a>
-                        <a class="dropdown-item" href="#">Sair</a>
-                    </div>
-                </li>
-            </ul>
+    <div class="container-fluid navQuizz">
+        <div class="row flagInfoRow">
+            <div class="col-lg-6 logoNavQuizz">
+                <a class="navbar-brand" href="#">
+                    <img src="/Images/logo.png" alt="Logo" class="logo logoQuizz img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-6 text-center flagInfoText">
+                <p>Bandeiras Africanas - 1 de 54</p>
+            </div>
         </div>
-    </nav>
+    </div>
 
-    <!-- Quizz Title -->
+    <div class="container-fluid questionContainer">
+        <div class="row">
+            <div class="col-lg-12 text-center question">
+                <p>Qual é o país desta bandeira?</p>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center catalog">
-                <img src="/Images/Quizz.png" alt="Quizz" class="mt-5">
+        <div class="row questionImage">
+            <div class="col-lg-6 text-center">
+                <img src="/Images/Portugal.png" alt="Cabo Verde" class="flagImage">
             </div>
-        </div>
-        <div class="row">
-            <h1 class="display-4 mx-auto mt-3"> <span style="color:blue">Q</span><span style="color:#FF8F0E">U</span><span
-                    style="color:#39A32B">I</span><span style="color:#F80E3C">Z</span><span
-                    style="color:#39A32B">Z</span><span style="color:#FF8F0E">E</span><span style="color:blue">S</span>
-            </h1>
+            <div class="col-lg-6 optionsCol">
+                <div class="row optionsRow">
+                    <button class="btn mx-auto">Cabo Verde</button>
+                </div>
+                <div class="row optionsRow">
+                    <button class="btn mx-auto">Angola</button>
+                </div>
+                <div class="row optionsRow">
+                    <button class="btn mx-auto">Argélia</button>
+                </div>
+                <div class="row optionsRow">
+                    <button class="btn mx-auto">Mali</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!--Quizzes Cards-->
-    <div class="container-fluid quizzCardsContainer">
+    <div class="container-fluid exitHelp">
         <div class="row">
-            <div class="col-lg-4">
-                <div class="card quizzCards africa" style="width: 18rem;">
-                    <div class="card-header text-center">África</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-center">
+                <a href="">
+                    <button class="btn exit">Sair</button>
+                </a>
             </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards america" style="width: 18rem;">
-                    <div class="card-header text-center">América</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards asia" style="width: 18rem;">
-                    <div class="card-header text-center">Ásia</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card quizzCards europa" style="width: 18rem;">
-                    <div class="card-header text-center">Europa</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards oceania" style="width: 18rem;">
-                    <div class="card-header text-center">Ôceania</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards mundo" style="width: 18rem;">
-                    <div class="card-header text-center">Mundo</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-center">
+                <button class="btn help">Ajuda</button>
             </div>
         </div>
     </div>
-    
+
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
         <!-- Footer Links -->
@@ -228,9 +187,7 @@
         <!-- Copyright -->
 
     </footer>
-
     <!-- Optional JavaScript -->
-    <script src="/JS/controler/quizz.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

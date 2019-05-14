@@ -1,0 +1,257 @@
+body{
+    font-family: Mali;
+}
+.logo {
+    width: 120px;
+    height: 80px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar {
+    background-color: #29abe2;
+}
+
+.navbar-brand {
+    margin: 0%;
+}
+
+.nav-link {
+    font-size: 24px;
+}
+
+.nav-item {
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+ul.navbar-nav.ml-auto li a.nav-link {
+    color: #ffffff;
+}
+
+ul.navbar-nav.ml-auto li a.nav-link:hover {
+    color: #CCCC33;
+}
+
+li.nav-item.line {
+    border-right: 2px solid #CCCC33;
+}
+
+div.dropdown-menu {
+    background-color: #29ABE2;
+    border: 0;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.dropdown-menu a.dropdown-item {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.dropdown-menu a.dropdown-item:hover {
+    color: #CCCC33;
+    background-color: #29ABE2;
+}
+
+
+@media screen and (max-width: 769px) {
+    li.nav-item.line {
+        border-right: 0px;
+    }
+}
+
+/* ?Ajuste da navbar para ipad */
+@media only screen and (max-width: 1026px) and (min-width: 1024px) {
+    ul.navbar-nav.ml-auto li a.nav-link {
+        color: #ffffff;
+        font-size: 15px;
+        text-align: center;
+    }
+    ul.navbar-nav.ml-auto li a.nav-link.estatistic{
+        padding-top: 20px;
+        
+    }
+}
+
+.wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 3%;
+}
+
+.item {
+    height: auto;
+}
+
+div.item img {
+    width: 50%;
+}
+
+@media screen and (max-width: 1000px) {
+    div.item img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+div.container-fluid{
+    padding-bottom: 2%;
+}
+
+div.col-lg-8{
+    padding-left: 0%;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+div.col-lg-8 img{
+    padding-top: 18%;
+    padding-bottom: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+}
+
+div.col-lg-4{
+    padding-left: 0%;
+    padding-right: 0%;
+    background-color: #ffffff
+}
+
+div.col-lg-4 h1.display-5{
+    padding-top: 15%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+div.col-lg-4 hr{
+    margin: 50px;
+    border: #CCCC33 2px solid;
+}
+
+div.col-lg-4 p.lead{
+    color: #F0EBEB;
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 4%;
+}
+
+div.col-lg-4{
+    background-color: #29ABE2;
+}
+
+div.col-lg-4 .secondTitle{
+    font-size: 30px;
+    color: #ffffff;
+    text-shadow: 0px 2px 4px #000000;
+    padding-top: 4%;
+    padding-left: 6%;
+    padding-right: 5%;
+    padding-bottom: 2%;
+}
+
+div.col-lg-4 .mundoImage{
+    padding-top: 5%;
+    padding-bottom: 10%;
+    width: 20%;
+}
+
+div.col-lg-4 .catalogoImage{
+    padding-top: 5%;
+    padding-bottom: 10%;
+    width: 20%;
+}
+
+div.col-lg-4 .quizzImage{
+    padding-top: 5%;
+    padding-bottom: 10%;
+    width: 20%;
+}
+
+div.col-lg-4 h1.titleOne{
+    font-size: 30px;
+    color: #72EF3D;
+    text-shadow: 0px 2px 2px #000000;
+}
+
+div.col-lg-4 h1.titleTwo{
+    font-size: 30px;
+    color: #FFA200;
+    text-shadow: 0px 2px 2px #000000;
+}
+
+div.col-lg-4 h1.titleThree{
+    font-size: 30px;
+    color: yellow;
+    text-shadow: 0px 2px 2px #000000;
+}
+
+/* Footer */
+footer.page-footer{
+    background: #29ABE2;
+    color: #ffffff
+}
+
+footer .container{
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+/* Footer Headings */
+footer .footerHeading{
+    color: #CCCC33;
+    white-space: nowrap;
+}
+
+/* Footer Line */
+footer .footerLine{
+    background-color: #CCCC33;
+    margin: 0;
+}
+
+/* Paragrafo copyright */
+footer p.copyrightParagraph{
+    margin: 0;
+}
+
+/* Favicons */
+.fa{
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+/* Favicon Facebook */
+.fa-facebook{
+    color: #ffffff;;
+}
+
+/* Favicon Twitter */
+.fa-twitter{
+     color: #ffffff;
+}
+
+/* Favicon Youtube */
+.fa-youtube{
+    color: #ffffff;;
+}
+
+/* Favicon Instgram */
+.fa-instagram{
+    color: #ffffff;;
+}
+

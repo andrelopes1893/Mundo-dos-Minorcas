@@ -1,0 +1,252 @@
+body {
+    font-family: Mali;
+}
+
+.logo {
+    width: 120px;
+    height: 80px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar {
+    background-color: #0079AC;
+}
+
+.navbar-brand {
+    margin: 0%;
+}
+
+.nav-link {
+    font-size: 24px;
+}
+
+.nav-item {
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+ul.navbar-nav.ml-auto li a.nav-link {
+    color: #ffffff;
+}
+
+ul.navbar-nav.ml-auto li a.nav-link:hover {
+    color: #CCCC33;
+}
+
+li.nav-item.line {
+    border-right: 2px solid #CCCC33;
+}
+
+div.dropdown-menu {
+    background-color: #0079AC;
+    border: 0;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.dropdown-menu a.dropdown-item {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.dropdown-menu a.dropdown-item:hover {
+    color: #CCCC33;
+    background-color: #0079AC;
+}
+
+@media screen and (max-width: 769px) {
+    li.nav-item.line {
+        border-right: 0px;
+    }
+}
+
+/* ?Ajuste da navbar para ipad */
+@media only screen and (max-width: 1026px) and (min-width: 1024px) {
+    ul.navbar-nav.ml-auto li a.nav-link {
+        color: #ffffff;
+        font-size: 15px;
+        text-align: center;
+    }
+    ul.navbar-nav.ml-auto li a.nav-link.estatistic{
+        padding-top: 20px;
+        
+    }
+}
+/* ! HEADER */
+
+div.row h1.display-4.mx-auto {
+    color: #0E0E52;
+}
+
+/* ! CARD SETTINGS */
+
+div.row div.card.userCard {
+    background-color: #29ABE2;
+}
+
+div.row div.card.catalogoCard {
+    background-color: #4AB71B;
+}
+
+div.row div.card.quizzCard {
+    background-color: #FF873D;
+}
+
+div.row div.card.cardSuggestions {
+    background-color: #EE11DE;
+}
+
+img.userImg {
+    width: 50%;
+    margin: auto;
+}
+
+img.catalogImg {
+    width: 50%;
+    margin: auto;
+}
+
+img.quizzesImg {
+    width: 50%;
+    margin: auto;
+}
+
+img.imageSuggestions {
+    width: 50%;
+    margin: auto;
+}
+
+div.row div.card h1 {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+div.container-fluid.cards {
+    padding-bottom: 5%;
+}
+
+/* ! STATISTICS */
+
+div.container-fluid.statistics{
+    padding-bottom: 3%;
+}
+
+div.row div.col-lg-12 {
+    background-color: #0079AC;
+}
+
+div.row div.col-lg-6 {
+    background-color: #0079AC;
+}
+
+div.row div.col-lg-12 h1.display-4.text-center {
+    color: #ffffff;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+/* ! STATISTICS CARDS*/
+
+div.row div.col-lg-6 div.card.mx-auto {
+    background-color: #29ABE2;
+    border: #ffffff;
+}
+
+table.table-bordered{
+    border: 2px solid #ffffff;
+    margin-top: 1%;
+    text-align: center; 
+    vertical-align: middle;
+  }
+
+table.table-bordered>thead>tr>th {
+    border: 2px solid #ffffff;
+}
+
+table.table-bordered>tbody>tr>td {
+    border: 2px solid #ffffff;
+}
+
+table.table-bordered>tbody>tr>th {
+    border: 2px solid #ffffff;
+}
+
+div.col-lg-6 div.card.mx-auto{
+    margin-bottom: 10%;
+}
+
+/* ! FOOTER */
+
+footer.page-footer {
+    background: #0079AC;
+    color: #ffffff
+}
+
+/* Footer Headings */
+footer .footerHeading {
+    color: #CCCC33;
+    white-space: nowrap;
+}
+
+/* Footer Line */
+footer .footerLine {
+    background-color: #CCCC33;
+    margin: 0;
+}
+
+/* Paragrafo copyright */
+footer p.copyrightParagraph {
+    margin: 0;
+}
+
+/* Favicons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+/* Favicon Facebook */
+.fa-facebook {
+    color: #ffffff;
+}
+
+/* Favicon Twitter */
+.fa-twitter {
+    color: #ffffff;
+}
+
+/* Favicon Youtube */
+.fa-youtube {
+    color: #ffffff;
+}
+
+/* Favicon Instgram */
+.fa-instagram {
+    color: #ffffff;
+}
+
+
+div.container-fluid.text-center div.row {
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+/* div  with the social media */
+div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row {
+    padding: 0%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+
+div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
+    margin: auto
+}

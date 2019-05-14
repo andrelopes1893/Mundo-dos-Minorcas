@@ -21,7 +21,7 @@
      <link rel="icon" type="image/png" href="/Images/Logo2.png">
 </head>
 
-<body>
+<body class="europa">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#">
             <img src="/Images/logo.png" alt="Logo" class="logo">
@@ -60,7 +60,6 @@
         </div>
     </nav>
 
-    <!-- Quizz Title -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center catalog">
@@ -68,57 +67,38 @@
             </div>
         </div>
         <div class="row">
-            <h1 class="display-4 mx-auto mt-3"> <span style="color:blue">Q</span><span style="color:#FF8F0E">U</span><span
-                    style="color:#39A32B">I</span><span style="color:#F80E3C">Z</span><span
-                    style="color:#39A32B">Z</span><span style="color:#FF8F0E">E</span><span style="color:blue">S</span>
+            <h1 class="display-4 mx-auto mt-3"> Europa <span style="color:blue">Q</span><span
+                    style="color:#FF8F0E">U</span><span style="color:#39A32B">I</span><span
+                    style="color:#F80E3C">Z</span><span style="color:#39A32B">Z</span><span
+                    style="color:#FF8F0E">E</span><span style="color:blue">S</span>
             </h1>
         </div>
     </div>
 
     <!--Quizzes Cards-->
-    <div class="container-fluid quizzCardsContainer">
+    <div class="container-fluid quizzContinent">
         <div class="row">
             <div class="col-lg-4">
-                <div class="card quizzCards africa" style="width: 18rem;">
-                    <div class="card-header text-center">África</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
+                <div class="card capitalQuizz" style="width: 18rem;">
+                    <img src="/Images/capitals.jpg" class="card-img-top" alt="Brasil">
+                    <div class="card-header text-center">Capitais</div>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="card quizzCards america" style="width: 18rem;">
-                    <div class="card-header text-center">América</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
+                <div class="card" style="width: 18rem;">
+                    <img src="/Images/africaTerritorios.png" class="card-img-top" alt="Brasil">
+                    <div class="card-header text-center">Localização</div>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="card quizzCards asia" style="width: 18rem;">
-                    <div class="card-header text-center">Ásia</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card quizzCards europa" style="width: 18rem;">
-                    <div class="card-header text-center">Europa</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards oceania" style="width: 18rem;">
-                    <div class="card-header text-center">Ôceania</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards mundo" style="width: 18rem;">
-                    <div class="card-header text-center">Mundo</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
+                <div class="card bandeiraQuizz" style="width: 18rem;">
+                    <img src="/Images/africanFlags.png" class="card-img-top" alt="Brasil">
+                    <div class="card-header text-center">Bandeiras</div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
         <!-- Footer Links -->
@@ -210,8 +190,6 @@
                             class="fa fa-instagram"></a>
                     </div>
 
-
-
                 </div>
                 <!-- Grid column -->
 
@@ -228,9 +206,6 @@
         <!-- Copyright -->
 
     </footer>
-
-    <!-- Optional JavaScript -->
-    <script src="/JS/controler/quizz.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -241,6 +216,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+
+    <!-- Optional JavaScript -->
+    <script src="/JS/controler/europeanQuizz.js"></script>
 </body>
 
 </html>

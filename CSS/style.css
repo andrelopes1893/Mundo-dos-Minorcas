@@ -1,0 +1,630 @@
+body {
+    font-family: Mali;
+}
+
+body.africa {
+    background-color: #F5BB00;
+}
+
+body.america {
+    background-color: #4AB71B;
+}
+
+body.asia {
+    background-color: #BE3DE3;
+}
+
+body.europa {
+    background-color: #204987;
+}
+
+body.oceania {
+    background-color: #B7541B;
+}
+
+.logo {
+    width: 120px;
+    height: 80px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar {
+    background-color: #29abe2;
+}
+
+.navbar-brand {
+    margin: 0%;
+}
+
+.nav-link {
+    font-size: 24px;
+}
+
+.nav-item {
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+ul.navbar-nav.ml-auto li a.nav-link {
+    color: #ffffff;
+}
+
+ul.navbar-nav.ml-auto li a.nav-link:hover {
+    color: #CCCC33;
+}
+
+li.nav-item.line {
+    border-right: 2px solid #CCCC33;
+}
+
+div.dropdown-menu {
+    background-color: #29ABE2;
+    border: 0;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.dropdown-menu a.dropdown-item {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.dropdown-menu a.dropdown-item:hover {
+    color: #CCCC33;
+    background-color: #29ABE2;
+}
+
+@media screen and (max-width: 375px) {
+    li.nav-item.line {
+        border-right: 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    li.nav-item.line {
+        border-right: 0px;
+    }
+}
+
+/* ! HEADER */
+
+div.row div.col-lg-12.catalog{
+    color: #000000;
+}
+
+div.row div.col-lg-12.catalog span{
+    color: #ffffff;
+}
+
+div.row div.col-lg-12.catalog img{
+    width: 5%;
+}
+
+/* ?????? */
+div.row div.col-lg-6 h1.display-4 {
+    margin-top: 4%;
+}
+
+div.row div.col-lg-6 h1.display-4 span {
+    color: #ffffff;
+}
+
+div.row div.col-lg-6.text-left {
+    padding: 0;
+}
+
+div.row div.col-lg-6.text-right {
+    padding: 0;
+}
+
+div .item {
+    padding-top: 10%;
+}
+
+/* ! NAVBAR QUIZZ */
+
+div.container-fluid.navQuizz {
+    background-color: #29ABE2;
+}
+
+div.container-fluid.navQuizz div.col-lg-6.text-center.flagInfoText {
+    background-color: #CCCC33;
+}
+
+img.logo.logoQuizz {
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+
+div.col-lg-6.flagInfoText p {
+    color: #ffffff;
+    padding-top: 4%;
+    font-size: 22px;
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 767px) {
+    div.col-lg-6.logoNavQuizz {
+        padding-left: 35%
+    }
+}
+
+/* @media only screen and (max-width: 768px) {
+    div.col-lg-6.logoNavQuizz{
+     padding-left: 40%
+    }
+} */
+
+/* ! Question QUIZZ */
+
+div.container-fluid.questionContainer {
+    background-color: #29abe2;
+    color: #ffffff;
+    font-size: 24px;
+    border-top: 2px solid #ffffff;
+}
+
+div.row div.col-lg-12.text-center.question p {
+    margin: 2%;
+}
+
+div.row.questionImage div.col-lg-6 img.flagImage {
+    width: 44%;
+    margin-top: 5%;
+    margin-left: 20%;
+    border-radius: 20px 20px 20px 20px;
+}
+
+div.col-lg-6.optionsCol {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+div.row.optionsRow button.btn {
+    width: 50%;
+    margin: 2%;
+    border: 1px solid #29ABE2;
+    border-radius: 8px;
+    background-color: #29ABE2;
+    color: #ffffff
+}
+
+@media only screen and (max-width: 768px) {
+    div.row.questionImage div.col-lg-6 img.flagImage {
+        width: 44%;
+        margin-top: 6%;
+        margin-left: 3%;
+        border-radius: 20px 20px 20px 20px;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+
+    div.row.questionImage div.col-lg-6 img.flagImage {
+        width: 65%;
+        margin-top: 5%;
+        margin-left: 20%;
+        border-radius: 20px 20px 20px 20px;
+    }
+}
+
+/* !BUTTON HELP AND EXIT QUIZZ */
+
+div.container-fluid.exitHelp {
+    background-color: #29ABE2;
+    border: 2px solid #CCCC33;
+}
+
+button.btn.exit {
+    background-color: #CF2027;
+    color: #ffffff;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 7rem;
+    height: 3.5rem;
+    font-size: 24px;
+}
+
+button.btn.help {
+    background-color: #CCCC33;
+    color: #ffffff;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 7rem;
+    height: 3.5rem;
+    font-size: 24px;
+}
+
+@media only screen and (max-width:412px){
+    button.btn.help {
+        background-color: #CCCC33;
+        color: #ffffff;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 7rem;
+        height: 2.5rem;
+        font-size: 16px;
+    }
+    button.btn.exit {
+        background-color: #CF2027;
+        color: #ffffff;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 7rem;
+        height: 2.5rem;
+        font-size: 16px;
+    }
+}
+
+/* !JUMBOTRON FILTER */
+div.jumbotron {
+    margin-right: 0%;
+    padding-right: 0%
+}
+div.jumbotron.jumbotron-fluid div.container.text-right{
+    margin: 0%;
+    margin-left: 5%
+}
+
+div.form-group.selection {
+    margin-right: 5%;
+}
+
+div.form-group.name {
+    margin-right: 5%;
+}
+
+div.form-group.selection label{
+    margin-right: 7px;
+    color: #ffffff
+}
+
+div.form-group.name label{
+    color: #ffffff
+}
+
+div.form-group.selection select {
+    padding-left: 0%;
+}
+
+@media only screen and (max-width:415px){
+    div.form-group.selection label{
+        padding-right: 100px;
+    }
+    div.form-group.selection{
+        padding-left: 3%
+    }
+    
+    div.form-group.name label {
+        padding-right: 110px;
+    }
+    div.form-group.name{
+        padding-left: 0%;
+    }
+
+    input #txtName.form-control.m-2{
+        margin-left: 0%
+    }
+
+    button.btn.btn-primary.filterCountry{
+        width: 100px;
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 769px) and (min-width: 767px) {
+    div.form-group.selection label{
+       margin-right: 32px;
+    }
+    button.btn.btn-primary.filterCountry{
+        margin-top: 1px;
+    }
+}
+div.jumbotron.jumbotron-fluid.africaJumbo {
+    background-color: #F5BB00
+}
+div.jumbotron.jumbotron-fluid.americaJumbo {
+    background-color: #4AB71B
+}
+
+div.jumbotron.jumbotron-fluid.asiaJumbo {
+    background-color: #BE3DE3
+}
+
+div.jumbotron.jumbotron-fluid.europaJumbo {
+    background-color: #204987
+}
+
+div.jumbotron.jumbotron-fluid.oceaniaJumbo {
+    background-color: #B7541B
+}
+
+/* ! CONTINENT CARDS */
+div.card {
+    margin: auto;
+    border: 4px solid #29ABE2;
+}
+
+div img.card-img-top {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+div.card.africa {
+    background-color: #F5BB00;
+}
+
+div.card.america {
+    background-color: rgba(74, 183, 27, 0.5);
+}
+
+div.card.asia {
+    background-color: rgba(238, 17, 222, 0.5);
+}
+
+div.card.europa {
+    background-color: rgba(27, 69, 183, 0.5);
+}
+
+div.card.oceania {
+    background-color: rgba(183, 84, 27, 0.5);
+}
+
+div.card-header.text-center {
+    font-size: 28px;
+    color: #ffffff;
+}
+
+div.card-body {
+    background-color: #ffffff;
+    border-radius: 0px 0px 5px 5px;
+    margin: auto;
+}
+
+div.card.africa div.card-body p {
+    color: #E1B638
+}
+
+div.card.america div.card-body p {
+    color: #376F21
+}
+
+div.card.asia div.card-body p {
+    color: #BE3DE3
+}
+
+div.card.europa div.card-body p {
+    color: #204987
+}
+
+div.card.oceania div.card-body p {
+    color: #BF3100
+}
+
+/* ! AFRICAN CARDS */
+div.card.africanCards {
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+div.card.africanCards div.card-body {
+    margin-left: 0;
+}
+
+div.card.africanCards img.card-img-top {
+    padding: 0;
+    border-radius: 0px 0px 0px 0px;
+}
+
+div.card.africanCards div.card-body p.card-text.paragraph {
+    padding-bottom: 3px;
+    font-weight: 700;
+}
+
+div.card.africanCards div.card-body p.card-text.paragraph span {
+    font-weight: normal;
+}
+
+div.card.africanCards div.card-body span {
+    border-bottom: 1px solid black;
+}
+
+
+/* ! INFO COUNTRY PAGE */
+div.col-lg-6.infoParagraphImg {
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+}
+
+div.col-lg-6.infoParagraphCarousel {
+    padding-top: 3%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+    padding-left: 10%;
+    background-color: #29ABE2;
+    color: #ffffff;
+}
+
+/*!QUIZZ CARDS*/
+
+div.card.quizzCards {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border: 4px solid #29ABE2;
+}
+
+div.container-fluid.quizzCardsContainer {
+    margin-top: 3%;
+    margin-bottom: 5%
+}
+
+div.card.quizzCards.africa {
+    background-color: #E1B638;
+}
+
+div.card.quizzCards.america {
+    background-color: #4AB71B;
+}
+
+div.card.quizzCards.asia {
+    background-color: #EE11DE;
+}
+
+div.card.quizzCards.europa {
+    background-color: #1B45B7;
+}
+
+div.card.quizzCards.oceania {
+    background-color: #BF3100;
+}
+
+div.card.quizzCards.mundo {
+    background-color: #1BB7B3;
+}
+
+/* ! INSIDE A CONTINENT QUIZZ*/
+div.container-fluid.quizzContinent {
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+div.container-fluid.quizzContinent div.card {
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+div.container-fluid.quizzContinent div.card img.card-img-top {
+    width: 100%;
+    height: 300px;
+}
+
+div.container-fluid.quizzContinent div.card div.card-header.text-center {
+    background-color: #29ABE2;
+}
+
+div.container-fluid.quizzContinent div.card {
+    background-color: #ffffff
+}
+
+/* ! HELP BUTTON MODAL*/
+
+#helpModal div.modal-content{
+    background-color: #1BB7B3;
+}
+img.modalLogo{
+  margin: auto; 
+    width: 13%;
+    margin-left: 46%;
+}
+
+#helpModal div.modal-body{
+    color: #ffffff;
+    font-size: 20px;
+}
+#helpModal div.modal-footer button{
+    color: #1BB7B3;
+    font-size: 15px;
+    background-color:#BFFFFF; 
+}
+#helpModal div.modal-header button{
+    font-size: 15px;
+    color:#ffffff; 
+}
+
+.modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%) !important;
+}
+
+body#helpModal:after{
+    position:relative;
+    top : 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    content:"";
+    pointer-events: none;
+    z-index:100;
+    opacity: .5
+}
+
+/* Footer */
+footer.page-footer {
+    background: #29ABE2;
+    color: #ffffff
+}
+
+/* Footer Headings */
+footer .footerHeading {
+    color: #CCCC33;
+    white-space: nowrap;
+}
+
+/* Footer Line */
+footer .footerLine {
+    background-color: #CCCC33;
+    margin: 0;
+}
+
+/* Paragrafo copyright */
+footer p.copyrightParagraph {
+    margin: 0;
+}
+
+/* Favicons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+/* Favicon Facebook */
+.fa-facebook {
+    color: #ffffff;
+}
+
+/* Favicon Twitter */
+.fa-twitter {
+    color: #ffffff;
+}
+
+/* Favicon Youtube */
+.fa-youtube {
+    color: #ffffff;
+}
+
+/* Favicon Instgram */
+.fa-instagram {
+    color: #ffffff;
+}
+
+
+div.container-fluid.text-center div.row {
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+/* div  with the social media */
+div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row {
+    padding: 0%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
+    margin: auto
+}

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Quizzes</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,15 +10,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Our Css -->
-    <link rel="stylesheet" href="/CSS/style.css">
-
-     <!-- Our Favicon -->
-     <link rel="icon" type="image/png" href="/Images/Logo2.png">
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="/CSS/adminStyle.css">
+    <!-- Our Favicon -->
+    <link rel="icon" type="image/png" href="/Images/Logo2.png">
 </head>
 
 <body>
@@ -60,65 +57,62 @@
         </div>
     </nav>
 
-    <!-- Quizz Title -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center catalog">
-                <img src="/Images/Quizz.png" alt="Quizz" class="mt-5">
-            </div>
-        </div>
-        <div class="row">
-            <h1 class="display-4 mx-auto mt-3"> <span style="color:blue">Q</span><span style="color:#FF8F0E">U</span><span
-                    style="color:#39A32B">I</span><span style="color:#F80E3C">Z</span><span
-                    style="color:#39A32B">Z</span><span style="color:#FF8F0E">E</span><span style="color:blue">S</span>
-            </h1>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center quizzes">
+            <img src="/Images/Quizz.png" alt="Utilizadores" class="mt-5 mb-2">
+            <h1 class="display-5 mb-5">Quizzes</h1>
         </div>
     </div>
 
-    <!--Quizzes Cards-->
-    <div class="container-fluid quizzCardsContainer">
+    <div class="container-fluid quizzesCards">
         <div class="row">
-            <div class="col-lg-4">
-                <div class="card quizzCards africa" style="width: 18rem;">
-                    <div class="card-header text-center">África</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
+            <div class="card-deck mx-auto">
+                <div class="card quizzesCards" style="width: 15rem;">
+                    <div class="card-body text-center">
+                        <p>Total de Quizzes</p>
+                        <p><img src="/Images/information.png" class="userImage" alt="Informação" style="width: 20%;"> 3
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards america" style="width: 18rem;">
-                    <div class="card-header text-center">América</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards asia" style="width: 18rem;">
-                    <div class="card-header text-center">Ásia</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card quizzCards europa" style="width: 18rem;">
-                    <div class="card-header text-center">Europa</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards oceania" style="width: 18rem;">
-                    <div class="card-header text-center">Ôceania</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards mundo" style="width: 18rem;">
-                    <div class="card-header text-center">Mundo</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
+                <div class="card quizzesCards" style="width: 12rem;">
+                    <div class="card-body text-center">
+                        <p>Total de Níveis</p>
+                        <p><img src="/Images/information.png" class="userImage" alt="Informação" style="width: 20%;"> 44
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
+    <div class="container-fluid">
+        <div class="row quizzesInfo">
+            <div class="card-deck mx-auto mt-5 mb-5">
+                <div class="card quizzInfoCards ml-5 mr-5" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <p>Nível: Bandeiras</p>
+                        <p>Total de Jogos: 44</p>
+                    </div>
+                </div>
+                <div class="card quizzInfoCards ml-5 mr-5" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <p>Nível: Capitais</p>
+                        <p>Total de Jogos: 44</p>
+                    </div>
+                </div>
+                <div class="card quizzInfoCards ml-5 mr-5" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <p>Nível: Localização</p>
+                        <p>Total de Jogos: 44</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row quizzesInfo">
+            <a href="#" class="btn newLevelBtn mx-auto mb-5">Criar Nível</a>
+        </div>
+    </div>
+
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
         <!-- Footer Links -->
@@ -138,6 +132,8 @@
 
                 </div>
                 <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
 
                 <hr class="clearfix w-100 d-md-none">
 
@@ -230,7 +226,7 @@
     </footer>
 
     <!-- Optional JavaScript -->
-    <script src="/JS/controler/quizz.js"></script>
+    <script src="/JS/controler/adminEuropeQuizz.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Utilizadores</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="/CSS/adminStyle.css">
+    <!-- Our Favicon -->
+    <link rel="icon" type="image/png" href="/Images/Logo2.png">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <a class="navbar-brand" href="#">
+            <img src="/Images/logo.png" alt="Logo" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item line">
+                    <a class="nav-link" href="#">Página Inicial</a>
+                </li>
+                <li class="nav-item line">
+                    <a class="nav-link" href="#">Ver Catálogo</a>
+                </li>
+                <li class="nav-item line">
+                    <a class="nav-link" href="#">Jogar Quizzes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link estatistic" href="#">Estatísticas</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img src="/Images/avatar.png" alt="Avatar" class="avatar">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Perfil</a>
+                        <a class="dropdown-item" href="#">Sair</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col-12 text-center users pb-5 pt-5">
+            <img src="/Images/users.png" alt="Utilizadores" class="img-fluid mb-4">
+            <h1 class="display-5">Utilizadores</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid userCard">
+        <div class="row">
+            <div class="card-deck mx-auto">
+                <div class="card userCards">
+                    <div class="card-body text-center">
+                        <p>Total de Utilizadores</p>
+                        <p><img src="/Images/user.png" class="userImage" alt="Utilizador" style="width: 20%;"> 10000</p>
+                    </div>
+                </div>
+                <div class="card userCards">
+                    <div class="card-body text-center">
+                        <p>Total de Administradores</p>
+                        <p><img src="/Images/user.png" class="userImage" alt="Utilizador" style="width: 20%;"> 3</p>
+                    </div>
+                </div>
+                <div class="card userCards">
+                    <div class="card-body text-center">
+                        <p>Total de Contas Bloqueadas</p>
+                        <p><img src="/Images/user.png" class="userImage" alt="Utilizador" style="width: 20%;"> 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid users">
+        <div class="row userHeader">
+            <div class="col-lg-12">
+                <h1 class="display-4 text-center">Utilizadores</h1>
+            </div>
+        </div>
+
+        <!-- FILTER -->
+        <div class="container-fluid userFilter">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="stlGenre">Filtrar Por:</label>
+                    <select class="form-control" id="stlOrder">
+                        <option value="">Ordem Alfabéticas</option>
+                        <option value="Mais Comentados">Total de XP</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <!-- table -->
+        <div class="row mx-auto">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 text-center">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome de Utilizador</th>
+                                <th scope="col">Pontos de Experiência</th>
+                                <th scope="col">Bloquear</th>
+                                <th scope="col">Eliminar</th>
+                                <th scope="col">Tipo de Conta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>45345</td>
+                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                                <td>Utilizador</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Anna</td>
+                                <td>1414</td>
+                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                                <td>Utilizador</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Paul</td>
+                                <td>6789</td>
+                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                                <td>Utilizador</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Titas</td>
+                                <td>456</td>
+                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                                <td>Administrador</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>John</td>
+                                <td>6787</td>
+                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                                <td>Utilizador</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>Kika</td>
+                                <td>678678</td>
+                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                                <td>Utilizador</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td>Maria</td>
+                                <td>4566</td>
+                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                                <td>Utilizador</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td>Nuno</td>
+                                <td>7865</td>
+                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                                <td>Administrador</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td>Wilson</td>
+                                <td>6378</td>
+                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                                <td>Utilizador</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10</th>
+                                <td>Rita</td>
+                                <td>333</td>
+                                <td><button type="button"data-toggle="modal" data-target="#newBlockUserModal" class="blockButton"><img src="/Images/lock.png" alt="Bloquear"></button></td>
+                                <td><img src="/Images/x.png" alt="Eliminar"></td>
+                                <td>Administrador</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- Modal button -->
+    <div class="row addAdminModalButtonContainer">
+        <button type="button" class="btn createAdmin mb-5" data-toggle="modal" data-target="#newAdminUserModal">Novo Administrador</button>
+    </div>
+<!-- modal 1 -->
+    <div class="modal fade" id="newAdminUserModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <!-- Cabeçalho da Modal -->
+                    <div class="modal-header">
+                        <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"
+                            style="color:#ffff">Voltar</button>
+                    </div>
+                    <!-- Corpo da Modal -->
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="txtUserName">Nome:</label>
+                                <input type="text" class="form-control" id="txtUserName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtUserEmail">E-mail:</label>
+                                <input type="email" class="form-control" id="txtUserEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtUserPassword">Password:</label>
+                                <input type="password" class="form-control" id="txtUserPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtUserPasswordConf">Confirmar Password:</label>
+                                <input type="password" class="form-control" id="txtUserPasswordConf" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary crearteAdmin">Criar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- modal 2-->
+        <div class="modal fade" id="newBlockUserModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <!-- Cabeçalho da Modal -->
+                        <div class="modal-header">
+                            <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"
+                                style="color:#ffff">Voltar</button>
+                        </div>
+                        <!-- Corpo da Modal -->
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="txtBlockUserName">Nome:</label>
+                                    <input type="text" class="form-control" id="txtBlockUserName" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtMotivo">Motivo:</label>
+                                    <input type="text" class="form-control" id="txtMotivo">
+                                </div>
+                                <div class="form-group">
+                                        <label for="stlDays">Dias:</label>
+                                        <select class="form-control" id="stlContinent">
+                                            <option value="7">7</option>
+                                            <option value="14">14</option>
+                                            <option value="30">30</option>
+                                        </select>
+                                    </div>
+                                <button type="submit" class="btn btn-primary Block">Bloquear</button>
+                            </form>
+                        </div>
+                        <!-- Rodapé da Modal -->
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left mx-auto">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mb-4 footerHeading">Sobre nós</h5>
+
+                    <p>Nós somos três estudantes da ESMAD que desenvolveram este website com o objetivo de dar a
+                        conhecer mais a cerca dos países e seus costumes inseridos no planeta em que vivemos.</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-6 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Contact details -->
+                    <h5 class="font-weight-bold text-uppercase mb-4 footerHeading">Como chegar à ESMAD</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                                <i class="fas fa-home mr-3"></i> Vila do Conde, Portugal</p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-envelope mr-3"></i>Rua D. Sancho I, n.º 981</p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-phone mr-3"></i>+351 252 291 700</p>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <div class="col-md-6 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Contact details -->
+                    <h5 class="font-weight-bold text-uppercase mb-4 footerHeading">Quem nós somos?</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>André Lopes</p>
+                            <p>9180544@esmad.ipp.pt</p>
+                        </li>
+                        <li>
+                            <p>Nuno Sousa</p>
+                            <p>9180579@esmad.ipp.pt</p>
+                        </li>
+                        <li>
+                            <p>Tiago de Pina</p>
+                            <p>9180579@esmad.ipp.pt</p>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-6 col-lg-2 text-center mx-auto my-4">
+
+                    <!-- Social buttons -->
+                    <h5 class="font-weight-bold text-uppercase mb-4 footerHeading">Redes Sociais</h5>
+
+                    <!-- Social Media -->
+                    <div class="row text-center">
+                        <a href="https://www.facebook.com/pporto.esmad" target="_blank" title="Facebook"
+                            class="fa fa-facebook"></a>
+                        <a href="https://twitter.com/pporto_esmad" target="_blank" title="Twitter"
+                            class="fa fa-twitter"></a>
+                    </div>
+
+                    <div class="row text-center">
+                        <a href="https://www.youtube.com/channel/UCARMgrCS_Fs33og7h3_bsIQ" target="_blank"
+                            title="YouTube" class="fa fa-youtube"></a>
+                        <a href="https://www.instagram.com/esmad_pporto/" target="_blank" title="Instagram"
+                            class="fa fa-instagram"></a>
+                    </div>
+
+
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+
+        <hr class="footerLine">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            <p class="copyrightParagraph">© 2019 Copyright: www.mundodosminorcas.pt</p>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Optional JavaScript -->
+    <script src="/JS/controler/adminUsers.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

@@ -17,11 +17,11 @@
     <!-- Our Css -->
     <link rel="stylesheet" href="/CSS/style.css">
 
-     <!-- Our Favicon -->
-     <link rel="icon" type="image/png" href="/Images/Logo2.png">
+    <!-- Our Favicon -->
+    <link rel="icon" type="image/png" href="/Images/Logo2.png">
 </head>
 
-<body>
+<body class="africa">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#">
             <img src="/Images/logo.png" alt="Logo" class="logo">
@@ -59,66 +59,51 @@
             </ul>
         </div>
     </nav>
-
-    <!-- Quizz Title -->
+    <!--Title-->
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center catalog">
-                <img src="/Images/Quizz.png" alt="Quizz" class="mt-5">
+                <img src="/Images/Catalogos.png" alt="Catalogo" class="mt-5">
+                <h1 class="display-5 mb-5">Catálogo de <span>África</span></h1>
             </div>
-        </div>
-        <div class="row">
-            <h1 class="display-4 mx-auto mt-3"> <span style="color:blue">Q</span><span style="color:#FF8F0E">U</span><span
-                    style="color:#39A32B">I</span><span style="color:#F80E3C">Z</span><span
-                    style="color:#39A32B">Z</span><span style="color:#FF8F0E">E</span><span style="color:blue">S</span>
-            </h1>
         </div>
     </div>
 
-    <!--Quizzes Cards-->
-    <div class="container-fluid quizzCardsContainer">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card quizzCards africa" style="width: 18rem;">
-                    <div class="card-header text-center">África</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards america" style="width: 18rem;">
-                    <div class="card-header text-center">América</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards asia" style="width: 18rem;">
-                    <div class="card-header text-center">Ásia</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card quizzCards europa" style="width: 18rem;">
-                    <div class="card-header text-center">Europa</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards oceania" style="width: 18rem;">
-                    <div class="card-header text-center">Ôceania</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card quizzCards mundo" style="width: 18rem;">
-                    <div class="card-header text-center">Mundo</div>
-                    <a href="#"><img src="/Images/Africa.png" class="card-img-top" alt="Brasil"></a>
-                </div>
+    <!-- jumbotron -->
+    <div class="container-fluid">
+        <div class="jumbotron jumbotron-fluid africaJumbo">
+            <div class="container text-right">
+                <form class="form-inline">
+                    <div class="form-group selection">
+                        <label for="stlGenre">Filtrar Por: </label>
+                        <select class="form-control" id="stlGenre">
+                            <option value="">Ordem Alfabéticas</option>
+                            <option value="Mais Comentados">Mais Comentados</option>
+                            <option value="Melhor Pontuação">Melhor Pontuação</option>
+                        </select>
+                    </div>
+                    <div class="form-group name">
+                        <label for="txtName">Nome do País: </label>
+                        <input type="text" id="txtName" class="form-control m-2" aria-describedby="helpId">
+                    </div>
+                    <button id="btnFilter" class="btn btn-primary filterCountry">Filtrar</button>
+                </form>
             </div>
         </div>
     </div>
-    
+
+
+    <!--Card-->
+    <div class="card africanCards" style="width: 18rem;">
+        <a href="#"><img src="/Images/Brasil.png" class="card-img-top" alt="Brasil"></a>
+        <div class="card-body">
+            <p class="card-text paragraph">NOME: <span>Brasil</span> </p>
+            <p class="card-text paragraph">CAPITAL: <span>Brasília</span></p>
+            <p class="card-text paragraph">LÍNGUA: <span>Português</span></p>
+        </div>
+    </div>
+
+
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
         <!-- Footer Links -->
@@ -230,7 +215,8 @@
     </footer>
 
     <!-- Optional JavaScript -->
-    <script src="/JS/controler/quizz.js"></script>
+
+    <script src="/JS/controler/africa.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

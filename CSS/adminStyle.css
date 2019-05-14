@@ -1,0 +1,522 @@
+body {
+    font-family: Mali;
+}
+
+.logo {
+    width: 120px;
+    height: 80px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar {
+    background-color: #0079AC;
+}
+
+.navbar-brand {
+    margin: 0%;
+}
+
+.nav-link {
+    font-size: 24px;
+}
+
+.nav-item {
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+ul.navbar-nav.ml-auto li a.nav-link {
+    color: #ffffff;
+}
+
+ul.navbar-nav.ml-auto li a.nav-link:hover {
+    color: #CCCC33;
+}
+
+li.nav-item.line {
+    border-right: 2px solid #CCCC33;
+}
+
+div.dropdown-menu {
+    background-color: #0079AC;
+    border: 0;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.dropdown-menu a.dropdown-item {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.dropdown-menu a.dropdown-item:hover {
+    color: #CCCC33;
+    background-color: #0079AC;
+}
+
+@media screen and (max-width: 375px) {
+    li.nav-item.line {
+        border-right: 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    li.nav-item.line {
+        border-right: 0px;
+    }
+}
+
+/* ! USERS + HEADER CONTAINER*/
+
+div.row div.col-12.users{
+    color: #ffffff;
+    background-color: #29ABE2;
+}
+
+/* ! COUNTER USERS - CARDS*/
+
+div.container-fluid.userCard div.row{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+div.row div.card-deck.mx-auto div.card.userCards{
+    background-color: #29ABE2;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* !USER TABLE FILTER*/
+div.container-fluid.userFilter{
+    margin-bottom: 3%;
+    margin-top: 1%;
+    padding-left: 5%;
+    font-size: 24px;
+}
+div.container-fluid.userFilter form.form-inline div.form-group label{
+    margin-right:3%;
+}
+
+/* ! USERS TABLE + CONTAINER + HEADER*/
+
+div.container-fluid.users{
+    background-color: #29ABE2;
+}
+
+div.row div.col-lg-6 div.card.mx-auto {
+    background-color: #29ABE2;
+}
+
+div.container-fluid div.row.userHeader div.col-lg-12 h1.display-4.text-center{
+    color: #ffffff;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+table.table-bordered{
+    font-size: 24px;
+    border: 2px solid #ffffff;
+    text-align: center; 
+    vertical-align: middle;
+    margin-bottom: 5%;
+    
+  }
+
+table.table-bordered>thead>tr>th {
+    border: 2px solid #ffffff;
+}
+
+table.table-bordered>tbody>tr>td {
+    border: 2px solid #ffffff;
+}
+
+table.table-bordered>tbody>tr>th {
+    border: 2px solid #ffffff;
+}
+
+/* ! NEW  ADMIN ACCOUNT CONTAINER + CONTENT */
+div.row.addAdminModalButtonContainer{
+    background-color:#29ABE2;
+}
+button.btn.createAdmin{
+        background-color: #BFFFFF;
+        color: #29ABE2;
+        font-size: 20px;
+        margin: auto;
+}
+
+.blockButton{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    padding: 0%;
+}
+
+ /*!ADMIN ADD MODAL*/
+ 
+div#newAdminUserModal div.modal-content{
+    background-color:#29ABE2;
+    color: #ffffff;
+}
+.btn.btn-primary.crearteAdmin{
+    background-color: #BFFFFF;
+    color: #29ABE2;
+    width: 100%;
+}
+/* !BLOCK USER ACCOUNT MODAL */
+div#newBlockUserModal div.modal-content{
+    background-color:#29ABE2;
+    color: #ffffff;
+}
+button.btn.btn-primary.Block{
+    background-color: #BFFFFF;
+    color: #29ABE2;
+    width: 100%;
+}
+
+
+
+
+/* div.container-fluid.newAccount{
+    padding-top: 0;
+    padding-bottom: 5%;
+}
+
+div.container-fluid.newAccount div.row.logoImage img{
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    top: 60px;
+}
+
+div.container-fluid.newAccount div.row div.col-lg-6{
+    background-color: #5CBFE9;
+    color: #ffffff;
+    font-size: 24px;
+    border-radius: 10px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+div.container-fluid.newAccount div.row div.col-lg-6.mx-auto p.dados{
+    padding-left: 15%;
+    margin-bottom: 5%;
+}
+
+div.container-fluid.newAccount div.row div.col-lg-6.mx-auto button{
+    margin-bottom: 0;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 24px;
+} */
+
+/* ! Quizzes + HEADER CONTAINER*/
+
+div.row div.col-lg-12.quizzes{
+    color: #ffffff;
+    background-color: #4AB71B;
+}
+
+div.row div.col-lg-12.quizzes img{
+    width: 5%;
+}
+
+/* ! COUNTER QUIZZES - CARDS*/
+
+div.container-fluid.quizzesCards div.row{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+div.row div.card-deck.mx-auto div.card.quizzesCards{
+    background-color: #4AB71B;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* ! INFORMATION ABOUT QUIZZES - CARDS*/
+
+div.row.quizzesInfo{
+    background-color: #4AB71B;
+}
+
+div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards{
+    background-color: #29ABE2;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* ! CREATE NEW LEVEL - BUTTON */
+
+div.row.quizzesInfo a.btn.newLevelBtn{
+    background-color: #BFFFFF;
+    color: #29ABE2;
+    font-size: 24px;
+}
+
+/* ! LEVEL HEADER */
+
+div.row div.col-lg-12.text-center.quizzesLevel{
+    background-color: #ffffff;
+    color: #4AB71B;
+}
+
+/* ! TABLE HEADER CONTAINER QUIZZES TABLE + TABLE */
+
+div.row div.col-lg-12.text-center.quizzesTable{
+    background-color: #4AB71B;
+    color: #ffffff;
+}
+
+/* ! ADD NEW LEVEL - BUTTON */
+
+div.row.africanQuizzesInfo a.btn.addLevelBtn{
+    background-color: #BFFFFF;
+    color: #29ABE2;
+    font-size: 24px;
+}
+
+/* ! CATALOG HEADER AND IMAGE */
+
+div.row div.col-lg-12.catalog{
+    color: #ffffff;
+    background-color: rgb(247, 127, 53)
+}
+
+div.row div.col-lg-12.catalog img{
+    width: 5%;
+}
+
+/* ! COUNTER CATALOG - CARDS*/
+
+div.container-fluid.catalogCard div.row{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+div.row div.card-deck.mx-auto div.card.catalogCards{
+    background-color: rgb(247, 127, 53);
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* ! TABLE HEADER CONTAINER CATALOG TABLE + TABLE */
+
+div.row div.col-lg-12.text-center.catalogTable{
+    background-color: rgb(247, 127, 53);
+    color: #ffffff;
+}
+
+div.row.catalogInfo a.btn.addCountryBtn{
+    background-color: #BFFFFF;
+    color: #29ABE2;
+    font-size: 24px;
+}
+
+/* ! CREATE NEW COUNTRY - BUTTON */
+
+div.row.catalogInfo{
+    background-color: rgb(247, 127, 53);
+}
+
+div.row.catalogInfo a.btn.addLevelBtn{
+    background-color: #BFFFFF;
+    color: #29ABE2;
+    font-size: 24px;
+}
+
+/* ! ADD NEW COUNTRY FORM */
+
+div.row div.col-lg-12.addCountry{
+    color: rgb(247, 127, 53);
+    background-color: #ffffff
+}
+
+div.container-fluid.newCountry div.row.countryForm div.col-lg-6{
+    background-color: #5CBFE9;
+    color: #ffffff;
+    font-size: 24px;
+    border-radius: 10px;
+    padding-top: 5%;
+}
+
+div.row.logoImage img{
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    top: 60px;
+}
+
+/* !NEW COUNTRY MODAL */
+div.row.addCountryModalButtonContainer{
+background-color: rgb(247, 127, 53);
+}
+button.btn.createCountry{
+    background-color: #BFFFFF;
+    color: #29ABE2;
+    font-size: 20px;
+    margin: auto;
+}
+
+div#newCountryModal div.modal-content{
+background-color: rgb(247, 127, 53);
+color: #ffffff;
+}
+.btn.btn-primary.crearteCountry{
+background-color: #BFFFFF;
+color: #29ABE2;
+width: 100%;
+}
+
+/* ! SUGESTIONS + HEADER CONTAINER*/
+div.container-fluid.sugestions{
+background-color: #F249E6;
+}
+/* !SUGESTION-CARDS */
+div.container-fluid.sugestionCard div.row{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+div.card.sugestionCards{
+background-color:#F249E6 ;
+font-size: 20px;
+color: #ffffff
+}
+
+/* ! TABLE HEADER CONTAINER SUGESTION TABLE + TABLE */
+
+div.row div.col-lg-12.text-center.sugestionTable{
+    background-color:#F249E6;
+    color: #ffffff;
+}
+/* ! TABLE READ BUTTON -SUGESTION TABLE*/
+
+button.btn.btn-success.read{
+    font-size: 20px;
+    margin:auto;
+}
+
+/* ! SUGESTION PAGE -SUGESTION MODAL*/
+
+#sugestionModal div.modal-content{
+    background-color: #F249E6;
+}
+img.modalLogo{
+  margin: auto; 
+    width: 13%;
+    margin-left: 46%;
+}
+
+#sugestionModal div.modal-body{
+    color: #ffffff;
+    font-size: 20px;
+}
+#sugestionModal div.modal-footer button{
+    color: #29ABE2;
+    font-size: 15px;
+    background-color:#BFFFFF; 
+}
+#sugestionModal div.modal-header button{
+    font-size: 15px;
+    color:#ffffff; 
+}
+
+.modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%) !important;
+}
+
+body#sugestionModal:after{
+    position:relative;
+    top : 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    content:"";
+    pointer-events: none;
+    z-index:100;
+    opacity: .5
+}
+
+/* ! FOOTER */
+
+footer.page-footer {
+    background: #0079AC;
+    color: #ffffff
+}
+
+/* Footer Headings */
+footer .footerHeading {
+    color: #CCCC33;
+    white-space: nowrap;
+}
+
+/* Footer Line */
+footer .footerLine {
+    background-color: #CCCC33;
+    margin: 0;
+}
+
+/* Paragrafo copyright */
+footer p.copyrightParagraph {
+    margin: 0;
+}
+
+/* Favicons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+/* Favicon Facebook */
+.fa-facebook {
+    color: #ffffff;
+}
+
+/* Favicon Twitter */
+.fa-twitter {
+    color: #ffffff;
+}
+
+/* Favicon Youtube */
+.fa-youtube {
+    color: #ffffff;
+}
+
+/* Favicon Instgram */
+.fa-instagram {
+    color: #ffffff;
+}
+
+
+div.container-fluid.text-center div.row {
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+/* div  with the social media */
+div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row {
+    padding: 0%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+
+div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
+    margin: auto
+}
