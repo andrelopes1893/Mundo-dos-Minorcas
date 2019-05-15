@@ -92,15 +92,15 @@ div.dropdown-menu {
 
 /* ! HEADER */
 
-div.row div.col-lg-12.catalog{
+div.row div.col-12.catalog{
     color: #000000;
 }
 
-div.row div.col-lg-12.catalog span{
+div.row div.col-12.catalog span{
     color: #ffffff;
 }
 
-div.row div.col-lg-12.catalog img{
+div.row div.col-12.catalog img{
     width: 5%;
 }
 
@@ -125,13 +125,13 @@ div .item {
     padding-top: 10%;
 }
 
-/* ! NAVBAR QUIZZ */
+/* ! NAVBAR QUIZZES */
 
 div.container-fluid.navQuizz {
     background-color: #29ABE2;
 }
 
-div.container-fluid.navQuizz div.col-lg-6.text-center.flagInfoText {
+div.container-fluid.navQuizz div.col-6.text-center.flagInfoText {
     background-color: #CCCC33;
 }
 
@@ -140,7 +140,7 @@ img.logo.logoQuizz {
     margin-bottom: 7%;
 }
 
-div.col-lg-6.flagInfoText p {
+div.col-6.flagInfoText p {
     color: #ffffff;
     padding-top: 4%;
     font-size: 22px;
@@ -168,18 +168,18 @@ div.container-fluid.questionContainer {
     border-top: 2px solid #ffffff;
 }
 
-div.row div.col-lg-12.text-center.question p {
+div.row div.col-12.text-center.question p {
     margin: 2%;
 }
 
-div.row.questionImage div.col-lg-6 img.flagImage {
+div.row.questionImage div.col-6 img.flagImage {
     width: 44%;
     margin-top: 5%;
     margin-left: 20%;
     border-radius: 20px 20px 20px 20px;
 }
 
-div.col-lg-6.optionsCol {
+div.col-6.optionsCol {
     padding-top: 1%;
     padding-bottom: 1%;
 }

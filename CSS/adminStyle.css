@@ -224,12 +224,12 @@ div.container-fluid.newAccount div.row div.col-lg-6.mx-auto button{
 
 /* ! Quizzes + HEADER CONTAINER*/
 
-div.row div.col-lg-12.quizzes{
+div.row div.col-12.quizzes{
     color: #ffffff;
     background-color: #4AB71B;
 }
 
-div.row div.col-lg-12.quizzes img{
+div.row div.col-12.quizzes img{
     width: 5%;
 }
 
@@ -268,21 +268,21 @@ div.row.quizzesInfo a.btn.newLevelBtn{
 
 /* ! LEVEL HEADER */
 
-div.row div.col-lg-12.text-center.quizzesLevel{
+div.row div.col-12.text-center.quizzesLevel{
     background-color: #ffffff;
     color: #4AB71B;
 }
 
 /* ! TABLE HEADER CONTAINER QUIZZES TABLE + TABLE */
 
-div.row div.col-lg-12.text-center.quizzesTable{
+div.row div.col-12.text-center.quizzesTable{
     background-color: #4AB71B;
     color: #ffffff;
 }
 
 /* ! ADD NEW LEVEL - BUTTON */
 
-div.row.africanQuizzesInfo a.btn.addLevelBtn{
+div.row.quizzesInfo button.btn.addLevelBtn{
     background-color: #BFFFFF;
     color: #29ABE2;
     font-size: 24px;
@@ -290,12 +290,12 @@ div.row.africanQuizzesInfo a.btn.addLevelBtn{
 
 /* ! CATALOG HEADER AND IMAGE */
 
-div.row div.col-lg-12.catalog{
+div.row div.col-12.catalog{
     color: #ffffff;
     background-color: rgb(247, 127, 53)
 }
 
-div.row div.col-lg-12.catalog img{
+div.row div.col-12.catalog img{
     width: 5%;
 }
 
@@ -314,7 +314,7 @@ div.row div.card-deck.mx-auto div.card.catalogCards{
 
 /* ! TABLE HEADER CONTAINER CATALOG TABLE + TABLE */
 
-div.row div.col-lg-12.text-center.catalogTable{
+div.row div.col-12.text-center.catalogTable{
     background-color: rgb(247, 127, 53);
     color: #ffffff;
 }
@@ -380,35 +380,35 @@ color: #29ABE2;
 width: 100%;
 }
 
-/* ! SUGESTIONS + HEADER CONTAINER*/
-div.container-fluid.sugestions{
+/* ! SUGGESTIONS + HEADER CONTAINER*/
+div.container-fluid.suggestions{
 background-color: #F249E6;
 }
-/* !SUGESTION-CARDS */
-div.container-fluid.sugestionCard div.row{
+/* !SUGGESTION-CARDS */
+div.container-fluid.suggestionCard div.row{
     padding-top: 3%;
     padding-bottom: 3%;
 }
-div.card.sugestionCards{
+div.card.suggestionCards{
 background-color:#F249E6 ;
 font-size: 20px;
 color: #ffffff
 }
 
-/* ! TABLE HEADER CONTAINER SUGESTION TABLE + TABLE */
+/* ! TABLE HEADER CONTAINER SUGGESTION TABLE + TABLE */
 
 div.row div.col-lg-12.text-center.sugestionTable{
     background-color:#F249E6;
     color: #ffffff;
 }
-/* ! TABLE READ BUTTON -SUGESTION TABLE*/
+/* ! TABLE READ BUTTON -SUGGESTION TABLE*/
 
 button.btn.btn-success.read{
     font-size: 20px;
     margin:auto;
 }
 
-/* ! SUGESTION PAGE -SUGESTION MODAL*/
+/* ! SUGGESTION PAGE -SUGGESTION MODAL*/
 
 #sugestionModal div.modal-content{
     background-color: #F249E6;
