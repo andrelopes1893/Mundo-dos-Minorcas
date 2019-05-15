@@ -524,3 +524,28 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row {
 div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     margin: auto
 }
+
+/* ? MEDIA QUERIES */
+
+@media only screen and (max-width: 1025px) and (min-width: 1024px) {
+    .nav-link{
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+
+    li.nav-item.dropdown{
+        padding-left: 0;
+    }
+
+    .dropdown-menu a.dropdown-item{
+        font-size: 1rem;
+    }
+
+    div.row div.col-12.quizzes img{
+        width: 10%;
+    }
+
+    h1.display-5.mb-5{
+        font-size: 2rem;
+    }
+}
