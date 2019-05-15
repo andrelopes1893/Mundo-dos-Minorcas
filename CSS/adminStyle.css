@@ -160,6 +160,13 @@ button.btn.createAdmin{
 }
 
  /*!ADMIN ADD MODAL*/
+
+div.row div.card-deck.mx-auto div.card.quizzCards{
+    background-color: #4AB71B;
+    color: #ffffff;
+}
+
+ /*!ADMIN ADD MODAL*/
  
 div#newAdminUserModal div.modal-content{
     background-color:#29ABE2;
@@ -180,9 +187,6 @@ button.btn.btn-primary.Block{
     color: #29ABE2;
     width: 100%;
 }
-
-
-
 
 /* div.container-fluid.newAccount{
     padding-top: 0;

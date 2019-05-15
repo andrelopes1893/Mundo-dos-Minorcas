@@ -73,12 +73,11 @@ div.dropdown-menu {
     }
     ul.navbar-nav.ml-auto li a.nav-link.estatistic{
         padding-top: 20px;
-        
     }
 }
 /* ! HEADER */
 
-div.row h1.display-4.mx-auto {
+div.row h1.display-4.mx-auto.mt-3 {
     color: #0E0E52;
 }
 
