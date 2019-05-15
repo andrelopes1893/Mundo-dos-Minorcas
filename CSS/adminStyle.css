@@ -240,7 +240,7 @@ div.container-fluid.quizzesCards div.row{
     padding-bottom: 3%;
 }
 
-div.row div.card-deck.mx-auto div.card.quizzesCards{
+div.row div.card-deck.mx-auto.mt-5.mb-5 div.card.quizzCards{
     background-color: #4AB71B;
     font-size: 20px;
     color: #ffffff;
@@ -277,6 +277,14 @@ div.row div.col-12.text-center.quizzesLevel{
 
 div.row div.col-12.text-center.quizzesTable{
     background-color: #4AB71B;
+    color: #ffffff;
+}
+
+/* !QUIZZ ESTATISTIC CARDS - FOR EACH CONTINET*/
+
+div.container-fluid.quizzesCards div.card-deck.mx-auto div.card.quizzesCards div.card-body.text-center{
+    background-color: #4AB71B;
+    font-size: 20px;
     color: #ffffff;
 }
 
@@ -526,8 +534,10 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 }
 
 /* ? MEDIA QUERIES */
-
+/* !(IPAD-PRO) */
 @media only screen and (max-width: 1025px) and (min-width: 1024px) {
+  
+  /* Navbar adjustment */
     .nav-link{
         font-size: 1rem;
         white-space: nowrap;
@@ -540,12 +550,156 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     .dropdown-menu a.dropdown-item{
         font-size: 1rem;
     }
-
+/* title and title img */
     div.row div.col-12.quizzes img{
-        width: 10%;
+        width: 6%;
     }
 
     h1.display-5.mb-5{
         font-size: 2rem;
     }
+     /** QUIZZ PAGES (CONTINENT) */
+     /*img inside this pages  */
+      div.col-12.text-center.quizzes img.mt-5.mb-2{
+        width: 6%;
+     }
+
 }
+/* !IPAD */
+@media only screen and (max-width: 769px) and (min-width: 768px) {
+  /**NAVBAR */
+    .nav-link {
+        font-size: 1.2rem;
+        
+    }
+    li.nav-item{
+        padding-left: 0%;
+    }
+  .dropdown-menu a.dropdown-item{
+          font-size: 1.15rem;
+      }
+      div.dropdown-menu.show{
+          padding-top: 0%
+      }
+  
+      /** QUIZZ PAGE CARDS */
+      /* img */
+      div.row div.col-12.quizzes img{
+          width: 8%;
+      }
+
+      /* title */
+  
+      h1.display-5.mb-5{
+          font-size: 2rem;
+      }
+
+      /* quizz cards */
+      div.card.quizzCards div.card-body.text-center{
+        font-size: 1.15rem
+      }
+      div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards{
+        font-size:1.15rem;
+      }
+
+
+
+     /** QUIZZ PAGES (CONTINENT) */
+    div.container-fluid.quizzesCards div.card-deck.mx-auto div.card.quizzesCards div.card-body.text-center{
+        background-color: #4AB71B;
+        font-size: 1.15rem;
+        color: #ffffff;
+     }
+     div.row.quizzesInfo div.card-deck.mx-auto.mt-5.mb-5 div.card.quizzInfoCards.ml-5.mr-5{
+        font-size:1.15rem;
+     }
+     /*img inside this pages  */
+      div.col-12.text-center.quizzes img.mt-5.mb-2{
+        width: 8%;
+     }
+  }
+   /* !PHONE FOCUS*/
+  @media screen and (max-width: 376px) {
+    /**NAVBAR */
+    .nav-link {
+        font-size: 1.1rem;
+    }
+    li.nav-item{
+        padding-left: 0%;
+    }
+   .dropdown-menu a.dropdown-item{
+          font-size: 1rem;
+      }
+      div.dropdown-menu.show{
+          padding-top: 0%
+      }
+  
+      /* title and title img */
+      div.row div.col-12.quizzes img{
+          width: 55px;
+      }
+      h1.display-5.mb-5{
+          font-size: 2.5rem;
+      }
+      /** QUIZZ PAGE CARDS */
+      div.card.quizzCards div.card-body.text-center{
+        font-size: 1.2rem
+      }
+      div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards{
+        font-size:1.1rem;
+     }
+     /** QUIZZ PAGES ( INSIDE CONTINENT) */
+     div.container-fluid.quizzesCards div.card-deck.mx-auto div.card.quizzesCards div.card-body.text-center{
+        background-color: #4AB71B;
+        font-size: 1.2rem;
+        color: #ffffff;
+    }
+    div.row.quizzesInfo div.card-deck.mx-auto.mt-5.mb-5 div.card.quizzInfoCards.ml-5.mr-5{
+        font-size:1.1rem;
+    }
+     /*img inside this pages  */
+     div.col-12.text-center.quizzes img.mt-5.mb-2{
+        width: 55px;
+    }
+  }
+
+
+
+  @media only screen and (max-width: 412px) and (min-width: 370px) {
+  
+    .nav-link {
+        font-size: 1.2rem;
+        
+    }
+    li.nav-item{
+        padding-left: 0%;
+    }
+  .dropdown-menu a.dropdown-item{
+          font-size: 1.15rem;
+      }
+      div.dropdown-menu.show{
+          padding-top: 0%
+      }
+  
+  /* title and title img */
+      div.row div.col-12.quizzes img{
+          width: 8%;
+      }
+  
+      h1.display-5.mb-5{
+          font-size: 2rem;
+      }
+
+
+      /* quizz cards */
+      div.card.quizzCards div.card-body.text-center{
+        font-size: 1.15rem
+      }
+      div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards{
+        font-size:1.15rem;
+    }
+  }
+
+ 
+
+  
