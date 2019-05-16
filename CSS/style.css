@@ -656,7 +656,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     }
 }
 
-/* !Iphone 6,8,9 */
+/* !iPhone 6,8,9 */
 @media only screen and (max-width: 411px) and (min-width: 370px) {
 
     .nav-link {
@@ -686,7 +686,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     }
 
     /* Quizz Title */
-    h1.display-4.mx-auto.mt-3{
+    h1.display-4.mx-auto.mt-3 {
         font-size: 2rem;
     }
 
@@ -695,7 +695,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         font-size: 1.5rem
     }
 
-    p.copyrightParagraph{
+    p.copyrightParagraph {
         font-size: .8rem;
     }
 
@@ -713,29 +713,108 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     }
 
     /* Flag Level */
-    div.col-lg-6.flagInfoText p{
+    div.col-lg-6.flagInfoText p {
         margin-bottom: 4%;
         font-size: 1.1rem
     }
 
-    div.row div.col-12.text-center p.question{
+    div.row div.col-12.text-center p.question {
         font-size: 1.2rem;
     }
 
     /* Location Level */
-    div.col-lg-6.flagInfoText p{
+    div.col-lg-6.flagInfoText p {
         margin-bottom: 4%;
         font-size: 1.1rem
     }
 
-    div.row div.col-12.text-center p.question{
+    div.row div.col-12.text-center p.question {
         font-size: 1.2rem;
     }
 
     /**CONTINENT ORGANIZATION - CATALOG*/
 
     /* Carousel cards headers */
-    Div.owl-carousel div.item div.card-header{
+    Div.owl-carousel div.item div.card-header {
+        font-size: 1.5rem;
+    }
+}
+
+/* !SMALL PHONES FOCUS*/
+@media screen and (max-width: 376px) {
+
+    /**NAVBAR */
+    .nav-link {
+        font-size: 1.1rem;
+    }
+
+    li.nav-item {
+        padding-left: 0%;
+    }
+
+    .dropdown-menu a.dropdown-item {
+        font-size: 1rem;
+    }
+
+    div.dropdown-menu.show {
+        padding-top: 0%
+    }
+
+    /* title and title img */
+    div.row div.col-12.catalog img {
+        width: 55px;
+    }
+
+    h1.display-5.mb-5 {
+        font-size: 2rem;
+    }
+
+    p.copyrightParagraph {
+        font-size: .8rem;
+    }
+
+    /* Quizz Title */
+    h1.display-4.mx-auto.mt-3 {
+        font-size: 2rem;
+    }
+
+    /* Quizz cards titles */
+    div.col-lg-4 div.card.quizzCards div.card-header {
+        font-size: 1.5rem
+    }
+
+     /**QUIZZ LEVELS*/
+     div.col-lg-4 div.card.capitalQuizz div.card-header {
+        font-size: 1.5rem;
+    }
+
+    div.col-lg-4 div.card.locationQuizz div.card-header {
+        font-size: 1.5rem;
+    }
+
+    div.col-lg-4 div.card.flagQuizz div.card-header {
+        font-size: 1.5rem;
+    }
+
+    /* Flag Level */
+    div.col-lg-6.flagInfoText p {
+        margin-bottom: 4%;
+        font-size: 1.1rem
+    }
+
+    div.row div.col-12.text-center p.question {
+        font-size: 1.2rem;
+    }
+
+    /* INFO COUNTRIES IMAGE */
+    div.row div.col-lg-6.infoParagraphImg img.map{
+        width: 80%;
+    }
+
+    /**CONTINENT ORGANIZATION - CATALOG*/
+
+    /* Carousel cards headers */
+    Div.owl-carousel div.item div.card-header {
         font-size: 1.5rem;
     }
 }
