@@ -72,38 +72,39 @@ div.dropdown-menu {
 
 /* ! USERS + HEADER CONTAINER*/
 
-div.row div.col-12.users{
+div.row div.col-12.users {
     color: #ffffff;
     background-color: #29ABE2;
 }
 
 /* ! COUNTER USERS - CARDS*/
 
-div.container-fluid.userCard div.row{
+div.container-fluid.userCard div.row {
     padding-top: 3%;
     padding-bottom: 3%;
 }
 
-div.row div.card-deck.mx-auto div.card.userCards{
+div.row div.card-deck.mx-auto div.card.userCards {
     background-color: #29ABE2;
     font-size: 20px;
     color: #ffffff;
 }
 
 /* !USER TABLE FILTER*/
-div.container-fluid.userFilter{
+div.container-fluid.userFilter {
     margin-bottom: 3%;
     margin-top: 1%;
     padding-left: 5%;
     font-size: 24px;
 }
-div.container-fluid.userFilter form.form-inline div.form-group label{
-    margin-right:3%;
+
+div.container-fluid.userFilter form.form-inline div.form-group label {
+    margin-right: 3%;
 }
 
 /* ! USERS TABLE + CONTAINER + HEADER*/
 
-div.container-fluid.users{
+div.container-fluid.users {
     background-color: #29ABE2;
 }
 
@@ -111,20 +112,20 @@ div.row div.col-lg-6 div.card.mx-auto {
     background-color: #29ABE2;
 }
 
-div.container-fluid div.row.userHeader div.col-lg-12 h1.display-4.text-center{
+div.container-fluid div.row.userHeader div.col-lg-12 h1.display-4.text-center {
     color: #ffffff;
     padding-top: 3%;
     padding-bottom: 3%;
 }
 
-table.table-bordered{
+table.table-bordered {
     font-size: 24px;
     border: 2px solid #ffffff;
-    text-align: center; 
+    text-align: center;
     vertical-align: middle;
     margin-bottom: 5%;
-    
-  }
+
+}
 
 table.table-bordered>thead>tr>th {
     border: 2px solid #ffffff;
@@ -139,50 +140,54 @@ table.table-bordered>tbody>tr>th {
 }
 
 /* ! NEW  ADMIN ACCOUNT CONTAINER + CONTENT */
-div.row.addAdminModalButtonContainer{
-    background-color:#29ABE2;
-}
-button.btn.createAdmin{
-        background-color: #BFFFFF;
-        color: #29ABE2;
-        font-size: 20px;
-        margin: auto;
+div.row.addAdminModalButtonContainer {
+    background-color: #29ABE2;
 }
 
-.blockButton{
+button.btn.createAdmin {
+    background-color: #BFFFFF;
+    color: #29ABE2;
+    font-size: 20px;
+    margin: auto;
+}
+
+.blockButton {
     background-color: Transparent;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     border: none;
-    cursor:pointer;
+    cursor: pointer;
     overflow: hidden;
-    outline:none;
+    outline: none;
     padding: 0%;
 }
 
- /*!ADMIN ADD MODAL*/
+/*!ADMIN ADD MODAL*/
 
-div.row div.card-deck.mx-auto div.card.quizzCards{
+div.row div.card-deck.mx-auto div.card.quizzCards {
     background-color: #4AB71B;
     color: #ffffff;
 }
 
- /*!ADMIN ADD MODAL*/
- 
-div#newAdminUserModal div.modal-content{
-    background-color:#29ABE2;
+/*!ADMIN ADD MODAL*/
+
+div#newAdminUserModal div.modal-content {
+    background-color: #29ABE2;
     color: #ffffff;
 }
-.btn.btn-primary.crearteAdmin{
+
+.btn.btn-primary.crearteAdmin {
     background-color: #BFFFFF;
     color: #29ABE2;
     width: 100%;
 }
+
 /* !BLOCK USER ACCOUNT MODAL */
-div#newBlockUserModal div.modal-content{
-    background-color:#29ABE2;
+div#newBlockUserModal div.modal-content {
+    background-color: #29ABE2;
     color: #ffffff;
 }
-button.btn.btn-primary.Block{
+
+button.btn.btn-primary.Block {
     background-color: #BFFFFF;
     color: #29ABE2;
     width: 100%;
@@ -224,23 +229,23 @@ div.container-fluid.newAccount div.row div.col-lg-6.mx-auto button{
 
 /* ! Quizzes + HEADER CONTAINER*/
 
-div.row div.col-12.quizzes{
+div.row div.col-12.quizzes {
     color: #ffffff;
     background-color: #4AB71B;
 }
 
-div.row div.col-12.quizzes img{
+div.row div.col-12.quizzes img {
     width: 5%;
 }
 
 /* ! COUNTER QUIZZES - CARDS*/
 
-div.container-fluid.quizzesCards div.row{
+div.container-fluid.quizzesCards div.row {
     padding-top: 3%;
     padding-bottom: 3%;
 }
 
-div.row div.card-deck.mx-auto.mt-5.mb-5 div.card.quizzCards{
+div.row div.card-deck.mx-auto.mt-5.mb-5 div.card.quizzCards {
     background-color: #4AB71B;
     font-size: 20px;
     color: #ffffff;
@@ -248,11 +253,11 @@ div.row div.card-deck.mx-auto.mt-5.mb-5 div.card.quizzCards{
 
 /* ! INFORMATION ABOUT QUIZZES - CARDS*/
 
-div.row.quizzesInfo{
+div.row.quizzesInfo {
     background-color: #4AB71B;
 }
 
-div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards{
+div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards {
     background-color: #29ABE2;
     font-size: 20px;
     color: #ffffff;
@@ -260,7 +265,7 @@ div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards{
 
 /* ! CREATE NEW LEVEL - BUTTON */
 
-div.row.quizzesInfo a.btn.newLevelBtn{
+div.row.quizzesInfo a.btn.newLevelBtn {
     background-color: #BFFFFF;
     color: #29ABE2;
     font-size: 24px;
@@ -268,21 +273,21 @@ div.row.quizzesInfo a.btn.newLevelBtn{
 
 /* ! LEVEL HEADER */
 
-div.row div.col-12.text-center.quizzesLevel{
+div.row div.col-12.text-center.quizzesLevel {
     background-color: #ffffff;
     color: #4AB71B;
 }
 
 /* ! TABLE HEADER CONTAINER QUIZZES TABLE + TABLE */
 
-div.row div.col-12.text-center.quizzesTable{
+div.row div.col-12.text-center.quizzesTable {
     background-color: #4AB71B;
     color: #ffffff;
 }
 
 /* !QUIZZ ESTATISTIC CARDS - FOR EACH CONTINET*/
 
-div.container-fluid.quizzesCards div.card-deck.mx-auto div.card.quizzesCards div.card-body.text-center{
+div.container-fluid.quizzesCards div.card-deck.mx-auto div.card.quizzesCards div.card-body.text-center {
     background-color: #4AB71B;
     font-size: 20px;
     color: #ffffff;
@@ -290,7 +295,7 @@ div.container-fluid.quizzesCards div.card-deck.mx-auto div.card.quizzesCards div
 
 /* ! ADD NEW LEVEL - BUTTON */
 
-div.row.quizzesInfo button.btn.addLevelBtn{
+div.row.quizzesInfo button.btn.addLevelBtn {
     background-color: #BFFFFF;
     color: #29ABE2;
     font-size: 24px;
@@ -298,23 +303,23 @@ div.row.quizzesInfo button.btn.addLevelBtn{
 
 /* ! CATALOG HEADER AND IMAGE */
 
-div.row div.col-12.catalog{
+div.row div.col-12.catalog {
     color: #ffffff;
     background-color: rgb(247, 127, 53)
 }
 
-div.row div.col-12.catalog img{
+div.row div.col-12.catalog img {
     width: 5%;
 }
 
 /* ! COUNTER CATALOG - CARDS*/
 
-div.container-fluid.catalogCard div.row{
+div.container-fluid.catalogCard div.row {
     padding-top: 3%;
     padding-bottom: 3%;
 }
 
-div.row div.card-deck.mx-auto div.card.catalogCards{
+div.row div.card-deck.mx-auto div.card.catalogCards {
     background-color: rgb(247, 127, 53);
     font-size: 20px;
     color: #ffffff;
@@ -322,12 +327,12 @@ div.row div.card-deck.mx-auto div.card.catalogCards{
 
 /* ! TABLE HEADER CONTAINER CATALOG TABLE + TABLE */
 
-div.row div.col-12.text-center.catalogTable{
+div.row div.col-12.text-center.catalogTable {
     background-color: rgb(247, 127, 53);
     color: #ffffff;
 }
 
-div.row.catalogInfo a.btn.addCountryBtn{
+div.row.catalogInfo a.btn.addCountryBtn {
     background-color: #BFFFFF;
     color: #29ABE2;
     font-size: 24px;
@@ -335,11 +340,11 @@ div.row.catalogInfo a.btn.addCountryBtn{
 
 /* ! CREATE NEW COUNTRY - BUTTON */
 
-div.row.catalogInfo{
+div.row.catalogInfo {
     background-color: rgb(247, 127, 53);
 }
 
-div.row.catalogInfo a.btn.addLevelBtn{
+div.row.catalogInfo a.btn.addLevelBtn {
     background-color: #BFFFFF;
     color: #29ABE2;
     font-size: 24px;
@@ -347,12 +352,12 @@ div.row.catalogInfo a.btn.addLevelBtn{
 
 /* ! ADD NEW COUNTRY FORM */
 
-div.row div.col-lg-12.addCountry{
+div.row div.col-lg-12.addCountry {
     color: rgb(247, 127, 53);
     background-color: #ffffff
 }
 
-div.container-fluid.newCountry div.row.countryForm div.col-lg-6{
+div.container-fluid.newCountry div.row.countryForm div.col-lg-6 {
     background-color: #5CBFE9;
     color: #ffffff;
     font-size: 24px;
@@ -360,7 +365,7 @@ div.container-fluid.newCountry div.row.countryForm div.col-lg-6{
     padding-top: 5%;
 }
 
-div.row.logoImage img{
+div.row.logoImage img {
     margin: auto;
     position: relative;
     z-index: 1;
@@ -368,101 +373,119 @@ div.row.logoImage img{
 }
 
 /* !NEW COUNTRY MODAL */
-div.row.addCountryModalButtonContainer{
-background-color: rgb(247, 127, 53);
+div.row.addCountryModalButtonContainer {
+    background-color: rgb(247, 127, 53);
 }
-button.btn.createCountry{
+
+button.btn.createCountry {
     background-color: #BFFFFF;
     color: #29ABE2;
     font-size: 20px;
     margin: auto;
 }
 
-div#newCountryModal div.modal-content{
-background-color: rgb(247, 127, 53);
-color: #ffffff;
+div#newCountryModal div.modal-content {
+    background-color: rgb(247, 127, 53);
+    color: #ffffff;
 }
-.btn.btn-primary.crearteCountry{
-background-color: #BFFFFF;
-color: #29ABE2;
-width: 100%;
+
+.btn.btn-primary.crearteCountry {
+    background-color: #BFFFFF;
+    color: #29ABE2;
+    width: 100%;
 }
 
 /* ! SUGGESTIONS + HEADER CONTAINER*/
-div.container-fluid.suggestions{
-background-color: #F249E6;
+div.container-fluid.suggestions {
+    background-color: #F249E6;
 }
-div.container-fluid.suggestions h1{
+
+div.container-fluid.suggestions h1 {
     background-color: #F249E6;
     color: #ffffff;
 }
+
 /* !SUGGESTION-CARDS */
-div.container-fluid.tableInsideSugestions{
-background-color: #F249E6
+div.container-fluid.tableInsideSugestions {
+    background-color: #F249E6
 }
-div.container-fluid.suggestionCard div.row{
+
+div.container-fluid.suggestionCard div.row {
     padding-top: 3%;
     padding-bottom: 3%;
 }
-div.card.suggestionCards{
-background-color:#F249E6 ;
-font-size: 20px;
-color: #ffffff
+
+div.card.suggestionCards {
+    background-color: #F249E6;
+    font-size: 20px;
+    color: #ffffff
 }
+
 /* ! TABLE HEADER CONTAINER SUGGESTION TABLE + TABLE */
-div.col-12.text-center.suggestionTableHeader{
- color: #ffffff
+div.col-12.text-center.suggestionTableHeader {
+    color: #ffffff
 }
-div.container-fluid.suggestions h1.display-5.mb-5{
-font-size: 2.5rem;
+
+div.container-fluid.suggestions h1.display-5.mb-5 {
+    font-size: 2.5rem;
 
 }
-div.row div.col-lg-12.text-center.sugestionTable{
-    background-color:#F249E6;
+
+div.row div.col-lg-12.text-center.sugestionTable {
+    background-color: #F249E6;
     color: #ffffff;
 }
+
 /* !TABLE HEADER TITLE */
-div.col-12.text-center.suggestionTableHeader h1{
+div.col-12.text-center.suggestionTableHeader h1 {
     font-size: 2.1rem;
 }
+
 /* ! SUGESTION TABLE FILTER*/
-div.container-fluid.tableInsideSugestions label{
- font-size: 1.5rem;
+div.container-fluid.tableInsideSugestions label {
+    font-size: 1.5rem;
 }
+
 /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
-select#stlOrder{
-font-size: 1.3rem;
+select#stlOrder {
+    font-size: 1.3rem;
 }
-select#stlOrder option{
+
+select#stlOrder option {
     font-size: 1rem;
 }
+
 /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
-button.btn.btn-success.read{
+button.btn.btn-success.read {
     font-size: 20px;
-    margin:auto;
+    margin: auto;
 }
+
 /* ! SUGGESTION PAGE -SUGGESTION MODAL*/
-#sugestionModal div.modal-content{
+#sugestionModal div.modal-content {
     background-color: #F249E6;
 }
-img.modalLogo{
-  margin: auto; 
+
+img.modalLogo {
+    margin: auto;
     width: 13%;
     margin-left: 46%;
 }
 
-#sugestionModal div.modal-body{
+#sugestionModal div.modal-body {
     color: #ffffff;
     font-size: 20px;
 }
-#sugestionModal div.modal-footer button{
+
+#sugestionModal div.modal-footer button {
     color: #29ABE2;
     font-size: 15px;
-    background-color:#BFFFFF; 
+    background-color: #BFFFFF;
 }
-#sugestionModal div.modal-header button{
+
+#sugestionModal div.modal-header button {
     font-size: 15px;
-    color:#ffffff; 
+    color: #ffffff;
 }
 
 .modal-dialog {
@@ -472,16 +495,16 @@ img.modalLogo{
     transform: translate(-50%, -60%) !important;
 }
 
-body#sugestionModal:after{
-    position:relative;
-    top : 0;
+body#sugestionModal:after {
+    position: relative;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: black;
-    content:"";
+    content: "";
     pointer-events: none;
-    z-index:100;
+    z-index: 100;
     opacity: .5
 }
 
@@ -558,83 +581,93 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 }
 
 /* ? MEDIA QUERIES (Responsivnes adjustments)*/
+
 /* !(IPAD-PRO) */
+
 @media only screen and (max-width: 1025px) and (min-width: 1024px) {
-  
-  /* Navbar adjustment */
-    .nav-link{
+
+    /* Navbar adjustment */
+    .nav-link {
         font-size: 1rem;
         white-space: nowrap;
     }
 
-    li.nav-item.dropdown{
+    li.nav-item.dropdown {
         padding-left: 0;
     }
 
-    .dropdown-menu a.dropdown-item{
+    .dropdown-menu a.dropdown-item {
         font-size: 1rem;
     }
-/* title and title img */
-    div.row div.col-12.quizzes img{
+
+    /* title and title img */
+    div.row div.col-12.quizzes img {
         width: 6%;
     }
 
-    h1.display-5.mb-5{
+    h1.display-5.mb-5 {
         font-size: 2rem;
     }
-     /** QUIZZ PAGES (CONTINENT) */
-     /*img inside this pages  */
-      div.col-12.text-center.quizzes img.mt-5.mb-2{
-        width: 6%;
-     }
 
-      /**QUIZZ LEVELS*/
-     div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1{
+    /** QUIZZ PAGES (CONTINENT) */
+    /*img inside this pages  */
+    div.col-12.text-center.quizzes img.mt-5.mb-2 {
+        width: 6%;
+    }
+
+    /**QUIZZ LEVELS*/
+    div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1 {
         font-size: 2rem;
-     }
-     div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5{
+    }
+
+    div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5 {
         font-size: 2rem;
-     }
+    }
 
     /** SUGESTION PAGE */
     /* ! SUGGESTIONS + HEADER CONTAINER*/
-    div.container-fluid.suggestions h1{
-    }
+    div.container-fluid.suggestions h1 {}
+
     /*!SUGESTION + HEADER CONTAINER IMG */
-   div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion img.mt-5.mb-2{
-    
-   }
+    div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion img.mt-5.mb-2 {}
+
     /* !SUGGESTION-CARDS */
-    div.card.suggestionCards{
-    font-size: 20px;
-    }
-    /* ! TABLE HEADER CONTAINER SUGGESTION TABLE + TABLE */
-    div.col-12.text-center.suggestionTableHeader{
- 
-    }
-    div.container-fluid.suggestions h1.display-5.mb-5{
-    font-size: 2.5rem;
-    
-    }
-    /* !TABLE HEADER TITLE */
-    div.col-12.text-center.suggestionTableHeader h1{
-        font-size: 2.1rem;
-    }
-    /* ! SUGESTION TABLE FILTER*/
-    div.container-fluid.tableInsideSugestions label{
-     font-size: 1.5rem;
-    }
-    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
-    select#stlOrder{
-    font-size: 1.3rem;
-    }
-    select#stlOrder option{
-        font-size: 1rem;
-    }
-    /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
-    button.btn.btn-success.read{
+    div.card.suggestionCards {
         font-size: 20px;
     }
+
+    /* ! TABLE HEADER CONTAINER SUGGESTION TABLE + TABLE */
+    div.col-12.text-center.suggestionTableHeader {}
+
+    div.container-fluid.suggestions h1.display-5.mb-5 {
+        font-size: 2.5rem;
+
+    }
+
+    /* !TABLE HEADER TITLE */
+    div.col-12.text-center.suggestionTableHeader h1 {
+        font-size: 2.1rem;
+    }
+
+    /* ! SUGESTION TABLE FILTER*/
+    div.container-fluid.tableInsideSugestions label {
+        font-size: 1.5rem;
+    }
+
+    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+    select#stlOrder {
+        font-size: 1.3rem;
+    }
+
+    select#stlOrder option {
+        font-size: 1rem;
+    }
+
+    /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
+    button.btn.btn-success.read {
+        font-size: 20px;
+    }
+
     /* !TABLE HEADER*/
 
     /* ! TABLE BODY (<p></p>) */
@@ -642,210 +675,247 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
 /* !IPAD */
 @media only screen and (max-width: 769px) and (min-width: 768px) {
-  /**NAVBAR */
+
+    /**NAVBAR */
     .nav-link {
         font-size: 1.2rem;
-        
+
     }
-    li.nav-item{
+
+    li.nav-item {
         padding-left: 0%;
     }
-  .dropdown-menu a.dropdown-item{
-          font-size: 1.15rem;
-      }
-      div.dropdown-menu.show{
-          padding-top: 0%
-      }
-  
-      /** QUIZZ PAGE CARDS */
-      /* img */
-      div.row div.col-12.quizzes img{
-          width: 8%;
-      }
 
-      /* title */
-  
-      h1.display-5.mb-5{
-          font-size: 2rem;
-      }
+    .dropdown-menu a.dropdown-item {
+        font-size: 1.15rem;
+    }
 
-      /* quizz cards */
-      div.card.quizzCards div.card-body.text-center{
+    div.dropdown-menu.show {
+        padding-top: 0%
+    }
+
+    /** QUIZZ PAGE CARDS */
+    /* img */
+    div.row div.col-12.quizzes img {
+        width: 8%;
+    }
+
+    /* title */
+
+    h1.display-5.mb-5 {
+        font-size: 2rem;
+    }
+
+    /* quizz cards */
+    div.card.quizzCards div.card-body.text-center {
         font-size: 1.15rem
-      }
-      div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards{
-        font-size:1.15rem;
-      }
-     /** QUIZZ PAGES (CONTINENT) */
-    div.container-fluid.quizzesCards div.card-deck.mx-auto div.card.quizzesCards div.card-body.text-center{
+    }
+
+    div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards {
+        font-size: 1.15rem;
+    }
+
+    /** QUIZZ PAGES (CONTINENT) */
+    div.container-fluid.quizzesCards div.card-deck.mx-auto div.card.quizzesCards div.card-body.text-center {
         background-color: #4AB71B;
         font-size: 1.15rem;
         color: #ffffff;
-     }
-     div.row.quizzesInfo div.card-deck.mx-auto.mt-5.mb-5 div.card.quizzInfoCards.ml-5.mr-5{
-        font-size:1.15rem;
-     }
-     /*img inside this pages  */
-      div.col-12.text-center.quizzes img.mt-5.mb-2{
+    }
+
+    div.row.quizzesInfo div.card-deck.mx-auto.mt-5.mb-5 div.card.quizzInfoCards.ml-5.mr-5 {
+        font-size: 1.15rem;
+    }
+
+    /*img inside this pages  */
+    div.col-12.text-center.quizzes img.mt-5.mb-2 {
         width: 8%;
-     }
-     /**QUIZZ LEVELS*/
-    div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1{
+    }
+
+    /**QUIZZ LEVELS*/
+    div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1 {
         font-size: 2rem;
     }
-    div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5{
-        font-size: 2rem;
-     }
-  }
 
-   /* !SMALL PHONES FOCUS*/
-  @media screen and (max-width: 376px) {
+    div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5 {
+        font-size: 2rem;
+    }
+}
+
+/* !SMALL PHONES FOCUS*/
+@media screen and (max-width: 376px) {
+
     /**NAVBAR */
     .nav-link {
         font-size: 1.1rem;
     }
-    li.nav-item{
+
+    li.nav-item {
         padding-left: 0%;
     }
-   .dropdown-menu a.dropdown-item{
-          font-size: 1rem;
-      }
-      div.dropdown-menu.show{
-          padding-top: 0%
-      }
-  
-      /* title and title img */
-      div.row div.col-12.quizzes img{
-          width: 55px;
-      }
-      /* title img quizz*/
-      div.row div.col-12.text-center.quizzes img{
-          width: 55px;
-      }
-      h1.display-5.mb-5{
-          font-size: 2.5rem;
-      }
-      /** QUIZZ PAGE CARDS */
-      div.card.quizzCards div.card-body.text-center{
+
+    .dropdown-menu a.dropdown-item {
+        font-size: 1rem;
+    }
+
+    div.dropdown-menu.show {
+        padding-top: 0%
+    }
+
+    /* title and title img */
+    div.row div.col-12.quizzes img {
+        width: 55px;
+    }
+
+    /* title img quizz*/
+    div.row div.col-12.text-center.quizzes img {
+        width: 55px;
+    }
+
+    h1.display-5.mb-5 {
+        font-size: 2.5rem;
+    }
+
+    /** QUIZZ PAGE CARDS */
+    div.card.quizzCards div.card-body.text-center {
         font-size: 1.2rem
-      }
-      div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards{
-        font-size:1.1rem;
-     }
-     /** QUIZZ PAGES ( INSIDE CONTINENT) */
-     div.container-fluid.quizzesCards div.card-deck.mx-auto div.card.quizzesCards div.card-body.text-center{
+    }
+
+    div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards {
+        font-size: 1.1rem;
+    }
+
+    /** QUIZZ PAGES ( INSIDE CONTINENT) */
+    div.container-fluid.quizzesCards div.card-deck.mx-auto div.card.quizzesCards div.card-body.text-center {
         background-color: #4AB71B;
         font-size: 1.2rem;
         color: #ffffff;
     }
-    div.row.quizzesInfo div.card-deck.mx-auto.mt-5.mb-5 div.card.quizzInfoCards.ml-5.mr-5{
-        font-size:1.1rem;
+
+    div.row.quizzesInfo div.card-deck.mx-auto.mt-5.mb-5 div.card.quizzInfoCards.ml-5.mr-5 {
+        font-size: 1.1rem;
     }
-     /*img inside this pages  */
-     div.col-12.text-center.quizzes img.mt-5.mb-2{
+
+    /*img inside this pages  */
+    div.col-12.text-center.quizzes img.mt-5.mb-2 {
         width: 55px;
     }
-       /**QUIZZ LEVELS*/
-    div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1{
-    font-size: 1.9rem;
+
+    /**QUIZZ LEVELS*/
+    div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1 {
+        font-size: 1.9rem;
     }
-    div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5{
-     font-size: 1.9rem;
+
+    div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5 {
+        font-size: 1.9rem;
     }
-    div.row.quizzesInfo button.btn.addLevelBtn.mx-auto.mb-5{
-      margin-top: 5%;
-      font-size:1.2rem;
+
+    div.row.quizzesInfo button.btn.addLevelBtn.mx-auto.mb-5 {
+        margin-top: 5%;
+        font-size: 1.2rem;
     }
-  }
-  
-  /* !Iphone 6,8,9 */
-  @media only screen and (max-width: 411px) and (min-width: 370px) {
-  
+}
+
+/* !Iphone 6,8,9 */
+@media only screen and (max-width: 411px) and (min-width: 370px) {
+
     .nav-link {
         font-size: 1.2rem;
-        
+
     }
-    li.nav-item{
+
+    li.nav-item {
         padding-left: 0%;
     }
-  .dropdown-menu a.dropdown-item{
-          font-size: 1.15rem;
-      }
-      div.dropdown-menu.show{
-          padding-top: 0%
-      }
-  
-  /* title and title img */
-      div.row div.col-12.quizzes img{
-          width: 8%;
-      }
-  
-      h1.display-5.mb-5{
-          font-size: 2rem;
-      }
-      /* quizz cards */
-      div.card.quizzCards div.card-body.text-center{
-        font-size: 1.15rem
-      }
-      div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards{
-        font-size:1.15rem;
+
+    .dropdown-menu a.dropdown-item {
+        font-size: 1.15rem;
     }
-     /**QUIZZ LEVELS*/
-    div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1{
+
+    div.dropdown-menu.show {
+        padding-top: 0%
+    }
+
+    /* title and title img */
+    div.row div.col-12.quizzes img {
+        width: 8%;
+    }
+
+    h1.display-5.mb-5 {
+        font-size: 2rem;
+    }
+
+    /* quizz cards */
+    div.card.quizzCards div.card-body.text-center {
+        font-size: 1.15rem
+    }
+
+    div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards {
+        font-size: 1.15rem;
+    }
+
+    /**QUIZZ LEVELS*/
+    div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1 {
         font-size: 1.8rem;
     }
-    div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5{
-     font-size: 1.8rem;
+
+    div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5 {
+        font-size: 1.8rem;
     }
-    div.row.quizzesInfo button.btn.addLevelBtn.mx-auto.mb-5{
-    margin-top: 5%;
-    font-size:1.2rem;
+
+    div.row.quizzesInfo button.btn.addLevelBtn.mx-auto.mb-5 {
+        margin-top: 5%;
+        font-size: 1.2rem;
     }
-  }
+}
 
 
 /* !PIXEL & IPHONE PLUS*/
-  @media only screen and (max-width: 415px) and (min-width: 411px) {
-  
-    /* Navbar adjustment */
-      .nav-link{
-          font-size: 1rem;
-          white-space: nowrap;
-      }
-  
-      li.nav-item.dropdown{
-          padding-left: 0;
-      }
-  
-      .dropdown-menu a.dropdown-item{
-          font-size: 1rem;
-      }
-      /** QUIZZ PAGE CARDS */
-      div.row div.col-12.quizzes img{
-          width: 6%;
-      }
+@media only screen and (max-width: 415px) and (min-width: 411px) {
 
-      div.row div.col-12.text-center.quizzes img{
+    /* Navbar adjustment */
+    .nav-link {
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+
+    li.nav-item.dropdown {
+        padding-left: 0;
+    }
+
+    .dropdown-menu a.dropdown-item {
+        font-size: 1rem;
+    }
+
+    /** QUIZZ PAGE CARDS */
+    div.row div.col-12.quizzes img {
+        width: 6%;
+    }
+
+    div.row div.col-12.text-center.quizzes img {
         width: 12%;
     }
-  
-      h1.display-5.mb-5{
-          font-size: 2rem;
-      }
-       /** QUIZZ PAGES (CONTINENT) */
-       /*img inside this pages  */
-        div.col-12.text-center.quizzes img.mt-5.mb-2{
-          width: 12%;
-       }
-      /**QUIZZ LEVELS*/
-      div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1{
-      font-size: 1.7rem;
-      }
-      div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5{
-      font-size: 1.7rem;
-      }
-      div.row.quizzesInfo button.btn.addLevelBtn.mx-auto.mb-5{
-      margin-top: 5%;
-      font-size:1.2rem;
-      }
+
+    h1.display-5.mb-5 {
+        font-size: 2rem;
     }
+
+    /** QUIZZ PAGES (CONTINENT) */
+    /*img inside this pages  */
+    div.col-12.text-center.quizzes img.mt-5.mb-2 {
+        width: 12%;
+    }
+
+    /**QUIZZ LEVELS*/
+    div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1 {
+        font-size: 1.7rem;
+    }
+
+    div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5 {
+        font-size: 1.7rem;
+    }
+
+    div.row.quizzesInfo button.btn.addLevelBtn.mx-auto.mb-5 {
+        margin-top: 5%;
+        font-size: 1.2rem;
+    }
+}
