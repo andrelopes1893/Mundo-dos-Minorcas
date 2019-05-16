@@ -392,7 +392,14 @@ width: 100%;
 div.container-fluid.suggestions{
 background-color: #F249E6;
 }
+div.container-fluid.suggestions h1{
+    background-color: #F249E6;
+    color: #ffffff;
+}
 /* !SUGGESTION-CARDS */
+div.container-fluid.tableInsideSugestions{
+background-color: #F249E6
+}
 div.container-fluid.suggestionCard div.row{
     padding-top: 3%;
     padding-bottom: 3%;
@@ -402,22 +409,39 @@ background-color:#F249E6 ;
 font-size: 20px;
 color: #ffffff
 }
-
 /* ! TABLE HEADER CONTAINER SUGGESTION TABLE + TABLE */
+div.col-12.text-center.suggestionTableHeader{
+ color: #ffffff
+}
+div.container-fluid.suggestions h1.display-5.mb-5{
+font-size: 2.5rem;
 
+}
 div.row div.col-lg-12.text-center.sugestionTable{
     background-color:#F249E6;
     color: #ffffff;
 }
+/* !TABLE HEADER TITLE */
+div.col-12.text-center.suggestionTableHeader h1{
+    font-size: 2.1rem;
+}
+/* ! SUGESTION TABLE FILTER*/
+div.container-fluid.tableInsideSugestions label{
+ font-size: 1.5rem;
+}
+/* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+select#stlOrder{
+font-size: 1.3rem;
+}
+select#stlOrder option{
+    font-size: 1rem;
+}
 /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
-
 button.btn.btn-success.read{
     font-size: 20px;
     margin:auto;
 }
-
 /* ! SUGGESTION PAGE -SUGGESTION MODAL*/
-
 #sugestionModal div.modal-content{
     background-color: #F249E6;
 }
@@ -572,12 +596,50 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         font-size: 2rem;
      }
 
+    /** SUGESTION PAGE */
+    /* ! SUGGESTIONS + HEADER CONTAINER*/
+    div.container-fluid.suggestions h1{
+    }
+    /*!SUGESTION + HEADER CONTAINER IMG */
+   div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion img.mt-5.mb-2{
+    
+   }
+    /* !SUGGESTION-CARDS */
+    div.card.suggestionCards{
+    font-size: 20px;
+    }
+    /* ! TABLE HEADER CONTAINER SUGGESTION TABLE + TABLE */
+    div.col-12.text-center.suggestionTableHeader{
+ 
+    }
+    div.container-fluid.suggestions h1.display-5.mb-5{
+    font-size: 2.5rem;
+    
+    }
+    /* !TABLE HEADER TITLE */
+    div.col-12.text-center.suggestionTableHeader h1{
+        font-size: 2.1rem;
+    }
+    /* ! SUGESTION TABLE FILTER*/
+    div.container-fluid.tableInsideSugestions label{
+     font-size: 1.5rem;
+    }
+    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+    select#stlOrder{
+    font-size: 1.3rem;
+    }
+    select#stlOrder option{
+        font-size: 1rem;
+    }
+    /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
+    button.btn.btn-success.read{
+        font-size: 20px;
+    }
+    /* !TABLE HEADER*/
 
-
-
-
-
+    /* ! TABLE BODY (<p></p>) */
 }
+
 /* !IPAD */
 @media only screen and (max-width: 769px) and (min-width: 768px) {
   /**NAVBAR */
@@ -660,9 +722,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
       div.row div.col-12.text-center.quizzes img{
           width: 55px;
       }
-
-
-
       h1.display-5.mb-5{
           font-size: 2.5rem;
       }
@@ -697,6 +756,15 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
       margin-top: 5%;
       font-size:1.2rem;
     }
+
+
+
+
+
+
+
+
+
   }
   /* !Iphone 6,8,9 */
   @media only screen and (max-width: 411px) and (min-width: 370px) {
@@ -777,8 +845,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         div.col-12.text-center.quizzes img.mt-5.mb-2{
           width: 12%;
        }
-
-          /**QUIZZ LEVELS*/
+      /**QUIZZ LEVELS*/
       div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1{
       font-size: 1.7rem;
       }
