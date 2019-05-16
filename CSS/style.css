@@ -92,15 +92,15 @@ div.dropdown-menu {
 
 /* ! HEADER */
 
-div.row div.col-12.catalog{
+div.row div.col-12.catalog {
     color: #000000;
 }
 
-div.row div.col-12.catalog span{
+div.row div.col-12.catalog span {
     color: #ffffff;
 }
 
-div.row div.col-12.catalog img{
+div.row div.col-12.catalog img {
     width: 5%;
 }
 
@@ -131,7 +131,7 @@ div.container-fluid.navQuizz {
     background-color: #29ABE2;
 }
 
-div.container-fluid.navQuizz div.col-6.text-center.flagInfoText {
+div.container-fluid.navQuizz div.col-lg-6.text-center.flagInfoText {
     background-color: #CCCC33;
 }
 
@@ -140,7 +140,7 @@ img.logo.logoQuizz {
     margin-bottom: 7%;
 }
 
-div.col-6.flagInfoText p {
+div.col-lg-6.flagInfoText p {
     color: #ffffff;
     padding-top: 4%;
     font-size: 22px;
@@ -172,14 +172,14 @@ div.row div.col-12.text-center.question p {
     margin: 2%;
 }
 
-div.row.questionImage div.col-6 img.flagImage {
+div.row.questionImage div.col-lg-6 img.flagImage {
     width: 44%;
     margin-top: 5%;
     margin-left: 20%;
     border-radius: 20px 20px 20px 20px;
 }
 
-div.col-6.optionsCol {
+div.col-lg-6.optionsCol {
     padding-top: 1%;
     padding-bottom: 1%;
 }
@@ -239,7 +239,7 @@ button.btn.help {
     font-size: 24px;
 }
 
-@media only screen and (max-width:412px){
+@media only screen and (max-width:412px) {
     button.btn.help {
         background-color: #CCCC33;
         color: #ffffff;
@@ -249,6 +249,7 @@ button.btn.help {
         height: 2.5rem;
         font-size: 16px;
     }
+
     button.btn.exit {
         background-color: #CF2027;
         color: #ffffff;
@@ -265,7 +266,8 @@ div.jumbotron {
     margin-right: 0%;
     padding-right: 0%
 }
-div.jumbotron.jumbotron-fluid div.container.text-right{
+
+div.jumbotron.jumbotron-fluid div.container.text-right {
     margin: 0%;
     margin-left: 5%
 }
@@ -278,12 +280,12 @@ div.form-group.name {
     margin-right: 5%;
 }
 
-div.form-group.selection label{
+div.form-group.selection label {
     margin-right: 7px;
     color: #ffffff
 }
 
-div.form-group.name label{
+div.form-group.name label {
     color: #ffffff
 }
 
@@ -291,42 +293,47 @@ div.form-group.selection select {
     padding-left: 0%;
 }
 
-@media only screen and (max-width:415px){
-    div.form-group.selection label{
+@media only screen and (max-width:415px) {
+    div.form-group.selection label {
         padding-right: 100px;
     }
-    div.form-group.selection{
+
+    div.form-group.selection {
         padding-left: 3%
     }
-    
+
     div.form-group.name label {
         padding-right: 110px;
     }
-    div.form-group.name{
+
+    div.form-group.name {
         padding-left: 0%;
     }
 
-    input #txtName.form-control.m-2{
+    input #txtName.form-control.m-2 {
         margin-left: 0%
     }
 
-    button.btn.btn-primary.filterCountry{
+    button.btn.btn-primary.filterCountry {
         width: 100px;
         margin-left: 10px;
     }
 }
 
 @media only screen and (max-width: 769px) and (min-width: 767px) {
-    div.form-group.selection label{
-       margin-right: 32px;
+    div.form-group.selection label {
+        margin-right: 32px;
     }
-    button.btn.btn-primary.filterCountry{
+
+    button.btn.btn-primary.filterCountry {
         margin-top: 1px;
     }
 }
+
 div.jumbotron.jumbotron-fluid.africaJumbo {
     background-color: #F5BB00
 }
+
 div.jumbotron.jumbotron-fluid.americaJumbo {
     background-color: #4AB71B
 }
@@ -516,27 +523,30 @@ div.container-fluid.quizzContinent div.card {
 
 /* ! HELP BUTTON MODAL*/
 
-#helpModal div.modal-content{
+#helpModal div.modal-content {
     background-color: #1BB7B3;
 }
-img.modalLogo{
-  margin: auto; 
+
+img.modalLogo {
+    margin: auto;
     width: 13%;
     margin-left: 46%;
 }
 
-#helpModal div.modal-body{
+#helpModal div.modal-body {
     color: #ffffff;
     font-size: 20px;
 }
-#helpModal div.modal-footer button{
+
+#helpModal div.modal-footer button {
     color: #1BB7B3;
     font-size: 15px;
-    background-color:#BFFFFF; 
+    background-color: #BFFFFF;
 }
-#helpModal div.modal-header button{
+
+#helpModal div.modal-header button {
     font-size: 15px;
-    color:#ffffff; 
+    color: #ffffff;
 }
 
 .modal-dialog {
@@ -546,16 +556,16 @@ img.modalLogo{
     transform: translate(-50%, -60%) !important;
 }
 
-body#helpModal:after{
-    position:relative;
-    top : 0;
+body#helpModal:after {
+    position: relative;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: black;
-    content:"";
+    content: "";
     pointer-events: none;
-    z-index:100;
+    z-index: 100;
     opacity: .5
 }
 
@@ -632,16 +642,100 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 /* ? MEDIA QUERIES */
 
 @media only screen and (max-width: 1025px) and (min-width: 1024px) {
-    .nav-link{
+    .nav-link {
         font-size: 1rem;
         white-space: nowrap;
     }
 
-    li.nav-item.dropdown{
+    li.nav-item.dropdown {
         padding-left: 0;
     }
 
-    .dropdown-menu a.dropdown-item{
+    .dropdown-menu a.dropdown-item {
         font-size: 1rem;
+    }
+}
+
+/* !Iphone 6,8,9 */
+@media only screen and (max-width: 411px) and (min-width: 370px) {
+
+    .nav-link {
+        font-size: 1.2rem;
+
+    }
+
+    li.nav-item {
+        padding-left: 0%;
+    }
+
+    .dropdown-menu a.dropdown-item {
+        font-size: 1.15rem;
+    }
+
+    div.dropdown-menu.show {
+        padding-top: 0%
+    }
+
+    /* title and title img */
+    div.row div.col-12.catalog img {
+        width: 55px;
+    }
+
+    h1.display-5.mb-5 {
+        font-size: 2rem;
+    }
+
+    /* Quizz Title */
+    h1.display-4.mx-auto.mt-3{
+        font-size: 2rem;
+    }
+
+    /* Quizz cards titles */
+    div.col-lg-4 div.card.quizzCards div.card-header {
+        font-size: 1.5rem
+    }
+
+    p.copyrightParagraph{
+        font-size: .8rem;
+    }
+
+    /**QUIZZ LEVELS*/
+    div.col-lg-4 div.card.capitalQuizz div.card-header {
+        font-size: 1.5rem;
+    }
+
+    div.col-lg-4 div.card.locationQuizz div.card-header {
+        font-size: 1.5rem;
+    }
+
+    div.col-lg-4 div.card.flagQuizz div.card-header {
+        font-size: 1.5rem;
+    }
+
+    /* Flag Level */
+    div.col-lg-6.flagInfoText p{
+        margin-bottom: 4%;
+        font-size: 1.1rem
+    }
+
+    div.row div.col-12.text-center p.question{
+        font-size: 1.2rem;
+    }
+
+    /* Location Level */
+    div.col-lg-6.flagInfoText p{
+        margin-bottom: 4%;
+        font-size: 1.1rem
+    }
+
+    div.row div.col-12.text-center p.question{
+        font-size: 1.2rem;
+    }
+
+    /**CONTINENT ORGANIZATION - CATALOG*/
+
+    /* Carousel cards headers */
+    Div.owl-carousel div.item div.card-header{
+        font-size: 1.5rem;
     }
 }
