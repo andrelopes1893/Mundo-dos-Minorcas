@@ -533,7 +533,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     margin: auto
 }
 
-/* ? MEDIA QUERIES */
+/* ? MEDIA QUERIES (Responsivnes adjustments)*/
 /* !(IPAD-PRO) */
 @media only screen and (max-width: 1025px) and (min-width: 1024px) {
   
@@ -563,6 +563,19 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
       div.col-12.text-center.quizzes img.mt-5.mb-2{
         width: 6%;
      }
+
+      /**QUIZZ LEVELS*/
+     div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1{
+        font-size: 2rem;
+     }
+     div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5{
+        font-size: 2rem;
+     }
+
+
+
+
+
 
 }
 /* !IPAD */
@@ -601,9 +614,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
       div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards{
         font-size:1.15rem;
       }
-
-
-
      /** QUIZZ PAGES (CONTINENT) */
     div.container-fluid.quizzesCards div.card-deck.mx-auto div.card.quizzesCards div.card-body.text-center{
         background-color: #4AB71B;
@@ -617,8 +627,16 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
       div.col-12.text-center.quizzes img.mt-5.mb-2{
         width: 8%;
      }
+     /**QUIZZ LEVELS*/
+    div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1{
+        font-size: 2rem;
+    }
+    div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5{
+        font-size: 2rem;
+     }
   }
-   /* !PHONE FOCUS*/
+
+   /* !SMALL PHONES FOCUS*/
   @media screen and (max-width: 376px) {
     /**NAVBAR */
     .nav-link {
@@ -638,6 +656,13 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
       div.row div.col-12.quizzes img{
           width: 55px;
       }
+      /* title img quizz*/
+      div.row div.col-12.text-center.quizzes img{
+          width: 55px;
+      }
+
+
+
       h1.display-5.mb-5{
           font-size: 2.5rem;
       }
@@ -661,11 +686,20 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
      div.col-12.text-center.quizzes img.mt-5.mb-2{
         width: 55px;
     }
+       /**QUIZZ LEVELS*/
+    div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1{
+    font-size: 1.9rem;
+    }
+    div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5{
+     font-size: 1.9rem;
+    }
+    div.row.quizzesInfo button.btn.addLevelBtn.mx-auto.mb-5{
+      margin-top: 5%;
+      font-size:1.2rem;
+    }
   }
-
-
-
-  @media only screen and (max-width: 412px) and (min-width: 370px) {
+  /* !Iphone 6,8,9 */
+  @media only screen and (max-width: 411px) and (min-width: 370px) {
   
     .nav-link {
         font-size: 1.2rem;
@@ -689,8 +723,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
       h1.display-5.mb-5{
           font-size: 2rem;
       }
-
-
       /* quizz cards */
       div.card.quizzCards div.card-body.text-center{
         font-size: 1.15rem
@@ -698,8 +730,63 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
       div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards{
         font-size:1.15rem;
     }
+     /**QUIZZ LEVELS*/
+    div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1{
+        font-size: 1.8rem;
+    }
+    div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5{
+     font-size: 1.8rem;
+    }
+    div.row.quizzesInfo button.btn.addLevelBtn.mx-auto.mb-5{
+    margin-top: 5%;
+    font-size:1.2rem;
+    }
   }
 
- 
 
+/* !PIXEL & IPHONE PLUS*/
+  @media only screen and (max-width: 415px) and (min-width: 411px) {
   
+    /* Navbar adjustment */
+      .nav-link{
+          font-size: 1rem;
+          white-space: nowrap;
+      }
+  
+      li.nav-item.dropdown{
+          padding-left: 0;
+      }
+  
+      .dropdown-menu a.dropdown-item{
+          font-size: 1rem;
+      }
+      /** QUIZZ PAGE CARDS */
+      div.row div.col-12.quizzes img{
+          width: 6%;
+      }
+
+      div.row div.col-12.text-center.quizzes img{
+        width: 12%;
+    }
+  
+      h1.display-5.mb-5{
+          font-size: 2rem;
+      }
+       /** QUIZZ PAGES (CONTINENT) */
+       /*img inside this pages  */
+        div.col-12.text-center.quizzes img.mt-5.mb-2{
+          width: 12%;
+       }
+
+          /**QUIZZ LEVELS*/
+      div.col-lg-12.text-center.quizzesLevel.mt-5.mb-5 h1{
+      font-size: 1.7rem;
+      }
+      div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5{
+      font-size: 1.7rem;
+      }
+      div.row.quizzesInfo button.btn.addLevelBtn.mx-auto.mb-5{
+      margin-top: 5%;
+      font-size:1.2rem;
+      }
+    }
