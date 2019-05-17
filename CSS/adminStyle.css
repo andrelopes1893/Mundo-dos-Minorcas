@@ -159,6 +159,12 @@ button.btn.createAdmin {
     padding: 0%;
 }
 
+/* !FILER (USERPAGE) */
+
+div.container-fluid.userFilter form label{
+    color: #ffffff
+
+}
 /*!ADMIN ADD MODAL*/
 
 div.row div.card-deck.mx-auto div.card.quizzCards {
@@ -583,6 +589,25 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     margin: auto
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ? MEDIA QUERIES (Responsivnes adjustments)*/
 
 /* !(IPAD-PRO) */
@@ -657,7 +682,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     select#stlOrder option {
         font-size: 1rem;
     } */
-    /**SUGESTION TABLE */
     /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
     button.btn.btn-success.read {
         font-size: 18px;
@@ -672,6 +696,88 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
      table.table.table-bordered.mx-auto img{
          width: 23%
      }
+
+    /**USER PAGE*/
+    /* ! USER + HEADER CONTAINER*/
+    div.col-12.text-center.users.pb-5.pt-5 h1{
+        font-size: 2rem;
+    }
+    /*!USER+HEADER CONTAINER IMG */
+    div.row div.col-12.text-center.users.pb-5.pt-5 img.img-fluid.mb-4{
+        width: 55px;
+    }
+    /* !USER-CARDS (HIGHTLIGHTS) */
+    div.card.userCards {
+        font-size: 1.15rem;
+    }
+    /* !TABLE HEADER TITLE */
+    div.container-fluid.users div.row.userHeader div.col-lg-12 h1 {
+        font-weight: 500;
+        font-size: 2rem;
+    }
+    /* !TABLE FILTER*/
+    div.container-fluid.userFilter form label {
+        font-size: 1.2rem;
+    }
+    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+    /* select#stlOrder {
+        font-size: 1.3rem;
+    }*/
+    div.container-fluid.userFilter form select#stlOrder option{
+        font-size: 0.9rem;
+    }
+    /* !TABLE TEXT*/
+     table.table.table-bordered{
+         font-size: 1.3rem    
+         }
+     /*!TABLE DELETE BUTTON IMG*/
+     table.table.table-bordered img{
+         width: 40%
+     }
+
+
+
+
+    /**CATALOG PAGE*/
+    /* ! CATALOG + HEADER CONTAINER*/
+    div.col-12.text-center.catalog.pb-5.pt-5 h1{
+        font-size: 2rem;
+    }
+    /*!CATALOG+HEADER CONTAINER IMG */
+    div.col-12.text-center.catalog.pb-5.pt-5 img{
+        width: 10%;
+    }
+    /* !USER-CARDS (HIGHTLIGHTS) */
+    div.card.catalogCards {
+        font-size: 1px;
+    }
+    /* !TABLE HEADER TITLE */
+    div.container-fluid.users div.row.userHeader div.col-lg-12 h1 {
+        font-weight: 500;
+        font-size: 1.7rem;
+    }
+    /* !TABLE FILTER*/
+    div.container-fluid.userFilter form label {
+        font-size: 1.2rem;
+    }
+    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+    /* select#stlOrder {
+        font-size: 1.3rem;
+    }*/
+    div.container-fluid.userFilter form select#stlOrder option{
+        font-size: 0.9rem;
+    }
+    /* !TABLE TEXT*/
+     table.table.table-bordered{
+         font-size: 1.3rem    
+         }
+     /*!TABLE DELETE BUTTON IMG*/
+     table.table.table-bordered img{
+         width: 40%
+     }
+
+
+
 
 }
 
@@ -785,8 +891,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
      table.table.table-bordered.mx-auto img{
          width: 29%
      }
-
-
     /**USER PAGE*/
     /* ! USER + HEADER CONTAINER*/
     div.col-12.text-center.users.pb-5.pt-5 h1{
@@ -825,7 +929,46 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
          width: 40%
      }
 
-    
+
+    /**CATALOG PAGE*/
+    /* ! CATALOG + HEADER CONTAINER*/
+    div.col-12.text-center.catalog.pb-5.pt-5 h1{
+        font-size: 2rem;
+    }
+    /*!CATALOG+HEADER CONTAINER IMG */
+    div.col-12.text-center.catalog.pb-5.pt-5 img{
+        width: 10%;
+    }
+    /* !USER-CARDS (HIGHTLIGHTS) */
+    div.card.catalogCards {
+        font-size: 1px;
+    }
+    /* !TABLE HEADER TITLE */
+    div.container-fluid.users div.row.userHeader div.col-lg-12 h1 {
+        font-weight: 500;
+        font-size: 1.7rem;
+    }
+    /* !TABLE FILTER*/
+    div.container-fluid.userFilter form label {
+        font-size: 1.2rem;
+    }
+    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+    /* select#stlOrder {
+        font-size: 1.3rem;
+    }*/
+    div.container-fluid.userFilter form select#stlOrder option{
+        font-size: 0.9rem;
+    }
+    /* !TABLE TEXT*/
+     table.table.table-bordered{
+         font-size: 1.3rem    
+         }
+     /*!TABLE DELETE BUTTON IMG*/
+     table.table.table-bordered img{
+         width: 40%
+     }
+
+
 
 
 
