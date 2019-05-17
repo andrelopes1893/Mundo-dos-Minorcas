@@ -471,7 +471,7 @@ button.btn.btn-success.read {
 }
 
 /* ! SUGGESTION PAGE -SUGGESTION MODAL*/
-#sugestionModal div.modal-content {
+#suggestionModal div.modal-content {
     background-color: #F249E6;
 }
 
@@ -481,28 +481,30 @@ img.modalLogo {
     margin-left: 46%;
 }
 
-#sugestionModal div.modal-body {
+#suggestionModal div.modal-body {
     color: #ffffff;
     font-size: 20px;
 }
 
-#sugestionModal div.modal-footer button {
+#suggestionModal div.modal-footer button {
     color: #29ABE2;
     font-size: 15px;
     background-color: #BFFFFF;
 }
 
-#sugestionModal div.modal-header button {
+#suggestionModal div.modal-header button {
     font-size: 15px;
     color: #ffffff;
 }
 
+/*
 .modal-dialog {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -60%) !important;
 }
+*/
 
 body#sugestionModal:after {
     position: relative;

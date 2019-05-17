@@ -201,7 +201,8 @@
                                 <th scope="row">10</th>
                                 <td>Rita</td>
                                 <td>333</td>
-                                <td><button type="button"data-toggle="modal" data-target="#newBlockUserModal" class="blockButton"><img src="/Images/lock.png" alt="Bloquear"></button></td>
+                                <td><button type="button" data-toggle="modal" data-target="#newBlockUserModal"
+                                        class="blockButton"><img src="/Images/lock.png" alt="Bloquear"></button></td>
                                 <td><img src="/Images/x.png" alt="Eliminar"></td>
                                 <td>Administrador</td>
                             </tr>
@@ -214,90 +215,84 @@
 
 
 
-<!-- Modal button -->
+    <!-- Modal button -->
     <div class="row addAdminModalButtonContainer">
-        <button type="button" class="btn createAdmin mb-5" data-toggle="modal" data-target="#newAdminUserModal">Novo Administrador</button>
+        <button type="button" class="btn createAdmin mb-5" data-toggle="modal" data-target="#newAdminUserModal">Novo
+            Administrador</button>
     </div>
-<!-- modal 1 -->
+    <!-- modal 1 -->
     <div class="modal fade" id="newAdminUserModal">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <!-- Cabeçalho da Modal -->
-                    <div class="modal-header">
-                        <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal"
-                            style="color:#ffff">Voltar</button>
-                    </div>
-                    <!-- Corpo da Modal -->
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="txtUserName">Nome:</label>
-                                <input type="text" class="form-control" id="txtUserName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="txtUserEmail">E-mail:</label>
-                                <input type="email" class="form-control" id="txtUserEmail" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="txtUserPassword">Password:</label>
-                                <input type="password" class="form-control" id="txtUserPassword" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="txtUserPasswordConf">Confirmar Password:</label>
-                                <input type="password" class="form-control" id="txtUserPasswordConf" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary crearteAdmin">Criar</button>
-                        </form>
-                    </div>
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho da Modal -->
+                <div class="modal-header">
+                    <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="color:#ffff">Voltar</button>
+                </div>
+                <!-- Corpo da Modal -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="txtUserName">Nome:</label>
+                            <input type="text" class="form-control" id="txtUserName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUserEmail">E-mail:</label>
+                            <input type="email" class="form-control" id="txtUserEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUserPassword">Password:</label>
+                            <input type="password" class="form-control" id="txtUserPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUserPasswordConf">Confirmar Password:</label>
+                            <input type="password" class="form-control" id="txtUserPasswordConf" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary crearteAdmin">Criar</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
 
-<!-- modal 2-->
-        <div class="modal fade" id="newBlockUserModal">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <!-- Cabeçalho da Modal -->
-                        <div class="modal-header">
-                            <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"
-                                style="color:#ffff">Voltar</button>
-                        </div>
-                        <!-- Corpo da Modal -->
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="txtBlockUserName">Nome:</label>
-                                    <input type="text" class="form-control" id="txtBlockUserName" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtMotivo">Motivo:</label>
-                                    <input type="text" class="form-control" id="txtMotivo">
-                                </div>
-                                <div class="form-group">
-                                        <label for="stlDays">Dias:</label>
-                                        <select class="form-control" id="stlContinent">
-                                            <option value="7">7</option>
-                                            <option value="14">14</option>
-                                            <option value="30">30</option>
-                                        </select>
-                                    </div>
-                                <button type="submit" class="btn btn-primary Block">Bloquear</button>
-                            </form>
-                        </div>
-                        <!-- Rodapé da Modal -->
-                    </div>
+    <!-- modal 2-->
+    <div class="modal fade" id="newBlockUserModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho da Modal -->
+                <div class="modal-header">
+                    <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="color:#ffff">Voltar</button>
                 </div>
+                <!-- Corpo da Modal -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="txtBlockUserName">Nome:</label>
+                            <input type="text" class="form-control" id="txtBlockUserName" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtMotivo">Motivo:</label>
+                            <input type="text" class="form-control" id="txtMotivo">
+                        </div>
+                        <div class="form-group">
+                            <label for="stlDays">Dias:</label>
+                            <select class="form-control" id="stlContinent">
+                                <option value="7">7</option>
+                                <option value="14">14</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary Block">Bloquear</button>
+                    </form>
+                </div>
+                <!-- Rodapé da Modal -->
             </div>
-
-
-
-
-
-
-
+        </div>
+    </div>
 
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
