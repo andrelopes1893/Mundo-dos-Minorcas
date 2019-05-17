@@ -737,47 +737,43 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
 
 
-
     /**CATALOG PAGE*/
     /* ! CATALOG + HEADER CONTAINER*/
-    div.col-12.text-center.catalog.pb-5.pt-5 h1{
+   div.row div.col-12.text-center.catalog h1{
         font-size: 2rem;
     }
     /*!CATALOG+HEADER CONTAINER IMG */
-    div.col-12.text-center.catalog.pb-5.pt-5 img{
-        width: 10%;
+    div.row div.col-12.text-center.catalog img{
+        width: 5%;
     }
-    /* !USER-CARDS (HIGHTLIGHTS) */
-    div.card.catalogCards {
-        font-size: 1px;
+    /* !CATALOG-CARDS (HIGHTLIGHTS) */
+    div.card.catalogCards div.card-body.text-center{
+        font-size: 1.15rem;
     }
     /* !TABLE HEADER TITLE */
-    div.container-fluid.users div.row.userHeader div.col-lg-12 h1 {
+    div.col-12.text-center.catalogTable h1{
         font-weight: 500;
-        font-size: 1.7rem;
+        font-size: 2rem;
     }
     /* !TABLE FILTER*/
-    div.container-fluid.userFilter form label {
-        font-size: 1.2rem;
-    }
+    /* div.col-12.text-center.catalogTable form label {
+        font-size: 0.rem;
+    } */
     /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
     /* select#stlOrder {
         font-size: 1.3rem;
     }*/
-    div.container-fluid.userFilter form select#stlOrder option{
+    /* div.col-12.text-center.catalogTable form select#stlOrder option{
         font-size: 0.9rem;
-    }
+    } */
     /* !TABLE TEXT*/
-     table.table.table-bordered{
+     table.table.table-bordered.mx-auto.catalogTable{
          font-size: 1.3rem    
          }
-     /*!TABLE DELETE BUTTON IMG*/
-     table.table.table-bordered img{
-         width: 40%
+     /*!TABLE BUTTON IMG*/
+     table.table.table-bordered.mx-auto.catalogTable img{
+         width: 40px
      }
-
-
-
 
 }
 
@@ -877,7 +873,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     select#stlOrder option {
         font-size: 1rem;
     } */
-    /**SUGESTION TABLE */
     /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
     button.btn.btn-success.read {
         font-size:1.1rem;
@@ -930,50 +925,45 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
      }
 
 
+
+
     /**CATALOG PAGE*/
     /* ! CATALOG + HEADER CONTAINER*/
-    div.col-12.text-center.catalog.pb-5.pt-5 h1{
-        font-size: 2rem;
-    }
-    /*!CATALOG+HEADER CONTAINER IMG */
-    div.col-12.text-center.catalog.pb-5.pt-5 img{
-        width: 10%;
-    }
-    /* !USER-CARDS (HIGHTLIGHTS) */
-    div.card.catalogCards {
-        font-size: 1px;
-    }
-    /* !TABLE HEADER TITLE */
-    div.container-fluid.users div.row.userHeader div.col-lg-12 h1 {
-        font-weight: 500;
-        font-size: 1.7rem;
-    }
-    /* !TABLE FILTER*/
-    div.container-fluid.userFilter form label {
-        font-size: 1.2rem;
-    }
-    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
-    /* select#stlOrder {
-        font-size: 1.3rem;
-    }*/
-    div.container-fluid.userFilter form select#stlOrder option{
-        font-size: 0.9rem;
-    }
-    /* !TABLE TEXT*/
-     table.table.table-bordered{
-         font-size: 1.3rem    
-         }
-     /*!TABLE DELETE BUTTON IMG*/
-     table.table.table-bordered img{
-         width: 40%
+   div.row div.col-12.text-center.catalog h1{
+    font-size: 1.7rem;
+}
+/*!CATALOG+HEADER CONTAINER IMG */
+div.row div.col-12.text-center.catalog img{
+    width: 7%;
+}
+/* !CATALOG-CARDS (HIGHTLIGHTS) */
+div.card.catalogCards div.card-body.text-center{
+    font-size: 1.15rem;
+}
+/* !TABLE HEADER TITLE */
+div.col-12.text-center.catalogTable h1{
+    font-weight: 500;
+    font-size: 1.7rem;
+}
+/* !TABLE FILTER*/
+/* div.col-12.text-center.catalogTable form label {
+    font-size: 0.rem;
+} */
+/* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+/* select#stlOrder {
+    font-size: 1.3rem;
+}*/
+/* div.col-12.text-center.catalogTable form select#stlOrder option{
+    font-size: 0.9rem;
+} */
+/* !TABLE TEXT*/
+ table.table.table-bordered.mx-auto.catalogTable{
+    font-size: 1.2rem     
      }
-
-
-
-
-
-
-
+ /*!TABLE BUTTON IMG*/
+ table.table.table-bordered.mx-auto.catalogTable img{
+     width: 35px
+ }
 
 }
 
@@ -1137,7 +1127,43 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
      }
 
 
-    
+        /**CATALOG PAGE*/
+    /* ! CATALOG + HEADER CONTAINER*/
+   div.row div.col-12.text-center.catalog h1{
+    font-size: 2rem;
+  }
+    /*!CATALOG+HEADER CONTAINER IMG */
+   div.row div.col-12.text-center.catalog img{
+    width: 14%;
+  }
+/* !CATALOG-CARDS (HIGHTLIGHTS) */
+div.card.catalogCards div.card-body.text-center{
+    font-size: 1.15rem;
+}
+/* !TABLE HEADER TITLE */
+div.col-12.text-center.catalogTable h1{
+    font-weight: 500;
+    font-size: 2rem;
+}
+/* !TABLE FILTER*/
+/* div.col-12.text-center.catalogTable form label {
+    font-size: 0.rem;
+} */
+/* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+/* select#stlOrder {
+    font-size: 1.3rem;
+}*/
+/* div.col-12.text-center.catalogTable form select#stlOrder option{
+    font-size: 0.9rem;
+} */
+/* !TABLE TEXT*/
+ table.table.table-bordered.mx-auto.catalogTable{
+    font-size: 1.2rem     
+     }
+ /*!TABLE BUTTON IMG*/
+ table.table.table-bordered.mx-auto.catalogTable img{
+     width: 35px
+ }
 }
 
 /* !Iphone 6,8,9 */
@@ -1279,9 +1305,44 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
      }
 
 
-
-
-}
+        /**CATALOG PAGE*/
+    /* ! CATALOG + HEADER CONTAINER*/
+    div.row div.col-12.text-center.catalog h1{
+        font-size: 2rem;
+      }
+        /*!CATALOG+HEADER CONTAINER IMG */
+       div.row div.col-12.text-center.catalog img{
+        width: 15%;
+      }
+    /* !CATALOG-CARDS (HIGHTLIGHTS) */
+    div.card.catalogCards div.card-body.text-center{
+        font-size: 1.15rem;
+    }
+    /* !TABLE HEADER TITLE */
+    div.col-12.text-center.catalogTable h1{
+        font-weight: 500;
+        font-size: 2rem;
+    }
+    /* !TABLE FILTER*/
+    /* div.col-12.text-center.catalogTable form label {
+        font-size: 0.rem;
+    } */
+    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+    /* select#stlOrder {
+        font-size: 1.3rem;
+    }*/
+    /* div.col-12.text-center.catalogTable form select#stlOrder option{
+        font-size: 0.9rem;
+    } */
+    /* !TABLE TEXT*/
+     table.table.table-bordered.mx-auto.catalogTable{
+        font-size: 1.2rem     
+         }
+     /*!TABLE BUTTON IMG*/
+     table.table.table-bordered.mx-auto.catalogTable img{
+         width: 35px
+     }
+    }
 
 
 /* !PIXEL & IPHONE PLUS*/
@@ -1419,28 +1480,41 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
          width: 42%
      }
 
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /**CATALOG PAGE*/
+    /* ! CATALOG + HEADER CONTAINER*/
+    div.row div.col-12.text-center.catalog h1{
+        font-size: 2rem;
+      }
+        /*!CATALOG+HEADER CONTAINER IMG */
+       div.row div.col-12.text-center.catalog img{
+        width: 14%;
+      }
+    /* !CATALOG-CARDS (HIGHTLIGHTS) */
+    div.card.catalogCards div.card-body.text-center{
+        font-size: 1.15rem;
+    }
+    /* !TABLE HEADER TITLE */
+    div.col-12.text-center.catalogTable h1{
+        font-weight: 500;
+        font-size: 2rem;
+    }
+    /* !TABLE FILTER*/
+    /* div.col-12.text-center.catalogTable form label {
+        font-size: 0.rem;
+    } */
+    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+    /* select#stlOrder {
+        font-size: 1.3rem;
+    }*/
+    /* div.col-12.text-center.catalogTable form select#stlOrder option{
+        font-size: 0.9rem;
+    } */
+    /* !TABLE TEXT*/
+     table.table.table-bordered.mx-auto.catalogTable{
+        font-size: 1.2rem     
+         }
+     /*!TABLE BUTTON IMG*/
+     table.table.table-bordered.mx-auto.catalogTable img{
+         width: 35px
+     }
 }
