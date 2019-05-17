@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Catálogo da Ásia</title>
+    <title>Quizzes de <span></span></title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,18 +10,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Our Css -->
-    <link rel="stylesheet" href="/CSS/style.css">
-
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="/CSS/adminStyle.css">
     <!-- Our Favicon -->
     <link rel="icon" type="image/png" href="/Images/Logo2.png">
 </head>
 
-<body class="asia">
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#">
             <img src="/Images/logo.png" alt="Logo" class="logo">
@@ -41,7 +38,7 @@
                 <li class="nav-item line">
                     <a class="nav-link" href="#">Jogar Quizzes</a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link estatistic" href="#">Estatísticas</a>
                 </li>
             </ul>
@@ -59,53 +56,62 @@
             </ul>
         </div>
     </nav>
-    <!--Title-->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 text-center catalog">
-                <img src="/Images/Catalogos.png" alt="Catalogo" class="mt-5">
-                <h1 class="display-5 mt-3 mb-5">Catálogo da <span>Ásia</span></h1>
-            </div>
-        </div>
-    </div>
 
-    <!-- jumbotron -->
-    <div class="container-fluid">
-        <div class="jumbotron jumbotron-fluid asiaJumbo">
-            <div class="container text-right">
-                <form class="form-inline">
-                    <div class="form-group selection">
-                        <label for="stlGenre">Filtrar Por: </label>
-                        <select class="form-control" id="stlGenre">
-                            <option value="">Ordem Alfabéticas</option>
-                            <option value="Mais Comentados">Mais Comentados</option>
-                            <option value="Melhor Pontuação">Melhor Pontuação</option>
-                        </select>
-                    </div>
-                    <div class="form-group name">
-                        <label for="txtName">Nome do País: </label>
-                        <input type="text" id="txtName" class="form-control m-2" aria-describedby="helpId">
-                    </div>
-                    <button id="btnFilter" class="btn btn-primary filterCountry">Filtrar</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!--Card-->
     <div class="row">
-        <div class="col-lg-4 col-sm-6 col-xs-12">
-            <div class="card africanCards" style="width: 18rem;">
-                <a href="#"><img src="/Images/Brasil.png" class="card-img-top" alt="Brasil"></a>
-                <div class="card-body">
-                    <p class="card-text paragraph">NOME: <span>Brasil</span> </p>
-                    <p class="card-text paragraph">CAPITAL: <span>Brasília</span></p>
-                    <p class="card-text paragraph">LÍNGUA: <span>Português</span></p>
+        <div class="col-12 text-center quizzes">
+            <img src="/Images/Quizz.png" alt="Utilizadores" class="mt-5 mb-2">
+            <h1 class="display-5 mb-5">Quizzes</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid quizzesCards">
+        <div class="row">
+            <div class="card-deck mx-auto">
+                <div class="card quizzesCards" style="width: 15rem;">
+                    <div class="card-body text-center">
+                        <p>Total de Quizzes</p>
+                        <p><img src="/Images/information.png" class="userImage" alt="Informação" style="width: 20%;"> 3
+                        </p>
+                    </div>
+                </div>
+                <div class="card quizzesCards" style="width: 15rem;">
+                    <div class="card-body text-center">
+                        <p>Total de Níveis</p>
+                        <p><img src="/Images/information.png" class="userImage" alt="Informação" style="width: 20%;"> 56
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="container-fluid">
+        <div class="row quizzesInfo">
+            <div class="card-deck mx-auto mt-5 mb-5">
+                <div class="card quizzInfoCards ml-5 mr-5" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <p>Nível: Bandeiras</p>
+                        <p>Total de Jogos: 54</p>
+                    </div>
+                </div>
+                <div class="card quizzInfoCards ml-5 mr-5" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <p>Nível: Capitais</p>
+                        <p>Total de Jogos: 54</p>
+                    </div>
+                </div>
+                <div class="card quizzInfoCards ml-5 mr-5" style="width: 18rem;">
+                    <div class="card-body text-center">
+                        <p>Nível: Localização</p>
+                        <p>Total de Jogos: 54</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row quizzesInfo">
+            <a href="#" class="btn newLevelBtn mx-auto mb-5">Criar Nível</a>
+        </div>
+    </div>
 
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
@@ -126,6 +132,8 @@
 
                 </div>
                 <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
 
                 <hr class="clearfix w-100 d-md-none">
 
@@ -218,8 +226,7 @@
     </footer>
 
     <!-- Optional JavaScript -->
-
-    <script src="/JS/controler/asia.js"></script>
+    <script src="/JS/controler/adminAfricaQuizz.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

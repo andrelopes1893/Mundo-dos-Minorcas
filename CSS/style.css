@@ -2,9 +2,10 @@ body {
     font-family: Mali;
 }
 
-body.africa {
+body.countries {
     background-color: #F5BB00;
 }
+/* 
 
 body.america {
     background-color: #4AB71B;
@@ -21,6 +22,8 @@ body.europa {
 body.oceania {
     background-color: #B7541B;
 }
+
+*/
 
 .logo {
     width: 120px;
@@ -334,22 +337,6 @@ div.jumbotron.jumbotron-fluid.africaJumbo {
     background-color: #F5BB00
 }
 
-div.jumbotron.jumbotron-fluid.americaJumbo {
-    background-color: #4AB71B
-}
-
-div.jumbotron.jumbotron-fluid.asiaJumbo {
-    background-color: #BE3DE3
-}
-
-div.jumbotron.jumbotron-fluid.europeJumbo {
-    background-color: #204987
-}
-
-div.jumbotron.jumbotron-fluid.oceaniaJumbo {
-    background-color: #B7541B
-}
-
 /* ! CONTINENT CARDS */
 div.card {
     margin: auto;
@@ -567,6 +554,38 @@ body#helpModal:after {
     pointer-events: none;
     z-index: 100;
     opacity: .5
+}
+
+/* !PROFILE */
+
+div.container-fluid.profile div.row{
+    border: 2px solid #29ABE2;
+}
+
+div.row.rounded{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 5%;
+}
+
+
+div.container-fluid.profile div.row div.col-lg-6{
+    padding-right: 15%;
+    padding-left: 15%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+div.line{
+    height: 80%;
+    width: 2px;
+    background-color: #29ABE2;
+    left:50%;
+    top: 10%;
+}
+
+form div.form-group > input{
+    border-radius: 0px 0px 2px 0px !important;
 }
 
 /* Footer */
@@ -925,26 +944,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         padding-bottom: 4%;
     }
 
-    div.jumbotron.americaJumbo {
-        padding-top: 4%;
-        padding-bottom: 4%;
-    }
-
-    div.jumbotron.asiaJumbo {
-        padding-top: 4%;
-        padding-bottom: 4%;
-    }
-
-    div.jumbotron.europeJumbo {
-        padding-top: 4%;
-        padding-bottom: 4%;
-    }
-
-    div.jumbotron.oceaniaJumbo {
-        padding-top: 4%;
-        padding-bottom: 4%;
-    }
-
     /* Quizz Title */
     h1.display-4.mx-auto.mt-3 {
         font-size: 2rem;
@@ -1043,26 +1042,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
     /* jumbotron */
     div.jumbotron.africaJumbo {
-        padding-top: 3%;
-        padding-bottom: 3%;
-    }
-
-    div.jumbotron.americaJumbo {
-        padding-top: 3%;
-        padding-bottom: 3%;
-    }
-
-    div.jumbotron.asiaJumbo {
-        padding-top: 3%;
-        padding-bottom: 3%;
-    }
-
-    div.jumbotron.europeJumbo {
-        padding-top: 3%;
-        padding-bottom: 3%;
-    }
-
-    div.jumbotron.oceaniaJumbo {
         padding-top: 3%;
         padding-bottom: 3%;
     }
