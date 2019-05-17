@@ -235,6 +235,10 @@ footer p.copyrightParagraph{
     margin: 5px 2px;
 }
 
+.fa-map-marker-alt{
+    color: #ffffff;
+}
+
 /* Favicon Facebook */
 .fa-facebook{
     color: #ffffff;;
