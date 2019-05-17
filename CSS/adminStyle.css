@@ -405,6 +405,11 @@ div.container-fluid.suggestions h1 {
     color: #ffffff;
 }
 
+/*!SUGESTION HEADER IMG*/
+div.container-fluid.suggestions div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion img.mt-5.mb-2{
+    width: 6%;
+}
+
 /* !SUGGESTION-CARDS */
 div.container-fluid.tableInsideSugestions {
     background-color: #F249E6
@@ -442,18 +447,18 @@ div.col-12.text-center.suggestionTableHeader h1 {
 }
 
 /* ! SUGESTION TABLE FILTER*/
-div.container-fluid.tableInsideSugestions label {
-    font-size: 1.5rem;
-}
-
-/* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
-select#stlOrder {
+/* div.container-fluid.tableInsideSugestions label {
+    font-size: 1.5rem; 
+}*/
+/* need some talking about this*/
+/* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES */
+/* select#stlOrder {
     font-size: 1.3rem;
 }
 
 select#stlOrder option {
     font-size: 1rem;
-}
+} */
 
 /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
 button.btn.btn-success.read {
@@ -626,51 +631,50 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
     /** SUGESTION PAGE */
     /* ! SUGGESTIONS + HEADER CONTAINER*/
-    div.container-fluid.suggestions h1 {}
+    div.container-fluid.suggestions div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion h1{
+        font-size: 2rem;
+    }
 
     /*!SUGESTION + HEADER CONTAINER IMG */
-    div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion img.mt-5.mb-2 {}
-
-    /* !SUGGESTION-CARDS */
+    div.container-fluid.suggestions div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion img.mt-5.mb-2{
+        width: 8%;
+    }
+    /* !SUGGESTION-CARDS (HIGHTLIGHTS) */
     div.card.suggestionCards {
         font-size: 20px;
     }
-
-    /* ! TABLE HEADER CONTAINER SUGGESTION TABLE + TABLE */
-    div.col-12.text-center.suggestionTableHeader {}
-
-    div.container-fluid.suggestions h1.display-5.mb-5 {
-        font-size: 2.5rem;
-
-    }
-
     /* !TABLE HEADER TITLE */
     div.col-12.text-center.suggestionTableHeader h1 {
-        font-size: 2.1rem;
+        font-size: 2rem;
     }
-
     /* ! SUGESTION TABLE FILTER*/
-    div.container-fluid.tableInsideSugestions label {
+    /* div.container-fluid.tableInsideSugestions label {
         font-size: 1.5rem;
-    }
-
+    } */
     /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
-    select#stlOrder {
+    /* select#stlOrder {
         font-size: 1.3rem;
     }
 
     select#stlOrder option {
         font-size: 1rem;
-    }
-
+    } */
+    /**SUGESTION TABLE */
     /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
     button.btn.btn-success.read {
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    /* !TABLE HEADER*/
+    /* !TABLE TEXT*/
+     table.table.table-bordered.mx-auto{
+         font-size: 20px
+     }
 
-    /* ! TABLE BODY (<p></p>) */
+     /*!TABLE DELETE BUTTON IMG*/
+     table.table.table-bordered.mx-auto img{
+         width: 23%
+     }
+
 }
 
 /* !IPAD */
@@ -739,6 +743,54 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     div.col-12.text-center.quizzesTable h1.display-5.mt-5.mb-5 {
         font-size: 2rem;
     }
+     /** SUGESTION PAGE */
+    /* ! SUGGESTIONS + HEADER CONTAINER*/
+    div.container-fluid.suggestions div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion h1{
+        font-size: 1.7rem;
+    }
+
+    /*!SUGESTION + HEADER CONTAINER IMG */
+    div.container-fluid.suggestions div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion img.mt-5.mb-2{
+        width: 9%;
+    }
+    /* !SUGGESTION-CARDS (HIGHTLIGHTS) */
+    div.card.suggestionCards {
+        font-size: 1.15rem;
+    }
+    /* !TABLE HEADER TITLE */
+    div.col-12.text-center.suggestionTableHeader h1 {
+        font-size: 1.7rem;
+    }
+    /* ! SUGESTION TABLE FILTER*/
+    /* div.container-fluid.tableInsideSugestions label {
+        font-size: 1.5rem;
+    } */
+    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+    /* select#stlOrder {
+        font-size: 1.3rem;
+    }
+
+    select#stlOrder option {
+        font-size: 1rem;
+    } */
+    /**SUGESTION TABLE */
+    /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
+    button.btn.btn-success.read {
+        font-size:1.1rem;
+    }
+
+    /* !TABLE TEXT*/
+     table.table.table-bordered.mx-auto{
+         font-size: 1.4rem    
+         }
+     /*!TABLE DELETE BUTTON IMG*/
+     table.table.table-bordered.mx-auto img{
+         width: 29%
+     }
+
+
+
+
 }
 
 /* !SMALL PHONES FOCUS*/
@@ -813,6 +865,58 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         margin-top: 5%;
         font-size: 1.2rem;
     }
+
+  /** SUGESTION PAGE */
+    /* ! SUGGESTIONS + HEADER CONTAINER*/
+    div.container-fluid.suggestions div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion h1{
+        font-size: 2rem;
+    }
+
+    /*!SUGESTION + HEADER CONTAINER IMG */
+    div.container-fluid.suggestions div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion img.mt-5.mb-2{
+        width: 19%;
+    }
+    /* !SUGGESTION-CARDS (HIGHTLIGHTS) */
+    div.card.suggestionCards {
+        font-size: 1.15rem;
+    }
+   /* img.userImage{
+        width: 0%
+    } */
+    /* !TABLE HEADER TITLE */
+    div.col-12.text-center.suggestionTableHeader h1 {
+        font-size: 2rem;
+    }
+    /* ! SUGESTION TABLE FILTER*/
+    /* div.container-fluid.tableInsideSugestions label {
+        font-size: 1.5rem;
+    } */
+    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+    /* select#stlOrder {
+        font-size: 1.3rem;
+    }
+
+    select#stlOrder option {
+        font-size: 1rem;
+    } */
+    /**SUGESTION TABLE */
+    /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
+    button.btn.btn-success.read {
+        font-size:0.9rem; 
+    }
+
+    /* !TABLE TEXT*/
+     table.table.table-bordered.mx-auto{
+         font-size: 1.2rem    
+         }
+     /*!TABLE DELETE BUTTON IMG*/
+     table.table.table-bordered.mx-auto img{
+         width: 42%
+     }
+
+
+
+    
 }
 
 /* !Iphone 6,8,9 */
@@ -866,6 +970,57 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         margin-top: 5%;
         font-size: 1.2rem;
     }
+
+ /** SUGESTION PAGE */
+    /* ! SUGGESTIONS + HEADER CONTAINER*/
+    div.container-fluid.suggestions div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion h1{
+        font-size: 2rem;
+    }
+
+    /*!SUGESTION + HEADER CONTAINER IMG */
+    div.container-fluid.suggestions div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion img.mt-5.mb-2{
+        width: 18%;
+    }
+    /* !SUGGESTION-CARDS (HIGHTLIGHTS) */
+    div.card.suggestionCards {
+        font-size: 1.15rem;
+    }
+   /* img.userImage{
+        width: 0%
+    } */
+    /* !TABLE HEADER TITLE */
+    div.col-12.text-center.suggestionTableHeader h1 {
+        font-size: 2rem;
+    }
+    /* ! SUGESTION TABLE FILTER*/
+    /* div.container-fluid.tableInsideSugestions label {
+        font-size: 1.5rem;
+    } */
+    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+    /* select#stlOrder {
+        font-size: 1.3rem;
+    }
+
+    select#stlOrder option {
+        font-size: 1rem;
+    } */
+    /**SUGESTION TABLE */
+    /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
+    button.btn.btn-success.read {
+        font-size:0.9rem; 
+    }
+
+    /* !TABLE TEXT*/
+     table.table.table-bordered.mx-auto{
+         font-size: 1.2rem    
+         }
+     /*!TABLE DELETE BUTTON IMG*/
+     table.table.table-bordered.mx-auto img{
+         width: 42%
+     }
+
+
+
 }
 
 
@@ -918,4 +1073,52 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         margin-top: 5%;
         font-size: 1.2rem;
     }
+
+
+     /** SUGESTION PAGE */
+    /* ! SUGGESTIONS + HEADER CONTAINER*/
+    div.container-fluid.suggestions div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion h1{
+        font-size: 2rem;
+    }
+
+    /*!SUGESTION + HEADER CONTAINER IMG */
+    div.container-fluid.suggestions div.col-lg-12.col-md-12.col-sm-12.col-12.text-center.suggestion img.mt-5.mb-2{
+        width: 19%;
+    }
+    /* !SUGGESTION-CARDS (HIGHTLIGHTS) */
+    div.card.suggestionCards {
+        font-size: 1.15rem;
+    }
+   /* img.userImage{
+        width: 0%
+    } */
+    /* !TABLE HEADER TITLE */
+    div.col-12.text-center.suggestionTableHeader h1 {
+        font-size: 2rem;
+    }
+    /* ! SUGESTION TABLE FILTER*/
+    /* div.container-fluid.tableInsideSugestions label {
+        font-size: 1.5rem;
+    } */
+    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
+    /* select#stlOrder {
+        font-size: 1.3rem;
+    }
+    select#stlOrder option {
+        font-size: 1rem;
+    } */
+    /**SUGESTION TABLE */
+    /* ! TABLE READ BUTTON -SUGGESTION TABLE*/
+    button.btn.btn-success.read {
+        font-size:0.9rem; 
+    }
+
+    /* !TABLE TEXT*/
+     table.table.table-bordered.mx-auto{
+         font-size: 1.2rem    
+         }
+     /*!TABLE DELETE BUTTON IMG*/
+     table.table.table-bordered.mx-auto img{
+         width: 42%
+     }
 }
