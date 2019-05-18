@@ -100,7 +100,7 @@ div.row div.col-12.catalog {
     color: #204987;
 }
 
-div.row div.col-12.catalog h1{
+div.row div.col-12.catalog h1 {
     font-size: 2rem;
 }
 
@@ -150,9 +150,9 @@ img.logo.logoQuizz {
 
 div.col-lg-6.flagInfoText p {
     color: #ffffff;
-    padding-top: 4%;
     font-size: 22px;
     margin-bottom: 0;
+    margin: auto;
 }
 
 @media only screen and (max-width: 767px) {
@@ -182,8 +182,7 @@ div.row div.col-12.text-center.question p {
 
 div.row.questionImage div.col-lg-6 img.flagImage {
     width: 44%;
-    margin-top: 5%;
-    margin-left: 20%;
+    margin: auto;
     border-radius: 20px 20px 20px 20px;
 }
 
@@ -193,7 +192,7 @@ div.col-lg-6.optionsCol {
 }
 
 div.row.optionsRow button.btn {
-    width: 50%;
+    width: 40%;
     margin: 2%;
     border: 1px solid #29ABE2;
     border-radius: 8px;
@@ -204,18 +203,7 @@ div.row.optionsRow button.btn {
 @media only screen and (max-width: 768px) {
     div.row.questionImage div.col-lg-6 img.flagImage {
         width: 44%;
-        margin-top: 6%;
-        margin-left: 3%;
-        border-radius: 20px 20px 20px 20px;
-    }
-}
-
-@media only screen and (max-width: 1024px) and (min-width: 769px) {
-
-    div.row.questionImage div.col-lg-6 img.flagImage {
-        width: 65%;
-        margin-top: 5%;
-        margin-left: 20%;
+        margin-top: 4%;
         border-radius: 20px 20px 20px 20px;
     }
 }
@@ -623,11 +611,11 @@ img.modalLogo {
     margin-left: 46%;
 }
 
-div.modal-body form div.form-group.profile{
+div.modal-body form div.form-group.profile {
     margin-bottom: 5%;
 }
 
-button.btn.saveNewProfile{
+button.btn.saveNewProfile {
     color: #000000;
     border: 1px solid #29ABE2;
 }
@@ -635,13 +623,15 @@ button.btn.saveNewProfile{
 /* Footer */
 footer.page-footer {
     background: #29ABE2;
-    color: #ffffff
+    color: #ffffff;
+    font-size: .9rem;
 }
 
 /* Footer Headings */
 footer .footerHeading {
     color: #CCCC33;
     white-space: nowrap;
+    font-size: 1rem;
 }
 
 /* Footer Line */
@@ -845,7 +835,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
     /* Flag Level */
     div.col-lg-6.flagInfoText p {
-        margin-bottom: 4%;
         font-size: 1.1rem
     }
 
@@ -931,7 +920,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
     /* Flag Level */
     div.col-lg-6.flagInfoText p {
-        margin-bottom: 4%;
         font-size: 1.1rem
     }
 
@@ -1023,7 +1011,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     /* Quizzes Levels */
 
     div.col-lg-6.flagInfoText p {
-        margin-top: 6%;
         font-size: 1.3rem;
     }
 
@@ -1033,7 +1020,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
     div.row.questionImage div.col-lg-6 img.flagImage {
         width: 70%;
-        margin-top: 7%;
+        margin-top: 8%;
     }
 
     /* INFO COUNTRIES IMAGE */
@@ -1120,7 +1107,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     /* Quizzes Levels */
 
     div.col-lg-6.flagInfoText p {
-        margin-top: 5%;
         font-size: 1.6rem;
     }
 
@@ -1130,7 +1116,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
     div.row.questionImage div.col-lg-6 img.flagImage {
         width: 60%;
-        margin-top: 4.5%;
     }
 
     /* INFO COUNTRIES IMAGE + TEXT */
