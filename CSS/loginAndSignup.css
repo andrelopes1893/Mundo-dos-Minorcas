@@ -1,0 +1,392 @@
+body {
+    font-family: Mali;
+    background-color: #0079AC;
+}
+
+/* !"Navbar" */
+.logo {
+    width: 120px;
+    height: 80px;
+}
+
+.navbar-brand {
+    margin: auto;
+}
+
+.navbar {
+    background-color: #29abe2;
+}
+
+/* !CONTAINERHEADER(IMG) */
+div.header {
+    padding: 0%;
+    margin-bottom: 4%;
+}
+
+div.header img.header {
+    width: 12%;
+}
+
+/* !THE FULL CONTAINER  FORM */
+div.container-fluid.formContainer {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+/* !ROW CONTAINER FORM AND OTHER ELEMENTS */
+div.container-fluid.formContainer div.row {
+    margin: auto;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: #29ABE2 solid 2px;
+    padding: 2%;
+    border-radius: 7px;
+    background-color: #ffffff
+}
+
+/* !FORM INPUT */
+form.SignInform div.form-group input {
+    border: 2px solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #29ABE2;
+    font-size: 1.3rem;
+    margin-bottom: 4%;
+}
+
+/* !FORM SIGN IN BUTTON */
+form.SignInform button.btn.btn-primary.logIn {
+    width: 50%;
+    font-size: 1.2rem;
+    border: 2px solid #29abe2;
+    background-color: #CCCC33;
+    color: #ffffff
+}
+
+div.text-center.buttonContainer {
+    margin-top: 7%
+}
+
+/* !SIGN IN OR SIGN UP DIVIDOR */
+h1.display-5 {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 1.5rem;
+}
+
+/* !REGISTRATION MODAL OPEN*/
+button.btn.btn-primary.signUp {
+    width: 50%;
+    font-size: 1.2rem;
+    color: #000000;
+    border: 2px solid #29abe2;
+    background-color: #CCCC33;
+    color: #ffffff
+}
+
+/* !FOOTER */
+/* Footer */
+footer.page-footer {
+    background: #29ABE2;
+    color: #ffffff;
+    font-size: .9rem;
+}
+
+/* Footer Headings */
+footer .footerHeading {
+    color: #CCCC33;
+    white-space: nowrap;
+    font-size: 1rem;
+}
+
+/* Footer Line */
+footer .footerLine {
+    background-color: #CCCC33;
+    margin: 0;
+}
+
+/* Paragrafo copyright */
+footer p.copyrightParagraph {
+    margin: 0;
+}
+
+/* Favicons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+/* Favicon Facebook */
+.fa-facebook {
+    color: #ffffff;
+}
+
+/* Favicon Twitter */
+.fa-twitter {
+    color: #ffffff;
+}
+
+/* Favicon Youtube */
+.fa-youtube {
+    color: #ffffff;
+}
+
+/* Favicon Instgram */
+.fa-instagram {
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+/* !iPhone 6,8,9 */
+@media only screen and (max-width: 411px) and (min-width: 370px) {
+
+    div.container-fluid.formContainer div.row {
+        margin: auto;
+        margin-left: 3%;
+        margin-right: 3%;
+        border: #29ABE2 solid 2px;
+        padding: 0%;
+        border-radius: 7px;
+        background-color: #ffffff
+    }
+
+    /* !LOGO CONTAINER */
+    div.header {
+        padding: 0%;
+        margin-top: 5%
+    }
+    div.header img.header {
+        width: 20%;
+    }
+
+    /* !ROW CONTAINER FORM AND OTHER ELEMENTS */
+    div.container-fluid.formContainer div.row {
+        padding: 1%;
+    }
+
+    /* !FORM INPUT */
+    form.SignInform div.form-group input {
+        font-size: 0.8rem;
+    }
+
+    /* !FORM SIGN IN BUTTON */
+    form.SignInform button.btn.btn-primary.logIn {
+        width: 60%;
+        font-size: 0.9rem;
+    }
+
+    /* !REGISTRATION MODAL OPEN*/
+    button.btn.btn-primary.signUp {
+        width: 60%;
+        font-size: 0.9rem;
+
+    }
+
+    /* !SIGN IN OR SIGN UP DIVIDOR */
+    h1.display-5 {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        font-size: 0.7rem;
+    }
+}
+
+/* !SMALL PHONES FOCUS*/
+@media screen and (max-width: 376px) {
+
+    div.container-fluid.formContainer div.row {
+        margin: auto;
+        margin-left: 3%;
+        margin-right: 3%;
+        border: #29ABE2 solid 2px;
+        padding: 0%;
+        border-radius: 7px;
+        background-color: #ffffff
+    }
+
+    /* !LOGO CONTAINER */
+    div.header {
+        padding: 0%;
+        margin-top: 5%
+    }
+    div.header img.header {
+        width: 20%;
+    }
+
+    /* !ROW CONTAINER FORM AND OTHER ELEMENTS */
+    div.container-fluid.formContainer div.row {
+        padding: 1%;
+    }
+
+    /* !FORM INPUT */
+    form.SignInform div.form-group input {
+        font-size: 0.8rem;
+    }
+
+    /* !FORM SIGN IN BUTTON */
+    form.SignInform button.btn.btn-primary.logIn {
+        width: 60%;
+        font-size: 0.9rem;
+    }
+
+    /* !REGISTRATION MODAL OPEN*/
+    button.btn.btn-primary.signUp {
+        width: 60%;
+        font-size: 0.9rem;
+
+    }
+
+    /* !SIGN IN OR SIGN UP DIVIDOR */
+    h1.display-5 {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        font-size: 0.7rem;
+    }
+}
+
+/* !IPAD */
+@media only screen and (max-width: 769px) and (min-width: 768px) {
+
+    div.header img.header {
+        width: 16%;
+    }
+
+    /* !ROW CONTAINER FORM AND OTHER ELEMENTS */
+    div.container-fluid.formContainer div.row {
+        padding: 1%;
+    }
+
+    /* !FORM INPUT */
+    form.SignInform div.form-group input {
+        font-size: 1.2rem;
+    }
+
+    /* !FORM SIGN IN BUTTON */
+    form.SignInform button.btn.btn-primary.logIn {
+        width: 60%;
+        font-size: 1rem;
+    }
+
+    /* !REGISTRATION MODAL OPEN*/
+    button.btn.btn-primary.signUp {
+        width: 60%;
+        font-size: 1rem;
+
+    }
+
+    /* !SIGN IN OR SIGN UP DIVIDOR */
+    h1.display-5 {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        font-size: 0.9rem;
+    }
+
+
+
+
+
+}
+
+/* !(IPAD-PRO) */
+@media only screen and (max-width: 1025px) and (min-width: 1024px) {
+    div.header img.header {
+        width: 14%;
+    }
+
+    /* !ROW CONTAINER FORM AND OTHER ELEMENTS */
+    div.container-fluid.formContainer div.row {
+        padding: 1%;
+    }
+
+    /* !FORM INPUT */
+    form.SignInform div.form-group input {
+        font-size: 1.2rem;
+    }
+
+    /* !FORM SIGN IN BUTTON */
+    form.SignInform button.btn.btn-primary.logIn {
+        width: 60%;
+        font-size: 1rem;
+    }
+
+    /* !REGISTRATION MODAL OPEN*/
+    button.btn.btn-primary.signUp {
+        width: 60%;
+        font-size: 1rem;
+
+    }
+
+    /* !SIGN IN OR SIGN UP DIVIDOR */
+    h1.display-5 {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        font-size: 0.9rem;
+    }
+
+
+}
+
+/* !PIXEL & IPHONE PLUS*/
+@media only screen and (max-width: 415px) and (min-width: 411px) {
+
+
+    div.container-fluid.formContainer div.row {
+        margin: auto;
+        margin-left: 3%;
+        margin-right: 3%;
+        border: #29ABE2 solid 2px;
+        padding: 0%;
+        border-radius: 7px;
+        background-color: #ffffff
+    }
+    /* !LOGO CONTAINER */
+    div.header {
+        padding: 0%;
+        margin-top: 5%
+    }
+    div.header img.header {
+        width: 20%;
+    }
+
+    /* !ROW CONTAINER FORM AND OTHER ELEMENTS */
+    div.container-fluid.formContainer div.row {
+        padding: 1%;
+    }
+
+    /* !FORM INPUT */
+    form.SignInform div.form-group input {
+        font-size: 0.8rem;
+    }
+
+    /* !FORM SIGN IN BUTTON */
+    form.SignInform button.btn.btn-primary.logIn {
+        width: 60%;
+        font-size: 0.9rem;
+    }
+
+    /* !REGISTRATION MODAL OPEN*/
+    button.btn.btn-primary.signUp {
+        width: 60%;
+        font-size: 0.9rem;
+    }
+    /* !SIGN IN OR SIGN UP DIVIDOR */
+    h1.display-5 {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        font-size: 0.7rem;
+    }
+
+
+
+
+
+}
