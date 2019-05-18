@@ -5,6 +5,7 @@ body {
 body.countries {
     background-color: #F5BB00;
 }
+
 /* 
 
 body.america {
@@ -44,7 +45,7 @@ body.oceania {
 }
 
 .nav-link {
-    font-size: 24px;
+    font-size: 1.3rem;
 }
 
 .nav-item {
@@ -96,7 +97,11 @@ div.dropdown-menu {
 /* ! HEADER */
 
 div.row div.col-12.catalog {
-    color: #000000;
+    color: #204987;
+}
+
+div.row div.col-12.catalog h1{
+    font-size: 2rem;
 }
 
 div.row div.col-12.catalog span {
@@ -536,13 +541,6 @@ img.modalLogo {
     color: #ffffff;
 }
 
-.modal-dialog {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%) !important;
-}
-
 body#helpModal:after {
     position: relative;
     top: 0;
@@ -558,34 +556,80 @@ body#helpModal:after {
 
 /* !PROFILE */
 
-div.container-fluid.profile div.row{
+div.container-fluid.profile div.row {
     border: 2px solid #29ABE2;
 }
 
-div.row.rounded{
+div.row.rounded {
     margin-left: 15%;
     margin-right: 15%;
     margin-bottom: 5%;
 }
 
+div.row.rounded div.col-lg-6>img {
+    padding: 10%;
+    border: 1px solid #CCCC33;
+    border-radius: 50%;
+}
 
-div.container-fluid.profile div.row div.col-lg-6{
+div.row.rounded div.col-lg-6 p {
+    padding-top: 10%;
+}
+
+div.container-fluid.profile div.row div.col-lg-6 {
     padding-right: 15%;
     padding-left: 15%;
     padding-top: 5%;
     padding-bottom: 5%;
 }
 
-div.line{
+div.line {
     height: 80%;
     width: 2px;
     background-color: #29ABE2;
-    left:50%;
+    left: 50%;
     top: 10%;
 }
 
-form div.form-group > input{
-    border-radius: 0px 0px 2px 0px !important;
+form div.form-group>input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #29ABE2;
+}
+
+form div.form-group {
+    margin-bottom: 25%;
+}
+
+form div.form-group>input:focus {
+    margin-bottom: 25%;
+    color: #000000;
+    box-shadow: 0 0 0 0;
+}
+
+button.btn.edit {
+    padding-right: 37%;
+    padding-left: 37%;
+    border: 1px solid #29ABE2;
+    border-radius: 6px;
+}
+
+/* Profile Modal */
+
+img.modalLogo {
+    margin: auto;
+    width: 10%;
+    margin-left: 46%;
+}
+
+div.modal-body form div.form-group.profile{
+    margin-bottom: 5%;
+}
+
+button.btn.saveNewProfile{
+    color: #000000;
+    border: 1px solid #29ABE2;
 }
 
 /* Footer */
@@ -1008,7 +1052,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         padding-top: 3%;
     }
 
-    p.card-text{
+    p.card-text {
         font-size: 1.2rem;
     }
 }
@@ -1115,7 +1159,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         padding-top: 3%;
     }
 
-    p.card-text{
+    p.card-text {
         font-size: 1.2rem;
     }
 }
