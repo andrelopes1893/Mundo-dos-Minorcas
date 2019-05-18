@@ -85,6 +85,24 @@ button.btn.btn-primary.signUp {
     color: #ffffff
 }
 
+/* !MODAL*/
+div#newUserModal div.modal-content {
+    background-color: #29ABE2;
+    color: #ffffff;
+}
+
+button.btn.btn-primary.crearteUser {
+    background-color: #BFFFFF;
+    color: #ffffff;
+    width: 80%;
+    background-color: #CCCC33
+}
+
+/* !CANCEL REGISTRATION*/
+div.modal-header button.btn.btn-danger {
+    margin-left: 87%;
+}
+
 /* !FOOTER */
 /* Footer */
 footer.page-footer {
@@ -165,6 +183,7 @@ footer p.copyrightParagraph {
         padding: 0%;
         margin-top: 5%
     }
+
     div.header img.header {
         width: 20%;
     }
@@ -198,8 +217,23 @@ footer p.copyrightParagraph {
         margin-bottom: 1%;
         font-size: 0.7rem;
     }
+
+    div.modal-header button.btn.btn-danger {
+        margin-left: 69%;
+    }
 }
 
+
+
+
+
+
+
+
+
+
+
+/* ?MQ ADD ADJUSTS */
 /* !SMALL PHONES FOCUS*/
 @media screen and (max-width: 376px) {
 
@@ -218,6 +252,7 @@ footer p.copyrightParagraph {
         padding: 0%;
         margin-top: 5%
     }
+
     div.header img.header {
         width: 20%;
     }
@@ -251,6 +286,12 @@ footer p.copyrightParagraph {
         margin-bottom: 1%;
         font-size: 0.7rem;
     }
+
+    /* !CANCEL REGISTRATION*/
+    div.modal-header button.btn.btn-danger {
+        margin-left: 69%;
+    }
+
 }
 
 /* !IPAD */
@@ -291,6 +332,10 @@ footer p.copyrightParagraph {
     }
 
 
+    /* !CANCEL REGISTRATION*/
+    div.modal-header button.btn.btn-danger {
+        margin-left: 79%;
+    }
 
 
 
@@ -348,11 +393,13 @@ footer p.copyrightParagraph {
         border-radius: 7px;
         background-color: #ffffff
     }
+
     /* !LOGO CONTAINER */
     div.header {
         padding: 0%;
         margin-top: 5%
     }
+
     div.header img.header {
         width: 20%;
     }
@@ -378,6 +425,7 @@ footer p.copyrightParagraph {
         width: 60%;
         font-size: 0.9rem;
     }
+
     /* !SIGN IN OR SIGN UP DIVIDOR */
     h1.display-5 {
         margin-top: 1%;
@@ -385,8 +433,8 @@ footer p.copyrightParagraph {
         font-size: 0.7rem;
     }
 
-
-
-
-
+    /* !CANCEL REGISTRATION*/
+    div.modal-header button.btn.btn-danger {
+        margin-left: 74%;
+    }
 }

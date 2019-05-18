@@ -6,15 +6,14 @@ CRIEI:
 
 HTML:
 
-- Criei uma pagina para log in e registro onde podemos colocar um modal para sign up
+- Criei uma pagina para log in e registro onde existe um  modal para sign up
 
 CSS:
 
-- NOVO CSS PARA LOG IN E SIGN UP 
+- NOVO CSS PARA LOG IN E SIGN UP  com MQ para ajustes
 
 Falta fazer:
-
-- Modal de Registo
 - Alinhar button de alterar perfil (dentro da modal) no meio
 
-LET'S GO!!
+LET'S GO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Vou sair para ver o jogo na casa da malta de Cv YA YOOOOO
