@@ -1156,3 +1156,13 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         font-size: 1.2rem;
     }
 }
+
+/*modal create button align to center*/
+#btnSaveNewProfile{
+    margin-left: 45%;
+}
+
+/*modal Logo align to center*/
+#modalLogo{
+    margin-left: 45%;
+}
