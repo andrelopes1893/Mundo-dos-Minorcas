@@ -100,7 +100,7 @@
         <div class="container-fluid userFilter">
             <form class="form-inline">
                 <div class="form-group">
-                    <label for="stlGenre">Filtrar Por:</label>
+                    <label for="stlGenre" class="mr-3">Filtrar Por:</label>
                     <select class="form-control" id="stlOrder">
                         <option value="">Ordem Alfabéticas</option>
                         <option value="Mais Comentados">Total de XP</option>
@@ -110,10 +110,10 @@
         </div>
 
         <!-- table -->
-        <div class="row mx-auto">
-            <div class="col-12 text-center">
+        <div class="row">
+            <div class="col-12">
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered usersTable">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -212,9 +212,7 @@
             </div>
         </div>
     </div>
-
-
-
+    
     <!-- Modal button -->
     <div class="row addAdminModalButtonContainer">
         <button type="button" class="btn createAdmin mb-5" data-toggle="modal" data-target="#newAdminUserModal">Novo

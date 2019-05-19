@@ -70,6 +70,26 @@ div.dropdown-menu {
     }
 }
 
+/* ! BUTTONS MODAL LEVELS*/
+
+button.btn.createLevel{
+    background-color: transparent;
+    color: #29ABE2;
+    border: 1px solid #29ABE2;
+}
+
+button.btn.approve{
+    background-color: transparent;
+    color: #29ABE2;
+    border: 1px solid #29ABE2;
+}
+
+button.btn.reject{
+    background-color: transparent;
+    color: #29ABE2;
+    border: 1px solid #29ABE2;
+}
+
 /* ! USERS + HEADER CONTAINER*/
 
 div.row div.col-12.users {
@@ -98,10 +118,6 @@ div.container-fluid.userFilter {
     font-size: 24px;
 }
 
-div.container-fluid.userFilter form.form-inline div.form-group label {
-    margin-right: 3%;
-}
-
 /* ! USERS TABLE + CONTAINER + HEADER*/
 div.container-fluid.users {
     background-color: #29ABE2;
@@ -124,7 +140,11 @@ table.table-bordered {
     text-align: center;
     vertical-align: middle;
     margin-bottom: 5%;
+}
 
+div.table-responsive{
+    padding-right: 5%;
+    padding-left: 5%;
 }
 
 table.table-bordered>thead>tr>th {
@@ -181,10 +201,9 @@ div#newAdminUserModal div.modal-content {
     color: #ffffff;
 }
 
-.btn.btn-primary.crearteAdmin {
+.btn.btn-primary.createAdmin {
     background-color: #BFFFFF;
     color: #29ABE2;
-    width: 100%;
 }
 
 /* !BLOCK USER ACCOUNT MODAL */
@@ -271,7 +290,7 @@ div.row.quizzesInfo div.card-deck.mx-auto div.card.quizzInfoCards {
 
 /* ! CREATE NEW LEVEL - BUTTON */
 
-div.row.quizzesInfo a.btn.newLevelBtn {
+div.row.quizzesInfo button.btn.newLevelBtn {
     background-color: #BFFFFF;
     color: #29ABE2;
     font-size: 24px;
@@ -331,11 +350,36 @@ div.row div.card-deck.mx-auto div.card.catalogCards {
     color: #ffffff;
 }
 
+/* ! SELECT FORMS */
+
+select.form-control {
+    border: 1px solid #ffffff;
+    background-color: transparent;
+    color: #000000;
+}
+
+select.form-control:focus {
+    color: #000000;
+    border: 1px solid #ffffff;
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+}
+
+select.form-control.levels{
+    border: 1px solid #29ABE2;
+    background-color: transparent;
+    color: #000000;
+}
+
+div.form-group.levels input.form-control{
+    border: 1px solid #29ABE2;
+}
+
 /* ! TABLE HEADER CONTAINER CATALOG TABLE + TABLE */
 
 div.row div.col-12.text-center.catalogTable {
     background-color: rgb(247, 127, 53);
-    color: #ffffff;
 }
 
 div.row.catalogInfo a.btn.addCountryBtn {
@@ -343,6 +387,10 @@ div.row.catalogInfo a.btn.addCountryBtn {
     color: #29ABE2;
     font-size: 24px;
 }
+
+/* table tbody td{
+    color: #ffffff;
+} */
 
 /* ! CREATE NEW COUNTRY - BUTTON */
 

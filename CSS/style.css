@@ -289,6 +289,13 @@ div.form-group.selection select {
     padding-left: 0%;
 }
 
+button.btn.filterCountry {
+    width: 100px;
+    margin-left: 10px;
+    border: 2px solid #29ABE2;
+    color: #ffffff;
+}
+
 @media only screen and (max-width:415px) {
     div.form-group.selection label {
         padding-right: 100px;
@@ -310,9 +317,10 @@ div.form-group.selection select {
         margin-left: 0%
     }
 
-    button.btn.btn-primary.filterCountry {
+    button.btn.filterCountry {
         width: 100px;
         margin-left: 10px;
+        border: 1px solid #29ABE2;
     }
 }
 

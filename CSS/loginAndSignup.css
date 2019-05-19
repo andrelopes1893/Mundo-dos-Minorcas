@@ -52,16 +52,21 @@ form.SignInform div.form-group input {
     border-right: none;
     border-bottom-color: #29ABE2;
     font-size: 1.3rem;
-    margin-bottom: 4%;
+    margin-bottom: 8%;
+}
+
+form.SignInform div.form-group input:focus {
+    color: #000000;
+    box-shadow: 0 0 0 0;
 }
 
 /* !FORM SIGN IN BUTTON */
-form.SignInform button.btn.btn-primary.logIn {
+form.SignInform button.btn.logIn {
     width: 50%;
     font-size: 1.2rem;
     border: 2px solid #29abe2;
-    background-color: #CCCC33;
-    color: #ffffff
+    background-color: transparent;
+    color: #29ABE2
 }
 
 div.text-center.buttonContainer {
@@ -76,13 +81,13 @@ h1.display-5 {
 }
 
 /* !REGISTRATION MODAL OPEN*/
-button.btn.btn-primary.signUp {
-    width: 50%;
+button.btn.signUp {
+    width: 80%;
     font-size: 1.2rem;
     color: #000000;
-    border: 2px solid #29abe2;
-    background-color: #CCCC33;
-    color: #ffffff
+    border: none;
+    background-color: transparent;
+    color: #29ABE2
 }
 
 /* !MODAL*/
@@ -91,11 +96,11 @@ div#newUserModal div.modal-content {
     color: #ffffff;
 }
 
-button.btn.btn-primary.crearteUser {
-    background-color: #BFFFFF;
+button.btn.createUser {
+    background-color: transparent;
     color: #ffffff;
-    width: 80%;
-    background-color: #CCCC33
+    border: 2px solid #CCCC33;
+    width: 50%;
 }
 
 /* !CANCEL REGISTRATION*/
@@ -160,10 +165,21 @@ footer p.copyrightParagraph {
 }
 
 
+div.container-fluid.text-center div.row {
+    padding-left: 8%;
+    padding-right: 8%;
+}
 
+/* div  with the social media */
+div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row {
+    padding: 0%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
 
-
-
+div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
+    margin: auto
+}
 
 /* !iPhone 6,8,9 */
 @media only screen and (max-width: 411px) and (min-width: 370px) {

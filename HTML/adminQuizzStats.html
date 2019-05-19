@@ -109,7 +109,52 @@
             </div>
         </div>
         <div class="row quizzesInfo">
-            <a href="#" class="btn newLevelBtn mx-auto mb-5">Criar Nível</a>
+            <button href="#" class="btn newLevelBtn mx-auto mb-5" data-toggle="modal" data-target="#newLevel">Criar
+                Nível</button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="newLevel">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho da Modal -->
+                <div class="modal-header">
+                    <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="color:#ffff">Voltar</button>
+                </div>
+                <!-- Corpo da Modal -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="stlContinent">Níveis:</label>
+                            <select class="form-control levels" id="quizzesType">
+                                <option value="Bandeiras">Bandeiras</option>
+                                <option value="Capitais">Capitais</option>
+                                <option value="Localizaçao">Localização</option>
+                            </select>
+                        </div>
+                        <div class="form-group levels">
+                            <label for="txtQuestion">Pergunta:</label>
+                            <input type="email" class="form-control" id="txtUserEmail" required>
+                        </div>
+                        <div class="form-group levels">
+                            <label for="txtAnswerOptions">Opções de Resposta:</label>
+                            <input type="password" class="form-control" id="txtUserPassword" required>
+                        </div>
+                        <div class="form-group levels">
+                            <label for="txtAnswer">Resposta Correta:</label>
+                            <input type="password" class="form-control" id="txtUserPasswordConf" required>
+                        </div>
+                        <button type="submit" class="btn createLevel">Criar</button>
+                    </form>
+                </div>
+                <!-- Rodapé da Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn approve">Aprovar</button>
+                    <button type="button" class="btn reject">Reprovar</button>
+                </div>
+            </div>
         </div>
     </div>
 
