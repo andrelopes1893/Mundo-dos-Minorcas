@@ -202,14 +202,17 @@
                                 <td><button type="button" data-toggle="modal" data-target="#editUser"
                                         class="btn userButton pt-2">Rita</button></td>
                                 <td><button type="button" data-toggle="modal" data-target="#editUser"
-                                    class="btn userButton pt-2">333</button></td></td>
+                                        class="btn userButton pt-2">333</button></td>
+                                </td>
                                 <td><button type="button" data-toggle="modal" data-target="#newBlockUserModal"
-                                        class="btn blockButton pt-2"><img src="/Images/lock.png" alt="Bloquear"></button></td>
+                                        class="btn blockButton pt-2"><img src="/Images/lock.png"
+                                            alt="Bloquear"></button></td>
                                 <td><button type="button" data-toggle="modal" data-target="#removeUser"
                                         class="btn removeButton"><img src="/Images/x.png" alt="Eliminar"></button>
                                 </td>
                                 <td><button type="button" data-toggle="modal" data-target="#editUser"
-                                    class="btn userButton pt-2">Administrador</button></td></td>
+                                        class="btn userButton pt-2">Administrador</button></td>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -274,7 +277,7 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="txtBlockUserName">Nome:</label>
+                            <label for="txtBlockUserName">Nome do Utilizador:</label>
                             <input type="text" class="form-control" id="txtBlockUserName" readonly>
                         </div>
                         <div class="form-group">
@@ -288,6 +291,15 @@
                                 <option value="14">14</option>
                                 <option value="30">30</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">Pode Comentar</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">Não Pode Comentar</label>
+                            </div>
+
                         </div>
                         <button type="submit" class="btn btn-primary Block">Bloquear</button>
                     </form>
@@ -346,36 +358,12 @@
                 <!-- Cabeçalho da Modal -->
                 <div class="modal-header">
                     <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"
-                        style="color:#ffff">Voltar</button>
                 </div>
                 <!-- Corpo da Modal -->
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="txtNewUserName">Novo Nome de Utilizador:</label>
-                            <input type="text" class="form-control" id="txtNewUserName">
-                        </div>
-                        <div class="form-group">
-                            <label for="txtUserEmail">Novo E-mail:</label>
-                            <input type="email" class="form-control" id="txtUserEmail">
-                        </div>
-                        <div class="form-group">
-                            <label for="txtUserPassword">Nova Password:</label>
-                            <input type="password" class="form-control" id="txtUserPassword">
-                        </div>
-                        <div class="form-group">
-                            <label for="txtUserPasswordConf">Confirmar Nova Password:</label>
-                            <input type="password" class="form-control" id="txtUserPasswordConf">
-                        </div>
-                        <div class="form-group">
-                            <label for="comment">Descrição:</label>
-                            <textarea class="form-control" rows="4" id="newDescription"></textarea>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <button type="submit" class="btn newUserDetails pr-lg-4 pl-lg-4">Criar</button>
-                        </div>
-                    </form>
+                <div class="modal-body text-center">
+                    <p>Tem a certeza que pretendi eliminar este utilizador?</p>
+                    <button class="btn yesButton" href="#" role="button">Sim</button>
+                    <button class="btn noButton" data-dismiss="modal" role="button">Não</button>
                 </div>
             </div>
         </div>

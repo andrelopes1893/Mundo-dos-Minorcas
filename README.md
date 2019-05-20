@@ -1,20 +1,30 @@
 Alterações:
 
 HTML:
-- Alterações estrutura / classes no: adminCatalog; adminQuizzStats; adminUsers; countries; infoCountry; LoginAndSignUp
-- Remoção de classes que nao faziam nada
+- Modals na tabela de users: editar perfil do user, eliminar user, ediçao de botões dos outros modals
+- Inclusão de um timer
+- Inclusão de um sistemas de classficação de entidades
 
 CSS:
 
-- Alteraçoes em: adminStyle; loginAndSignUp; style
-- Tabelas
-- Filtros
-- Headers 
-- Buttons
-- Modals
-- Remoção de classes que nao faziam nada
+- Respetivas correções de botões
+- CSS para os novos modais
+- CSS para o timer
+- CSS para o sistema de classificação de entidades
+
+JS:
+
+- Ficheiro novo com timer e consequente manipulação do HTML
+
+Páginas Novas - models:
+- countriesModels.js: 
+    - class + get + set + static
+- quizzesModels.js:
+    - class + get + set + static
+- userModels.js:
+    - class + get + set + static
 
 Falta fazer:
-- Alinhar button de alterar perfil (dentro da modal) no meio
+...
 
-LET'S GO !!
+!! LET'S GO !!

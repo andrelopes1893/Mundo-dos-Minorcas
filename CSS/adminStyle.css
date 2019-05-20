@@ -191,7 +191,7 @@ button.btn.userButton:focus{
     box-shadow: 0 0 0 0;
 }
 
-button.btn.removeUser:focus{
+button.btn.removeButton:focus{
     box-shadow: 0 0 0 0;
 }
 
@@ -199,6 +199,26 @@ button.btn.newUserDetails {
     border: 1px solid #29ABE2;
     border-radius: 8px;
     color: #29ABE2;
+}
+
+button.btn.yesButton{
+    background-color: #ffffff;
+    border: 1px solid #29ABE2;
+    color: #29ABE2;
+}
+
+button.btn.yesButton:focus{
+    box-shadow: 0 0 0 0;
+}
+
+button.btn.noButton{
+    background-color: #ffffff;
+    border: 1px solid #29ABE2;
+    color: #29ABE2;
+}
+
+button.btn.noButton:focus{
+    box-shadow: 0 0 0 0;
 }
 
 /* !FILER (USERPAGE) */
@@ -233,8 +253,9 @@ div#newBlockUserModal div.modal-content {
 }
 
 button.btn.btn-primary.Block {
-    background-color: #BFFFFF;
+    background-color: #ffffff;
     color: #29ABE2;
+    border: 1px solid #29ABE2;
     width: 100%;
 }
 

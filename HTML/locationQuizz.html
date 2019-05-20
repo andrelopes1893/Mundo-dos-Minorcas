@@ -16,8 +16,8 @@
     <!-- Our Css -->
     <link rel="stylesheet" href="/CSS/style.css">
 
-     <!-- Our Favicon -->
-     <link rel="icon" type="image/png" href="/Images/Logo2.png">
+    <!-- Our Favicon -->
+    <link rel="icon" type="image/png" href="/Images/Logo2.png">
 
 </head>
 
@@ -37,8 +37,11 @@
 
     <div class="container-fluid questionContainer">
         <div class="row">
-            <div class="col-12 text-center mt-3">
-                <p class="question">Qual dos países se encontra localizado onde a imagem o mostra?</p>
+            <div class="col-lg-6 col-sm-6 col-xs-6 text-center">
+                <p class="mt-3 question">Qual é a capital de Cabo Verde?</p>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-xs-6 text-center">
+                <p class="timer mt-3"></p>
             </div>
         </div>
     </div>
@@ -50,16 +53,16 @@
             </div>
             <div class="col-lg-6 col-sm-6 col-xs-6 optionsCol">
                 <div class="row optionsRow">
-                    <button class="btn mx-auto">Cabo Verde</button>
+                    <button class="btn mx-auto optionsButton">Cabo Verde</button>
                 </div>
                 <div class="row optionsRow">
-                    <button class="btn mx-auto">Angola</button>
+                    <button class="btn mx-auto optionsButton">Angola</button>
                 </div>
                 <div class="row optionsRow">
-                    <button class="btn mx-auto">Argélia</button>
+                    <button class="btn mx-auto optionsButton">Argélia</button>
                 </div>
                 <div class="row optionsRow">
-                    <button class="btn mx-auto">Mali</button>
+                    <button class="btn mx-auto optionsButton">Mali</button>
                 </div>
             </div>
         </div>
@@ -213,6 +216,7 @@
 
     </footer>
     <!-- Optional JavaScript -->
+    <script src="/JS/controler/timer.js"></script>
     <script src="/JS/controler/locationQuizz.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
