@@ -199,12 +199,17 @@
                             </tr>
                             <tr>
                                 <th scope="row">10</th>
-                                <td>Rita</td>
-                                <td>333</td>
+                                <td><button type="button" data-toggle="modal" data-target="#editUser"
+                                        class="btn userButton pt-2">Rita</button></td>
+                                <td><button type="button" data-toggle="modal" data-target="#editUser"
+                                    class="btn userButton pt-2">333</button></td></td>
                                 <td><button type="button" data-toggle="modal" data-target="#newBlockUserModal"
-                                        class="blockButton"><img src="/Images/lock.png" alt="Bloquear"></button></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                                <td>Administrador</td>
+                                        class="btn blockButton pt-2"><img src="/Images/lock.png" alt="Bloquear"></button></td>
+                                <td><button type="button" data-toggle="modal" data-target="#removeUser"
+                                        class="btn removeButton"><img src="/Images/x.png" alt="Eliminar"></button>
+                                </td>
+                                <td><button type="button" data-toggle="modal" data-target="#editUser"
+                                    class="btn userButton pt-2">Administrador</button></td></td>
                             </tr>
                         </tbody>
                     </table>
@@ -212,12 +217,13 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Modal button -->
     <div class="row addAdminModalButtonContainer">
         <button type="button" class="btn createAdmin mb-5" data-toggle="modal" data-target="#newAdminUserModal">Novo
             Administrador</button>
     </div>
+
     <!-- modal 1 -->
     <div class="modal fade" id="newAdminUserModal">
         <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -247,7 +253,7 @@
                             <label for="txtUserPasswordConf">Confirmar Password:</label>
                             <input type="password" class="form-control" id="txtUserPasswordConf" required>
                         </div>
-                        <button type="submit" class="btn btn-primary crearteAdmin">Criar</button>
+                        <button type="submit" class="btn newAdmin">Criar</button>
                     </form>
                 </div>
             </div>
@@ -287,6 +293,90 @@
                     </form>
                 </div>
                 <!-- Rodapé da Modal -->
+            </div>
+        </div>
+    </div>
+
+    <!-- modal 3 -->
+    <div class="modal fade" id="editUser">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho da Modal -->
+                <div class="modal-header">
+                    <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="color:#ffff">Voltar</button>
+                </div>
+                <!-- Corpo da Modal -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="txtNewUserName">Novo Nome de Utilizador:</label>
+                            <input type="text" class="form-control" id="txtNewUserName">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUserEmail">Novo E-mail:</label>
+                            <input type="email" class="form-control" id="txtUserEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUserPassword">Nova Password:</label>
+                            <input type="password" class="form-control" id="txtUserPassword">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUserPasswordConf">Confirmar Nova Password:</label>
+                            <input type="password" class="form-control" id="txtUserPasswordConf">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Descrição:</label>
+                            <textarea class="form-control" rows="4" id="newDescription"></textarea>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <button type="submit" class="btn newUserDetails pr-lg-4 pl-lg-4">Criar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal 4 -->
+    <div class="modal fade" id="removeUser">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho da Modal -->
+                <div class="modal-header">
+                    <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="color:#ffff">Voltar</button>
+                </div>
+                <!-- Corpo da Modal -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="txtNewUserName">Novo Nome de Utilizador:</label>
+                            <input type="text" class="form-control" id="txtNewUserName">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUserEmail">Novo E-mail:</label>
+                            <input type="email" class="form-control" id="txtUserEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUserPassword">Nova Password:</label>
+                            <input type="password" class="form-control" id="txtUserPassword">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUserPasswordConf">Confirmar Nova Password:</label>
+                            <input type="password" class="form-control" id="txtUserPasswordConf">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Descrição:</label>
+                            <textarea class="form-control" rows="4" id="newDescription"></textarea>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <button type="submit" class="btn newUserDetails pr-lg-4 pl-lg-4">Criar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

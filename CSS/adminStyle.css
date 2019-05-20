@@ -181,6 +181,26 @@ button.btn.createAdmin {
     padding: 0%;
 }
 
+button.btn.userButton{
+    background-color: transparent;
+    border: 0px;
+    font-size: 24px;
+}
+
+button.btn.userButton:focus{
+    box-shadow: 0 0 0 0;
+}
+
+button.btn.removeUser:focus{
+    box-shadow: 0 0 0 0;
+}
+
+button.btn.newUserDetails {
+    border: 1px solid #29ABE2;
+    border-radius: 8px;
+    color: #29ABE2;
+}
+
 /* !FILER (USERPAGE) */
 
 div.container-fluid.userFilter form label {
@@ -201,7 +221,7 @@ div#newAdminUserModal div.modal-content {
     color: #ffffff;
 }
 
-.btn.btn-primary.createAdmin {
+button.btn.newAdmin {
     background-color: #BFFFFF;
     color: #29ABE2;
 }
