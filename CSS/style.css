@@ -701,8 +701,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 }
 
 /* ? MEDIA QUERIES */
-
-/* !iPhone 6,8,9 */
+/* !iPhone 6,8,9*/
 @media only screen and (max-width: 411px) and (min-width: 370px) {
 
     .nav-link {
@@ -778,7 +777,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     }
 
     /**CONTINENT ORGANIZATION - CATALOG*/
-
     /* Carousel cards headers */
     Div.owl-carousel div.item div.card-header {
         font-size: 1.5rem;
@@ -856,15 +854,24 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     }
 
     /**CONTINENT ORGANIZATION - CATALOG*/
-
     /* Carousel cards headers */
     div.owl-carousel div.item div.card-header {
         font-size: 1.5rem;
     }
+
+    /** PROFILE FORM*/
+    div.col-lg-6.col-md-6.col-xs-6.d-flex.align-items-center {
+        padding-left: 50px;
+        font-size: 2rem;
+    }
+
+    div.row.rounded.position-relative {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
 }
 
 /* !PIXEL & IPHONE PLUS*/
-
 @media only screen and (max-width: 415px) and (min-width: 411px) {
 
     /* Navbar adjustment */
@@ -941,10 +948,40 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     }
 
     /**CONTINENT ORGANIZATION - CATALOG*/
-
     /* Carousel cards headers */
     div.owl-carousel div.item div.card-header {
         font-size: 1.5rem;
+    }
+
+    /** PROFILE FORM*/
+    div.col-lg-6.col-md-6.col-xs-6.d-flex.align-items-center {
+        padding-left: 40px;
+        margin-left: 8px;
+        font-size: 2rem;
+    }
+
+    div.row.rounded.position-relative {
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+}
+
+
+
+
+
+
+@media only screen and (max-width: 321px) and (min-width: 320px) {
+
+    /** PROFILE FORM*/
+    div.col-lg-6.col-md-6.col-xs-6.d-flex.align-items-center {
+        padding-left: 30px;
+        font-size: 1rem;
+    }
+
+    div.row.rounded.position-relative {
+        margin-right: 5%;
+        margin-left: 5%;
     }
 }
 
@@ -1050,6 +1087,19 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     p.card-text {
         font-size: 1.2rem;
     }
+
+    /**PÁGINA PROFILE*/
+    div.row.rounded.position-relative {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+
+    div.col-lg-6.col-md-6.col-xs-6.d-flex.align-items-center {
+        padding-left: 70px
+    }
+
+
+
 }
 
 /* !(IPAD-PRO) */
@@ -1155,14 +1205,20 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     p.card-text {
         font-size: 1.2rem;
     }
+
+    /**PROFILE */
+    div.col-lg-6.col-md-6.col-xs-6.d-flex.align-items-center {
+        padding-left: 70px
+    }
 }
 
 /*modal create button align to center*/
-#btnSaveNewProfile{
-    margin-left: 45%;
+#btnSaveNewProfile {
+    width: 50%;
+    margin-left: 0%;
 }
 
 /*modal Logo align to center*/
-#modalLogo{
+#modalLogo {
     margin-left: 45%;
 }

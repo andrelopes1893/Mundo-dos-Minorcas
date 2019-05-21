@@ -24,7 +24,15 @@ Páginas Novas - models:
 - userModels.js:
     - class + get + set + static
 
-Falta fazer:
-...
+Add:
+CSS:
+- acrescentei MQ para ajudar na responsividade  do painer do ver perfil e alterei o botao de confirmar alteracoes  no perfil (Ajuda do Html)
 
-!! LET'S GO !!
+html:
+-Novo model para guardar/Apresentar  os avatares e tambem acrescentei aum div que  permite com que o botao de confirmar alteracoes fique centralizado 
+
+
+Falta fazer:
+Ajudtar o modal dos avatares e consequentemente add fazer um  botao baseando na imagem do avatar do perfil  que abra o mesmo 
+
+!! LET'S GO  força Cabo Verde!!
