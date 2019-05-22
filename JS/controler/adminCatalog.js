@@ -43,7 +43,6 @@ function renderTable() {
                                     </tr> `
     }
     removeButtons()
-    editCountry(stlContinent)
 }
 
 function removeButtons() {

@@ -27,6 +27,8 @@ JS:
         - Adicionar paises à tabela, ao array e à localStorage (não repetidos)
         - Remover paises da tabela, do array e da localStorage
         - Pouco codigo do editar, tenho duvidas quanto a este codigo...
+    - adminUsers.js
+        - Codigo base e criação de varias funçoes
 
 Falta fazer:
 
