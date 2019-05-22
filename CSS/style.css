@@ -562,10 +562,14 @@ div.row.rounded {
     margin-bottom: 5%;
 }
 
-div.row.rounded div.col-lg-6>img {
+div.row.rounded div.col-lg-6 > button > img {
     padding: 10%;
     border: 1px solid #CCCC33;
     border-radius: 50%;
+}
+
+button.btn.profileAvatar:focus{
+    box-shadow: 0 0 0 0;
 }
 
 div.row.rounded div.col-lg-6 p {
@@ -626,6 +630,10 @@ div.modal-body form div.form-group.profile {
 button.btn.saveNewProfile {
     color: #000000;
     border: 1px solid #29ABE2;
+}
+
+p.lead.avatarType{
+    color: #CCCC33 
 }
 
 /* Footer */

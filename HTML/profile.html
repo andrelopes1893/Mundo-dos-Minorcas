@@ -72,7 +72,8 @@
     <div class="container-fluid profile">
         <div class="row rounded position-relative">
             <div class="col-lg-6 col-md-6 col-xs-6 text-center">
-               <img src="/Images/avatar.png" alt="MeuAvatar">
+                <button type="button" data-toggle="modal" data-target="#avatarModal" class="btn profileAvatar"
+                    data-toggle="modal"><img src="/Images/avatar.png" alt="MeuAvatar"></button>
                 <p class="text-center">
                     Eu sou o melhor jogador de Bandeiras! <br>
                     Este website é o mais divertido de sempre :)
@@ -137,12 +138,9 @@
         </div>
     </div>
 
-
-
-
     <!-- AVATAR PICK MODAL -->
-    <div class="modal fade" id="editProfileModal">
-        <div class="modal-dialog modal-lg modal-dialog-centered profile">
+    <div class="modal fade" id="avatarModal">
+        <div class="modal-dialog modal-lg modal-dialog-top profile">
             <div class="modal-content">
                 <!-- Cabeçalho do Modal -->
                 <div class="modal-header">
@@ -153,11 +151,62 @@
                 <!-- Corpo do Modal -->
                 <div class="modal-body avatarPicker">
                     <form>
-                       <div avatarplaceHolder>
-
-
-
-                       </div>
+                        <div class="avatarPlaceHolder">
+                            <div class="row text-center">
+                                <div class="col-3">
+                                    <p class="lead avatarType text-center">
+                                        Principiante
+                                    </p>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                </div>
+                                <div class="col-3">
+                                    <p class="lead avatarType text-center">
+                                        Amador
+                                    </p>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                </div>
+                                <div class="col-3">
+                                    <p class="lead avatarType text-center">
+                                        Profissional
+                                    </p>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                </div>
+                                <div class="col-3">
+                                    <p class="lead avatarType text-center">
+                                        Experiente
+                                    </p>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                    <button class="btn" type="button"><img src="/Images/avatar.png"
+                                            alt="Avatar1"></button>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <!-- Rodapé da Modal -->

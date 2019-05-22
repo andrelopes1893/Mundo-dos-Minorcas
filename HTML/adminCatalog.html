@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/CSS/adminStyle.css">
     <!-- Our Favicon -->
     <link rel="icon" type="image/png" href="/Images/Logo2.png">
+
 </head>
 
 <body>
@@ -117,7 +118,7 @@
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table table-bordered catalogTable">
+                    <table class="table table-bordered catalogTable" id="countriesTable">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -127,77 +128,8 @@
                                 <th scope="col">Eliminar</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>África do Sul</td>
-                                <td>África</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Angola</td>
-                                <td>África</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Argélia</td>
-                                <td>África</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Benim</td>
-                                <td>África</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Botswana</td>
-                                <td>África</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Burquina Faso</td>
-                                <td>África</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">7</th>
-                                <td>Burúndi</td>
-                                <td>África</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td>Cabo Verde</td>
-                                <td>África</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">9</th>
-                                <td>Camarões</td>
-                                <td>África</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">10</th>
-                                <td>Chade</td>
-                                <td>África</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
+                        <tbody id="countriesTableBody">
+
                         </tbody>
                     </table>
                 </div>
@@ -210,6 +142,7 @@
         </div>
     </div>
 
+    <!-- modal 1 -->
     <div class="modal fade" id="newCountryModal">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -221,14 +154,18 @@
                 </div>
                 <!-- Corpo do Modal -->
                 <div class="modal-body">
-                    <form>
+                    <form id="createCountryForm">
                         <div class="form-group">
                             <label for="txtCountryName">Nome:</label>
-                            <input type="text" class="form-control" id="txtCountryName" required>
+                            <input type="text" class="form-control" id="txtCountryName">
                         </div>
                         <div class="form-group">
                             <label for="txtCountryCapital">Capital:</label>
-                            <input type="text" class="form-control" id="txtCountryCapital" required>
+                            <input type="text" class="form-control" id="txtCountryCapital">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtCountryLanguage">Língua Oficial:</label>
+                            <input type="text" class="form-control" id="txtCountryLanguage">
                         </div>
                         <div class="form-group">
                             <label for="stlContinent">Continente:</label>
@@ -242,25 +179,60 @@
                         </div>
                         <div class="form-group">
                             <label for="txtInfo1">Informação 1:</label>
-                            <input type="text" class="form-control" id="txtInfo1" required>
+                            <input type="text" class="form-control" id="txtInfo1">
                         </div>
                         <div class="form-group">
                             <label for="txtInfo2">Informação 2:</label>
-                            <input type="text" class="form-control" id="txtInfo2" required>
+                            <input type="text" class="form-control" id="txtInfo2">
                         </div>
                         <div class="form-group">
-                            <label for="txtCarrosel1">Imagem do carroussel (1):</label>
-                            <input type="url" class="form-control" id="txtCarrosel1" required>
+                            <label for="imgCarousel1">Imagem do carroussel (1):</label>
+                            <input type="url" class="form-control" id="imgCarousel1">
                         </div>
                         <div class="form-group">
-                            <label for="txtCarrosel2">Imagem do carroussel (2):</label>
-                            <input type="url" class="form-control" id="txtCarrosel2" required>
+                            <label for="imgCarrousel2">Imagem do carroussel (2):</label>
+                            <input type="url" class="form-control" id="imgCarrousel2">
                         </div>
                         <div class="form-group">
-                            <label for="txtCarrosel3">Imagem do carroussel (3):</label>
-                            <input type="url" class="form-control" id="txtCarrosel3" required>
+                            <label for="imgCarrousel3">Imagem do carroussel (3):</label>
+                            <input type="url" class="form-control" id="imgCarrousel3">
                         </div>
-                        <button type="submit" class="btn btn-primary crearteCountry">Criar</button>
+                        <button type="submit" class="btn btn-primary createCountry" id="createCountry">Criar</button>
+                    </form>
+                </div>
+                <!-- Rodapé da Modal -->
+            </div>
+        </div>
+    </div>
+
+    <!-- modal 2-->
+    <div class="modal fade" id="ModalEditUser">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho da Modal -->
+                <div class="modal-header">
+                    <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="color:#ffff">Voltar</button>
+                </div>
+                <!-- Corpo da Modal -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="txtEditUserName">Nome do País:</label>
+                            <input type="text" class="form-control" id="txtEditUserName">
+                        </div>
+                        <div class="form-group">
+                            <label for="newSltContinent">Continente:</label>
+                            <select class="form-control" id="newSltContinent">
+                                <option value="Africa">África</option>
+                                <option value="America">América</option>
+                                <option value="Asia">Ásia</option>
+                                <option value="Europa">Europa</option>
+                                <option value="Ocenia">Oceânia</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary edit" id="editCountry">Editar</button>
                     </form>
                 </div>
                 <!-- Rodapé da Modal -->
@@ -361,8 +333,6 @@
                             class="fa fa-instagram"></a>
                     </div>
 
-
-
                 </div>
                 <!-- Grid column -->
 
@@ -381,7 +351,7 @@
     </footer>
 
     <!-- Optional JavaScript -->
-    <script src="/JS/controler/adminCatalog.js"></script>
+    <script type="module" src="/JS/controler/adminCatalog.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -392,6 +362,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+
 </body>
 
 </html>

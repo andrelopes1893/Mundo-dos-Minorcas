@@ -1,38 +1,36 @@
 Alterações:
 
 HTML:
-- Modals na tabela de users: editar perfil do user, eliminar user, ediçao de botões dos outros modals
-- Inclusão de um timer
-- Inclusão de um sistemas de classficação de entidades
+- Modal avatares
+- Modal para guardar / apresentar  os avatares e tambem acrescentei aum div que  permite com que o botao de confirmar alteracoes fique centralizado 
+- Alteração no modal de adicionar utilizadores
+- Adição de modal e id / classes 
 
 CSS:
 
-- Respetivas correções de botões
-- CSS para os novos modais
-- CSS para o timer
-- CSS para o sistema de classificação de entidades
+- MQ para ajudar na responsividade do botão do ver perfil e botão de confirmar alteracoes do perfil 
+- Css para modal de avatares
 
 JS:
 
-- Ficheiro novo com timer e consequente manipulação do HTML
+    Páginas Novas - models:
 
-Páginas Novas - models:
-- countriesModels.js: 
-    - class + get + set + static
-- quizzesModels.js:
-    - class + get + set + static
-- userModels.js:
-    - class + get + set + static
+    - countriesModels.js: 
+        - class + get + set + static
+    - quizzesModels.js:
+        - class + get + set + static
+    - userModels.js:
+        - class + get + set + static
 
-Add:
-CSS:
-- acrescentei MQ para ajudar na responsividade  do painer do ver perfil e alterei o botao de confirmar alteracoes  no perfil (Ajuda do Html)
-
-html:
--Novo model para guardar/Apresentar  os avatares e tambem acrescentei aum div que  permite com que o botao de confirmar alteracoes fique centralizado 
-
+     Alterações - controlers:
+    - adminCatalog.js 
+        - Adicionar paises à tabela, ao array e à localStorage (não repetidos)
+        - Remover paises da tabela, do array e da localStorage
+        - Pouco codigo do editar, tenho duvidas quanto a este codigo...
 
 Falta fazer:
-Ajudtar o modal dos avatares e consequentemente add fazer um  botao baseando na imagem do avatar do perfil  que abra o mesmo 
+
+- Media Queries para modal de avatares 
+- ...
 
 !! LET'S GO  força Cabo Verde!!

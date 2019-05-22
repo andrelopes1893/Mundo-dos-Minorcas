@@ -252,7 +252,7 @@ div#newBlockUserModal div.modal-content {
     color: #ffffff;
 }
 
-button.btn.btn-primary.Block {
+button.btn.btn-primary.edit {
     background-color: #ffffff;
     color: #29ABE2;
     border: 1px solid #29ABE2;
@@ -484,7 +484,12 @@ div#newCountryModal div.modal-content {
     color: #ffffff;
 }
 
-.btn.btn-primary.crearteCountry {
+div#ModalEditUser div.modal-content {
+    background-color: rgb(247, 127, 53);
+    color: #ffffff;
+}
+
+.btn.btn-primary.createCountry {
     background-color: #BFFFFF;
     color: #29ABE2;
     width: 100%;

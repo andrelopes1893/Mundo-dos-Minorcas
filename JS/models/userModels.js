@@ -1,5 +1,5 @@
 export default class User{
-    constructor(username, password, email, avatar, accountType = 1, description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = []){
+    constructor(username, password, email, avatar, accountType = 1, description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = [], unlockCountries = [], unlockAvatar = [] ){
         this.id = getLastId() + 1
         this.username = username
         this.password = password
@@ -11,6 +11,8 @@ export default class User{
         this.loginBlock = loginBlock
         this.xp = xp
         this.suggestions = suggestions
+        this.unlockCountries = unlockCountries
+        this.unlockAvatar = unlockAvatar
     }
 
     get id() {
@@ -113,6 +115,22 @@ export default class User{
 
     set suggestions(value){
         this._suggestions = value
+    }
+
+    get unlockCountries() {
+        return this._unlockCountries
+    }
+
+    set unlockCountries(value){
+        this._unlockCountries = value
+    }
+
+    get unlockAvatar() {
+        return this._unlockAvatar
+    }
+
+    set unlockAvatar(value){
+        this._unlockAvatar = value
     }
 
     static accessType(accountType){
