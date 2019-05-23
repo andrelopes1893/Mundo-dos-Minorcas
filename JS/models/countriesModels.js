@@ -1,5 +1,8 @@
+import {countries} from '../controler/adminCatalog.js'
+
 export default class Country{
     constructor(name, capital, language, continent, informationOne, informationTwo, imageOne, imageTwo, imageThree, tag = [], points = [], flag,  comments = [], date){
+        this._id = Country.getLastId() + 1
         this.name = name
         this.continent = continent
         this.capital = capital
@@ -23,8 +26,8 @@ export default class Country{
     static getLastId() {
         let id = 0
         if (countries.length > 0) {
-            for (let i in countries) {
-                id = countries[i].id
+            for (let prop of countries) {
+                id = prop.id
             }
         }
         return id
@@ -142,5 +145,11 @@ export default class Country{
         this._date = value
     }
 
-    
+    static getIdByName(id) {
+        for (const prop of countries) {
+            if (prop.id === id) {
+                return prop._name
+            }
+        }
+    }
 }

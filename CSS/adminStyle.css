@@ -484,9 +484,13 @@ div#newCountryModal div.modal-content {
     color: #ffffff;
 }
 
-div#ModalEditUser div.modal-content {
+div#ModalEditCountry div.modal-content {
     background-color: rgb(247, 127, 53);
     color: #ffffff;
+}
+
+button.btn.edit {
+    box-shadow: 0 0 0 0;
 }
 
 .btn.btn-primary.createCountry {

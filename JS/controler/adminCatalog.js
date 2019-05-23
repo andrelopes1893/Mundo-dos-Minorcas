@@ -1,6 +1,6 @@
 import Country from '../models/countriesModels.js'
 
-let countries = []
+export let countries = []
 
 if (localStorage.countries) {
     countries = JSON.parse(localStorage.countries)
@@ -18,8 +18,7 @@ document.querySelector('#createCountryForm').addEventListener('submit', function
     const countryImg3 = document.querySelector('#imgCarrousel3').value
 
     if (!isRepeated(countryName)) {
-        let newCountry = new Country(countryName, countryCapital, countryLanguage, countryContinent, countryInfo1, countryInfo2, countryImg1, countryImg2, countryImg3)
-        countries.push(newCountry)
+        countries.push(new Country(countryName, countryCapital, countryLanguage, countryContinent, countryInfo1, countryInfo2, countryImg1, countryImg2, countryImg3))
         localStorage.setItem('countries', JSON.stringify(countries))
         renderTable()
     }
@@ -38,10 +37,11 @@ function renderTable() {
                                         <th scope="row">${r}</th>
                                         <td>${country.name}</td>
                                         <td>${country.continent}</td>
-                                        <td><button type="button" data-toggle="modal" data-target="#ModalEditUser" class="btn edit"><img src="/Images/lock.png" alt="Editar"></button></td> 
+                                        <td><button type="button" id="${country.name}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
                                         <td><button type="button" id="${country.name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
                                     </tr> `
     }
+    editButtons()
     removeButtons()
 }
 
@@ -76,19 +76,36 @@ function isRepeated(name) {
     return false
 }
 
-// function editCountry(continent) {
+function editEvent2() {
+    document.querySelectorAll('.btn.editBtn').addEventListener('click', function () {
+        for (const country of countries) {
+            document.getElementById('txtEditCountryName').value = Country.getIdByName(country.name)
+
+            console.log(Country.getIdByName(country.name));
+        }
+    })
+}
+
+function editButtons() {
+    let editButtons = document.getElementsByClassName('btn edit')
+    for (const elem of editButtons) {
+        elem.addEventListener('click', function () {
+            editEvent2(this.id)
+        })
+    }
+}
+
+// function editCountry(name) {
 //     document.querySelector('#editCountry').addEventListener('submit', function () {
-//         const editUsername = document.querySelector('#txtEditUserName').value
+//         const editUsername = document.querySelector('#txtEditCountryName').value
 //         const newSltContinent = document.querySelector('#newSltContinent').value
-
-
 //     })
 
 //     console.log(editUsername);
 //     console.log(newSltContinent);
 
 //     newCountry.replace(countryName, editUsername)
-//     newCountry.replace(continent, newSltContinent)
+//     newCountry.replace(countryContinent, newSltContinent)
 //     countries.push(newCountry)
 //     localStorage.setItem('countries', JSON.stringify(countries))
 // }
