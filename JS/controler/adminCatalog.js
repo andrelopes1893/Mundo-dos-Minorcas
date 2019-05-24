@@ -38,7 +38,7 @@ function renderTable() {
                                         <td>${country.name}</td>
                                         <td>${country.continent}</td>
                                         <td><button type="button" id="${country.id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
-                                        <td><button type="button" id="${country.id}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
+                                        <td><button type="button" id="${country.name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
                                     </tr> `
     }
     removeButtons()
@@ -51,6 +51,7 @@ function removeButtons() {
         elem.addEventListener("click", function () {
             // O this.id é o valor do atributo id de cada elemento button
             removeCountry(this.id)
+            renderTable()
         })
     }
 }
@@ -61,9 +62,9 @@ function removeCountry(name) {
             countries.splice(i, 1)
         }
     }
-
     localStorage.setItem('countries', JSON.stringify(countries))
-    renderTable()
+    $('#ModalEditCountry').modal('hide')
+
 }
 
 function isRepeated(name) {
@@ -75,57 +76,33 @@ function isRepeated(name) {
     }
     return false
 }
-// function editNameContinent(id) {
-
-//     for (const country of countries) {
-//         if (country.id === id) {
-//             country.name = document.getElementById('txtEditCountryName').value
-//             localStorage.setItem('countries', JSON.stringify(countries))
-//         }
-//     }
-
-// }
 
 function submitEdit(id) {
-    document.getElementById('editFormCountry').addEventListener('submit', function (event) {
+    document.getElementById('editCountry').addEventListener('click', function (event) {
 
         let txtName = document.getElementById('txtEditCountryName').value
-
+        
         for (const country of countries) {
-            if (country.id === id) {
+            if (country.id == id) {
                 country.name = txtName
                 localStorage.setItem('countries', JSON.stringify(countries))
-            }
+                renderTable()
+            }            
         }
-
-       event.preventDefault()
+        $('#ModalEditCountry').modal('hide')
     })
 }
 
-
 function editButtons() {
+
     let editButtons = document.getElementsByClassName('editBtn')
 
     for (const elem of editButtons) {
         elem.addEventListener('click', function () {
-            document.getElementById('txtEditCountryName').value = Country.getNameById(this.id)
+            // document.getElementById('txtEditCountryName').value = Country.getNameById(this.id)
             //editNameContinent(this.id)
             submitEdit(this.id)
+            
         })
     }
 }
-
-// function editCountry(name) {
-//     document.querySelector('#editCountry').addEventListener('submit', function () {
-//         const editUsername = document.querySelector('#txtEditCountryName').value
-//         const newSltContinent = document.querySelector('#newSltContinent').value
-//     })
-
-//     console.log(editUsername);
-//     console.log(newSltContinent);
-
-//     newCountry.replace(countryName, editUsername)
-//     newCountry.replace(countryContinent, newSltContinent)
-//     countries.push(newCountry)
-//     localStorage.setItem('countries', JSON.stringify(countries))
-// }
