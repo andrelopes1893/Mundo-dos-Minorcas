@@ -1,20 +1,18 @@
-import {countries} from '../controler/adminCatalog.js'
+import {
+    countries
+} from '../controler/adminCatalog.js'
 
-export default class Country{
-    constructor(name, capital, language, continent, informationOne, informationTwo, imageOne, imageTwo, imageThree, tag = [], points = [], flag,  comments = [], date){
+export default class Country {
+    constructor(name, capital, language, continent, images = [], points = [], information = [], flag, comments = [], date) {
         this._id = Country.getLastId() + 1
         this.name = name
         this.continent = continent
         this.capital = capital
         this.language = language
-        this.tag = tag
         this.points = points
         this.flag = flag
-        this.informationOne = informationOne
-        this.informationTwo = informationTwo
-        this.imageOne = imageOne
-        this.imageTwo = imageTwo
-        this.imageThree = imageThree
+        this.information = information
+        this.images = images
         this.comments = comments
         this.date = date
     }
@@ -37,7 +35,7 @@ export default class Country{
         return this._name
     }
 
-    set name(value){
+    set name(value) {
         this._name = value
     }
 
@@ -45,7 +43,7 @@ export default class Country{
         return this._continent
     }
 
-    set continent(value){
+    set continent(value) {
         this._continent = value
     }
 
@@ -53,7 +51,7 @@ export default class Country{
         return this._capital
     }
 
-    set capital(capital){
+    set capital(capital) {
         this._capital = capital
     }
 
@@ -61,7 +59,7 @@ export default class Country{
         return this._language
     }
 
-    set language(value){
+    set language(value) {
         this._language = value
     }
 
@@ -69,71 +67,39 @@ export default class Country{
         return this._flag
     }
 
-    set flag(value){
+    set flag(value) {
         this._flag = value
-    }
-
-    get tag() {
-        return this._tag
-    }
-
-    set tag(value){
-        this._tag = value
     }
 
     get points() {
         return this._points
     }
 
-    set points(value){
+    set points(value) {
         this._points = value
     }
 
-    get informationOne() {
-        return this._informationOne
+    get information() {
+        return this._information
     }
 
-    set informationOne(value){
-        this._informationOne = value
+    set information(value) {
+        this._information = value
     }
 
-    get informationTwo() {
-        return this._informationTwo
+    get image() {
+        return this._image
     }
 
-    set informationTwo(value){
-        this._informationTwo = value
-    }
-
-    get imageOne() {
-        return this._imageOne
-    }
-
-    set imageOne(value){
-        this._imageOne = value
-    }
-
-    get imageTwo() {
-        return this._imageTwo
-    }
-
-    set imageTwo(value){
-        this._imageTwo = value
-    }
-
-    get imageThree() {
-        return this._imageThree
-    }
-
-    set imageThree(value){
-        this._imageThree = value
+    set image(value) {
+        this._image = value
     }
 
     get comments() {
         return this._comments
     }
 
-    set comments(value){
+    set comments(value) {
         this._comments = value
     }
 
@@ -141,14 +107,14 @@ export default class Country{
         return this._date
     }
 
-    set date(value){
+    set date(value) {
         this._date = value
-    }
+    }    
 
-    static getIdByName(id) {
-        for (const prop of countries) {
-            if (prop.id === id) {
-                return prop._name
+    static getNameById(id) {        
+        for (const prop of countries) {                        
+            if (prop.id == id) {                
+                return prop.name
             }
         }
     }

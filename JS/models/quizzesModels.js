@@ -1,9 +1,13 @@
-export default class Quiz{
-    constructor(title, category, continent, correctAnswer){
-        this.title = title
-        this.category = category
+export default class Question{
+    constructor(level, description, level, responses = [], correctAnswer = 2, continent, pointXp){
+        this._id = id
+        this.level = level
+        this.description = description
+        this.level = level
+        this.responses = responses
         this.continent = continent
         this.correctAnswer = correctAnswer
+        this.pointXp = pointXp
     }
 
     get title() {

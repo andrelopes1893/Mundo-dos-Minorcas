@@ -37,12 +37,12 @@ function renderTable() {
                                         <th scope="row">${r}</th>
                                         <td>${country.name}</td>
                                         <td>${country.continent}</td>
-                                        <td><button type="button" id="${country.name}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
-                                        <td><button type="button" id="${country.name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
+                                        <td><button type="button" id="${country.id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
+                                        <td><button type="button" id="${country.id}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
                                     </tr> `
     }
-    editButtons()
     removeButtons()
+    editButtons()
 }
 
 function removeButtons() {
@@ -75,22 +75,42 @@ function isRepeated(name) {
     }
     return false
 }
+// function editNameContinent(id) {
 
-function editEvent2() {
-    document.querySelectorAll('.btn.editBtn').addEventListener('click', function () {
+//     for (const country of countries) {
+//         if (country.id === id) {
+//             country.name = document.getElementById('txtEditCountryName').value
+//             localStorage.setItem('countries', JSON.stringify(countries))
+//         }
+//     }
+
+// }
+
+function submitEdit(id) {
+    document.getElementById('editFormCountry').addEventListener('submit', function (event) {
+
+        let txtName = document.getElementById('txtEditCountryName').value
+
         for (const country of countries) {
-            document.getElementById('txtEditCountryName').value = Country.getIdByName(country.name)
-
-            console.log(Country.getIdByName(country.name));
+            if (country.id === id) {
+                country.name = txtName
+                localStorage.setItem('countries', JSON.stringify(countries))
+            }
         }
+
+       event.preventDefault()
     })
 }
 
+
 function editButtons() {
-    let editButtons = document.getElementsByClassName('btn edit')
+    let editButtons = document.getElementsByClassName('editBtn')
+
     for (const elem of editButtons) {
         elem.addEventListener('click', function () {
-            editEvent2(this.id)
+            document.getElementById('txtEditCountryName').value = Country.getNameById(this.id)
+            //editNameContinent(this.id)
+            submitEdit(this.id)
         })
     }
 }
