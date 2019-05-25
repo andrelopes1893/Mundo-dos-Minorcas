@@ -191,7 +191,7 @@ button.btn.userButton:focus{
     box-shadow: 0 0 0 0;
 }
 
-button.btn.removeButton:focus{
+button.btn.remove:focus{
     box-shadow: 0 0 0 0;
 }
 
@@ -236,7 +236,7 @@ div.row div.card-deck.mx-auto div.card.quizzCards {
 
 /*!ADMIN ADD MODAL*/
 
-div#newAdminUserModal div.modal-content {
+div#newUserModal div.modal-content {
     background-color: #29ABE2;
     color: #ffffff;
 }
@@ -247,7 +247,7 @@ button.btn.newAdmin {
 }
 
 /* !BLOCK USER ACCOUNT MODAL */
-div#newBlockUserModal div.modal-content {
+div#newUserModal div.modal-content {
     background-color: #29ABE2;
     color: #ffffff;
 }

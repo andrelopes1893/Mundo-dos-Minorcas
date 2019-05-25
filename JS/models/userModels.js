@@ -1,6 +1,10 @@
+import {
+    users
+} from '../controler/loginAndSignup.js'
+
 export default class User{
     constructor(username, password, email, avatar, accountType = 1, description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = [], unlockCountries = [], unlockAvatar = [] ){
-        this.id = getLastId() + 1
+        this._id = User.getLastId() + 1
         this.username = username
         this.password = password
         this.email = email
@@ -22,8 +26,8 @@ export default class User{
     static getLastId() {
         let id = 0
         if (users.length > 0) {
-            for (let i in users) {
-                id = users[i].id
+            for (let prop of users) {
+                id = prop.id
             }
         }
         return id
@@ -146,5 +150,35 @@ export default class User{
                 users.splice(i, 1)
             }
         }
+    }
+
+    static getUsernameById(username) {
+        let id = -1
+        for (const prop of users) {
+            if (prop.username.toLowerCase() === username.toLowerCase()) {
+                id = prop.id
+            }
+        }
+        return id
+    }
+
+    static getEmailById(email) {
+        let id = -1
+        for (const prop of users) {
+            if(prop.email.toLowerCase() === email.toLowerCase()){
+                id = prop.id
+            }
+        }
+        return id
+    }
+
+    static getPasswordById(password){
+        let id = -1
+        for (const prop of users) {
+            if(prop.password === password){
+                id = prop.id
+            }
+        }
+        return id
     }
 }

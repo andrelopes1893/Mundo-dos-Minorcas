@@ -125,95 +125,7 @@
                             </tr>
                         </thead>
                         <tbody id="usersTableBody">
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>45345</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                                <td>Utilizador</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Anna</td>
-                                <td>1414</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                                <td>Utilizador</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Paul</td>
-                                <td>6789</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                                <td>Utilizador</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Titas</td>
-                                <td>456</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                                <td>Administrador</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>John</td>
-                                <td>6787</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                                <td>Utilizador</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Kika</td>
-                                <td>678678</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                                <td>Utilizador</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">7</th>
-                                <td>Maria</td>
-                                <td>4566</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                                <td>Utilizador</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td>Nuno</td>
-                                <td>7865</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                                <td>Administrador</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">9</th>
-                                <td>Wilson</td>
-                                <td>6378</td>
-                                <td><img src="/Images/lock.png" alt="Bloquear"></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                                <td>Utilizador</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">10</th>
-                                <td><button type="button" data-toggle="modal" data-target="#editUser"
-                                        class="btn userButton pt-2">Rita</button></td>
-                                <td><button type="button" data-toggle="modal" data-target="#editUser"
-                                        class="btn userButton pt-2">333</button></td>
-                                </td>
-                                <td><button type="button" data-toggle="modal" data-target="#newBlockUserModal"
-                                        class="btn blockButton pt-2"><img src="/Images/lock.png"
-                                            alt="Bloquear"></button></td>
-                                <td><button type="button" data-toggle="modal" data-target="#removeUser"
-                                        class="btn removeButton"><img src="/Images/x.png" alt="Eliminar"></button>
-                                </td>
-                                <td><button type="button" data-toggle="modal" data-target="#editUser"
-                                        class="btn userButton pt-2">Administrador</button></td>
-                                </td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -241,9 +153,8 @@
                 <div class="modal-body">
                     <form id="adminForm">
                         <div class="form-group">
-                            <label for="stlGenre" class="mr-3">Filtrar Por:</label>
-                            <select class="form-control" id="stlOrder">
-                                <option value="">Tipo de Utilizador</option>
+                            <label for="stlUsers" class="mr-3">Tipo de Utilizador:</label>
+                            <select class="form-control" id="stlUsers">
                                 <option value="Administrador">Administrador</option>
                                 <option value="Utilizador">Utilizador</option>
                             </select>
@@ -489,7 +400,7 @@
 
     </footer>
     <!-- Optional JavaScript -->
-    <script src="/JS/controler/adminUsers.js"></script>
+    <script type="module" src="/JS/controler/adminUsers.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

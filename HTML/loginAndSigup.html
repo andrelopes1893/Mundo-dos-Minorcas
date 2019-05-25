@@ -33,13 +33,12 @@
                 <div class="header text-center">
                     <img src="/Images/Logo2.png" class="header" alt="">
                 </div>
-                <form action="" class="SignInform">
+                <form class="SignInform">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="txtUserEmail" placeholder="E-Mail" required>
+                        <input type="email" class="form-control" id="txtEmail" placeholder="E-Mail">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="txtUserPassword" placeholder="Password"
-                            required>
+                        <input type="password" class="form-control" id="txtPassword" placeholder="Password">
                     </div>
                     <div class="text-center buttonContainer">
                         <button type="submit" class="btn logIn">LOG IN</button>
@@ -47,8 +46,8 @@
                 </form>
                 <h1 class="display-5 text-center mt-4 mb-3" style="font-size: .8rem">OU</h1>
                 <div class="text-center buttonContainer2">
-                    <button type="button" class="btn signUp" data-toggle="modal"
-                        data-target="#newUserModal">Ainda não fazes parte do mundo mais divertido de sempre? Regista-te agora!</button>
+                    <button type="button" class="btn signUp" data-toggle="modal" data-target="#newUserModal">Ainda não
+                        fazes parte do mundo mais divertido de sempre? Regista-te agora!</button>
                 </div>
             </div>
         </div>
@@ -67,19 +66,19 @@
                     <form class="newUser">
                         <div class="form-group">
                             <label for="txtUserName">Nome:</label>
-                            <input type="text" class="form-control" id="txtUserName" required>
+                            <input type="text" class="form-control" id="txtUserName">
                         </div>
                         <div class="form-group">
                             <label for="txtUserEmail">E-mail:</label>
-                            <input type="email" class="form-control" id="txtUserEmail" required>
+                            <input type="text" class="form-control" id="txtUserEmail">
                         </div>
                         <div class="form-group">
                             <label for="txtUserPassword">Password:</label>
-                            <input type="password" class="form-control" id="txtUserPassword" required>
+                            <input type="password" class="form-control" id="txtUserPassword" pattern=".{6," required title="6 characters minimum">
                         </div>
                         <div class="form-group">
                             <label for="txtUserPasswordConf">Confirmar Password:</label>
-                            <input type="password" class="form-control" id="txtUserPasswordConf" required>
+                            <input type="password" class="form-control" id="txtUserPasswordConf">
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn createUser">REGISTRAR</button>
@@ -205,7 +204,7 @@
     <!-- MODAL-->
 
     <!-- Optional JavaScript -->
-    <script src="/JS/controler/loginAndSignup.js"></script>
+    <script type="module" src="/JS/controler/loginAndSignup.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
