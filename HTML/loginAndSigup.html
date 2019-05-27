@@ -63,7 +63,7 @@
                 </div>
                 <!-- Corpo da Modal -->
                 <div class="modal-body">
-                    <form class="newUser">
+                    <form class="newUser" id="newUserForm">
                         <div class="form-group">
                             <label for="txtUserName">Nome:</label>
                             <input type="text" class="form-control" id="txtUserName">
@@ -81,7 +81,7 @@
                             <input type="password" class="form-control" id="txtUserPasswordConf">
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn createUser">REGISTRAR</button>
+                            <button type="button" class="btn createUser" id="addUserBtn">REGISTRAR</button>
                         </div>
                     </form>
                 </div>
@@ -94,7 +94,6 @@
 
         <!-- Footer Links -->
         <div class="container-fluid text-center text-md-left mx-auto">
-
             <!-- Grid row -->
             <div class="row">
 
@@ -199,9 +198,6 @@
         <!-- Copyright -->
 
     </footer>
-
-
-    <!-- MODAL-->
 
     <!-- Optional JavaScript -->
     <script type="module" src="/JS/controler/loginAndSignup.js"></script>

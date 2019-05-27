@@ -78,6 +78,10 @@ button.btn.createLevel{
     border: 1px solid #29ABE2;
 }
 
+button.btn.createLevel:focus{
+    box-shadow: 0 0 0 0;
+}
+
 button.btn.approve{
     background-color: transparent;
     color: #29ABE2;
