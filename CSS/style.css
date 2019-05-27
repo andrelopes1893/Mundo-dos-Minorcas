@@ -352,23 +352,23 @@ div img.card-img-top {
 }
 
 div.card.africa {
-    background-color: #F5BB00;
+    background-color: #E1B638;
 }
 
 div.card.america {
-    background-color: rgba(74, 183, 27, 0.5);
+    background-color: #376F21;
 }
 
 div.card.asia {
-    background-color: rgba(238, 17, 222, 0.5);
+    background-color: #BE3DE3;
 }
 
 div.card.europa {
-    background-color: rgba(27, 69, 183, 0.5);
+    background-color: #204987;
 }
 
 div.card.oceania {
-    background-color: rgba(183, 84, 27, 0.5);
+    background-color: #BF3100;
 }
 
 div.card-header.text-center {
