@@ -185,6 +185,16 @@ button.btn.createAdmin {
     padding: 0%;
 }
 
+button.block{
+    border: 1px solid #29ABE2;
+    color: #29ABE2;
+}
+
+button.block:focus{
+    box-shadow: 0 0 0 0;
+    color: #29ABE2;
+}
+
 button.btn.userButton{
     background-color: transparent;
     border: 0px;
@@ -610,7 +620,7 @@ img.modalLogo {
 }
 */
 
-body#sugestionModal:after {
+body#suggestionModal:after {
     position: relative;
     top: 0;
     left: 0;

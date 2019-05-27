@@ -169,7 +169,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtPassword">Password:</label>
-                            <input type="password" class="form-control" id="txtPassword">
+                            <input type="password" class="form-control" id="txtPassword" pattern=".{6,}">
                         </div>
                         <div class="form-group">
                             <label for="txtPasswordConf">Confirmar Password:</label>
@@ -194,33 +194,20 @@
                 </div>
                 <!-- Corpo da Modal -->
                 <div class="modal-body">
-                    <form>
-                        <div class="form-group">
+                    <form id="blockUserForm">
+                        <div class="form-group" class="mb-5">
                             <label for="txtBlockUserName">Nome do Utilizador:</label>
                             <input type="text" class="form-control" id="txtBlockUserName" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="txtMotivo">Motivo:</label>
-                            <input type="text" class="form-control" id="txtMotivo">
-                        </div>
-                        <div class="form-group">
-                            <label for="stlDays">Dias:</label>
-                            <select class="form-control" id="stlContinent">
-                                <option value="7">7</option>
-                                <option value="14">14</option>
-                                <option value="30">30</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <div class="checkbox">
-                                <label><input type="checkbox" value="false">Pode Comentar</label>
+                                <label><input type="radio" id="yesComment" class="mr-2">Pode Comentar</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">Não Pode Comentar</label>
+                                <label><input type="radio" id="noComment" class="mr-2">Não Pode Comentar</label>
                             </div>
-
                         </div>
-                        <button type="button" class="btn btn-primary Block">Bloquear</button>
+                        <button type="button" class="btn block">Bloquear</button>
                     </form>
                 </div>
                 <!-- Rodapé da Modal -->
@@ -280,8 +267,8 @@
                 </div>
                 <!-- Corpo da Modal -->
                 <div class="modal-body text-center">
-                    <p>Tem a certeza que pretendi eliminar este utilizador?</p>
-                    <button class="btn yesButton" href="#" role="button">Sim</button>
+                    <p>Tem a certeza que pretende eliminar este utilizador?</p>
+                    <button class="btn yesButton" role="button">Sim</button>
                     <button class="btn noButton" data-dismiss="modal" role="button">Não</button>
                 </div>
             </div>

@@ -24,8 +24,8 @@ export default class Country {
     static getLastId() {
         let id = 0
         if (countries.length > 0) {
-            for (let prop of countries) {
-                id = prop.id
+            for (let country of countries) {
+                id = country._id
             }
         }
         return id
@@ -112,9 +112,9 @@ export default class Country {
     }    
 
     static getNameById(id) {        
-        for (const prop of countries) {                        
-            if (prop.id == id) {                
-                return prop.name
+        for (const country of countries) {                        
+            if (country._id == id) {                
+                return country._name
             }
         }
     }

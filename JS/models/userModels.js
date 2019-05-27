@@ -1,215 +1,214 @@
- import {users} from '../models/main.js'
+ import {
+     users
+ } from '../models/main.js'
 
-export default class User {
-    constructor(username, password, email, accountType = '1', avatar = '', description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = [], unlockCountries = [], unlockAvatar = []) {
-        this._id = User.getLastId() + 1
-        this.username = username
-        this.password = password
-        this.email = email
-        this.accountType = accountType
-        this.avatar = avatar
-        this.description = description
-        this.commentBlock = commentBlock
-        this.loginBlock = loginBlock
-        this.xp = xp
-        this.suggestions = suggestions
-        this.unlockCountries = unlockCountries
-        this.unlockAvatar = unlockAvatar
-    }
+ export default class User {
+     constructor(username, password, email, accountType = '1', avatar = '', description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = [], unlockCountries = [], unlockAvatar = []) {
+         this._id = User.getLastId() + 1
+         this.username = username
+         this.password = password
+         this.email = email
+         this.accountType = accountType
+         this.avatar = avatar
+         this.description = description
+         this.commentBlock = commentBlock
+         this.loginBlock = loginBlock
+         this.xp = xp
+         this.suggestions = suggestions
+         this.unlockCountries = unlockCountries
+         this.unlockAvatar = unlockAvatar
+     }
 
-    get id() {
-        return this._id
-    }
+     get id() {
+         return this._id
+     }
 
-    get username() {
-        return this._username
-    }
+     get username() {
+         return this._username
+     }
 
-    set username(value) {
-        this._username = value
-    }
+     set username(value) {
+         this._username = value
+     }
 
-    get password() {
-        return this._password
-    }
+     get password() {
+         return this._password
+     }
 
-    set password(value) {
-        this._password = value
-    }
+     set password(value) {
+         this._password = value
+     }
 
-    get email() {
-        return this._email
-    }
+     get email() {
+         return this._email
+     }
 
-    set email(value) {
-        this._email = value
-    }
+     set email(value) {
+         this._email = value
+     }
 
-    get avatar() {
-        return this._avatar
-    }
+     get avatar() {
+         return this._avatar
+     }
 
-    set avatar(value) {
-        if (value === '') {
-            value = '/Images/avatar.png'
-        }
+     set avatar(value) {
+         if (value === '') {
+             value = '/Images/avatar.png'
+         }
 
-        this._avatar = value
-    }
+         this._avatar = value
+     }
 
-    get accountType() {
-        return this._accountType
-    }
+     get accountType() {
+         return this._accountType
+     }
 
-    set accountType(value) {
-        this._accountType = value
-    }
+     set accountType(value) {
+         this._accountType = value
+     }
 
-    get description() {
-        return this._description
-    }
+     get description() {
+         return this._description
+     }
 
-    set description(value) {
-        if (value === '') {
-            value = 'Escreva algo sobre ti'
-        }
+     set description(value) {
+         if (value === '') {
+             value = 'Escreva algo sobre ti'
+         }
 
-        this._description = value
-    }
+         this._description = value
+     }
 
-    get commentBlock() {
-        return this._commentBlock
-    }
+     get commentBlock() {
+         return this._commentBlock
+     }
 
-    set commentBlock(value) {
-        this._commentBlock = value
-    }
+     set commentBlock(value) {
+         this._commentBlock = value
+     }
 
-    get loginBlock() {
-        return this._loginBlock
-    }
+     get loginBlock() {
+         return this._loginBlock
+     }
 
-    set loginBlock(value) {
-        this._loginBlock = value
-    }
+     set loginBlock(value) {
+         this._loginBlock = value
+     }
 
-    get xp() {
-        return this._xp
-    }
+     get xp() {
+         return this._xp
+     }
 
-    set xp(value) {
-        this._xp = value
-    }
+     set xp(value) {
+         this._xp = value
+     }
 
-    get suggestions() {
-        return this._suggestions
-    }
+     get suggestions() {
+         return this._suggestions
+     }
 
-    set suggestions(value) {
-        this._suggestions = value
-    }
+     set suggestions(value) {
+         this._suggestions = value
+     }
 
-    get unlockCountries() {
-        return this._unlockCountries
-    }
+     get unlockCountries() {
+         return this._unlockCountries
+     }
 
-    set unlockCountries(value) {
-        this._unlockCountries = value
-    }
+     set unlockCountries(value) {
+         this._unlockCountries = value
+     }
 
-    get unlockAvatar() {
-        return this._unlockAvatar
-    }
+     get unlockAvatar() {
+         return this._unlockAvatar
+     }
 
-    set unlockAvatar(value) {
-        this._unlockAvatar = value
-    }
+     set unlockAvatar(value) {
+         this._unlockAvatar = value
+     }
 
-    static accessType(accountType) {
-        if (accountType) {
-            return 'Administrador'
-        }
-        return 'Utilizador'
-    }
+     static accessType(accountType) {
+         if (accountType) {
+             return 'Administrador'
+         }
+         return 'Utilizador'
+     }
 
-    static removeUserById(id) {
-        for (let i in users) {
-            if (users[i].id === id) {
-                users.splice(i, 1)
-            }
-        }
-    }
+     static removeUserById(id) {
+         for (let i in users) {
+             if (users[i].id === id) {
+                 users.splice(i, 1)
+             }
+         }
+     }
 
-    static getIdByUsername(username) {
+     static getIdByUsername(username) {
+         let id = -1
+         for (const user of users) {
+             if (user._username.toLowerCase() === username.toLowerCase()) {
+                 id = user._id
+             }
+         }
+         return id
+     }
 
-        let id = -1
-        for (const prop of users) {
-            console.log(prop.username)
-            if (prop.username.toLowerCase() === username.toLowerCase()) {
-                id = prop.id
-            }
-        }
-        return id
-    }
+     static getIdByEmail(email) {
+         let id = -1
+         for (const user of users) {
+             if (user._email.toLowerCase() === email.toLowerCase()) {
+                 id = user._id
+             }
+         }
+         return id
+     }
 
-    static getIdByEmail(email) {
-        let id = -1
-        for (const prop of users) {
-            if (prop.email.toLowerCase() === email.toLowerCase()) {
-                id = prop.id
-            }
-        }
-        return id
-    }
+     static getIdByPassword(password) {
+         let id = -1
+         for (const user of users) {
+             if (user._password === password) {
+                 id = user._id
+             }
+         }
+         return id
+     }
 
-    static getIdByPassword(password) {
-        let id = -1
-        for (const prop of users) {
-            if (prop.password === password) {
-                id = prop.id
-            }
-        }
-        return id
-    }
+     // !Confirm the existence of the username
+     static confUserExistent(name) {
+         for (const user of users) {
+             if (user.username == name) {
+                 return true;
+             }
+         }
+         return false
+     }
 
-    // !Confirm the existence of the username
-    static confUserExistent(name) {
-        for (const user of users) {
-            if (user.username == name) {
-                return true;
-            }
-        }
-        return false
-    }
+     // !Confirm if the email has been used   
+     static confEmailExistent(email) {
+         for (const user of users) {
+             if (user.email == email) {
+                 return true;
+             }
+         }
+         return false
+     }
 
-    // !Confirm if the email has been used   
-    static confEmailExistent(email) {
-      
-        for (const user of users) {
-            if (user.email == email) {
-                return true;
-            }
-        }
-        return false
-    }
+     static getLastId() {
+         let lastId = 0
+         if (users.length != 0) {
+             lastId = users[users.length - 1]._id
+         }
+         return lastId
+     }
+ }
 
-    static getLastId() {
-        let lastId = 0
-        if(users.length != 0) {
-            lastId = users[users.length-1]._id
-        }
-        return lastId
-    }
-}
+ // function getLastId() {
 
-// function getLastId() {
-  
-//     let id = 0
-//     if (users.length > 0) {
-//         for (const user of users) {
-//             id = user._id
-//         }
-//     }
-//     console.log(users)
-//     return parseFloat(id) + 1
-// }
+ //     let id = 0
+ //     if (users.length > 0) {
+ //         for (const user of users) {
+ //             id = user._id
+ //         }
+ //     }
+ //     console.log(users)
+ //     return parseFloat(id) + 1
+ // }

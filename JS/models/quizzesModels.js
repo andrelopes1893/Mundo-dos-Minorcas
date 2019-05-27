@@ -1,7 +1,9 @@
-export let quizzes=[]
- 
+import {
+    quizzes
+} from '../controler/adminQuizz.js'
+
 export default class Question {
-    constructor(quizType, continent, level = 1, question, answers = [],correctAnswer, pointXp) {
+    constructor(quizType, continent, level = 1, question, answers = [], correctAnswer, pointXp) {
         this._id = Question.getLastId() + 1
         this.quizType = quizType
         this.continent = continent
@@ -19,12 +21,11 @@ export default class Question {
     static getLastId() {
         let id = 0
         if (quizzes.length > 0) {
-            for (let prop of quizzes) {
-                id = prop.id
+            for (let quiz of quizzes) {
+                id = quiz._id
             }
         }
         return id
-        
     }
 
     get continent() {
@@ -128,26 +129,23 @@ export default class Question {
         }
     }
 
-
-// !This makes the quizze validation
-    static ConfirmQuizExistence(continent,categoria,answear){
-        for (const quizz of quizzes) {
-
-            console.log(continent)
-            console.log(categoria)
-            console.log(answear)
-             console.log(quizz._continent)
-             console.log(quizz._quizType)
-             console.log(quizz._correctAnswer)
-
-            if(quizz._continent==continent && quizz._quizType==categoria && answear==quizz._correctAnswer){
+    // !This makes the quizzes validation
+    static ConfirmQuizExistence(continent, categoria, answear) {
+        for (const quiz of quizzes) {
+            if (quiz._continent == continent && quiz._quizType == categoria && quiz._correctAnswer == answear) {
                 return true;
             }
         }
         return false;
     }
 
-
-
-
+    static getCorrectAnswerById(correctAnswer) {
+        let id = -1
+        for (const quiz of quizzes) {
+            if (quiz._id === correctAnswer) {
+                id = quiz._correctAnswer
+            }
+        }
+        return id
+    }
 }

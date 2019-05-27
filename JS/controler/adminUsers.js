@@ -1,16 +1,15 @@
-
 // import {
 //     users
 // } from '../models/main.js'
 
-let users=[];
+let users = [];
 
 window.onload = function () {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
     renderTable()
-}  
+}
 
 import {
     newUserByAdmin
@@ -24,10 +23,10 @@ document.querySelector('#adminForm').addEventListener('submit', function (event)
     const txtPassword = document.querySelector('#txtPassword').value
     const txtPasswordConf = document.querySelector('#txtPasswordConf').value
     const userType = document.querySelector('#stlUsers').value
- 
+
     //!Function called here
     newUserByAdmin(txtUsername, txtEmail, txtPassword, txtPasswordConf, userType);
-    
+
 
 
 
@@ -52,39 +51,23 @@ document.querySelector('#adminForm').addEventListener('submit', function (event)
     // }
 
     $('#newUserModal').modal('hide');
+    renderTable()
 
     event.preventDefault()
-    renderTable()
 })
 
 // !This function form the body of the table based on the users array
 function renderTable() {
-  
+
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
 
     let usersBodyTable = document.querySelector('#usersTableBody')
     usersBodyTable.innerHTML = ''
-    let type = "";
+    let type = ""
 
     let r = 0
-    // for (const user of users) {
-    //     if (user._accountType === '1') {
-    //         type = 'admin'
-    //     } else {
-    //         type = 'utilizador'
-    //     }
-    //     r++
-    //     usersBodyTable.innerHTML+=`<tr>
-    //                                     <th scope="row">${r}</th>
-    //                                     <td> ${user._username}</td>
-    //                                     <td>${user._xp}</td>
-    //                                     <td><button type="button" id="${user._id}" data-toggle="modal" data-target="#newBlockUserModal" class="btn blockButton pt-2"><img src="/Images/lock.png" alt="Bloquear"></button></td>
-    //                                     <td><button type="button" id="${user._username}" data-toggle="modal" data-target="#removeUser"class="btn remove"><img src="/Images/x.png" alt="Eliminar"></button></td>
-    //                                     <td>${type}</td>
-    //                                 </tr>`
-    // }
 
     users.forEach(user => {
         if (user._accountType === '1') {
@@ -93,106 +76,98 @@ function renderTable() {
             type = 'utilizador'
         }
         r++
-        usersBodyTable.innerHTML+=`<tr>
+        usersBodyTable.innerHTML += `<tr>
                                         <th scope="row">${r}</th>
                                         <td> ${user._username}</td>
                                         <td>${user._xp}</td>
                                         <td><button type="button" id="${user._id}" data-toggle="modal" data-target="#newBlockUserModal" class="btn blockButton pt-2"><img src="/Images/lock.png" alt="Bloquear"></button></td>
-                                        <td><button type="button" id="${user._username}" data-toggle="modal" data-target="#removeUser"class="btn remove"><img src="/Images/x.png" alt="Eliminar"></button></td>
+                                        <td><button type="button" id="${user._username}" data-toggle="modal" data-target="#removeUser" class="btn remove"><img src="/Images/x.png" alt="Eliminar"></button></td>
                                         <td>${type}</td>
                                     </tr>`
     });
-    
+    removeButtons()
+    blockBtnNewEvent()
 }
 
 function removeButtons() {
     let removeBtns = document.getElementsByClassName("btn remove")
     for (const elem of removeBtns) {
         elem.addEventListener("click", function () {
-            // O this.id é o valor do atributo id de cada elemento button
             removeUser(this.id)
-            renderTable()
         })
     }
 }
 
 function removeUser(username) {
-    for (let i = 0; i < users.length; i++) {
-        if (users[i].username == username) {
-            users.splice(i, 1)
+    document.querySelector('.yesButton').addEventListener('click', function () {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i]._username == username) {
+                users.splice(i, 1)
+            }
         }
-    }
-    localStorage.setItem('countries', JSON.stringify(users))
-    $('#newUserModal').modal('hide')
+        localStorage.setItem('users', JSON.stringify(users))
+        renderTable()
+        $('#removeUser').modal('hide')
+    })
 }
 
 function blockBtnNewEvent() {
-
     let editButtons = document.getElementsByClassName('blockButton')
-
+    console.log(editButtons.length);
+    
     for (const elem of editButtons) {
         elem.addEventListener('click', function () {
+            console.log(this.id);
+            
             blockUser(this.id)
         })
     }
 }
 
+function blockUser(id) {
+    let loginBlock = false
+    let commentBlock = false
 
-function blockUser(id){
-  let loginBlock=false
-  let comentBlock=false
-
-  let BlockBtn=document.getElementById('Block')
+    let BlockBtn = document.querySelector('.block')
 
     for (const user of users) {
-
-        if(user.id=id){
-            document.getElementById('txtBlockUserName').value=user.username
-            loginBlock=user.loginBlock
-            comentBlock=user.comentBlock
+        if (user._id == id) {
+            document.getElementById('txtBlockUserName').value = user._username
+            loginBlock = user._loginBlock
+            commentBlock = user._commentBlock
         }
     }
-    if(loginBlock==true && comentBlock==true){
 
-        BlockBtn.innerHTML="Desbloquear"
+    if (loginBlock == true && commentBlock == true) {
+
+        BlockBtn.value = 'Desbloquear'
         BlockBtn.addEventListener('click', function () {
 
             for (const user of users) {
-                if (user.id == id) {
-                    user.comentBlock=false;
-                    user.loginBlock = false;
-                    localStorage.setItem('countries', JSON.stringify(users))
+                // console.log(id);
+                // console.log(user._id);
+
+                if (user._id == id) {
+                    user._commentBlock = false
+                    user._loginBlock = false
+                    localStorage.setItem('users', JSON.stringify(users))
                     renderTable()
-                }            
+                }
             }
             $('#newBlockUserModal').modal('hide')
         })
-    }
-    else{
-
-
-        BlockBtn.addEventListener('click', function (event) {
-            
+    } else {
+        document.querySelector('#blockUserForm').addEventListener('click', function () {
             for (const user of users) {
-                if (user.id == id) {
-                    user.loginBlock = true
-                    localStorage.setItem('countries', JSON.stringify(countries))
+                if (user._id == id) {
+                    user._loginBlock = true
+                    user._commentBlock = true
+                    localStorage.setItem('users', JSON.stringify(users))
                     renderTable()
-                }            
+                }
             }
-            $('#newBlockUserModal').modal('hide')
+            // event.preventDefault()
+            //$('#newBlockUserModal').modal('hide')
         })
-
-
-
-
-
-
     }
-
-    
-   
-    
-
-
 }

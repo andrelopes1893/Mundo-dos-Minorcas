@@ -1,14 +1,15 @@
-import {
-    quizzes
-} from '../models/quizzesModels.js'
+export let quizzes = []
 
 import Question from '../models/quizzesModels.js'
 
-if (localStorage.getItem('quizzes')) {
-    quizzes = JSON.parse(localStorage.getItem('quizzes'))
+window.onload = function () {
+    if (localStorage.getItem('quizzes')) {
+        quizzes = JSON.parse(localStorage.getItem('quizzes'))
+    }
 }
+let answers = []
 
-document.querySelector('#quizCreateForm').addEventListener('submit', function (event) {
+document.getElementById('quizCreateForm').addEventListener('submit', function (event) {
     let quizContinent = document.querySelector('#stlContinent').value
     let quizCategory = document.querySelector('#stlCategory').value
     let level = document.querySelector('#stlLevel').value
@@ -16,44 +17,18 @@ document.querySelector('#quizCreateForm').addEventListener('submit', function (e
     let txtWrongAnswer2 = document.querySelector('#txtAnswerOptions2').value
     let txtWrongAnswer3 = document.querySelector('#txtAnswerOptions3').value
     let txtCorrectAnswer = document.querySelector('#txtCorrectAnswer').value
+    console.log(Question.ConfirmQuizExistence(quizContinent, quizCategory, txtCorrectAnswer))
 
- 
 
-    // let exist = false
 
-    // if (condition) {
-
-    // }
-
-    if (Question.ConfirmQuizExistence(quizContinent,quizCategory,txtCorrectAnswer)){
-        alert("quizz já existente ")
-    }
-    else{    quizzes.push(new Question(quizCategory, quizContinent, level, Question.establishQuizQuestion(quizCategory) , txtCorrectAnswer, Question.xpByLevel(level)))
+    if (Question.ConfirmQuizExistence(quizContinent, quizCategory, txtCorrectAnswer)) {
+        alert("O quiz já existente ")
+    } else {
+        answers.push(txtWrongAnswer1, txtWrongAnswer2, txtWrongAnswer3, txtCorrectAnswer)
+        quizzes.push(new Question(quizCategory, quizContinent, level, Question.establishQuizQuestion(quizCategory), answers, txtCorrectAnswer, Question.xpByLevel(level)))
         localStorage.setItem('quizzes', JSON.stringify(quizzes))
+        answers = []
     }
-       
- 
-
-
-
-
-
-    
-
-
-
-    // for (const quiz of quizzes) {
-    //     console.log(quizzes);
-
-    //     if (quiz.continent.toLowerCase() == quizContinent.toLowerCase() &&
-    //         quiz.quizType.toLowerCase() == quizCategory.toLowerCase() &&
-    //         quiz.correctAnswer.toLowerCase() == txtCorrectAnswer.toLowerCase()) {
-    //         alert('Ja existe um quizz')
-    //     } else {
-    //         quizzes.push(new Question(Question.establishQuizQuestion(quizCategory), quizContinent, level, txtWrongAnswer1, txtWrongAnswer2, txtWrongAnswer3, txtCorrectAnswer))
-    //         localStorage.setItem('quizzes', JSON.stringify(quizzes))
-    //     }
-    // }
 
     event.preventDefault()
 })

@@ -2,8 +2,11 @@ import Country from '../models/countriesModels.js'
 
 export let countries = []
 
-if (localStorage.countries) {
-    countries = JSON.parse(localStorage.countries)
+window.onload = function () {
+    if (localStorage.countries) {
+        countries = JSON.parse(localStorage.countries)
+    }
+    renderTable()
 }
 
 document.querySelector('#createCountryForm').addEventListener('submit', function (event) {
@@ -27,6 +30,9 @@ document.querySelector('#createCountryForm').addEventListener('submit', function
 })
 
 function renderTable() {
+    if (localStorage.countries) {
+        countries = JSON.parse(localStorage.countries)
+    }
     let countriesTableBody = document.querySelector('#countriesTableBody')
     countriesTableBody.innerHTML = ''
 
@@ -35,10 +41,10 @@ function renderTable() {
         r++
         countriesTableBody.innerHTML += `<tr>
                                         <th scope="row">${r}</th>
-                                        <td>${country.name}</td>
-                                        <td>${country.continent}</td>
-                                        <td><button type="button" id="${country.id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
-                                        <td><button type="button" id="${country.name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
+                                        <td>${country._name}</td>
+                                        <td>${country._continent}</td>
+                                        <td><button type="button" id="${country._id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
+                                        <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
                                     </tr> `
     }
     removeButtons()
@@ -58,7 +64,7 @@ function removeButtons() {
 
 function removeCountry(name) {
     for (let i = 0; i < countries.length; i++) {
-        if (countries[i].name === name) {
+        if (countries[i]._name === name) {
             countries.splice(i, 1)
         }
     }
@@ -69,7 +75,7 @@ function removeCountry(name) {
 
 function isRepeated(name) {
     for (const country of countries) {
-        if (country.name.toLowerCase() === name.toLowerCase()) {
+        if (country._name.toLowerCase() === name.toLowerCase()) {
             alert('asd')
             return true
         }
@@ -81,13 +87,13 @@ function submitEdit(id) {
     document.getElementById('editCountry').addEventListener('click', function (event) {
 
         let txtName = document.getElementById('txtEditCountryName').value
-        
+
         for (const country of countries) {
-            if (country.id == id) {
-                country.name = txtName
+            if (country._id == id) {
+                country._name = txtName
                 localStorage.setItem('countries', JSON.stringify(countries))
                 renderTable()
-            }            
+            }
         }
         $('#ModalEditCountry').modal('hide')
     })
@@ -102,7 +108,7 @@ function editButtons() {
             // document.getElementById('txtEditCountryName').value = Country.getNameById(this.id)
             //editNameContinent(this.id)
             submitEdit(this.id)
-            
+
         })
     }
 }
