@@ -402,6 +402,14 @@ div.card.oceania div.card-body p {
     color: #BF3100
 }
 
+button.btn.quizzesBtn{
+    background-color: transparent;
+}
+
+button.btn.quizzesBtn:focus{
+    box-shadow: 0 0 0 0;
+}
+
 /* ! AFRICAN CARDS */
 div.card.africanCards {
     margin-top: 3%;
