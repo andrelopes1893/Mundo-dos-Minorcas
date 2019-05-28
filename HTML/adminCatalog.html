@@ -157,15 +157,15 @@
                     <form id="createCountryForm">
                         <div class="form-group">
                             <label for="txtCountryName">Nome:</label>
-                            <input type="text" class="form-control" id="txtCountryName">
+                            <input type="text" class="form-control" id="txtCountryName" required>
                         </div>
                         <div class="form-group">
                             <label for="txtCountryCapital">Capital:</label>
-                            <input type="text" class="form-control" id="txtCountryCapital">
+                            <input type="text" class="form-control" id="txtCountryCapital" required>
                         </div>
                         <div class="form-group">
                             <label for="txtCountryLanguage">Língua Oficial:</label>
-                            <input type="text" class="form-control" id="txtCountryLanguage">
+                            <input type="text" class="form-control" id="txtCountryLanguage" required>
                         </div>
                         <div class="form-group">
                             <label for="stlContinent">Continente:</label>
@@ -178,24 +178,16 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="txtInfo1">Informação 1:</label>
-                            <input type="text" class="form-control" id="txtInfo1">
+                            <label for="txtInfo">Informação Adicional:</label>
+                            <input type="text" class="form-control" id="txtInfo" required>
                         </div>
                         <div class="form-group">
-                            <label for="txtInfo2">Informação 2:</label>
-                            <input type="text" class="form-control" id="txtInfo2">
+                            <label for="txtLocation">Localização:</label>
+                            <input type="url" class="form-control" id="txtLocation" required>
                         </div>
                         <div class="form-group">
-                            <label for="imgCarousel1">Imagem do carroussel (1):</label>
-                            <input type="url" class="form-control" id="imgCarousel1">
-                        </div>
-                        <div class="form-group">
-                            <label for="imgCarrousel2">Imagem do carroussel (2):</label>
-                            <input type="url" class="form-control" id="imgCarrousel2">
-                        </div>
-                        <div class="form-group">
-                            <label for="imgCarrousel3">Imagem do carroussel (3):</label>
-                            <input type="url" class="form-control" id="imgCarrousel3">
+                            <label for="txtFlag">Bandeira:</label>
+                            <input type="url" class="form-control" id="txtFlag" required>
                         </div>
                         <button type="submit" class="btn btn-primary createCountry" id="createCountry">Criar</button>
                     </form>
@@ -232,6 +224,27 @@
                                 <option value="Ocenia">Oceânia</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="txtEditCountryCapital">Capital:</label>
+                            <input type="text" class="form-control" id="txtEditCountryCapital" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEditCountryLanguage">Língua Oficial:</label>
+                            <input type="text" class="form-control" id="txtEditCountryLanguage" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEditCountryInfo">Informação Adicional:</label>
+                            <input type="text" class="form-control" id="txtEditCountryInfo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEditCountryLocation">Localização:</label>
+                            <input type="url" class="form-control" id="txtEditCountryLocation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEditCountryFlag">Bandeira:</label>
+                            <input type="url" class="form-control" id="txtEditCountryFlag" required>
+                        </div>
+
                         <button type="button" class="btn btn-primary edit" id="editCountry">Editar</button>
                     </form>
                 </div>

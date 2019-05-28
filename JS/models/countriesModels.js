@@ -3,7 +3,7 @@ import {
 } from '../controler/adminCatalog.js'
 
 export default class Country {
-    constructor(name, capital, language, continent, images = [], points = [], information = [], flag, comments = [], date) {
+    constructor(name, capital, flag, language, continent,information ='',location = "",points=[], comments = [],visit=0) {
         this._id = Country.getLastId() + 1
         this.name = name
         this.continent = continent
@@ -12,9 +12,9 @@ export default class Country {
         this.points = points
         this.flag = flag
         this.information = information
-        this.images = images
+        this.location = location
         this.comments = comments
-        this.date = date
+        this.visit=visit
     }
 
     get id() {
@@ -87,12 +87,12 @@ export default class Country {
         this._information = value
     }
 
-    get image() {
-        return this._image
+    get location() {
+        return this._location
     }
 
-    set image(value) {
-        this._image = value
+    set location(value) {
+        this._location = value
     }
 
     get comments() {
@@ -102,14 +102,13 @@ export default class Country {
     set comments(value) {
         this._comments = value
     }
-
-    get date() {
-        return this._date
+    get visit() {
+        return this._visit
     }
 
-    set date(value) {
-        this._date = value
-    }    
+    set visit(value) {
+        this._visit = value
+    }
 
     static getNameById(id) {        
         for (const country of countries) {                        
