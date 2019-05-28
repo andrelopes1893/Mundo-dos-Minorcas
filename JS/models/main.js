@@ -2,15 +2,13 @@ import User from '../models/userModels.js'
 
 export let users = []
 
-// window.onload = function () {
-//     if (localStorage.getItem("users")) {
-//         users = JSON.parse(localStorage.getItem("users"))
-//     }
-// }
+window.onload = function () {
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
+}
 
-
-
-/** @string   */ 
+/** @string   */
 
 // !This function add a new User from the Addmin Point Of view
 /**
@@ -46,7 +44,7 @@ export function newUserByAdmin(txtUsername, txtEmail, txtPassword, txtPasswordCo
     if (exist) {
         alert('Erro')
     } else {
-        users.push(new User(txtUsername, txtEmail, txtPassword, txtPasswordConf))
+        users.push(new User(txtUsername, txtPassword, txtEmail))
         localStorage.setItem('users', JSON.stringify(users))
     }
 }

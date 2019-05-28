@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="/Carrossel/owl.carousel.min.css">
     <link rel="stylesheet" href="/Carrossel/owl.theme.default.min.css">
 
+    <!-- Our Favicon -->
+    <link rel="icon" type="image/png" href="/Images/Logo2.png">
+
 </head>
 
 <body>
@@ -34,9 +37,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item line">
-                    <a class="nav-link" href="#">Página Inicial</a>
-                </li>
                 <li class="nav-item line">
                     <a class="nav-link" href="#">Ver Catálogo</a>
                 </li>
@@ -54,8 +54,8 @@
                         <img src="/Images/avatar.png" alt="Avatar" class="avatar">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Perfil</a>
-                        <a class="dropdown-item" href="#">Sair</a>
+                        <a class="dropdown-item">Perfil</a>
+                        <a class="dropdown-item" id="signOut">Sair</a>
                     </div>
                 </li>
             </ul>
@@ -247,7 +247,7 @@
     </script>
     <!-- Our JavaScript -->
     <script src="/Carrossel/owl.carousel.min.js"></script>
-    <script src="/JS/controler/index.js"></script>
+    <script type="module" src="/JS/controler/index.js"></script>
 
 </body>
 

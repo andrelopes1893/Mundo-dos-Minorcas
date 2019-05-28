@@ -172,25 +172,51 @@
          return id
      }
 
-     // !Confirm the existence of the username
-     static confUserExistent(name) {
+     static checkLoginBlocked(email) {
          for (const user of users) {
-             if (user.username == name) {
-                 return true;
+             if (user._email === email && user._loginBlock == true) {
+                 return true
              }
          }
          return false
      }
 
-     // !Confirm if the email has been used   
-     static confEmailExistent(email) {
+     static confirmUserExistent(email, password) {
          for (const user of users) {
-             if (user.email == email) {
-                 return true;
+             if (user._email === email && user._password === password) {
+                 return true
              }
          }
          return false
      }
+
+     static getIdByBlockUser(userId) {
+        for (const user of users) {
+            if (user._id === userId) {
+                return user._loginBlock
+            }
+        }
+     }
+
+     //  // !Confirm the existence of the username
+     //  static confUserExistent(name) {
+     //      for (const user of users) {
+     //          if (user.username == name) {
+     //              return true;
+     //          }
+     //      }
+     //      return false
+     //  }
+
+     //  // !Confirm if the email has been used   
+     //  static confEmailExistent(email) {
+     //      for (const user of users) {
+     //          if (user.email == email) {
+     //              return true;
+     //          }
+     //      }
+     //      return false
+     //  }
 
      static getLastId() {
          let lastId = 0

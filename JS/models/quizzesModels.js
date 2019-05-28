@@ -148,6 +148,4 @@ export default class Question {
         }
         return id
     }
-
-    //Function
 }

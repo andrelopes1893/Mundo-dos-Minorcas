@@ -61,10 +61,10 @@ form.SignInform div.form-group input:focus {
 }
 
 /* !FORM SIGN IN BUTTON */
-form.SignInform button.btn.logIn {
+form#signInForm input.btn.logIn {
     width: 50%;
     font-size: 1.2rem;
-    border: 2px solid #29abe2;
+    border: 1px solid #29abe2;
     background-color: transparent;
     color: #29ABE2
 }
