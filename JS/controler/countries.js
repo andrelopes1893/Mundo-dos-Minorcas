@@ -13,7 +13,7 @@ if (localStorage.countries) {
 
 
 //nova parte dos filtros... ainda em development
-const myCatalog = document.querySelector("#countriesCol")
+const myCatalog = document.querySelector("#containerCatalog")
 const btnFilter = document.querySelector("#btnFilter")
 
 btnFilter.addEventListener("click", function (event) {
@@ -39,25 +39,26 @@ function renderCatalog(stlGenre = "", txtName = "") {
             result += `<div class="row">`
         }
         result += `
-            <div class="card africanCards" style="width: 18rem;">
-                <a href="#"><img src="${country._flag}" class="card-img-top" alt=""></a>
-                <div class="card-body">
-                    <p class="card-text paragraph">NOME: <span>${country._name}</span></p>
-                    <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
-                    <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
-                    <p class="mb-0 star"><button class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star" style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button>
-                    </p>
+            <div class="col-lg-4 col-sm-6 col-xs-12" id="countriesCol">
+                <div class="card africanCards" style="width: 18rem;">
+                    <a href="#"><img src="${country._flag}" class="card-img-top" alt=""></a>
+                    <div class="card-body">
+                        <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
+                        <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
+                        <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
+                        <p class="mb-0 star"><button class="btn star"
+                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                                class="btn star"
+                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                                class="btn star"
+                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                                class="btn star"
+                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                                class="btn star" style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button>
+                        </p>
+                    </div>
                 </div>
             </div>`
-
         i++
         if (i % 4 === 0) {
             result += `</div>`
