@@ -105,7 +105,6 @@ function submitEdit(id) {
                 country._information = txtInfo
                 country._location = txtLocation
                 country._flag = txtFlag
-          
             }
         }
         localStorage.setItem('countries', JSON.stringify(countries))
@@ -127,9 +126,6 @@ function editButtons() {
         })
     }
 }
-
-
-
 function EditFormInfoAdd(id) {
     for (const country of countries) {
         if (country._id == id) {
