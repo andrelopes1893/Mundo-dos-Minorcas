@@ -1,7 +1,6 @@
 import {
     quizzes
 } from '../controler/adminQuizz.js'
-
 export default class Question {
     constructor(quizType, continent, level = 1, question, answers = [], correctAnswer, pointXp) {
         this._id = Question.getLastId() + 1
@@ -13,11 +12,9 @@ export default class Question {
         this.correctAnswer = correctAnswer
         this.pointXp = pointXp
     }
-
     get id() {
         return this._id
     }
-
     static getLastId() {
         let id = 0
         if (quizzes.length > 0) {
