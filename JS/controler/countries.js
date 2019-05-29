@@ -43,7 +43,7 @@ function renderCatalog() {
             result += `<div class="row">`
         }
         result += `
-            <div class="col-lg-4 col-sm-6 col-xs-12" id="countriesCol">
+            <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
                 <div class="card africanCards" style="width: 18rem;">
                     <a href="#"><img src="${country._flag}" class="card-img-top" alt=""></a>
                     <div class="card-body">
