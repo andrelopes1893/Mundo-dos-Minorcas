@@ -26,7 +26,6 @@ document.querySelector('#createCountryForm').addEventListener('submit', function
 
     event.preventDefault()
 })
-
 function renderTable() {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
@@ -48,7 +47,6 @@ function renderTable() {
     removeButtons()
     editButtons()
 }
-
 function removeButtons() {
     let removeBtns = document.getElementsByClassName("btn remove")
     for (const elem of removeBtns) {
@@ -82,8 +80,14 @@ function isRepeated(name) {
 }
 
 function submitEdit(id) {
-    document.getElementById('editCountry').addEventListener('click', function (event) {
+    
+    document.getElementById('editCountry').addEventListener('click', function () {
 
+
+
+        if (localStorage.countries) {
+            countries = JSON.parse(localStorage.countries)
+        }
         let txtName = document.getElementById('txtEditCountryName').value
         let txtContinent = document.querySelector('#newSltContinent').value 
         let txtCapital = document.querySelector('#txtEditCountryCapital').value
@@ -91,15 +95,9 @@ function submitEdit(id) {
         let txtInfo = document.querySelector('#txtEditCountryInfo').value 
         let txtLocation = document.querySelector('#txtEditCountryLocation').value 
         let txtFlag = document.querySelector('#txtEditCountryFlag').value 
-
-
-
-
-
-
-
         for (const country of countries) {
-            if (country._id == id) {
+            if (id==country._id ) {
+                console.log(country._id)
                 country._name = txtName
                 country._continent = txtContinent
                 country._capital = txtCapital
@@ -107,11 +105,14 @@ function submitEdit(id) {
                 country._information = txtInfo
                 country._location = txtLocation
                 country._flag = txtFlag
-                localStorage.setItem('countries', JSON.stringify(countries))
-                renderTable()
+          
             }
         }
+        localStorage.setItem('countries', JSON.stringify(countries))
         $('#ModalEditCountry').modal('hide')
+        alert("Catalogo Editado com Sucesso")
+        // ?Questionable solution
+        location.reload()
     })
 }
 
@@ -121,10 +122,8 @@ function editButtons() {
 
     for (const elem of editButtons) {
         elem.addEventListener('click', function () {
-
             EditFormInfoAdd(this.id)
             submitEdit(this.id)
-
         })
     }
 }
@@ -134,6 +133,7 @@ function editButtons() {
 function EditFormInfoAdd(id) {
     for (const country of countries) {
         if (country._id == id) {
+
             document.querySelector('#txtEditCountryName').value = country._name
             document.querySelector('#newSltContinent').value = country._continent
             document.querySelector('#txtEditCountryCapital').value = country._capital
