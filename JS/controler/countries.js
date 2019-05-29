@@ -45,7 +45,9 @@ function renderCatalog() {
         result += `
             <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
                 <div class="card africanCards" style="width: 18rem;">
-                    <a href="#"><img src="${country._flag}" class="card-img-top" alt=""></a>
+                <button type="button" class="btn countryButton" data-toggle="modal" data-target="#countryModal"><img
+                src="${country._flag}"
+                class="card-img-top" alt="Brasil"></button>
                     <div class="card-body">
                         <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
                         <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
