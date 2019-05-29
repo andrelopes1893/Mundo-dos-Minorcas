@@ -82,8 +82,7 @@ function isRepeated(name) {
 }
 
 function submitEdit(id) {
-    document.getElementById('editCountry').addEventListener('click', function (event) {
-
+    document.getElementById('editCountry').addEventListener('click', function () {
         let txtName = document.getElementById('txtEditCountryName').value
         let txtContinent = document.querySelector('#newSltContinent').value 
         let txtCapital = document.querySelector('#txtEditCountryCapital').value
@@ -91,12 +90,6 @@ function submitEdit(id) {
         let txtInfo = document.querySelector('#txtEditCountryInfo').value 
         let txtLocation = document.querySelector('#txtEditCountryLocation').value 
         let txtFlag = document.querySelector('#txtEditCountryFlag').value 
-
-
-
-
-
-
 
         for (const country of countries) {
             if (country._id == id) {
@@ -128,8 +121,6 @@ function editButtons() {
         })
     }
 }
-
-
 
 function EditFormInfoAdd(id) {
     for (const country of countries) {

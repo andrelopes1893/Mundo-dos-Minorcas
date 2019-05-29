@@ -3,7 +3,7 @@
  } from '../models/main.js'
 
  export default class User {
-     constructor(username, password, email, accountType = '1', avatar = '', description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = [], unlockCountries = [], unlockAvatar = []) {
+     constructor(username, password, email, accountType = '1', avatar = '', description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = [], unlockCountries = [], unlockAvatar = [], birthday, country) {
          this._id = User.getLastId() + 1
          this.username = username
          this.password = password
@@ -17,16 +17,24 @@
          this.suggestions = suggestions
          this.unlockCountries = unlockCountries
          this.unlockAvatar = unlockAvatar
+         this.birthday = birthday
+         this.country = country
      }
 
      get id() {
          return this._id
      }
-
+     static getLastId() {
+        let lastId = 0
+        if (users.length != 0) {
+            lastId = users[users.length - 1]._id
+        }
+        return lastId
+    }
+    
      get username() {
          return this._username
      }
-
      set username(value) {
          this._username = value
      }
@@ -34,7 +42,6 @@
      get password() {
          return this._password
      }
-
      set password(value) {
          this._password = value
      }
@@ -42,7 +49,6 @@
      get email() {
          return this._email
      }
-
      set email(value) {
          this._email = value
      }
@@ -50,7 +56,6 @@
      get avatar() {
          return this._avatar
      }
-
      set avatar(value) {
          if (value === '') {
              value = '/Images/avatar.png'
@@ -62,7 +67,6 @@
      get accountType() {
          return this._accountType
      }
-
      set accountType(value) {
          this._accountType = value
      }
@@ -70,7 +74,6 @@
      get description() {
          return this._description
      }
-
      set description(value) {
          if (value === '') {
              value = 'Escreva algo sobre ti'
@@ -82,7 +85,6 @@
      get commentBlock() {
          return this._commentBlock
      }
-
      set commentBlock(value) {
          this._commentBlock = value
      }
@@ -90,7 +92,6 @@
      get loginBlock() {
          return this._loginBlock
      }
-
      set loginBlock(value) {
          this._loginBlock = value
      }
@@ -98,7 +99,6 @@
      get xp() {
          return this._xp
      }
-
      set xp(value) {
          this._xp = value
      }
@@ -106,7 +106,6 @@
      get suggestions() {
          return this._suggestions
      }
-
      set suggestions(value) {
          this._suggestions = value
      }
@@ -114,7 +113,6 @@
      get unlockCountries() {
          return this._unlockCountries
      }
-
      set unlockCountries(value) {
          this._unlockCountries = value
      }
@@ -122,9 +120,22 @@
      get unlockAvatar() {
          return this._unlockAvatar
      }
-
      set unlockAvatar(value) {
          this._unlockAvatar = value
+     }
+
+     get birthday() {
+         return this._birthday
+     }
+     set birthday(value) {
+         this._birthday = value
+     }
+
+     get country() {
+         return this._country
+     }
+     set country(value) {
+         this._country = value
      }
 
      static accessType(accountType) {
@@ -191,50 +202,10 @@
      }
 
      static getIdByBlockUser(userId) {
-        for (const user of users) {
-            if (user._id === userId) {
-                return user._loginBlock
-            }
-        }
-     }
-
-     //  // !Confirm the existence of the username
-     //  static confUserExistent(name) {
-     //      for (const user of users) {
-     //          if (user.username == name) {
-     //              return true;
-     //          }
-     //      }
-     //      return false
-     //  }
-
-     //  // !Confirm if the email has been used   
-     //  static confEmailExistent(email) {
-     //      for (const user of users) {
-     //          if (user.email == email) {
-     //              return true;
-     //          }
-     //      }
-     //      return false
-     //  }
-
-     static getLastId() {
-         let lastId = 0
-         if (users.length != 0) {
-             lastId = users[users.length - 1]._id
+         for (const user of users) {
+             if (user._id === userId) {
+                 return user._loginBlock
+             }
          }
-         return lastId
      }
  }
-
- // function getLastId() {
-
- //     let id = 0
- //     if (users.length > 0) {
- //         for (const user of users) {
- //             id = user._id
- //         }
- //     }
- //     console.log(users)
- //     return parseFloat(id) + 1
- // }

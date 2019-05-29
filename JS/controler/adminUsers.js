@@ -27,29 +27,6 @@ document.querySelector('#adminForm').addEventListener('submit', function (event)
     //!Function called here
     newUserByAdmin(txtUsername, txtEmail, txtPassword, txtPasswordConf, userType);
 
-
-
-
-
-    // let exist = false
-    // if (User.getUsernameById(txtUsername) != -1 && localStorage.getItem(User.getUsernameById(user.username)) == true) {
-    //     exist = true
-    //     alert('Já existe um utilizador com esse nome de utilizador')
-    // }
-
-    // //metodo static e se existir um email ja com o valor do input no localStorage
-    // if (User.getEmailById(txtEmail) != -1 && localStorage.getItem(User.getUsernameById(user.email)) == true) {
-    //     exist = true
-    //     alert('Já existe um utilizador com esse nome de email')
-    // }
-
-    // if (exist) {
-    //     alert('Erro')
-    // } else {
-    //     users.push(new User(txtUsername, txtEmail, txtPassword, txtPasswordConf, userType))
-    //     localStorage.setItem('users', JSON.stringify(users))
-    // }
-
     $('#newUserModal').modal('hide');
     renderTable()
 

@@ -65,7 +65,7 @@
         <div class="row">
             <div class="col-12 text-center catalog">
                 <img src="/Images/Catalogos.png" alt="Catalogo" class="mt-5">
-                <h1 class="display-5 mb-3 mt-3">Catálogo de <span>África</span></h1>
+                <h1 class="display-5 mb-3 mt-3">Catálogo de <span id="continentTitle">África</span></h1>
             </div>
         </div>
     </div>
@@ -95,11 +95,11 @@
 
     <!--Card-->
     <div class="row">
-        <div class="col-lg-4 col-sm-6 col-xs-12">
+        <div class="col-lg-4 col-sm-6 col-xs-12" id="countriesCol">
             <div class="card africanCards" style="width: 18rem;">
-                <a href="#"><img
+                <button type="button" class="btn countryButton" data-toggle="modal" data-target="#countryModal"><img
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_Cape_Verde_%282-3_ratio%29.svg/1200px-Flag_of_Cape_Verde_%282-3_ratio%29.svg.png"
-                        class="card-img-top" alt="Brasil"></a>
+                        class="card-img-top" alt="Brasil"></button>
                 <div class="card-body">
                     <p class="card-text paragraph">NOME: <span>Cabo Verde</span> </p>
                     <p class="card-text paragraph">CAPITAL: <span>Praia</span></p>
@@ -119,6 +119,38 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="countryModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho da Modal -->
+                <div class="modal-header">
+                    <img src="/Images/Portugal.png" class="modalLogo" alt="Logo">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="color:#ffff">Voltar</button>
+                </div>
+                <!-- Corpo da Modal -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-xs-12 infoParagraph text-center">
+                            <p class="mt-4">Nome: <span id="infoCapital"></span></p>
+                            <p>Capital: <span id="infoCapital"></span></p>
+                            <p>Continente: <span id="infoContinent"></span></p>
+                            <p>Línguas: <span id="infoLanguage"></span></p>
+                            <p>População: <span id="infoPopulation"></span></p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-xs-12 imgInfo">
+                            <img src="/Images/Mapa.png" alt="Mapa" class="map mx-auto">
+                            <img src="/Images/Legenda.png" alt="Legenda" class="caption mx-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fim Modal -->
 
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
