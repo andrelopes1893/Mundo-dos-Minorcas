@@ -470,7 +470,7 @@ div.row div.col-lg-6.imgInfo img.caption {
     margin-top: 2rem;
 }
 
-div.row div.col-lg-6.imgInfo{
+div.row div.col-lg-6.imgInfo {
     margin: auto;
 }
 
@@ -478,7 +478,7 @@ div.modal-content {
     background-color: #29ABE2;
 }
 
-div.infoParagraph > p{
+div.infoParagraph>p {
     color: white;
     font-weight: 500;
 }
@@ -703,6 +703,42 @@ button.btn.saveNewProfile {
     color: #000000;
     border: 1px solid #29ABE2;
 }
+
+/** Botões Avatar */
+button.buttonBoy {
+    background-color: #CCCC33;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    color: #ffffff;
+    transition: all .5s ease-in-out;
+}
+
+button.buttonGirl {
+    background-color: #BE3DE3;
+    color: #ffffff;
+    transition: all .5s ease-in-out;
+}
+
+button.buttonBoy:focus {
+    box-shadow: 0 0 0 0;
+    color: #ffffff;
+}
+
+button.buttonGirl:focus {
+    color: #ffffff;
+    box-shadow: 0 0 0 0;
+}
+
+button.buttonBoy:hover {
+    color: #ffffff;
+    transform: scale(1.1, 1.1);
+}
+
+button.buttonGirl:hover {
+    color: #ffffff;
+    transform: scale(1.1, 1.1);
+}
+/** Fim Botões Avatar */
 
 p.lead.avatarType {
     color: #CCCC33
