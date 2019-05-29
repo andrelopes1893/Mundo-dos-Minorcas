@@ -33,7 +33,7 @@ function renderCatalog() {
     }
     
     //filtro para ordenar por ordem alfabetica crescente
-    if (stlGenre.value == "Ordem Alfabética" ) {
+    if (stlGenre.value == "Ordem Alfabética") {
         sortCountries()
     }
 
@@ -78,7 +78,7 @@ function renderCatalog() {
 }
 
 /**
- * Função que ordena o array de paises pelo nome e guarda o array ordenado na LocalStorage
+ * Função que ordena o array de paises pelo nome, no container
  */
 export function sortCountries() {
     countries.sort(Country.compare)
