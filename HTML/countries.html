@@ -78,7 +78,7 @@
                     <div class="form-group selection">
                         <label for="stlGenre" class="mr-3">Filtrar Por: </label>
                         <select class="form-control" id="stlGenre">
-                            <option value="">Ordem Alfabéticas</option>
+                            <option value="Ordem Alfabética">Ordem Alfabética</option>
                             <option value="Mais Comentados">Mais Comentados</option>
                             <option value="Melhor Pontuação">Melhor Pontuação</option>
                         </select>
@@ -94,31 +94,8 @@
     </div>
 
     <!--Card-->
-    <div class="row">
-        <div class="col-lg-4 col-sm-6 col-xs-12" id="countriesCol">
-            <div class="card africanCards" style="width: 18rem;">
-                <button type="button" class="btn countryButton" data-toggle="modal" data-target="#countryModal"><img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_Cape_Verde_%282-3_ratio%29.svg/1200px-Flag_of_Cape_Verde_%282-3_ratio%29.svg.png"
-                        class="card-img-top" alt="Brasil"></button>
-                <div class="card-body">
-                    <p class="card-text paragraph">NOME: <span>Cabo Verde</span> </p>
-                    <p class="card-text paragraph">CAPITAL: <span>Praia</span></p>
-                    <p class="card-text paragraph">LÍNGUA: <span>Português</span></p>
-                    <p class="mb-0 star"><button class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star" style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button>
-                    </p>
-                    <!-- Ao carregar-se numa estrela mudam-se de cor: color: #... Exemplo: carregas na 4º estrela, ficam 4 pintadas -->
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="container-fluid" id="containerCatalog"></div>
+        
 
     <!-- Modal -->
     <div class="modal fade" id="countryModal">
@@ -134,14 +111,17 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-xs-12 infoParagraph text-center">
-                            <p class="mt-4">Nome: <span id="infoCapital"></span></p>
+                            <p class="mt-4">Nome: <span id="infoName"></span></p>
                             <p>Capital: <span id="infoCapital"></span></p>
                             <p>Continente: <span id="infoContinent"></span></p>
                             <p>Línguas: <span id="infoLanguage"></span></p>
                             <p>População: <span id="infoPopulation"></span></p>
+                            <p>Moeda: <span id="infoCoin"></span></p>
+                            <p>Clima: <span id="infoWeatherType"></span></p>
                         </div>
                         <div class="col-lg-6 col-md-12 col-xs-12 imgInfo">
                             <img src="/Images/Mapa.png" alt="Mapa" class="map mx-auto">
+                            <img src="/Images/Legenda.png" alt="Legenda" class="caption mx-auto">
                             <img src="/Images/Legenda.png" alt="Legenda" class="caption mx-auto">
                         </div>
                     </div>
