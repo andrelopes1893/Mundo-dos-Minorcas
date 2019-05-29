@@ -1,15 +1,16 @@
 import Country from "../models/countriesModels.js"
 
-export let countries = []
+let countries = []
 
-if (localStorage.countries) {
-    countries = JSON.parse(localStorage.countries)
-} else {
-    let newCountry1 = new Country('Portugal', 'Europa', 'Lisboa', 'Português', 'pt', 'Portugal', '../../Images/Portugal.png', 'Info 1', 'Info 2', '../../Images/Noruega.png', '../../Images/Brasil.png', new Date())
-    countries.push(newCountry1)
-    localStorage.setItem("countries", JSON.stringify(countries))
+window.onload = function(){
+    if (localStorage.countries) {
+        countries = JSON.parse(localStorage.countries)
+    } else {
+        let newCountry1 = new Country('Portugal', 'Europa', 'Lisboa', 'Português', 'pt', 'Portugal', '../../Images/Portugal.png', 'Info 1', 'Info 2', '../../Images/Noruega.png', '../../Images/Brasil.png', new Date())
+        countries.push(newCountry1)
+        localStorage.setItem("countries", JSON.stringify(countries))
+    }
 }
-
 
 
 //nova parte dos filtros... ainda em development
@@ -20,20 +21,23 @@ btnFilter.addEventListener("click", function (event) {
     event.preventDefault()
     const txtName = document.querySelector("#txtName").value
     const stlGenre = document.querySelector("#stlGenre").value
-    renderCatalog(stlGenre, txtName)
+    renderCatalog()
 
 })
 
 renderCatalog();
 
-function renderCatalog(stlGenre = "", txtName = "") {
+function renderCatalog() {
+    if (localStorage.countries) {
+        countries = JSON.parse(localStorage.countries)
+    }
+
+
     let result = ""
     let i = 0
     for (const country of countries) {
-
-        if ((stlGenre !== "" && country.genre !== stlGenre) || (txtName !== "" && !country._name.toLowerCase().startsWith(txtName))) {
-            continue
-        }
+        
+        
 
         if (i % 4 === 0) {
             result += `<div class="row">`
@@ -47,14 +51,14 @@ function renderCatalog(stlGenre = "", txtName = "") {
                         <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
                         <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
                         <p class="mb-0 star"><button class="btn star"
-                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                                class="btn star"
-                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                                class="btn star"
-                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                                class="btn star"
-                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                                class="btn star" style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button>
+                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                            class="btn star"
+                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                            class="btn star"
+                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                            class="btn star"
+                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                            class="btn star" style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button>
                         </p>
                     </div>
                 </div>

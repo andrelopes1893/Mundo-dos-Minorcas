@@ -115,7 +115,6 @@ export default class Country {
         if (countryA._name > countryB._name){
             return 1;
         }
-
         return 0;
     }
 }

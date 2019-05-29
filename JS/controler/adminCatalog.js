@@ -8,44 +8,55 @@ window.onload = function () {
     }
     renderTable()
 }
-document.querySelector('#createCountryForm').addEventListener('submit', function (event) {
-    const countryName = document.querySelector('#txtCountryName').value
-    const countryCapital = document.querySelector('#txtCountryCapital').value
-    const countryContinent = document.querySelector('#stlContinent').value
-    const countryLanguage = document.querySelector('#txtCountryLanguage').value
-    const countryInfo = document.querySelector('#txtInfo').value
-    const countryLocation = document.querySelector('#txtLocation').value
-    const countryFlag = document.querySelector('#txtFlag').value
 
-    if (!isRepeated(countryName)) {
-        countries.push(new Country(countryName, countryCapital, countryFlag, countryLanguage, countryContinent, countryInfo, countryLocation))
-        localStorage.setItem('countries', JSON.stringify(countries))
-        renderTable()
-        document.querySelector('#createCountryForm').reset();
-    }
+if (document.querySelector('#createCountryForm') != null) {
+    document.querySelector('#createCountryForm').addEventListener('submit', function (event) {
+        const countryName = document.querySelector('#txtCountryName').value
+        const countryCapital = document.querySelector('#txtCountryCapital').value
+        const countryContinent = document.querySelector('#stlContinent').value
+        const countryLanguage = document.querySelector('#txtCountryLanguage').value
+        const countryInfo = document.querySelector('#txtInfo').value
+        const countryLocation = document.querySelector('#txtLocation').value
+        const countryFlag = document.querySelector('#txtFlag').value
+    
+        if (!isRepeated(countryName)) {
+            countries.push(new Country(countryName, countryCapital, countryFlag, countryLanguage, countryContinent, countryInfo, countryLocation))
+            localStorage.setItem('countries', JSON.stringify(countries))
+            renderTable()
+            document.querySelector('#createCountryForm').reset();
+        }
+    
+        event.preventDefault()
+    })
+}
 
-    event.preventDefault()
-})
 function renderTable() {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     }
+    
     let countriesTableBody = document.querySelector('#countriesTableBody')
-    countriesTableBody.innerHTML = ''
+    
+    if(countriesTableBody != null){
+        countriesTableBody.innerHTML = ''
+        countriesTableBody.innerHTML = ''
 
-    let r = 0
-    for (const country of countries) {
-        r++
-        countriesTableBody.innerHTML += `<tr>
-                                        <th scope="row">${r}</th>
-                                        <td>${country._name}</td>
-                                        <td>${country._continent}</td>
-                                        <td><button type="button" id="${country._id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
-                                        <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
-                                    </tr> `
-    }
-    removeButtons()
-    editButtons()
+        let r = 0
+        for (const country of countries) {
+            r++
+            countriesTableBody.innerHTML += `<tr>
+                                            <th scope="row">${r}</th>
+                                            <td>${country._name}</td>
+                                            <td>${country._continent}</td>
+                                            <td><button type="button" id="${country._id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
+                                            <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
+                                        </tr> `
+        }
+        removeButtons()
+        editButtons()
+}
+    
+ 
 }
 function removeButtons() {
     let removeBtns = document.getElementsByClassName("btn remove")
