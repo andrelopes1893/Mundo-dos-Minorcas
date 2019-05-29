@@ -3,7 +3,7 @@ import {
 } from '../controler/adminCatalog.js'
 
 export default class Country {
-    constructor(name, capital, flag, language, continent,information ='',location = "",points=[], comments = [],visit=0) {
+    constructor(name, capital, flag, language, continent, information = '', location = "", points = [], comments = [], visit = 0) {
         this._id = Country.getLastId() + 1
         this.name = name
         this.continent = continent
@@ -14,13 +14,11 @@ export default class Country {
         this.information = information
         this.location = location
         this.comments = comments
-        this.visit=visit
+        this.visit = visit
     }
-
     get id() {
         return this._id
     }
-
     static getLastId() {
         let id = 0
         if (countries.length > 0) {
@@ -30,15 +28,12 @@ export default class Country {
         }
         return id
     }
-
     get name() {
         return this._name
     }
-
     set name(value) {
         this._name = value
     }
-
     get continent() {
         return this._continent
     }
@@ -50,23 +45,18 @@ export default class Country {
     get capital() {
         return this._capital
     }
-
     set capital(capital) {
         this._capital = capital
     }
-
     get language() {
         return this._language
     }
-
     set language(value) {
         this._language = value
     }
-
     get flag() {
         return this._flag
     }
-
     set flag(value) {
         this._flag = value
     }
@@ -74,7 +64,6 @@ export default class Country {
     get points() {
         return this._points
     }
-
     set points(value) {
         this._points = value
     }
@@ -110,9 +99,9 @@ export default class Country {
         this._visit = value
     }
 
-    static getNameById(id) {        
-        for (const country of countries) {                        
-            if (country._id == id) {                
+    static getNameById(id) {
+        for (const country of countries) {
+            if (country._id == id) {
                 return country._name
             }
         }
