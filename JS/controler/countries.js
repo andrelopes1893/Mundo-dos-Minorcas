@@ -31,7 +31,11 @@ function renderCatalog() {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     }
-
+    
+    //filtro para ordenar por ordem alfabetica crescente
+    if (stlGenre.value == "Ordem Alfabética" ) {
+        sortCountries()
+    }
 
     let result = ""
     let i = 0
@@ -78,5 +82,4 @@ function renderCatalog() {
  */
 export function sortCountries() {
     countries.sort(Country.compare)
-    localStorage.setItem("countries", JSON.stringify(countries))
 }
