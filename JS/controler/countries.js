@@ -2,7 +2,7 @@ import Country from "../models/countriesModels.js"
 
 let countries = []
 
-window.onload = function(){
+window.onload = function () {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     } else {
@@ -10,39 +10,28 @@ window.onload = function(){
         countries.push(newCountry1)
         localStorage.setItem("countries", JSON.stringify(countries))
     }
+    renderCatalog();
 }
 
+searchCountry()
 
-//nova parte dos filtros... ainda em development
-const myCatalog = document.querySelector("#containerCatalog")
-const btnFilter = document.querySelector("#btnFilter")
-
-btnFilter.addEventListener("click", function (event) {
-    event.preventDefault()
-    const txtName = document.querySelector("#txtName").value
-    const stlGenre = document.querySelector("#stlGenre").value
+document.querySelector("#btnFilter").addEventListener("click", function (event) {
     renderCatalog()
-
+    event.preventDefault()
 })
 
-renderCatalog();
-
 function renderCatalog() {
-    if (localStorage.countries) {
-        countries = JSON.parse(localStorage.countries)
+    if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Crescente") {
+        sortCountriesAscendent()
     }
-    
-    //filtro para ordenar por ordem alfabetica crescente
-    if (stlGenre.value == "Ordem Alfabética") {
-        sortCountries()
+
+    if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Decrescente") {
+        sortCountriesDescendent()
     }
 
     let result = ""
     let i = 0
     for (const country of countries) {
-        
-        
-
         if (i % 4 === 0) {
             result += `<div class="row">`
         }
@@ -74,12 +63,27 @@ function renderCatalog() {
             result += `</div>`
         }
     }
-    myCatalog.innerHTML = result
+    document.querySelector("#containerCatalog").innerHTML = result
 }
 
 /**
  * Função que ordena o array de paises pelo nome, no container
  */
-export function sortCountries() {
-    countries.sort(Country.compare)
+function sortCountriesAscendent() {
+    countries.sort(Country.ascendentAlphabeticOrder)
+}
+
+function sortCountriesDescendent() {
+    countries.sort(Country.descendentAlphabeticOrder)
+}
+
+function searchCountry() {
+    $(document).ready(function () {
+        $("#txtName").on("keyup", function () {
+            let textValue = $(this).val().toLowerCase();
+            $(".africanCards").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(textValue) > -1)
+            });
+        });
+    });
 }

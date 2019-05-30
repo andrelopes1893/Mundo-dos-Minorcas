@@ -259,46 +259,55 @@ button.btn.help {
 }
 
 /* !JUMBOTRON FILTER */
-div.jumbotron {
-    margin-right: 0%;
-    padding-right: 0%
+
+div.jumbotron.filter{
+    background-color: rgb(39, 169, 225, .9);
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
-div.jumbotron.jumbotron-fluid div.container.text-right {
-    margin: 0%;
-    margin-left: 5%
-}
-
-div.form-group.selection {
-    margin-right: 5%;
-}
-
-div.form-group.name {
-    margin-right: 5%;
-}
-
-div.form-group.selection label {
-    margin-right: 7px;
+div.form-group.selection > label {
+    padding-right: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
     color: #ffffff
 }
 
 div.form-group.name label {
+    padding-right: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
     color: #ffffff
 }
 
-div.form-group.selection select {
-    padding-left: 0%;
-}
-
-button.btn.filterCountry {
-    width: 100px;
-    margin-left: 10px;
-    border: 2px solid #29ABE2;
+button#btnFilter {
+    border: 2px solid #ffffff;
+    font-size: 1.2rem;
+    font-weight: 500;
     color: #ffffff;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: all .2s ease-in-out;
 }
 
-button.btn.filterCountry:focus {
+button#btnFilter:focus {
     box-shadow: 0 0 0 0;
+}
+
+button#btnFilter:hover {
+    transform: scale(1.1, 1.1)
+}
+
+select.form-control {
+    background-color: #ffffff;
+}
+
+select.form-control:focus {
+    box-shadow: 0 0 0 0;
+}
+
+select > option.optionStyle {
+    color: #204987;
 }
 
 @media only screen and (max-width:415px) {
