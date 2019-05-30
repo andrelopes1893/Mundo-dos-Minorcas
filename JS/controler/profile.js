@@ -45,11 +45,11 @@ document.querySelector('.buttonGirl').addEventListener('click', function () {
                                                         </p>
                                                         <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 1 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 1 Girl.png"
+                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 2 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 1 Girl.png"
+                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 3 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 1 Girl.png"
+                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 4 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
                                                     </div>
                                                     <div class="col-3">

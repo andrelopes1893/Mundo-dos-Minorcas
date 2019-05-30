@@ -92,8 +92,7 @@ function QuizzGenerator() {
                         quizzPlaceHolder.innerHTML += ` <div class="row optionsRow">
                     <button class="btn mx-auto optionsButton" id='${position-1}'>${quizz._answers[position-1]}</button>
                      </div>`
-                    }
-                    else{
+                    } else {
                         i--
                         continue;
                     }
@@ -128,13 +127,3 @@ function answearAddExistence(arrayAnswears, randomNumber) {
     }
     return false;
 }
-
-
-
-
-
-
-
-
-
-
