@@ -25,13 +25,13 @@
          return this._id
      }
      static getLastId() {
-        let lastId = 0
-        if (users.length != 0) {
-            lastId = users[users.length - 1]._id
-        }
-        return lastId
-    }
-    
+         let lastId = 0
+         if (users.length != 0) {
+             lastId = users[users.length - 1]._id
+         }
+         return lastId
+     }
+
      get username() {
          return this._username
      }
@@ -57,10 +57,6 @@
          return this._avatar
      }
      set avatar(value) {
-         if (value === '') {
-             value = '/Images/avatar.png'
-         }
-
          this._avatar = value
      }
 
@@ -205,6 +201,54 @@
          for (const user of users) {
              if (user._id === userId) {
                  return user._loginBlock
+             }
+         }
+     }
+
+     //  static getIdByXP(xp) {
+     //      let id = -1
+     //      for (const user of users) {
+     //          if (user._xp === xp) {
+     //             id = user._id
+     //          }
+     //      }
+     //      return id
+     //  }
+
+     static getAvatarByXP() {
+         for (const user of users) {
+             if (user._xp <= 15) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Principiante 1.png'
+             } else if (user._xp > 15 && user._xp <= 30) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Principiante 2.png'
+             } else if (user._xp > 15 && user._xp <= 30) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Principiante 3.png'
+             } else if (user._xp > 30 && user._xp <= 45) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Principiante 4.png'
+             } else if (user._xp > 45 && user._xp <= 60) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Amador 1.png'
+             } else if (user._xp > 60 && user._xp <= 75) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Amador 2.png'
+             } else if (user._xp > 75 && user._xp <= 90) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Amador 3.png'
+             } else if (user._xp > 90 && user._xp <= 105) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Amador 4.png'
+             } else if (user._xp > 105 && user._xp <= 120) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Profissional 1.png'
+             } else if (user._xp > 120 && user._xp <= 135) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Profissional 2.png'
+             } else if (user._xp > 135 && user._xp <= 150) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Profissional 3.png'
+             } else if (user._xp > 150 && user._xp <= 165) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Profissional 4.png'
+             } else if (user._xp > 165 && user._xp <= 180) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Experiente 1.png'
+             } else if (user._xp > 180 && user._xp <= 195) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Experiente 2.png'
+             } else if (user._xp > 195 && user._xp <= 210) {
+                 user._avatar = '/Images/BoyAvatars/Avatar Experiente 3.png'
+             } else {
+                 user._avatar = '/Images/BoyAvatars/Avatar Experiente 4.png'
              }
          }
      }
