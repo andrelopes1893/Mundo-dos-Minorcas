@@ -20,20 +20,17 @@ document.querySelector('#descriptionForm').addEventListener('submit', function (
         event.preventDefault()
 })
 
-let x = document.querySelector('.usernameForm')
-
-let newDiv = document.createElement('div')
-
-let newElement = x.parentNode.insertBefore(newDiv, x.nextSibling)
-
-console.log(newElement);
-
-
 document.querySelector('#profileForm').addEventListener('submit', function (event) {
         let txtUsername = document.querySelector('#txtUsername').value
         let txtPassword = document.querySelector('#txtPassword').value
         let txtCountry = document.querySelector('#txtCountry').value
         let txtBirthdayDate = document.querySelector('#txtBirthdayDate').value
+
+        let x = document.querySelector('.username')
+
+        let newDiv = document.createElement('div')
+
+        let newElement = x.parentNode.insertBefore(newDiv, x.nextSibling)
 
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
@@ -45,7 +42,9 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                         if (txtUsername == "") {
                                 document.querySelector('.username').classList.add('is-invalid')
                                 newElement.classList.add('invalid-feedback')
-                                newElement.innerHTML += 'Escreve o teu novo nome de utilizador!'                                
+                                newElement.innerHTML += 'Escreve o teu novo nome de utilizador!'
+                                console.log(newElement);
+
                         } else {
                                 document.querySelector('.username').classList.add('is-valid')
                                 document.querySelector('.usernameText').innerHTML += `<div class="valid-feedback">
