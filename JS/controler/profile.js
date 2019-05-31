@@ -20,16 +20,13 @@ document.querySelector('#descriptionForm').addEventListener('submit', function (
         event.preventDefault()
 })
 
+let x = document.querySelector('.usernameForm')
 
-let x = document.querySelector('.form-group')
+let newDiv = document.createElement('div')
 
-let newDiv = `<div class="invalid-feedback">
-                        Escreve o teu novo nome de utilizador!
-                </div>`
+let newElement = x.parentNode.insertBefore(newDiv, x.nextSibling)
 
-x.parentNode.insertBefore(newDiv, x.nextSibling)
-
-console.log(x.parentNode.insertBefore(newDiv, x.nextSibling));
+console.log(newElement);
 
 
 document.querySelector('#profileForm').addEventListener('submit', function (event) {
@@ -47,12 +44,8 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                 if (user._id != id) {
                         if (txtUsername == "") {
                                 document.querySelector('.username').classList.add('is-invalid')
-
-
-
-                                document.querySelector('.usernameText').innerHTML += `<div class="invalid-feedback">
-                                                                                        Escreve o teu novo nome de utilizador!
-                                                                                </div>`
+                                newElement.classList.add('invalid-feedback')
+                                newElement.innerHTML += 'Escreve o teu novo nome de utilizador!'                                
                         } else {
                                 document.querySelector('.username').classList.add('is-valid')
                                 document.querySelector('.usernameText').innerHTML += `<div class="valid-feedback">
