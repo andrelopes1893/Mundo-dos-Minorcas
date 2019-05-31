@@ -2,30 +2,30 @@ let quizzes = []
 let continentStyle = ''
 let ChosenQuizz = ''
 window.onload = function () {
-    //    Get the continet saves in the sessition Storege to get all quizzes from that continet
-    if (sessionStorage.getItem('continentStyle')) {
-        continentStyle = JSON.parse(sessionStorage.getItem('continentStyle'))
-    } else {
-        // !Para eliminar
-        continentStyle = 'africa'
-        // !Para eliminar
-        sessionStorage.setItem('continentStyle', JSON.stringify(continentStyle))
-    }
-    // Get the type of quizzes that the user whant to play from the sessionStorage
-    if (sessionStorage.getItem('ChosenQuizz')) {
-        ChosenQuizz = JSON.parse(sessionStorage.getItem('ChosenQuizz'))
-    } else {
+    // //    Get the continet saves in the sessition Storege to get all quizzes from that continet
+    // if (sessionStorage.getItem('continentStyle')) {
+    //     continentStyle = JSON.parse(sessionStorage.getItem('continentStyle'))
+    // } else {
+    //     // !Para eliminar
+    //     continentStyle = 'africa'
+    //     // !Para eliminar
+    //     // sessionStorage.setItem('continentStyle', JSON.stringify(continentStyle))
+    // }
+    // // Get the type of quizzes that the user whant to play from the sessionStorage
+    // if (sessionStorage.getItem('ChosenQuizz')) {
+    //     ChosenQuizz = JSON.parse(sessionStorage.getItem('ChosenQuizz'))
+    // } else {
 
-        
-        ChosenQuizz = 'Bandeiras'
-        // !Para eliminar
-        sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
-    }
 
-    //  Get the existent quizzes from the localStorage
-    if (localStorage.getItem('quizzes')) {
-        quizzes = JSON.parse(localStorage.getItem('quizzes'))
-    }
+    //     ChosenQuizz = 'Bandeiras'
+    //     // !Para eliminar
+    //     // sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
+    // }
+
+    // //  Get the existent quizzes from the localStorage
+    // if (localStorage.getItem('quizzes')) {
+    //     quizzes = JSON.parse(localStorage.getItem('quizzes'))
+    // }
 }
 
 QuizzGenerator()
@@ -38,7 +38,7 @@ QuizzGenerator()
  */
 function QuizzGenerator() {
 
-
+//!Exist because if it doesn't ann error will appear
     if (localStorage.getItem('quizzes')) {
         quizzes = JSON.parse(localStorage.getItem('quizzes'))
     }
@@ -54,7 +54,7 @@ function QuizzGenerator() {
     if (sessionStorage.getItem('ChosenQuizz')) {
         ChosenQuizz = JSON.parse(sessionStorage.getItem('ChosenQuizz'))
     } else {
-
+        // !Para eliminar
         ChosenQuizz = 'Bandeiras'
         // !Para eliminar
         sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
@@ -64,7 +64,7 @@ function QuizzGenerator() {
     let quizzPlaceHolder = document.querySelector('#quizzHolder')
 
     // Eleminate the previouse quizz
-    quizzPlaceHolder.innerHTML=''
+    quizzPlaceHolder.innerHTML = ''
 
     //Array that will prevent the generation of the same number
     let generatedNumbers = []
@@ -74,7 +74,8 @@ function QuizzGenerator() {
 
     for (const quizz of quizzes) {
         if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz) {
-            document.querySelector('questionHolder').innerHTML=quizz._question  
+            document.querySelector('#questionHolder').innerHTML = quizz._question
+            document.querySelector('#quizzImg').src = quizz._img
             for (let i = 0; i < 4; i++) {
                 if (generatedNumbers.length == 0) {
                     let position = GenerateRandomNumb()
@@ -99,7 +100,8 @@ function QuizzGenerator() {
             }
             isTheAnswearRight()
         } else {
-            QuizzGenerator()
+            GenerateRandomGame()
+
         }
     }
 }
@@ -137,14 +139,46 @@ function isTheAnswearRight() {
     }
 }
 // !Confirm if the answear is right
-function ConfIfUserIsRight(id){
-    if (id==='3'){
+function ConfIfUserIsRight(id) {
+    if (id === '3') {
         alert('Acertaste, vem ai o proximo nivel pa')
         QuizzGenerator()
-    }
-    else{
+    } else {
         alert('Pff es pior que o benfica quando falhou o penta')
         // location.reload()//This is not right
         location.href = '/HTML/continentQuizz.html'
     }
 }
+
+// !This Function confirm if the user xp let him play de quizz
+function isXpEnough(level){
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
+    if(sessionStorage.getItem('loggedUserId')){
+        loggedUserId= JSON.parse(sessionStorage.getItem('loggedUserId'))
+    }
+
+
+
+
+    for (const user of users) {
+        if(users._id == loggedUserId ){
+
+
+
+
+        }
+    }
+
+
+
+
+
+
+}
+
+// !Falta
+//fazer com que o mesmo quizz nao seja generado 
+//Pop up a dizer a criança que esta errada
+//Fornecer Xp                

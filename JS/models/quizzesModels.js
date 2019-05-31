@@ -2,7 +2,7 @@ import {
     quizzes
 } from '../controler/adminQuizz.js'
 export default class Question {
-    constructor(quizType, continent, level = 1, question, answers = [], correctAnswer, pointXp) {
+    constructor(quizType, continent, level = 1, question, answers = [], correctAnswer, pointXp,img) {
         this._id = Question.getLastId() + 1
         this.quizType = quizType
         this.continent = continent
@@ -11,6 +11,7 @@ export default class Question {
         this.answers = answers
         this.correctAnswer = correctAnswer
         this.pointXp = pointXp
+        this.img=img
     }
     get id() {
         return this._id
@@ -24,6 +25,7 @@ export default class Question {
         }
         return id
     }
+
 
     get continent() {
         return this._continent
@@ -79,6 +81,16 @@ export default class Question {
 
     set pointXp(value) {
         this._pointXp = value
+    }
+
+
+
+    get img() {
+        return this._img
+    }
+
+    set img(value) {
+        this._img = value
     }
 
     static establishQuizQuestion(quizType) {

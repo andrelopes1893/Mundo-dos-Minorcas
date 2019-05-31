@@ -18,7 +18,7 @@ if (document.getElementById('quizCreateForm') != null) {
         let txtWrongAnswer2 = document.querySelector('#txtAnswerOptions2').value
         let txtWrongAnswer3 = document.querySelector('#txtAnswerOptions3').value
         let txtCorrectAnswer = document.querySelector('#txtCorrectAnswer').value
-        console.log(Question.ConfirmQuizExistence(quizContinent, quizCategory, txtCorrectAnswer))
+        let representationImg= document.querySelector('#representationImg').value
     
     
     
@@ -26,7 +26,7 @@ if (document.getElementById('quizCreateForm') != null) {
             alert("O quiz já existente ")
         } else {
             answers.push(txtWrongAnswer1, txtWrongAnswer2, txtWrongAnswer3, txtCorrectAnswer)
-            quizzes.push(new Question(quizCategory, quizContinent, level, Question.establishQuizQuestion(quizCategory), answers, 3, Question.xpByLevel(level)))
+            quizzes.push(new Question(quizCategory, quizContinent, level, Question.establishQuizQuestion(quizCategory), answers, 3, Question.xpByLevel(level),representationImg))
             localStorage.setItem('quizzes', JSON.stringify(quizzes))
             answers = []
         }
