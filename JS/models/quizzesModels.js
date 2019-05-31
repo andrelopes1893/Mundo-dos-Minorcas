@@ -120,21 +120,6 @@ export default class Question {
             case 5:
                 return '25'
                 break
-            case 6:
-                return '30'
-                break
-            case 7:
-                return '35'
-                break
-            case 8:
-                return '40'
-                break
-            case 9:
-                return '45'
-                break
-            case 10:
-                return '50'
-                break
         }
     }
 
