@@ -75,9 +75,10 @@
                 <button type="button" data-toggle="modal" data-target="#avatarModal" class="btn profileAvatar"
                     data-toggle="modal"><img src="/Images/avatar.png" alt="MeuAvatar"></button>
                 <form id="descriptionForm">
-                    <div class="form-group">
-                        <textarea class="form-control mt-5 description" id="txtDescription"
-                            placeholder="Descrição" rows="4"></textarea>
+                    <div class="descriptionText">
+                        <div class="form-group">
+                            <textarea class="form-control mt-5 description" id="txtDescription" rows="4"></textarea>
+                        </div>
                     </div>
                 </form>
                 <div class="progress mt-5">
@@ -86,32 +87,32 @@
                         <p id="currentXpBar"></p>
                     </div>
                 </div>
-                <p class="profileQuizP" id="currentFlagQ">Atual do Quiz das bandeiras: </p>
-                <p class="profileQuizP pt-0" id="currentCapitalQ">Atual do Quiz das capitais: </p>
-                <p class="profileQuizP pt-0" id="currentLocationQ">Atual do Quiz das localizações: </p>
+                <p class="profileQuizP mt-4" id="currentFlagQ">Atual do Quiz das bandeiras: </p>
+                <p class="profileQuizP" id="currentCapitalQ">Atual do Quiz das capitais: </p>
+                <p class="profileQuizP" id="currentLocationQ">Atual do Quiz das localizações: </p>
             </div>
             <div class="line position-absolute d-none d-md-block"></div>
             <div class="col-lg-6 col-md-6 col-xs-6 d-flex align-items-center">
                 <form id="profileForm">
-                    <div class="usernameText">
+                    <div class="usernameText pb-3">
                         <div class="form-group usernameForm">
                             <input type="text" class="form-control username" id="txtUsername"
                                 placeholder="Nome de Utilizador">
                         </div>
                     </div>
-                    <div class="passwordText">
-                        <div class="form-group">
+                    <div class="passwordText pb-3">
+                        <div class="form-group passwordForm">
                             <input type="text" class="form-control password" id="txtPassword"
                                 placeholder="Palavra Passe">
                         </div>
                     </div>
-                    <div class="countryText">
-                        <div class="form-group">
+                    <div class="countryText pb-3">
+                        <div class="form-group countryForm">
                             <input type="text" class="form-control country" id="txtCountry" placeholder="País">
                         </div>
                     </div>
                     <div class="birthdayText">
-                        <div class="form-group">
+                        <div class="form-group birthdayForm">
                             <input type="date" class="form-control birthday" id="txtBirthdayDate">
                         </div>
                     </div>

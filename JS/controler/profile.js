@@ -15,17 +15,33 @@ window.onload = function () {
 
 cleanInputData()
 
-asd()
-function asd() {
-        document.querySelector('#txtDescription').value = txtDescription
+document.querySelector('#descriptionForm').addEventListener('keyup', function () {
+        let txtDescription = document.querySelector('#txtDescription').value
+
+        let id = ""
+        if (sessionStorage.getItem('loggedUserId')) {
+                id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        } else {
+                id = 1
+        }
+
+        let descriptionClass = document.querySelector('.description')
+        let descriptionDiv = document.createElement('div')
+        let descriptionElement = descriptionClass.parentNode.insertBefore(descriptionDiv, descriptionClass.nextSibling)
 
         for (const user of users) {
-                if (user._id != id) {
-                        user._description = txtDescription
+                if (user._id == id) {
+                        if (txtDescription == "") {
+                                document.querySelector('#txtDescription').placeholder = 'Escreve uma descrição fixe!'
+                        } else {
+
+                                document.querySelector('#txtDescription').value = txtDescription
+                                user._description = txtDescription
+                        }
                 }
                 localStorage.setItem('users', JSON.stringify(users))
         }
-}
+})
 
 document.querySelector('#profileForm').addEventListener('submit', function (event) {
         let txtUsername = document.querySelector('#txtUsername').value
@@ -52,23 +68,29 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        } else {
+                id = 1
         }
 
         for (const user of users) {
-                if (user._id != id) {
+                if (user._id == id) {
                         if (txtUsername == "") {
                                 document.querySelector('.username').classList.add('is-invalid')
                                 usernameElement.classList.add('invalid-feedback')
                                 usernameElement.innerHTML += 'Escreve o teu novo nome de utilizador!'
+                                // document.querySelector('.invalid-feedback').style.transition = 'all .5s ease-in-out'
+                                // document.querySelector('.invalid-feedback').style.transform = 'scale(1.1, 1.1)'
+                                // document.querySelector('.usernameForm').style.marginBottom = 15 + '%';
                                 setTimeout(() => {
                                         usernameElement.classList.remove('invalid-feedback')
                                         usernameElement.innerHTML = ""
-                                }, 5000);
 
+                                }, 5000);
                         } else {
                                 document.querySelector('.username').classList.add('is-valid')
                                 usernameElement.classList.add('valid-feedback')
                                 usernameElement.innerHTML += 'Que nome mais altamente!'
+                                // document.querySelector('.usernameForm').style.marginBottom = 15 + '%';
                                 setTimeout(() => {
                                         usernameElement.classList.remove('invalid-feedback')
                                         usernameElement.innerHTML = ""
@@ -81,6 +103,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 document.querySelector('.password').classList.add('is-invalid')
                                 passwordElement.classList.add('invalid-feedback')
                                 passwordElement.innerHTML += 'Escreve a tua nova palavra-passe!'
+                                // document.querySelector('.passwordForm').style.marginBottom = 15 + '%';
                                 setInterval(() => {
                                         passwordElement.classList.remove('invalid-feedback')
                                         passwordElement.innerHTML = ""
@@ -89,6 +112,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 document.querySelector('.password').classList.add('is-valid')
                                 passwordElement.classList.add('valid-feedback')
                                 passwordElement.innerHTML += 'Palavra-passe segura!'
+                                // document.querySelector('.passwordForm').style.marginBottom = 15 + '%';
                                 setInterval(() => {
                                         passwordElement.classList.remove('invalid-feedback')
                                         passwordElement.innerHTML = ""
@@ -101,6 +125,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 document.querySelector('.country').classList.add('is-invalid')
                                 countryElement.classList.add('invalid-feedback')
                                 countryElement.innerHTML += 'Escreve o teu país!'
+                                // document.querySelector('.countryForm').style.marginBottom = 15 + '%';
                                 setInterval(() => {
                                         countryElement.classList.remove('invalid-feedback')
                                         countryElement.innerHTML = ""
@@ -109,6 +134,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 document.querySelector('.country').classList.add('is-valid')
                                 countryElement.classList.add('valid-feedback')
                                 countryElement.innerHTML += 'País Localizado!'
+                                // document.querySelector('.countryForm').style.marginBottom = 15 + '%';
                                 setInterval(() => {
                                         countryElement.classList.remove('valid-feedback')
                                         countryElement.innerHTML = ""
@@ -121,6 +147,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 document.querySelector('.birthday').classList.add('is-invalid')
                                 birthdayElement.classList.add('invalid-feedback')
                                 birthdayElement.innerHTML += 'Escreve a tua data de aniversário!'
+                                // document.querySelector('.birthdayForm').style.marginBottom = 15 + '%';
                                 setInterval(() => {
                                         birthdayElement.classList.remove('invalid-feedback')
                                         birthdayElement.innerHTML = ""
@@ -129,6 +156,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 document.querySelector('.birthday').classList.add('is-valid')
                                 birthdayElement.classList.add('valid-feedback')
                                 birthdayElement.innerHTML += 'Data de aniversário aceite!'
+                                // document.querySelector('.birthdayForm').style.marginBottom = 0 + '%';
                                 setInterval(() => {
                                         birthdayElement.classList.remove('valid-feedback')
                                         birthdayElement.innerHTML = ""
@@ -139,7 +167,6 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                 }
                 localStorage.setItem('users', JSON.stringify(users))
         }
-
         event.preventDefault()
 })
 
@@ -151,11 +178,11 @@ document.querySelector('.buttonGirl').addEventListener('click', function () {
                                                         </p>
                                                         <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 1 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 1 Girl.png"
+                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 2 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 1 Girl.png"
+                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 3 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 1 Girl.png"
+                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 4 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
                                                     </div>
                                                     <div class="col-3">
@@ -336,6 +363,7 @@ function showCurrentXP() {
                         document.querySelector('#currentXpBar').innerHTML = ""
                         break
                 }
+
                 if (user._xp >= 100) {
                         $('.progress-bar').css({
                                 'width': '0%'
@@ -398,21 +426,31 @@ function showUserData() {
         if (localStorage.getItem("users")) {
                 users = JSON.parse(localStorage.getItem("users"))
         }
+        let id = ""
+        if (sessionStorage.getItem('loggedUserId')) {
+                id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        } else {
+                id = 1 //Alterar
+        }
         for (const user of users) {
-                document.querySelector('#txtUsername').value = user._username
+                if (user._id == id) {
+                        document.querySelector('#txtUsername').value = user._username
 
-                document.querySelector('#txtPassword').value = user._password
+                        document.querySelector('#txtPassword').value = user._password
 
-                if (user._country === undefined) {
-                        document.querySelector('#txtCountry').value = ""
-                } else {
-                        document.querySelector('#txtCountry').value = user._country
-                }
+                        if (user._country === undefined) {
+                                document.querySelector('#txtCountry').value = ""
+                        } else {
+                                document.querySelector('#txtCountry').value = user._country
+                        }
 
-                if (user._birthday === undefined) {
-                        document.querySelector('#txtBirthdayDate').value = ""
-                } else {
-                        document.querySelector('#txtBirthdayDate').value = user._birthday
+                        if (user._birthday === undefined) {
+                                document.querySelector('#txtBirthdayDate').value = ""
+                        } else {
+                                document.querySelector('#txtBirthdayDate').value = user._birthday
+                        }
+
+                        document.querySelector('#txtDescription').value = user._description
                 }
         }
 }

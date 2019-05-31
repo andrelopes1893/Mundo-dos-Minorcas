@@ -665,6 +665,10 @@ div.progress div.progress-bar {
     background-color: #CCCC33;
 }
 
+p.profileQuizP {
+    white-space: nowrap;
+}
+
 p#currentXpBar {
     color: #29ABE2;
     font-weight: 500;
@@ -710,9 +714,18 @@ form div.form-group>input:focus {
 button.btn.edit {
     padding-right: 37%;
     padding-left: 37%;
-    margin-top: 50%;
+    margin-top: 20%;
     border: 1px solid #29ABE2;
     border-radius: 6px;
+    transition: all .5s ease-in-out;
+}
+
+button.btn.edit:hover {
+    transform: scale(1.1, 1.1)
+}
+
+button.btn.edit:focus {
+    box-shadow: 0 0 0 1px #29ABE2;
 }
 
 form#profileForm {
