@@ -126,6 +126,7 @@ function answearAddExistence(arrayAnswears, randomNumber) {
         }
     }
     return false;
+<<<<<<< HEAD
 }
 
 // !This fuctin get all the buttons with the options and add an event That will Check if the choosen answear is the right one
@@ -150,4 +151,6 @@ function ConfIfUserIsRight(id){
         location.href = '/HTML/continentQuizz.html'
     }
 
+=======
+>>>>>>> e8afb79322b49582783a1a60ad9d3d89020ec961
 }
