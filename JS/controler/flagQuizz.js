@@ -146,5 +146,4 @@ function ConfIfUserIsRight(id){
         // location.reload()//This is not right
         location.href = '/HTML/continentQuizz.html'
     }
-
 }
