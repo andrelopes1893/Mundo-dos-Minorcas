@@ -91,11 +91,11 @@ function removeUser(username) {
 function blockBtnNewEvent() {
     let editButtons = document.getElementsByClassName('blockButton')
     console.log(editButtons.length);
-    
+
     for (const elem of editButtons) {
         elem.addEventListener('click', function () {
             console.log(this.id);
-            
+
             blockUser(this.id)
         })
     }

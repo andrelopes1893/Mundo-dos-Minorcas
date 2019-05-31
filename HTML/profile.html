@@ -53,6 +53,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Perfil</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#newSuggestion" href="#">Sugerir</a>
                         <a class="dropdown-item" href="#">Sair</a>
                     </div>
                 </li>
@@ -140,6 +141,48 @@
                     <form id="avatarForm">
                         <div class="avatarPlaceHolder">
                         </div>
+                    </form>
+                </div>
+                <!-- Rodapé da Modal -->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="newSuggestion">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho do Modal -->
+                <div class="modal-header">
+                    <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="color:#ffff">Voltar</button>
+                </div>
+                <!-- Corpo do Modal -->
+                <div class="modal-body">
+                    <form id="suggestionForm">
+                        <div class="form-group suggestion">
+                            <label for="stlContinent">Continente:</label>
+                            <select class="form-control" id="stlContinent">
+                                <option value="Africa">África</option>
+                                <option value="America">América</option>
+                                <option value="Asia">Ásia</option>
+                                <option value="Europa">Europa</option>
+                                <option value="Ocenia">Oceânia</option>
+                            </select>
+                        </div>
+                        <div class="form-group suggestion">
+                            <label for="txtCountryName">País:</label>
+                            <input type="text" class="form-control" id="txtCountryName" required>
+                        </div>
+                        <div class="form-group suggestion">
+                            <label for="txtCountryCapital">Capital:</label>
+                            <input type="text" class="form-control" id="txtCountryCapital">
+                        </div>
+                        <div class="form-group suggestion mb-3">
+                            <label for="txtCountryLanguage">Língua Oficial:</label>
+                            <input type="text" class="form-control" id="txtCountryLanguage">
+                        </div>
+                        <button type="submit" class="btn" id="suggestCountry">Sugerir</button>
                     </form>
                 </div>
                 <!-- Rodapé da Modal -->
@@ -261,6 +304,7 @@
     <!-- Optional JavaScript -->
 
     <script type="module" src="/JS/controler/profile.js"></script>
+    <!-- <script src="/JS/controler/suggestion.js"></script> -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

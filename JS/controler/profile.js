@@ -15,6 +15,29 @@ window.onload = function () {
 
 cleanInputData()
 
+document.querySelector('#suggestionForm').addEventListener('submit', function (event) {
+        let stlContinent = document.querySelector('#stlContinent').value
+        let txtCountryName = document.querySelector('#txtCountryName').value
+        let txtCountryCapital = document.querySelector('#txtCountryCapital').value
+        let txtCountryLanguage = document.querySelector('#txtCountryLanguage').value
+
+        let id = ""
+        if (sessionStorage.getItem('loggedUserId')) {
+                id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        } else {
+                id = 1
+        }        
+
+        for (const user of users) {                
+                if (user._id == id) {
+                        user._suggestions.push(stlContinent, txtCountryName, txtCountryCapital, txtCountryLanguage)
+                }
+                localStorage.setItem('users', JSON.stringify(users))
+        }
+
+        event.preventDefault()
+})
+
 document.querySelector('#descriptionForm').addEventListener('keyup', function () {
         let txtDescription = document.querySelector('#txtDescription').value
 
@@ -24,10 +47,6 @@ document.querySelector('#descriptionForm').addEventListener('keyup', function ()
         } else {
                 id = 1
         }
-
-        let descriptionClass = document.querySelector('.description')
-        let descriptionDiv = document.createElement('div')
-        let descriptionElement = descriptionClass.parentNode.insertBefore(descriptionDiv, descriptionClass.nextSibling)
 
         for (const user of users) {
                 if (user._id == id) {
@@ -82,6 +101,9 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 // document.querySelector('.invalid-feedback').style.transform = 'scale(1.1, 1.1)'
                                 // document.querySelector('.usernameForm').style.marginBottom = 15 + '%';
                                 setTimeout(() => {
+                                        document.querySelector('.usernameForm').style.transition = 'all .5s ease-in-out'
+                                        document.querySelector('.usernameForm').style.transform = 'scale(1, 1)'
+                                        document.querySelector('.username').classList.remove('is-invalid')
                                         usernameElement.classList.remove('invalid-feedback')
                                         usernameElement.innerHTML = ""
 
@@ -92,7 +114,8 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 usernameElement.innerHTML += 'Que nome mais altamente!'
                                 // document.querySelector('.usernameForm').style.marginBottom = 15 + '%';
                                 setTimeout(() => {
-                                        usernameElement.classList.remove('invalid-feedback')
+                                        document.querySelector('.username').classList.remove('is-valid')
+                                        usernameElement.classList.remove('valid-feedback')
                                         usernameElement.innerHTML = ""
                                 }, 5000);
                                 document.querySelector('#txtUsername').value = txtUsername
@@ -105,6 +128,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 passwordElement.innerHTML += 'Escreve a tua nova palavra-passe!'
                                 // document.querySelector('.passwordForm').style.marginBottom = 15 + '%';
                                 setInterval(() => {
+                                        document.querySelector('.password').classList.remove('is-invalid')
                                         passwordElement.classList.remove('invalid-feedback')
                                         passwordElement.innerHTML = ""
                                 }, 5000);
@@ -114,7 +138,8 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 passwordElement.innerHTML += 'Palavra-passe segura!'
                                 // document.querySelector('.passwordForm').style.marginBottom = 15 + '%';
                                 setInterval(() => {
-                                        passwordElement.classList.remove('invalid-feedback')
+                                        document.querySelector('.password').classList.remove('is-valid')
+                                        passwordElement.classList.remove('valid-feedback')
                                         passwordElement.innerHTML = ""
                                 }, 5000);
                                 document.querySelector('#txtPassword').value = txtPassword
@@ -127,6 +152,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 countryElement.innerHTML += 'Escreve o teu país!'
                                 // document.querySelector('.countryForm').style.marginBottom = 15 + '%';
                                 setInterval(() => {
+                                        document.querySelector('.country').classList.remove('is-invalid')
                                         countryElement.classList.remove('invalid-feedback')
                                         countryElement.innerHTML = ""
                                 }, 5000);
@@ -136,6 +162,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 countryElement.innerHTML += 'País Localizado!'
                                 // document.querySelector('.countryForm').style.marginBottom = 15 + '%';
                                 setInterval(() => {
+                                        document.querySelector('.country').classList.remove('is-valid')
                                         countryElement.classList.remove('valid-feedback')
                                         countryElement.innerHTML = ""
                                 }, 5000);
@@ -149,6 +176,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 birthdayElement.innerHTML += 'Escreve a tua data de aniversário!'
                                 // document.querySelector('.birthdayForm').style.marginBottom = 15 + '%';
                                 setInterval(() => {
+                                        document.querySelector('.birthday').classList.remove('is-invalid')
                                         birthdayElement.classList.remove('invalid-feedback')
                                         birthdayElement.innerHTML = ""
                                 }, 5000);
@@ -158,6 +186,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 birthdayElement.innerHTML += 'Data de aniversário aceite!'
                                 // document.querySelector('.birthdayForm').style.marginBottom = 0 + '%';
                                 setInterval(() => {
+                                        document.querySelector('.birthday').classList.remove('is-valid')
                                         birthdayElement.classList.remove('valid-feedback')
                                         birthdayElement.innerHTML = ""
                                 }, 5000);
@@ -378,32 +407,6 @@ function showCurrentXP() {
         }
 }
 
-// $('.buttonBoy').click(function () {
-//     $('.buttonGirl').css({
-//         'visibility': 'visible',
-//         'opacity': '0.5',
-//         'transition': 'opacity .4s linear',
-//     });
-//     $('.buttonGirl').css({
-//         'visibility': 'visible',
-//         'opacity': '1',
-//         'transition': 'opacity .4s linear',
-//     });
-// });
-
-// $('.buttonGirl').click(function () {
-//     $('.buttonBoy').css({
-//         'visibility': 'visible',
-//         'opacity': '0.5',
-//         'transition': 'opacity .4s linear',
-//     });
-//     $('.buttonBoy').css({
-//         'visibility': 'visible',
-//         'opacity': '1',
-//         'transition': 'opacity .4s linear',
-//     });
-// });
-
 function cleanInputData() {
         document.querySelector('#txtUsername').addEventListener('click', function () {
                 document.querySelector('#txtUsername').value = ""
@@ -463,8 +466,3 @@ function doNotShowPasswordData() {
                 text.type = "password";
         }
 }
-
-// xpAvatar()
-// function xpAvatar() {
-//         console.log(User.getLastId(User.getAvatarByXP())); 0
-// }
