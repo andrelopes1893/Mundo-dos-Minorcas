@@ -72,10 +72,8 @@ function QuizzGenerator() {
     let game = GenerateRandomGame()
 
     for (const quizz of quizzes) {
-        console.log(quizz._continent.toUpperCase())
-        console.log(continentStyle.toUpperCase())
-
         if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz) {
+            document.querySelector('questionHolder')  
             for (let i = 0; i < 4; i++) {
                 if (generatedNumbers.length == 0) {
                     let position = GenerateRandomNumb()
@@ -137,8 +135,7 @@ function isTheAnswearRight() {
         })
     }
 }
-
-// !Cionfirm if the  answear is right
+// !Confirm if the answear is right
 function ConfIfUserIsRight(id){
     if (id==='3'){
         alert('Acertaste, vem ai o proximo nivel pa')
