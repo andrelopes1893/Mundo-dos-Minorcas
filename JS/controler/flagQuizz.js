@@ -41,8 +41,6 @@ function QuizzGenerator() {
     if (localStorage.getItem('quizzes')) {
         quizzes = JSON.parse(localStorage.getItem('quizzes'))
     }
-
-
     if (sessionStorage.getItem('continentStyle')) {
         continentStyle = JSON.parse(sessionStorage.getItem('continentStyle'))
     } else {
@@ -61,9 +59,11 @@ function QuizzGenerator() {
         sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
     }
 
-
     // Get the place where the quizzes are going to be generated
     let quizzPlaceHolder = document.querySelector('#quizzHolder')
+
+    // Eleminate the previouse quizz
+    quizzPlaceHolder.innerHTML=''
 
     //Array that will prevent the generation of the same number
     let generatedNumbers = []
@@ -92,14 +92,13 @@ function QuizzGenerator() {
                         quizzPlaceHolder.innerHTML += ` <div class="row optionsRow">
                     <button class="btn mx-auto optionsButton" id='${position-1}'>${quizz._answers[position-1]}</button>
                      </div>`
-                    }
-                    else{
+                    } else {
                         i--
                         continue;
                     }
                 }
             }
-
+            isTheAnswearRight()
         } else {
             QuizzGenerator()
         }
@@ -119,7 +118,7 @@ function GenerateRandomGame() {
     return game;
 }
 
-//!This Fuction Looks if the number existes
+//!This Fuction Looks if the has already number existes
 function answearAddExistence(arrayAnswears, randomNumber) {
     for (const answear of arrayAnswears) {
         if (answear == randomNumber) {
@@ -129,12 +128,26 @@ function answearAddExistence(arrayAnswears, randomNumber) {
     return false;
 }
 
+// !This fuctin get all the buttons with the options and add an event That will Check if the choosen answear is the right one
+function isTheAnswearRight() {
+    let options = document.querySelectorAll('.optionsButton')
+    for (const option of options) {
+        option.addEventListener('click', function () {
+            ConfIfUserIsRight(this.id)
+        })
+    }
+}
 
+// !Cionfirm if the  answear is right
+function ConfIfUserIsRight(id){
+    if (id==='3'){
+        alert('Acertaste, vem ai o proximo nivel pa')
+        QuizzGenerator()
+    }
+    else{
+        alert('Pff es pior que o benfica quando falhou o penta')
+        // location.reload()//This is not right
+        location.href = '/HTML/continentQuizz.html'
+    }
 
-
-
-
-
-
-
-
+}
