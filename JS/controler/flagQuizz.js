@@ -16,6 +16,7 @@ window.onload = function () {
         ChosenQuizz = JSON.parse(sessionStorage.getItem('ChosenQuizz'))
     } else {
 
+        
         ChosenQuizz = 'Bandeiras'
         // !Para eliminar
         sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
