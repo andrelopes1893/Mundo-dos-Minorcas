@@ -120,55 +120,12 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Utilizador</th>
-                                <th scope="col">Oservação</th>
-                                <th scope="col">Abrir</th>
-                                <th scope="col">Eliminar</th>
+                                <th scope="col">Sugestão</th>
+                                <th scope="col">Recusar</th>
+                                <th scope="col">Aceitar</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Nuno Sousa</td>
-                                <td>Por ler</td>
-                                <td><button type="button" class="btn btn-success read">Abrir</button></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Titas</td>
-                                <td>Por ler</td>
-                                <td><button type="button" class="btn btn-success read">Abrir</button></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>André</td>
-                                <td>Reprovado</td>
-                                <td><button type="button" class="btn btn-success read">Abrir</button></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Marcos</td>
-                                <td>Reprovado</td>
-                                <td><button type="button" class="btn btn-success read">Abrir</button></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Vitali</td>
-                                <td>Aprovado</td>
-                                <td><button type="button" class="btn btn-success read">Abrir</button></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Miguel</td>
-                                <td>Aprovado</td>
-                                <td><button type="button" class="btn btn-success read" data-toggle="modal"
-                                        data-target="#suggestionModal">Abrir</button></td>
-                                <td><img src="/Images/x.png" alt="Eliminar"></td>
-                            </tr>
+                        <tbody id="suggestionsTableBody">
                         </tbody>
                     </table>
                 </div>
@@ -187,23 +144,12 @@
                         style="color:#ffff">Voltar</button>
                 </div>
                 <!-- Corpo da Modal -->
-                <div class="modal-body text-center">
-                    Queria saber se poderiam implementar ,no catálogo, Cabo Verde.
-                    É um país da costa ocidental africana, cuja capital é Praia. A oeste está
-                    delimitado pelo Oceano Atlântico e foi colônia portuguesa.
-                </div>
-                <!-- Rodapé da Modal -->
-                <div class="modal-footer">
-                    <button type="button" class="btn">Aprovar</button>
-                    <button type="button" class="btn">Reprovar</button>
+                <div class="modal-body text-center suggestion">
                 </div>
             </div>
         </div>
     </div>
-
     <!--  -->
-
-
 
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 

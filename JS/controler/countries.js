@@ -11,12 +11,14 @@ window.onload = function () {
         localStorage.setItem("countries", JSON.stringify(countries))
     }
     renderCatalog();
+    renderModalInfo();
 }
 
 searchCountry()
 
 document.querySelector("#btnFilter").addEventListener("click", function (event) {
     renderCatalog()
+    renderModalInfo()
     event.preventDefault()
 })
 
@@ -38,10 +40,10 @@ function renderCatalog() {
         result += `
             <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
                 <div class="card africanCards" style="width: 18rem;">
-                <button type="button" class="btn countryButton" data-toggle="modal" data-target="#countryModal"><img
-                src="${country._flag}"
-                class="card-img-top" alt="Brasil"></button>
-                    <div class="card-body">
+                <button type="button" id="${country._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal">
+                    <img src="${country._flag}" class="card-img-top" alt="Brasil">
+                </button>
+                    <div class="card-body" id="${country._id}">
                         <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
                         <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
                         <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
@@ -64,6 +66,16 @@ function renderCatalog() {
         }
     }
     document.querySelector("#containerCatalog").innerHTML = result
+
+    // Programar botoes nas imagens dos modais
+    const countryBtn = document.getElementsByClassName("countryButton")
+    for (const elem of countryBtn) {
+        elem.addEventListener("click", function () {
+            renderModalInfo(this.id)
+        })
+    }
+
+    renderModalInfo()
 }
 
 /**
@@ -86,4 +98,18 @@ function searchCountry() {
             });
         });
     });
+}
+
+function renderModalInfo(id) { 
+    for (const country of countries) {
+        //console.log(country._id + "-" + id)
+        if(country._id == id){
+        document.querySelector("#modalFlag").src = country._flag
+        document.querySelector("#infoName").innerHTML = country._name
+        document.querySelector("#infoCapital").innerHTML = country._capital
+        document.querySelector("#infoLanguage").innerHTML = country._language
+        document.querySelector("#infoContinent").innerHTML = country._continent
+        document.querySelector("#modalMap").src = country._location
+        }
+    }
 }
