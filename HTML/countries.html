@@ -77,7 +77,8 @@
                 <div class="form-group selection mx-auto">
                     <label for="stlGenre">Filtrar Por: </label>
                     <select class="form-control" id="stlGenre">
-                        <option class="optionStyle" value="Ordem Alfabetica Crescente">Ordem Alfabética Crescente</option>
+                        <option class="optionStyle" value="Ordem Alfabetica Crescente">Ordem Alfabética Crescente
+                        </option>
                         <option value="Ordem Alfabetica Decrescente">Ordem Alfabética Decrescente</option>
                         <option value="Mais Comentados">Mais Comentados</option>
                         <option value="Melhor Pontuação">Melhor Pontuação</option>
@@ -121,9 +122,13 @@
                             <p>Clima: <span id="infoWeatherType"></span></p>
                         </div>
                         <div class="col-lg-6 col-md-12 col-xs-12 imgInfo">
-                            <img src="/Images/Mapa.png" alt="Mapa" class="map mx-auto">
-                            <img src="/Images/Legenda.png" alt="Legenda" class="caption mx-auto">
-                            <img src="/Images/Legenda.png" alt="Legenda" class="caption mx-auto">
+                            <img src="/Images/Mapa.png" alt="Mapa" class="map">
+                            <img src="/Images/Legenda.png" alt="Legenda" class="caption mb-5">
+                            <div class="form-group">
+                                <label for="comment" class="translateLabel">Translate:</label>
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                                <button class="btn translateBtn mt-3">Traduzir</button>
+                            </div>
                         </div>
                     </div>
                 </div>

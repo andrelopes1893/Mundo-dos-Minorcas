@@ -1,4 +1,5 @@
 import User from '../models/userModels.js'
+import Question from '../models/quizzesModels.js'
 
 let users = []
 
@@ -9,9 +10,27 @@ window.onload = function () {
         doNotShowPasswordData()
         showUserData()
         showAvatarOnload()
+        showCurrentXP()
 }
 
 cleanInputData()
+
+document.querySelector('#descriptionForm').addEventListener('submit', function (event) {
+
+        event.preventDefault()
+})
+
+
+let x = document.querySelector('.form-group')
+
+let newDiv = `<div class="invalid-feedback">
+                        Escreve o teu novo nome de utilizador!
+                </div>`
+
+x.parentNode.insertBefore(newDiv, x.nextSibling)
+
+console.log(x.parentNode.insertBefore(newDiv, x.nextSibling));
+
 
 document.querySelector('#profileForm').addEventListener('submit', function (event) {
         let txtUsername = document.querySelector('#txtUsername').value
@@ -26,10 +45,65 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
 
         for (const user of users) {
                 if (user._id != id) {
-                        user._username = txtUsername
-                        user._password = txtPassword
-                        user._country = txtCountry
-                        user._birthday = txtBirthdayDate
+                        if (txtUsername == "") {
+                                document.querySelector('.username').classList.add('is-invalid')
+
+
+
+                                document.querySelector('.usernameText').innerHTML += `<div class="invalid-feedback">
+                                                                                        Escreve o teu novo nome de utilizador!
+                                                                                </div>`
+                        } else {
+                                document.querySelector('.username').classList.add('is-valid')
+                                document.querySelector('.usernameText').innerHTML += `<div class="valid-feedback">
+                                                                                        Que nome altamente!
+                                                                                </div>`
+                                document.querySelector('#txtUsername').value = txtUsername
+                                user._username = txtUsername
+                        }
+
+                        if (txtPassword == "") {
+                                document.querySelector('.password').classList.add('is-invalid')
+                                document.querySelector('.passwordText').innerHTML += `<div class="invalid-feedback">
+                                                                                        Escreve o teu novo nome de utilizador!
+                                                                                </div>`
+                        } else {
+                                document.querySelector('.password').classList.add('is-valid')
+                                document.querySelector('.passwordText').innerHTML += `<div class="valid-feedback">
+                                                                                        Que nome altamente!
+                                                                                </div>`
+                                document.querySelector('#txtPassword').value = txtPassword
+                                user._password = txtPassword
+                        }
+
+                        if (txtCountry == "") {
+                                document.querySelector('.country').classList.add('is-invalid')
+                                document.querySelector('.countryText').innerHTML += `<div class="invalid-feedback">
+                                                                                        Escreve o teu novo nome de utilizador!
+                                                                                </div>`
+                        } else {
+                                document.querySelector('.country').classList.add('is-valid')
+                                document.querySelector('.countryText').innerHTML += `<div class="valid-feedback">
+                                                                                        Que nome altamente!
+                                                                                </div>`
+                                document.querySelector('#txtCountry').value = txtCountry
+                                user._country = txtCountry
+                        }
+
+                        if (txtBirthdayDate == "") {
+                                document.querySelector('.birthday').classList.add('is-invalid')
+                                document.querySelector('.birthdayText').innerHTML += `<div class="invalid-feedback">
+                                                                                        Escreve o teu novo nome de utilizador!
+                                                                                </div>`
+                        } else {
+                                document.querySelector('.birthday').classList.add('is-valid')
+                                document.querySelector('.birthdayText').innerHTML += `<div class="valid-feedback">
+                                                                                        Que nome altamente!
+                                                                                </div>`
+                                document.querySelector('#txtBirthdayDate').value = txtBirthdayDate
+                                user._birthday = txtBirthdayDate
+                        }
+
                 }
                 localStorage.setItem('users', JSON.stringify(users))
         }
@@ -223,6 +297,27 @@ function showAvatarOnload() {
         });
 }
 
+function showCurrentXP() {
+        let width = 1
+        for (const user of users) {
+                if (user._xp === 0) {
+                        document.querySelector('#currentXpBar').innerHTML = ""
+                        break
+                }
+                if (user._xp >= 100) {
+                        $('.progress-bar').css({
+                                'width': '0%'
+                        });
+                        document.querySelector('#currentXpBar').innerHTML = user._xp
+                } else {
+                        width++
+                        document.querySelector('.progress-bar').style.width = width + '%'
+                        document.querySelector('#currentXpBar').innerHTML = user._xp
+                }
+
+        }
+}
+
 // $('.buttonBoy').click(function () {
 //     $('.buttonGirl').css({
 //         'visibility': 'visible',
@@ -268,11 +363,25 @@ function cleanInputData() {
 }
 
 function showUserData() {
+        if (localStorage.getItem("users")) {
+                users = JSON.parse(localStorage.getItem("users"))
+        }
         for (const user of users) {
                 document.querySelector('#txtUsername').value = user._username
+
                 document.querySelector('#txtPassword').value = user._password
-                document.querySelector('#txtCountry').value = user._country
-                document.querySelector('#txtBirthdayDate').value = user._birthday
+
+                if (user._country === undefined) {
+                        document.querySelector('#txtCountry').value = ""
+                } else {
+                        document.querySelector('#txtCountry').value = user._country
+                }
+
+                if (user._birthday === undefined) {
+                        document.querySelector('#txtBirthdayDate').value = ""
+                } else {
+                        document.querySelector('#txtBirthdayDate').value = user._birthday
+                }
         }
 }
 

@@ -470,12 +470,10 @@ button.btn.countryButton:focus {
 
 div.row div.col-lg-6.imgInfo img.map {
     width: 13rem;
-    display: block;
 }
 
 div.row div.col-lg-6.imgInfo img.caption {
     width: 8rem;
-    display: block;
     margin-top: 2rem;
 }
 
@@ -490,6 +488,30 @@ div.modal-content {
 div.infoParagraph>p {
     color: white;
     font-weight: 500;
+}
+
+div.form-group > label.translateLabel {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+button.translateBtn {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    transition: all .4s ease-in-out;
+}
+
+button.translateBtn:focus {
+    box-shadow: 0 0 0 0;
+}
+
+button.translateBtn:hover {
+    transform: scale(1.1, 1.1);
+    color: #ffffff;
 }
 
 /* ! INFO COUNTRY PAGE
@@ -646,6 +668,7 @@ div.progress div.progress-bar {
 p#currentXpBar {
     color: #29ABE2;
     font-weight: 500;
+    margin: 0;
 }
 
 div.row.rounded div.col-lg-6 p {
@@ -694,6 +717,10 @@ button.btn.edit {
 
 form#profileForm {
     padding-top: 10%;
+}
+
+form div.form-group>textarea.description {
+    border: 1px solid #29ABE2;
 }
 
 /* Profile Modal */
