@@ -721,6 +721,18 @@ form#profileForm {
 
 form div.form-group>textarea.description {
     border: 1px solid #29ABE2;
+    border-radius: .5rem;
+    resize: none;
+    transition: all .4s ease-in-out;
+}
+
+form div.form-group>textarea.description:hover {
+    transform: scale(1.1, 1.1)
+}
+
+form div.form-group>textarea.description:focus {
+    box-shadow: 0 0 0 0;
+    resize: none;
 }
 
 /* Profile Modal */

@@ -15,10 +15,17 @@ window.onload = function () {
 
 cleanInputData()
 
-document.querySelector('#descriptionForm').addEventListener('submit', function (event) {
+asd()
+function asd() {
+        document.querySelector('#txtDescription').value = txtDescription
 
-        event.preventDefault()
-})
+        for (const user of users) {
+                if (user._id != id) {
+                        user._description = txtDescription
+                }
+                localStorage.setItem('users', JSON.stringify(users))
+        }
+}
 
 document.querySelector('#profileForm').addEventListener('submit', function (event) {
         let txtUsername = document.querySelector('#txtUsername').value
@@ -26,11 +33,21 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
         let txtCountry = document.querySelector('#txtCountry').value
         let txtBirthdayDate = document.querySelector('#txtBirthdayDate').value
 
-        let x = document.querySelector('.username')
+        let usernameClass = document.querySelector('.username')
+        let usernameDiv = document.createElement('div')
+        let usernameElement = usernameClass.parentNode.insertBefore(usernameDiv, usernameClass.nextSibling)
 
-        let newDiv = document.createElement('div')
+        let passwordClass = document.querySelector('.password')
+        let passwordDiv = document.createElement('div')
+        let passwordElement = passwordClass.parentNode.insertBefore(passwordDiv, passwordClass.nextSibling)
 
-        let newElement = x.parentNode.insertBefore(newDiv, x.nextSibling)
+        let countryClass = document.querySelector('.country')
+        let countryDiv = document.createElement('div')
+        let countryElement = countryClass.parentNode.insertBefore(countryDiv, countryClass.nextSibling)
+
+        let birthdayClass = document.querySelector('.birthday')
+        let birthdayDiv = document.createElement('div')
+        let birthdayElement = birthdayClass.parentNode.insertBefore(birthdayDiv, birthdayClass.nextSibling)
 
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
@@ -41,61 +58,84 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                 if (user._id != id) {
                         if (txtUsername == "") {
                                 document.querySelector('.username').classList.add('is-invalid')
-                                newElement.classList.add('invalid-feedback')
-                                newElement.innerHTML += 'Escreve o teu novo nome de utilizador!'
-                                console.log(newElement);
+                                usernameElement.classList.add('invalid-feedback')
+                                usernameElement.innerHTML += 'Escreve o teu novo nome de utilizador!'
+                                setTimeout(() => {
+                                        usernameElement.classList.remove('invalid-feedback')
+                                        usernameElement.innerHTML = ""
+                                }, 5000);
 
                         } else {
                                 document.querySelector('.username').classList.add('is-valid')
-                                document.querySelector('.usernameText').innerHTML += `<div class="valid-feedback">
-                                                                                        Que nome altamente!
-                                                                                </div>`
+                                usernameElement.classList.add('valid-feedback')
+                                usernameElement.innerHTML += 'Que nome mais altamente!'
+                                setTimeout(() => {
+                                        usernameElement.classList.remove('invalid-feedback')
+                                        usernameElement.innerHTML = ""
+                                }, 5000);
                                 document.querySelector('#txtUsername').value = txtUsername
                                 user._username = txtUsername
                         }
 
                         if (txtPassword == "") {
                                 document.querySelector('.password').classList.add('is-invalid')
-                                document.querySelector('.passwordText').innerHTML += `<div class="invalid-feedback">
-                                                                                        Escreve o teu novo nome de utilizador!
-                                                                                </div>`
+                                passwordElement.classList.add('invalid-feedback')
+                                passwordElement.innerHTML += 'Escreve a tua nova palavra-passe!'
+                                setInterval(() => {
+                                        passwordElement.classList.remove('invalid-feedback')
+                                        passwordElement.innerHTML = ""
+                                }, 5000);
                         } else {
                                 document.querySelector('.password').classList.add('is-valid')
-                                document.querySelector('.passwordText').innerHTML += `<div class="valid-feedback">
-                                                                                        Que nome altamente!
-                                                                                </div>`
+                                passwordElement.classList.add('valid-feedback')
+                                passwordElement.innerHTML += 'Palavra-passe segura!'
+                                setInterval(() => {
+                                        passwordElement.classList.remove('invalid-feedback')
+                                        passwordElement.innerHTML = ""
+                                }, 5000);
                                 document.querySelector('#txtPassword').value = txtPassword
                                 user._password = txtPassword
                         }
 
                         if (txtCountry == "") {
                                 document.querySelector('.country').classList.add('is-invalid')
-                                document.querySelector('.countryText').innerHTML += `<div class="invalid-feedback">
-                                                                                        Escreve o teu novo nome de utilizador!
-                                                                                </div>`
+                                countryElement.classList.add('invalid-feedback')
+                                countryElement.innerHTML += 'Escreve o teu país!'
+                                setInterval(() => {
+                                        countryElement.classList.remove('invalid-feedback')
+                                        countryElement.innerHTML = ""
+                                }, 5000);
                         } else {
                                 document.querySelector('.country').classList.add('is-valid')
-                                document.querySelector('.countryText').innerHTML += `<div class="valid-feedback">
-                                                                                        Que nome altamente!
-                                                                                </div>`
+                                countryElement.classList.add('valid-feedback')
+                                countryElement.innerHTML += 'País Localizado!'
+                                setInterval(() => {
+                                        countryElement.classList.remove('valid-feedback')
+                                        countryElement.innerHTML = ""
+                                }, 5000);
                                 document.querySelector('#txtCountry').value = txtCountry
                                 user._country = txtCountry
                         }
 
                         if (txtBirthdayDate == "") {
                                 document.querySelector('.birthday').classList.add('is-invalid')
-                                document.querySelector('.birthdayText').innerHTML += `<div class="invalid-feedback">
-                                                                                        Escreve o teu novo nome de utilizador!
-                                                                                </div>`
+                                birthdayElement.classList.add('invalid-feedback')
+                                birthdayElement.innerHTML += 'Escreve a tua data de aniversário!'
+                                setInterval(() => {
+                                        birthdayElement.classList.remove('invalid-feedback')
+                                        birthdayElement.innerHTML = ""
+                                }, 5000);
                         } else {
                                 document.querySelector('.birthday').classList.add('is-valid')
-                                document.querySelector('.birthdayText').innerHTML += `<div class="valid-feedback">
-                                                                                        Que nome altamente!
-                                                                                </div>`
+                                birthdayElement.classList.add('valid-feedback')
+                                birthdayElement.innerHTML += 'Data de aniversário aceite!'
+                                setInterval(() => {
+                                        birthdayElement.classList.remove('valid-feedback')
+                                        birthdayElement.innerHTML = ""
+                                }, 5000);
                                 document.querySelector('#txtBirthdayDate').value = txtBirthdayDate
                                 user._birthday = txtBirthdayDate
                         }
-
                 }
                 localStorage.setItem('users', JSON.stringify(users))
         }
