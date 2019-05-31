@@ -8,7 +8,6 @@ window.onload = function () {
     }
 }
 let answers = []
-<<<<<<< HEAD
 document.getElementById('quizCreateForm').addEventListener('submit', function (event) {
     let quizContinent = document.querySelector('#stlContinent').value
     let quizCategory = document.querySelector('#stlCategory').value
@@ -18,8 +17,6 @@ document.getElementById('quizCreateForm').addEventListener('submit', function (e
     let txtWrongAnswer3 = document.querySelector('#txtAnswerOptions3').value
     let txtCorrectAnswer = document.querySelector('#txtCorrectAnswer').value
     console.log(Question.ConfirmQuizExistence(quizContinent, quizCategory, txtCorrectAnswer))
-
-
 
     if (Question.ConfirmQuizExistence(quizContinent, quizCategory, txtCorrectAnswer)) {
         alert("O quiz já existente ")
@@ -32,7 +29,6 @@ document.getElementById('quizCreateForm').addEventListener('submit', function (e
 
     event.preventDefault()
 })
-=======
 
 document.getElementById('quizCreateForm').addEventListener('submit', function (event) {
     let quizContinent = document.querySelector('#stlContinent').value
