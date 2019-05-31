@@ -45,9 +45,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                         if (txtUsername == "") {
                                 document.querySelector('.username').classList.add('is-invalid')
                                 newElement.classList.add('invalid-feedback')
-                                newElement.innerHTML += 'Escreve o teu novo nome de utilizador!'
-                                console.log(newElement);
-                                
+                                newElement.innerHTML += 'Escreve o teu novo nome de utilizador!'                                
                         } else {
                                 document.querySelector('.username').classList.add('is-valid')
                                 document.querySelector('.usernameText').innerHTML += `<div class="valid-feedback">
