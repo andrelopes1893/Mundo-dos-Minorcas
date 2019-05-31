@@ -74,7 +74,7 @@ function QuizzGenerator() {
 
     for (const quizz of quizzes) {
         if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz) {
-            document.querySelector('questionHolder')  
+            document.querySelector('questionHolder').innerHTML=quizz._question  
             for (let i = 0; i < 4; i++) {
                 if (generatedNumbers.length == 0) {
                     let position = GenerateRandomNumb()
