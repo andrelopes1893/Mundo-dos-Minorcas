@@ -120,6 +120,7 @@ function unlockedLevels() {
             if (user._xp <= 50) {
                 playebleLevels.push(1)
             }
+            
             if (user._xp > 50 && user._xp <= 100) {
                 playebleLevels.push(2)
             }
