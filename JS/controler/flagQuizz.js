@@ -5,12 +5,12 @@ let ChosenQuizz = ''
 
 
 //  Busca os niveis desbokiados por id
-let levels =unlockedLevels()
 
 
 
 
-QuizzGenerator(levels)
+
+QuizzGenerator()
 
 
 // !What do I need Is to get a random Quizz from the Local Storage !!!!!!!!!!!!!!!! Easy 
@@ -18,10 +18,10 @@ QuizzGenerator(levels)
 /**
  * This Fuction from the Quizzes
  */
-function QuizzGenerator(myLevels) {
-// ?necessito de um variavel contadora
-quizzPick(myLevels[0]) 
-}
+// function QuizzGenerator() {
+// // ?necessito de um variavel contadora
+// quizzPick() 
+// }
 
 
 // !Generate a random number
@@ -59,10 +59,16 @@ function isTheAnswearRight() {
 function ConfIfUserIsRight(id) {
     if (id === '3') {
         alert('Acertaste, vem ai o proximo nivel pa')
+        let quizzPlaceHolder = document.querySelector('#quizzHolder')
+        // Eleminate the previouse quizz
+        quizzPlaceHolder.innerHTML = ''
         QuizzGenerator()
     } else {
         alert('Pff es pior que o benfica quando falhou o penta')
         // location.reload()//This is not right
+        let quizzPlaceHolder = document.querySelector('#quizzHolder')
+        // Eleminate the previouse quizz
+        quizzPlaceHolder.innerHTML = ''
         location.href = '/HTML/continentQuizz.html'
     }
 }
@@ -120,7 +126,7 @@ function unlockedLevels() {
             if (user._xp <= 50) {
                 playebleLevels.push(1)
             }
-            
+
             if (user._xp > 50 && user._xp <= 100) {
                 playebleLevels.push(2)
             }
@@ -140,7 +146,11 @@ function unlockedLevels() {
 
 
 
-function quizzPick(level){
+function QuizzGenerator(){
+
+
+    let  levels =unlockedLevels()
+    let level = levels[0]
      //!Exist because if it doesn't ann error will appear
      if (localStorage.getItem('quizzes')) {
         quizzes = JSON.parse(localStorage.getItem('quizzes'))
@@ -197,14 +207,15 @@ function quizzPick(level){
                      </div>`
                     } else {
                         i--
-                        continue;
                     }
                 }
             }
             isTheAnswearRight()
-        } else {
-            quizzPick()
-        }
+            break;
+        } 
+        // else{
+        //     QuizzGenerator()
+        // } 
     }
 }
 
