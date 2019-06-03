@@ -30,7 +30,13 @@ document.querySelector('#suggestionForm').addEventListener('submit', function (e
 
         for (const user of users) {                
                 if (user._id == id) {
-                        user._suggestions.push(stlContinent, txtCountryName, txtCountryCapital, txtCountryLanguage)
+                        if (users == "") {
+                                user._suggestions.push(stlContinent, txtCountryName, txtCountryCapital, txtCountryLanguage)
+                        } else{
+                                user._suggestions = []
+                                user._suggestions.push(stlContinent, txtCountryName, txtCountryCapital, txtCountryLanguage)
+                        }
+                        
                 }
                 localStorage.setItem('users', JSON.stringify(users))
         }
