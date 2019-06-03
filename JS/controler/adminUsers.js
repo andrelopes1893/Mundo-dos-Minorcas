@@ -47,7 +47,7 @@ function renderTable() {
     let r = 0
 
     users.forEach(user => {
-        if (user._accountType === '1') {
+        if (user._accountType == '1') {
             type = 'admin'
         } else {
             type = 'utilizador'
