@@ -4,7 +4,7 @@ let ChosenQuizz = ''
 
 
 
-//  Busca os niveis desbokiados por id
+
 
 
 
@@ -73,41 +73,13 @@ function ConfIfUserIsRight(id) {
     }
 }
 
-// // !This Function confirm if the user xp let him play de quizz
-// function isXpEnough(level){
-//     if (localStorage.getItem("users")) {
-//         users = JSON.parse(localStorage.getItem("users"))
-//     }
-//     if(sessionStorage.getItem('loggedUserId')){
-//         loggedUserId= JSON.parse(sessionStorage.getItem('loggedUserId'))
-//     }
-
-//     for (const user of users) {
-//         if(users._id == loggedUserId ){
-
-//             switch (level) {
-//                 case 1:
-//                     return '5'
-//                     break
-//                 case 2:
-//                     return '10'
-//                     break
-//                 case 3:
-//                     return '15'
-//                     break
-//                 case 4:
-//                     return '20'
-//                     break
-//                 case 5:
-//                     return '25'
-//                     break
-//             }
-//         }
-//     }
-// }
-
 // !This Function confirm if the user xp let him play de quizz
-function unlockedLevels() {
+function unlockedLevels(continentStyle) {
+
+
+
+
+
 
     let playebleLevels = []
     if (localStorage.getItem("users")) {
@@ -115,44 +87,145 @@ function unlockedLevels() {
     }
     if (sessionStorage.getItem('loggedUserId')) {
         loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
-    
-    }
-    else{
+
+    } else {
         loggedUserId = 1
     }
-    for (const user of users) {
-        if (user._id == loggedUserId) {
 
-            if (user._xp <= 50) {
-                playebleLevels.push(1)
-            }
 
-            if (user._xp > 50 && user._xp <= 100) {
-                playebleLevels.push(2)
+    if(continentStyle=== 'africa'){
+        for (const user of users) {
+            if (user._id == loggedUserId) {
+    
+                if (user._xp <= 50) {
+                    playebleLevels.push(1)
+                }
+    
+                if (user._xp > 50 && user._xp <= 100) {
+                    playebleLevels.push(2)
+                }
+                if (user._xp > 100 && user._xp <= 150) {
+                    playebleLevels.push(3)
+                }
+                if (user._xp > 150 && user._xp <= 200) {
+                    playebleLevels.push(4)
+                }
+                if (user._xp > 200 && user._xp <= 250) {
+                    playebleLevels.push(5)
+                }
+                return playebleLevels
             }
-            if (user._xp > 100 && user._xp <= 150) {
-                playebleLevels.push(3)
-            }
-            if (user._xp > 150 && user._xp <= 200) {
-                playebleLevels.push(4)
-            }
-            if (user._xp>200 &&user._xp<=250) {
-                playebleLevels.push(5)
-            }
-            return playebleLevels
         }
     }
+    if(continentStyle=== 'africa'){
+        for (const user of users) {
+            if (user._id == loggedUserId) {
+    
+                if (user._xp > 250 && user._xp<300) {
+                    playebleLevels.push(1)
+                }
+                if (user._xp > 300 && user._xp <= 350) {
+                    playebleLevels.push(2)
+                }
+                if (user._xp > 350 && user._xp <= 400) {
+                    playebleLevels.push(3)
+                }
+                if (user._xp > 400 && user._xp <= 450) {
+                    playebleLevels.push(4)
+                }
+                if (user._xp > 450 && user._xp <= 500) {
+                    playebleLevels.push(5)
+                }
+                return playebleLevels
+            }
+        }
+    }
+
+    if(continentStyle=== 'africa'){
+        for (const user of users) {
+            if (user._id == loggedUserId) {
+    
+                if (user._xp > 500 && user._xp <= 550) {
+                    playebleLevels.push(1)
+                }
+    
+                if (user._xp > 550 && user._xp <= 600) {
+                    playebleLevels.push(2)
+                }
+                if (user._xp > 600&& user._xp <= 650) {
+                    playebleLevels.push(3)
+                }
+                if (user._xp > 650 && user._xp <= 700) {
+                    playebleLevels.push(4)
+                }
+                if (user._xp > 700 && user._xp <= 750) {
+                    playebleLevels.push(5)
+                }
+                return playebleLevels
+            }
+        }
+    }
+
+    if(continentStyle=== 'africa'){
+        for (const user of users) {
+            if (user._id == loggedUserId) {
+    
+                if (user._xp > 750 && user._xp <= 800) {
+                    playebleLevels.push(1)
+                }
+    
+                if (user._xp > 800 && user._xp <= 850) {
+                    playebleLevels.push(2)
+                }
+                if (user._xp > 850  && user._xp <= 900) {
+                    playebleLevels.push(3)
+                }
+                if (user._xp > 900 && user._xp <= 950) {
+                    playebleLevels.push(4)
+                }
+                if (user._xp > 1000 && user._xp <= 1050) {
+                    playebleLevels.push(5)
+                }
+                return playebleLevels
+            }
+        }
+    }
+
+    if(continentStyle=== 'africa'){
+        for (const user of users) {
+            if (user._id == loggedUserId) {
+    
+                if (user._xp > 1050 && user._xp <= 1100) {
+                    playebleLevels.push(1)
+                }
+    
+                if (user._xp > 1100 && user._xp <= 1150) {
+                    playebleLevels.push(2)
+                }
+                if (user._xp > 1150 && user._xp <= 1200) {
+                    playebleLevels.push(3)
+                }
+                if (user._xp > 1200 && user._xp <= 1250) {
+                    playebleLevels.push(4)
+                }
+                if (user._xp > 1300 && user._xp <= 1350) {
+                    playebleLevels.push(5)
+                }
+                return playebleLevels
+            }
+        }
+    }
+    
 }
 
 
 
-function QuizzGenerator(){
+function QuizzGenerator() {
 
-
-    let  levels =unlockedLevels()
-    let level = levels[0]
-     //!Exist because if it doesn't ann error will appear
-     if (localStorage.getItem('quizzes')) {
+    //  get the ulocked id
+  
+    //!Exist because if it doesn't ann error will appear
+    if (localStorage.getItem('quizzes')) {
         quizzes = JSON.parse(localStorage.getItem('quizzes'))
     }
     if (sessionStorage.getItem('continentStyle')) {
@@ -173,6 +246,9 @@ function QuizzGenerator(){
         sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
     }
 
+    let levels = unlockedLevels(continentStyle)
+    let level = levels[0]
+
     // Get the place where the quizzes are going to be generated
     let quizzPlaceHolder = document.querySelector('#quizzHolder')
 
@@ -186,7 +262,7 @@ function QuizzGenerator(){
     let game = GenerateRandomGame()
 
     for (const quizz of quizzes) {
-        if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz &&quizz._level==level) {
+        if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level && alreadyPlayed(id)) {
             document.querySelector('#questionHolder').innerHTML = quizz._question
             document.querySelector('#quizzImg').src = quizz._img
             for (let i = 0; i < 4; i++) {
@@ -212,7 +288,8 @@ function QuizzGenerator(){
             }
             isTheAnswearRight()
             break;
-        } 
+        }
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         // else{
         //     QuizzGenerator()
         // } 
@@ -221,6 +298,26 @@ function QuizzGenerator(){
 
 
 
+// !!!!!!!!!!!!!!!!!!Para continuar!!!!!!!!!!!!!!!!!!!!
+/**
+ * This function validate if the quizz has already been played by the user
+ * @param {string} id this is the id of the current quizz
+ */
+function alreadyPlayed(id) {
+
+    let playedQuizzes = []
+
+    if (localStorage.getItem('playedQuizzes')) {
+        playedQuizzes = JSON.parse(localStorage.getItem('playedQuizzes'))
+    }
+    for (const playedQuizz of playedQuizzes) {
+
+        if (playedQuizz == id) {
+            return true;
+        }
+    }
+    return false;
+}
 
 
 
@@ -228,6 +325,6 @@ function QuizzGenerator(){
 
 
 // !Falta
-//fazer com que o mesmo quizz nao seja generado 
+//*fazer com que o mesmo quizz nao seja generado 
 //Pop up a dizer a criança que esta errada
 //Fornecer Xp                
