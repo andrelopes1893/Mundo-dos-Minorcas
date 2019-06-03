@@ -46,6 +46,6 @@ document.querySelector('#oceaniaCatalog').addEventListener('click', function() {
 })
 
 function addCatalogValue(continentCatalogStyle) {
-    sessionStorage.setItem('continentCatalogStyle', continentCatalogStyles)
+    sessionStorage.setItem('continentCatalogStyle', continentCatalogStyle)
     location.href = '../../HTML/countries.html'
 }

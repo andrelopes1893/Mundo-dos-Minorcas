@@ -42,37 +42,42 @@ function renderCatalog() {
 
     let result = ""
     let i = 0
+
+    let contName = document.querySelector('#continentTitle').innerHTML
+
     for (const country of countries) {
-        if (i % 4 === 0) {
-            result += `<div class="row">`
-        }
-        result += `
-            <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
-                <div class="card africanCards" style="width: 18rem;">
-                <button type="button" id="${country._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal">
-                    <img src="${country._flag}" class="card-img-top" alt="Brasil">
-                </button>
-                    <div class="card-body" id="${country._id}">
-                        <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
-                        <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
-                        <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
-                        <p class="mb-0 star"><button class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star"
-                            style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                            class="btn star" style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button>
-                        </p>
+        if (removeAcento(contName.toLowerCase()) == country._continent.toLowerCase()) {
+            if (i % 4 === 0) {
+                result += `<div class="row">`
+            }
+            result += `
+                <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
+                    <div class="card africanCards" style="width: 18rem;">
+                    <button type="button" id="${country._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal">
+                        <img src="${country._flag}" class="card-img-top" alt="Brasil">
+                    </button>
+                        <div class="card-body" id="${country._id}">
+                            <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
+                            <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
+                            <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
+                            <p class="mb-0 star"><button class="btn star"
+                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                                class="btn star"
+                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                                class="btn star"
+                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                                class="btn star"
+                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
+                                class="btn star" style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button>
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </div>`
-        i++
-        if (i % 4 === 0) {
-            result += `</div>`
-        }
+                </div>`
+            i++
+            if (i % 4 === 0) {
+                result += `</div>`
+            }
+        }        
     }
     document.querySelector("#containerCatalog").innerHTML = result
 
@@ -86,6 +91,20 @@ function renderCatalog() {
 
     renderModalInfo()
 }
+
+//função para remover caracteres especiais das letras, como acentos, cedilhas, etc
+function removeAcento (text)
+{       
+    text = text.toLowerCase();                                                         
+    text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+    text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+    text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+    text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+    text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+    text = text.replace(new RegExp('[Ç]','gi'), 'c');
+    return text;                 
+}
+
 
 /**
  * Função que ordena o array de paises pelo nome, no container
