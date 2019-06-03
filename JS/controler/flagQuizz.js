@@ -74,13 +74,11 @@ function ConfIfUserIsRight(id) {
 }
 
 // !This Function confirm if the user xp let him play de quizz
+/**
+ * This function see witch levels the player is able to play
+ * @param {String} continentStyle The continent quizz that we choose
+ */
 function unlockedLevels(continentStyle) {
-
-
-
-
-
-
     let playebleLevels = []
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
@@ -91,8 +89,6 @@ function unlockedLevels(continentStyle) {
     } else {
         loggedUserId = 1
     }
-
-
     if(continentStyle=== 'africa'){
         for (const user of users) {
             if (user._id == loggedUserId) {
@@ -100,7 +96,6 @@ function unlockedLevels(continentStyle) {
                 if (user._xp <= 50) {
                     playebleLevels.push(1)
                 }
-    
                 if (user._xp > 50 && user._xp <= 100) {
                     playebleLevels.push(2)
                 }
@@ -117,7 +112,7 @@ function unlockedLevels(continentStyle) {
             }
         }
     }
-    if(continentStyle=== 'africa'){
+    if(continentStyle=== 'america'){
         for (const user of users) {
             if (user._id == loggedUserId) {
     
@@ -140,8 +135,7 @@ function unlockedLevels(continentStyle) {
             }
         }
     }
-
-    if(continentStyle=== 'africa'){
+    if(continentStyle=== 'europa'){
         for (const user of users) {
             if (user._id == loggedUserId) {
     
@@ -165,8 +159,7 @@ function unlockedLevels(continentStyle) {
             }
         }
     }
-
-    if(continentStyle=== 'africa'){
+    if(continentStyle=== 'asia'){
         for (const user of users) {
             if (user._id == loggedUserId) {
     
@@ -190,8 +183,7 @@ function unlockedLevels(continentStyle) {
             }
         }
     }
-
-    if(continentStyle=== 'africa'){
+    if(continentStyle=== 'oceania'){
         for (const user of users) {
             if (user._id == loggedUserId) {
     
@@ -219,7 +211,9 @@ function unlockedLevels(continentStyle) {
 }
 
 
-
+/**
+ * This Function generate the quizz
+ */
 function QuizzGenerator() {
 
     //  get the ulocked id
@@ -260,9 +254,8 @@ function QuizzGenerator() {
 
     // This is a number (id)
     let game = GenerateRandomGame()
-
     for (const quizz of quizzes) {
-        if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level && alreadyPlayed(id)) {
+        if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level ) {
             document.querySelector('#questionHolder').innerHTML = quizz._question
             document.querySelector('#quizzImg').src = quizz._img
             for (let i = 0; i < 4; i++) {
@@ -295,9 +288,6 @@ function QuizzGenerator() {
         // } 
     }
 }
-
-
-
 // !!!!!!!!!!!!!!!!!!Para continuar!!!!!!!!!!!!!!!!!!!!
 /**
  * This function validate if the quizz has already been played by the user
@@ -320,7 +310,24 @@ function alreadyPlayed(id) {
 }
 
 
+function assignXpToThePlayer(xp){
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
 
+    
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 
