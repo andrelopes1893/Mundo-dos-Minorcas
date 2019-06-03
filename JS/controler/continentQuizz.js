@@ -30,7 +30,6 @@ function styleChangeByContinent() {
         document.querySelector('#continentHeader').innerHTML = 'América'
         document.querySelector('#continentHeader').style.color = '#FFFFFF'
     } else if (continentStyle == 'asia') {
-        console.log('man')
         document.querySelector('#Bandeiras').src = '/Images/africanFlags.png'
         document.querySelector('#Localizacao').src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Asia_%28orthographic_projection%29.svg/250px-Asia_%28orthographic_projection%29.svg.png'
         document.querySelector('#Bandeiras').src = 'https://www.flagsimporter.com/pub/media/catalog/product/cache/image/600x800/e9c3970ab036de70892d86c6d221abfe/a/s/asianstick__56183.1384290081.1280.1280.jpgc-2_2.jpg'
