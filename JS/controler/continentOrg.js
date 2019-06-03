@@ -16,8 +16,6 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
-
-
 let continentCatalogStyle = ""
 
 document.querySelector('#africaCatalog').addEventListener('click', function() {
@@ -25,7 +23,7 @@ document.querySelector('#africaCatalog').addEventListener('click', function() {
     addCatalogValue(continentCatalogStyle)
 })
 
-document.querySelector('#americaCatalog').addEventListener('click', function() {
+document.querySelector('#americaCatalog').addEventListener('click', function() {    
     continentCatalogStyle = 'america'
     addCatalogValue(continentCatalogStyle)
 })
@@ -45,7 +43,7 @@ document.querySelector('#oceaniaCatalog').addEventListener('click', function() {
     addCatalogValue(continentCatalogStyle)  
 })
 
-function addCatalogValue(continentCatalogStyle) {
+function addCatalogValue(continentCatalogStyle) {    
     sessionStorage.setItem('continentCatalogStyle', continentCatalogStyle)
     location.href = '../../HTML/countries.html'
 }
