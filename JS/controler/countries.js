@@ -12,6 +12,15 @@ window.onload = function () {
     }
     renderCatalog();
     renderModalInfo();
+    if (sessionStorage.getItem('continentCatalogStyle')) {
+        continentCatalogStyle = sessionStorage.getItem('continentCatalogStyle')
+    } /*else {
+         // !Para eliminar
+        continentCatalogStyle = 'africa'
+        // !Para eliminar
+        sessionStorage.setItem('continentCatalogStyle', JSON.stringify(continentCatalogStyle))
+    }*/
+    CatalogStyleChangeByContinent()
 }
 
 searchCountry()
@@ -100,6 +109,9 @@ function searchCountry() {
     });
 }
 
+/**
+ * Função que injeta na modal as informaçoes correspondentes ao pais em que o card foi carregado
+ */
 function renderModalInfo(id) { 
     for (const country of countries) {
         //console.log(country._id + "-" + id)
@@ -110,6 +122,49 @@ function renderModalInfo(id) {
         document.querySelector("#infoLanguage").innerHTML = country._language
         document.querySelector("#infoContinent").innerHTML = country._continent
         document.querySelector("#modalMap").src = country._location
+        document.querySelector("#infoInfo").innerHTML = country._information
         }
     }
 }
+
+
+
+
+
+let continentCatalogStyle=''
+
+// !Page Looking
+function CatalogStyleChangeByContinent() {
+    console.log(continentCatalogStyle)
+    if (continentCatalogStyle == 'africa') {
+        document.querySelector('title').innerHTML += 'África'
+        document.body.style.backgroundColor = '#F5BB00'
+        document.querySelector('#continentTitle').innerHTML = 'África'
+        document.querySelector('#continentTitle').style.color = '#FFFFFF'
+    } 
+    else if (continentCatalogStyle == 'america') {
+        document.querySelector('title').innerHTML += 'América'
+        document.body.style.backgroundColor = '#4AB71B'
+        document.querySelector('#continentTitle').innerHTML = 'América'
+        document.querySelector('#continentTitle').style.color = '#FFFFFF'
+    } 
+    else if (continentCatalogStyle == 'asia') {
+        document.querySelector('title').innerHTML += 'Ásia'
+        document.body.style.backgroundColor = '#BE3DE3'
+        document.querySelector('#continentTitle').innerHTML = 'Ásia'
+        document.querySelector('#continentTitle').style.color = '#FFFFFF'
+    } 
+    else if (continentCatalogStyle == 'europa') {
+        document.querySelector('title').innerHTML += 'Europa'
+        document.body.style.backgroundColor = '#204987'
+        document.querySelector('#continentTitle').innerHTML = 'Europa'
+        document.querySelector('#continentTitle').style.color = '#FFFFFF'
+    } 
+    else if (continentCatalogStyle == 'oceania') {
+        document.querySelector('title').innerHTML += 'Oceânia'
+        document.body.style.backgroundColor = '#B7541B'
+        document.querySelector('#continentTitle').innerHTML = 'Oceânia'
+        document.querySelector('#continentTitle').style.color = '#FFFFFF'
+    }
+}
+
