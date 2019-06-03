@@ -10,11 +10,11 @@ window.onload = function () {
     }
 
     renderTable()
-}
+} 
 
 function renderTable() {
-    if (localStorage.getItem("users")) {
-        users = JSON.parse(localStorage.getItem("users"))
+    if (localStorage.getItem("suggestions")) {
+        users = JSON.parse(localStorage.getItem("suggestions"))
     }
 
     document.querySelector('#suggestionsTableBody').innerHTML = ''
@@ -28,14 +28,24 @@ function renderTable() {
         document.querySelector('#suggestionsTableBody').innerHTML += `<tr>
                                         <th scope="row">${r}</th>
                                         <td>${user._username}</td>
-                                        <td><button type="button" data-toggle="modal" data-target="#suggestionModal" class="btn" style="font-size: 1.5rem; border: 1px solid #ffffff">Abrir</button></td>
-                                        <td><button type="button" id="${user._id}" data-toggle="modal" data-target="#removeSuggestion" class="btn remove pt-2"><img src="/Images/x.png" alt="Eliminar"></button></td>
+                                        <td><button type="button" id="${user._username}" data-toggle="modal" data-target="#suggestionModal" class="btn open mt-1" style="font-size: 1.5rem; border: 1px solid #ffffff">Abrir</button></td>
+                                        <td><button type="button" id="${user._suggestions}" data-toggle="modal" data-target="#removeSuggestion" class="btn remove pt-2"><img src="/Images/x.png" alt="Eliminar"></button></td>
                                         <td><button type="button" id="" data-toggle="modal" data-target="#acceptSuggestion" class="btn acceptSuggestion"><img src="/Images/lock.png" alt="Bloquear"></button></td>
                                     </tr>`
     }
     removeButtons()
-    renderSuggestionModal()
+    openModals()
 }
+
+function openModals() {
+    let openBtns = document.getElementsByClassName('open')
+    for (const elem of openBtns) {
+        elem.addEventListener('click', function () {
+            renderSuggestionModal(this.id)
+        })
+    }
+}
+
 function renderSuggestionModal() {
     for (const user of users) {
         document.body.innerHTML += `<div class="modal fade" id="suggestionModal">
@@ -60,22 +70,20 @@ function renderSuggestionModal() {
     }
 }
 
-function removeButtons() {    
-    let removeBtns = document.getElementsByClassName("remove")    
+function removeButtons() {
+    let removeBtns = document.getElementsByClassName("remove")
     for (const elem of removeBtns) {
-        elem.addEventListener("click", function () {             
-            removeSuggestion(this._id)
+        elem.addEventListener("click", function () {
+            removeSuggestion(this.id)
         })
     }
 }
 
 function removeSuggestion(suggestions) {
-    document.querySelector('.yesBtn').addEventListener('click', function () {     
-        console.log('123');
-            
-        for (let i = 0; i < users.length; i++) {            
-            if (users[i]._suggestions == suggestions) {
-                users._suggestions = []
+    document.querySelector('.yesButton').addEventListener('click', function() {
+        for (const user of users) {
+            if (user._suggestions == suggestions) {            
+                user._suggestions = []
             }
         }
         localStorage.setItem('users', JSON.stringify(users))
