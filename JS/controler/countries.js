@@ -92,7 +92,7 @@ function renderCatalog() {
     renderModalInfo()
 }
 
-//função para remover caracteres especiais das letras, como acentos, cedilhas, etc
+//função para trocar letras com caracteres especiais das letras, como acentos, cedilhas, etc por essa letra, simples.
 function removeAcento (text)
 {       
     text = text.toLowerCase();                                                         
