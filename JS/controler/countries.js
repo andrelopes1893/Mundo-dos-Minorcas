@@ -93,7 +93,7 @@ function renderCatalog() {
 }
 
 //função para trocar letras com caracteres especiais das letras, como acentos, cedilhas, etc por essa letra, simples.
-function removeAcento (text)
+ export function removeAcento (text)
 {       
     text = text.toLowerCase();                                                         
     text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
