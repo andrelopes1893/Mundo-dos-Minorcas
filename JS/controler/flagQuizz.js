@@ -2,7 +2,54 @@ let quizzes = []
 let continentStyle = ''
 let ChosenQuizz = ''
 
+
+
+
 QuizzGenerator()
+
+//!!!!!funcao que adiciona ao utilizador o actualnivel que se encotra nos quizzes
+function actualLevel(level){
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
+    if (sessionStorage.getItem('loggedUserId')) {
+        loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
+
+    } else {
+        loggedUserId = 2
+    }
+    if (sessionStorage.getItem('continentStyle')) {
+        continentStyle = JSON.parse(sessionStorage.getItem('continentStyle'))
+    } else {
+        // !Para eliminar
+        continentStyle = 'Africa'
+        // !Para eliminar
+        sessionStorage.setItem('continentStyle', JSON.stringify(continentStyle))
+    }
+    // Get the type of quizzes that the user whant to play from the sessionStorage
+    if (sessionStorage.getItem('ChosenQuizz')) {
+        ChosenQuizz = JSON.parse(sessionStorage.getItem('ChosenQuizz'))
+    } else {
+        // !Para eliminar
+        ChosenQuizz = 'Bandeiras'
+        // !Para eliminar
+        sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
+    }
+    for (const user of users) {
+        if(user._id==loggedUserId){
+            let quizzState ={
+                continent: continentStyle,
+                quizzTitle: ChosenQuizz,
+                level: level
+            }
+            user._currentLevels.push(quizzState)
+            break;
+        }
+    }
+    alert("danger")
+}
+
+
 
 // !Generate a random number
 function GenerateRandomNumb() {
@@ -89,6 +136,7 @@ function unlockedLevels(continentStyle) {
                 if (user._xp > 200 && user._xp <= 250) {
                     playebleLevels.push(5)
                 }
+                renderLevelButtons(playebleLevels)
                 return playebleLevels
             }
         }
@@ -112,6 +160,7 @@ function unlockedLevels(continentStyle) {
                 if (user._xp > 450 && user._xp <= 500) {
                     playebleLevels.push(5)
                 }
+                renderLevelButtons(playebleLevels)
                 return playebleLevels
             }
         }
@@ -136,6 +185,7 @@ function unlockedLevels(continentStyle) {
                 if (user._xp > 700 && user._xp <= 750) {
                     playebleLevels.push(5)
                 }
+                renderLevelButtons(playebleLevels)
                 return playebleLevels
             }
         }
@@ -160,6 +210,7 @@ function unlockedLevels(continentStyle) {
                 if (user._xp > 1000 && user._xp <= 1050) {
                     playebleLevels.push(5)
                 }
+                renderLevelButtons(playebleLevels)
                 return playebleLevels
             }
         }
@@ -184,11 +235,51 @@ function unlockedLevels(continentStyle) {
                 if (user._xp > 1300 && user._xp <= 1350) {
                     playebleLevels.push(5)
                 }
+                renderLevelButtons(playebleLevels)
                 return playebleLevels
             }
         }
     }   
 }
+/**
+ * Generate the levels buttons          
+ * @param {array} playebleLevels level that the user can play
+ */
+function renderLevelButtons(playebleLevels){
+    let holder= document.querySelector('#levelButtonsHolder')
+    holder.innerHTML=""
+    for(let i = 0;i < playebleLevels.length; i++){
+        holder.innerHTML+=`<div class="col">
+        <button type="button" class="btn btn-primary" id="${playebleLevels[i]}">${playebleLevels[i]}</button></div>`
+    }
+    selectLevel()
+}
+
+function selectLevel(){
+    let btns = document.querySelectorAll(".btn btn-primary")
+    for (const btn of btns) {
+
+        btn.addEventListener("click",function(){
+            ChosenLevel(this.id)
+        })   
+    }
+}
+function ChosenLevel(id){
+    // ******************************************************************
+    actualLevel(id)
+}
+   
+
+
+
+
+
+
+
+
+
+
+
 /**
  * This Function generate the quizz
  */
@@ -218,8 +309,14 @@ function QuizzGenerator() {
         sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
     }
 
+    
+
     let levels = unlockedLevels(continentStyle)
     let level = levels[0]
+
+// ??????Questionavel
+    // Tells the actual level of the user 
+    // actualLevel(continentStyle,level)
 
     // Get the place where the quizzes are going to be generated
     let quizzPlaceHolder = document.querySelector('#quizzHolder')
@@ -316,9 +413,6 @@ function assignXpToThePlayer(xp){
         }
     }
 }
-
-
-
 // !Falta
 //*fazer com que o mesmo quizz nao seja generado 
 //Pop up a dizer a criança que esta errada
