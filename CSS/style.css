@@ -497,13 +497,39 @@ div.infoParagraph>p {
     font-weight: 500;
 }
 
-div.form-group > label.translateLabel {
+div p#infoInfo {
+    word-break: break-all;
+}
+
+div.form-group > label.modalLabel {
     color: #ffffff;
     font-size: 1.3rem;
     font-weight: 500;
 }
 
+p.lead.commentTitle {
+    color: #ffffff;
+    margin-bottom: .7rem;
+    font-weight: 500;
+}
+
+div.commentContainer {
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    width: 20rem;
+    height: 15rem;
+}
+
 button.translateBtn {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    transition: all .4s ease-in-out;
+}
+
+button.commentBtn {
     color: #ffffff;
     font-weight: 500;
     font-size: 1.1rem;
@@ -516,7 +542,16 @@ button.translateBtn:focus {
     box-shadow: 0 0 0 0;
 }
 
+button.commentBtn:focus {
+    box-shadow: 0 0 0 0;
+}
+
 button.translateBtn:hover {
+    transform: scale(1.1, 1.1);
+    color: #ffffff;
+}
+
+button.commentBtn:hover {
     transform: scale(1.1, 1.1);
     color: #ffffff;
 }
