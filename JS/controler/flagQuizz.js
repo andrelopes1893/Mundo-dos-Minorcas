@@ -2,27 +2,7 @@ let quizzes = []
 let continentStyle = ''
 let ChosenQuizz = ''
 
-
-
-
-
-
-
-
-
 QuizzGenerator()
-
-
-// !What do I need Is to get a random Quizz from the Local Storage !!!!!!!!!!!!!!!! Easy 
-//!The hard Part is to get the elements that i need From the quizz and passed to the quizz area !!!!!!!!Fuck
-/**
- * This Fuction from the Quizzes
- */
-// function QuizzGenerator() {
-// // ?necessito de um variavel contadora
-// quizzPick() 
-// }
-
 
 // !Generate a random number
 function GenerateRandomNumb() {
@@ -47,18 +27,19 @@ function answearAddExistence(arrayAnswears, randomNumber) {
 }
 
 // !This fuctin get all the buttons with the options and add an event That will Check if the choosen answear is the right one
-function isTheAnswearRight() {
+function isTheAnswearRight(pointXp) {
     let options = document.querySelectorAll('.optionsButton')
     for (const option of options) {
         option.addEventListener('click', function () {
-            ConfIfUserIsRight(this.id)
+            ConfIfUserIsRight(this.id,pointXp)
         })
     }
 }
 // !Confirm if the answear is right
-function ConfIfUserIsRight(id) {
+function ConfIfUserIsRight(id,pointXp) {
     if (id === '3') {
         alert('Acertaste, vem ai o proximo nivel pa')
+        assignXpToThePlayer(pointXp)
         let quizzPlaceHolder = document.querySelector('#quizzHolder')
         // Eleminate the previouse quizz
         quizzPlaceHolder.innerHTML = ''
@@ -87,7 +68,7 @@ function unlockedLevels(continentStyle) {
         loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
 
     } else {
-        loggedUserId = 1
+        loggedUserId = 2
     }
     if(continentStyle=== 'africa'){
         for (const user of users) {
@@ -209,8 +190,6 @@ function unlockedLevels(continentStyle) {
     }
     
 }
-
-
 /**
  * This Function generate the quizz
  */
@@ -252,11 +231,15 @@ function QuizzGenerator() {
     //Array that will prevent the generation of the same number
     let generatedNumbers = []
 
+    // This create a new in case of the gamer cannot played de random game
+    let timesInsideQuizzes=0;
+
     // This is a number (id)
     let game = GenerateRandomGame()
     for (const quizz of quizzes) {
         if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level ) {
             document.querySelector('#questionHolder').innerHTML = quizz._question
+            console.log(quizz._pointXp)
             document.querySelector('#quizzImg').src = quizz._img
             for (let i = 0; i < 4; i++) {
                 if (generatedNumbers.length == 0) {
@@ -279,13 +262,17 @@ function QuizzGenerator() {
                     }
                 }
             }
-            isTheAnswearRight()
+            isTheAnswearRight(quizz._pointXp)
             break;
         }
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         // else{
         //     QuizzGenerator()
         // } 
+        timesInsideQuizzes ++;
+        if(timesInsideQuizzes==quizzes.length){
+            QuizzGenerator()
+        }
     }
 }
 // !!!!!!!!!!!!!!!!!!Para continuar!!!!!!!!!!!!!!!!!!!!
@@ -309,24 +296,26 @@ function alreadyPlayed(id) {
     return false;
 }
 
-
+/**
+ * Give Xp To the user that get the answears right
+ * @param {number} xp quantity of Xps that the user will gain
+ */
 function assignXpToThePlayer(xp){
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
+    if (sessionStorage.getItem('loggedUserId')) {
+        loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
 
-    
-
-
-
-
-
-
-
-
-
-
-
+    } else {
+        loggedUserId = 2
+    }
+    for (const user of users) {
+        if(user._id==loggedUserId){
+            user._xp+=  Number(xp)
+            localStorage.setItem("users", JSON.stringify(users))
+        }
+    }
 }
 
 

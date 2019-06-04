@@ -44,7 +44,7 @@ export function newUserByAdmin(txtUsername, txtEmail, txtPassword, txtPasswordCo
     if (exist) {
         alert('Erro')
     } else {
-        users.push(new User(txtUsername, txtPassword, txtEmail))
+        users.push(new User(txtUsername, txtPassword, txtEmail,userType))
         localStorage.setItem('users', JSON.stringify(users))
     }
 }

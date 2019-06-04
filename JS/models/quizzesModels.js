@@ -105,19 +105,19 @@ export default class Question {
 
     static xpByLevel(level) {
         switch (level) {
-            case 1:
+            case "1":
                 return '5'
                 break
-            case 2:
+            case "2":
                 return '10'
                 break
-            case 3:
+            case "3":
                 return '15'
                 break
-            case 4:
+            case "4":
                 return '20'
                 break
-            case 5:
+            case "5":
                 return '25'
                 break
         }
