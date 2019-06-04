@@ -5,11 +5,8 @@ let countries = []
 window.onload = function () {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
-    } else {
-        let newCountry1 = new Country('Portugal', 'Europa', 'Lisboa', 'Português', 'pt', 'Portugal', '../../Images/Portugal.png', 'Info 1', 'Info 2', '../../Images/Noruega.png', '../../Images/Brasil.png', new Date())
-        countries.push(newCountry1)
-        localStorage.setItem("countries", JSON.stringify(countries))
     }
+
     renderCatalog();
     renderModalInfo();
     if (sessionStorage.getItem('continentCatalogStyle')) {
@@ -34,7 +31,6 @@ if (document.querySelector("#btnFilter") != null) {
     })
 }
 
-
 function renderCatalog() {
     if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Crescente") {
         sortCountriesAscendent()
@@ -46,7 +42,7 @@ function renderCatalog() {
 
     let result = ""
     let i = 0
-
+    let starId = 0
     let contName = document.querySelector('.continentTitle').innerHTML
 
     for (const country of countries) {
@@ -64,29 +60,34 @@ function renderCatalog() {
                             <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
                             <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
                             <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
-                            <p class="mb-0 star"><button class="btn star"
-                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                                class="btn star"
-                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                                class="btn star"
-                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                                class="btn star"
-                                style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button><button
-                                class="btn star" style='font-size:30px; padding: 0; box-shadow: 0 0 0 0;'>&#9733;</button>
-                            </p>
+                            <button type="button" class="btn star" id="${starId + 1}"><span
+                                    style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
+                            <button type="button" class="btn star" id="${starId + 2}"><span
+                                    style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
+                            <button type="button" class="btn star" id="${starId + 3}"><span
+                                    style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
+                            <button type="button" class="btn star" id="${starId + 4}"><span
+                                    style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
+                            <button type="button" class="btn star" id="${starId + 5}"><span
+                                    style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
                         </div>
                     </div>
                 </div>`
             i++
+
             if (i % 4 === 0) {
                 result += `</div>`
             }
         }
+
+        
     }
+    ratingButtons()
+    
     document.querySelector("#containerCatalog").innerHTML = result
 
     // Programar botoes nas imagens dos modais
-    const countryBtn = document.getElementsByClassName("countryButton")
+    let countryBtn = document.getElementsByClassName("countryButton")
     for (const elem of countryBtn) {
         elem.addEventListener("click", function () {
             renderModalInfo(this.id)
@@ -107,7 +108,6 @@ export function removeAcento(text) {
     text = text.replace(new RegExp('[Ç]', 'gi'), 'c');
     return text;
 }
-
 
 /**
  * Função que ordena o array de paises pelo nome, no container
@@ -149,46 +149,43 @@ function renderModalInfo(id) {
     }
 }
 
-
-
-/*
-
-let continentCatalogStyle=''
-
-// !Page Looking
-function CatalogStyleChangeByContinent() {
-    console.log(continentCatalogStyle)
-    if (continentCatalogStyle == 'africa') {
-        document.querySelector('title').innerHTML += 'África'
-        document.body.style.backgroundColor = '#F5BB00'
-        document.querySelector('#continentTitle').innerHTML = 'África'
-        document.querySelector('#continentTitle').style.color = '#FFFFFF'
-    } 
-    else if (continentCatalogStyle == 'america') {
-        document.querySelector('title').innerHTML += 'América'
-        document.body.style.backgroundColor = '#4AB71B'
-        document.querySelector('#continentTitle').innerHTML = 'América'
-        document.querySelector('#continentTitle').style.color = '#FFFFFF'
-    } 
-    else if (continentCatalogStyle == 'asia') {
-        document.querySelector('title').innerHTML += 'Ásia'
-        document.body.style.backgroundColor = '#BE3DE3'
-        document.querySelector('#continentTitle').innerHTML = 'Ásia'
-        document.querySelector('#continentTitle').style.color = '#FFFFFF'
-    } 
-    else if (continentCatalogStyle == 'europa') {
-        document.querySelector('title').innerHTML += 'Europa'
-        document.body.style.backgroundColor = '#204987'
-        document.querySelector('#continentTitle').innerHTML = 'Europa'
-        document.querySelector('#continentTitle').style.color = '#FFFFFF'
-    } 
-    else if (continentCatalogStyle == 'oceania') {
-        document.querySelector('title').innerHTML += 'Oceânia'
-        document.body.style.backgroundColor = '#B7541B'
-        document.querySelector('#continentTitle').innerHTML = 'Oceânia'
-        document.querySelector('#continentTitle').style.color = '#FFFFFF'
+function ratingButtons() {
+    let starBtn = document.getElementsByClassName('star')
+    for (const elem of starBtn) {
+        elem.addEventListener("click", function () {
+            ratingStars()
+        })
     }
 }
 
+function ratingStars() {
+    document.querySelectorAll('.star')[0].addEventListener('click', function () {
+        document.getElementById('1').style.color = "#FFD700"
+    })
 
-*/
+    document.querySelectorAll('.star')[1].addEventListener('click', function () {
+        document.getElementById('1').style.color = "#FFD700"
+        document.getElementById('2').style.color = "#FFD700"
+    })
+
+    document.querySelectorAll('.star')[2].addEventListener('click', function () {
+        document.getElementById('1').style.color = "#FFD700"
+        document.getElementById('2').style.color = "#FFD700"
+        document.getElementById('3').style.color = "#FFD700"
+    })
+
+    document.querySelectorAll('.star')[3].addEventListener('click', function () {
+        document.getElementById('1').style.color = "#FFD700"
+        document.getElementById('2').style.color = "#FFD700"
+        document.getElementById('3').style.color = "#FFD700"
+        document.getElementById('4').style.color = "#FFD700"
+    })
+
+    document.querySelectorAll('.star')[4].addEventListener('click', function () {
+        document.getElementById('1').style.color = "#FFD700"
+        document.getElementById('2').style.color = "#FFD700"
+        document.getElementById('3').style.color = "#FFD700"
+        document.getElementById('4').style.color = "#FFD700"
+        document.getElementById('5').style.color = "#FFD700"
+    })
+}

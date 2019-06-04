@@ -420,6 +420,17 @@ button.btn.quizzesBtn:focus {
     box-shadow: 0 0 0 0;
 }
 
+/* ! RATING BUTTONS */
+
+.star {
+    padding: 0;
+    border-bottom: 0;
+}
+
+.star:focus {
+    box-shadow: 0 0 0 0;
+}
+
 /* ! AFRICAN CARDS */
 
 div.card.africanCards {
