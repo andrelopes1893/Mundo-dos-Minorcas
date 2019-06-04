@@ -156,6 +156,7 @@ function EditFormInfoAdd(id) {
     }
 }
 
+/*
 //parte de filtrar tablea de paises
 function adminCatalogContinentFilter() {
 
@@ -163,7 +164,7 @@ function adminCatalogContinentFilter() {
 
     for (const country of countries) {
         if (removeAcento(continentValue.toLowerCase()) == country._continent.toLowerCase()) {
-            renderTable()
+
         }
     }
 }
@@ -171,5 +172,6 @@ function adminCatalogContinentFilter() {
 let filtrarBtn = document.querySelector("#filtrarPorContinente")
 
 filtrarBtn.addEventListener("click", function() {
-    
+    adminCatalogContinentFilter()
 })
+*/
