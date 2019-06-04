@@ -14,22 +14,26 @@ window.onload = function () {
     renderModalInfo();
     if (sessionStorage.getItem('continentCatalogStyle')) {
         continentCatalogStyle = sessionStorage.getItem('continentCatalogStyle')
-    } /*else {
-         // !Para eliminar
-        continentCatalogStyle = 'africa'
-        // !Para eliminar
-        sessionStorage.setItem('continentCatalogStyle', JSON.stringify(continentCatalogStyle))
-    }*/
-   // CatalogStyleChangeByContinent()
+    }
+    /*else {
+            // !Para eliminar
+           continentCatalogStyle = 'africa'
+           // !Para eliminar
+           sessionStorage.setItem('continentCatalogStyle', JSON.stringify(continentCatalogStyle))
+       }*/
+    // CatalogStyleChangeByContinent()
 }
 
 searchCountry()
 
-document.querySelector("#btnFilter").addEventListener("click", function (event) {
-    renderCatalog()
-    renderModalInfo()
-    event.preventDefault()
-})
+if (document.querySelector("#btnFilter") != null) {
+    document.querySelector("#btnFilter").addEventListener("click", function (event) {
+        renderCatalog()
+        renderModalInfo()
+        event.preventDefault()
+    })
+}
+
 
 function renderCatalog() {
     if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Crescente") {
@@ -77,7 +81,7 @@ function renderCatalog() {
             if (i % 4 === 0) {
                 result += `</div>`
             }
-        }        
+        }
     }
     document.querySelector("#containerCatalog").innerHTML = result
 
@@ -93,16 +97,15 @@ function renderCatalog() {
 }
 
 //função para trocar letras com caracteres especiais das letras, como acentos, cedilhas, etc por essa letra, simples.
- export function removeAcento (text)
-{       
-    text = text.toLowerCase();                                                         
-    text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
-    text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
-    text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
-    text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
-    text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
-    text = text.replace(new RegExp('[Ç]','gi'), 'c');
-    return text;                 
+export function removeAcento(text) {
+    text = text.toLowerCase();
+    text = text.replace(new RegExp('[ÁÀÂÃ]', 'gi'), 'a');
+    text = text.replace(new RegExp('[ÉÈÊ]', 'gi'), 'e');
+    text = text.replace(new RegExp('[ÍÌÎ]', 'gi'), 'i');
+    text = text.replace(new RegExp('[ÓÒÔÕ]', 'gi'), 'o');
+    text = text.replace(new RegExp('[ÚÙÛ]', 'gi'), 'u');
+    text = text.replace(new RegExp('[Ç]', 'gi'), 'c');
+    return text;
 }
 
 
@@ -131,17 +134,17 @@ function searchCountry() {
 /**
  * Função que injeta na modal as informaçoes correspondentes ao pais em que o card foi carregado
  */
-function renderModalInfo(id) { 
+function renderModalInfo(id) {
     for (const country of countries) {
         //console.log(country._id + "-" + id)
-        if(country._id == id){
-        document.querySelector("#modalFlag").src = country._flag
-        document.querySelector("#infoName").innerHTML = country._name
-        document.querySelector("#infoCapital").innerHTML = country._capital
-        document.querySelector("#infoLanguage").innerHTML = country._language
-        document.querySelector("#infoContinent").innerHTML = country._continent
-        document.querySelector("#modalMap").src = country._location
-        document.querySelector("#infoInfo").innerHTML = country._information
+        if (country._id == id) {
+            document.querySelector("#modalFlag").src = country._flag
+            document.querySelector("#infoName").innerHTML = country._name
+            document.querySelector("#infoCapital").innerHTML = country._capital
+            document.querySelector("#infoLanguage").innerHTML = country._language
+            document.querySelector("#infoContinent").innerHTML = country._continent
+            document.querySelector("#modalMap").src = country._location
+            document.querySelector("#infoInfo").innerHTML = country._information
         }
     }
 }
