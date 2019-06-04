@@ -187,8 +187,7 @@ function unlockedLevels(continentStyle) {
                 return playebleLevels
             }
         }
-    }
-    
+    }   
 }
 /**
  * This Function generate the quizz
