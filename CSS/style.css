@@ -3,11 +3,9 @@ body {
     overflow-x: hidden;
 }
 
-body.countries {
+body.africa {
     background-color: #F5BB00;
 }
-
-/* 
 
 body.america {
     background-color: #4AB71B;
@@ -24,8 +22,6 @@ body.europa {
 body.oceania {
     background-color: #B7541B;
 }
-
-*/
 
 .logo {
     width: 120px;
@@ -1416,4 +1412,8 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 /*modal Logo align to center*/
 #modalLogo {
     margin-left: 45%;
+}
+
+#europaCatalogTitle{
+    color: #29ABE2
 }
