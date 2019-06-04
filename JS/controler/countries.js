@@ -42,7 +42,6 @@ function renderCatalog() {
 
     let result = ""
     let i = 0
-    let starId = 0
     let contName = document.querySelector('.continentTitle').innerHTML
 
     for (const country of countries) {
@@ -60,15 +59,15 @@ function renderCatalog() {
                             <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
                             <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
                             <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
-                            <button type="button" class="btn star" id="${starId + 1}"><span
+                            <button type="button" class="btn star" id="1"><span
                                     style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
-                            <button type="button" class="btn star" id="${starId + 2}"><span
+                            <button type="button" class="btn star" id="2"><span
                                     style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
-                            <button type="button" class="btn star" id="${starId + 3}"><span
+                            <button type="button" class="btn star" id="3"><span
                                     style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
-                            <button type="button" class="btn star" id="${starId + 4}"><span
+                            <button type="button" class="btn star" id="4"><span
                                     style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
-                            <button type="button" class="btn star" id="${starId + 5}"><span
+                            <button type="button" class="btn star" id="5"><span
                                     style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
                         </div>
                     </div>
@@ -79,11 +78,9 @@ function renderCatalog() {
                 result += `</div>`
             }
         }
-
-        
     }
     ratingButtons()
-    
+
     document.querySelector("#containerCatalog").innerHTML = result
 
     // Programar botoes nas imagens dos modais
@@ -95,6 +92,47 @@ function renderCatalog() {
     }
 
     renderModalInfo()
+}
+
+function ratingButtons() {
+    let starBtn = document.getElementsByClassName('star')
+    for (const elem of starBtn) {
+        elem.addEventListener("click", function () {
+            ratingStars()
+        })
+    }
+}
+
+function ratingStars() {
+    document.querySelectorAll('.star')[0].addEventListener('click', function () {
+        document.getElementById('1').style.color = "#FFD700"
+    })
+
+    document.querySelectorAll('.star')[1].addEventListener('click', function () {
+        document.getElementById('1').style.color = "#FFD700"
+        document.getElementById('2').style.color = "#FFD700"
+    })
+
+    document.querySelectorAll('.star')[2].addEventListener('click', function () {
+        document.getElementById('1').style.color = "#FFD700"
+        document.getElementById('2').style.color = "#FFD700"
+        document.getElementById('3').style.color = "#FFD700"
+    })
+
+    document.querySelectorAll('.star')[3].addEventListener('click', function () {
+        document.getElementById('1').style.color = "#FFD700"
+        document.getElementById('2').style.color = "#FFD700"
+        document.getElementById('3').style.color = "#FFD700"
+        document.getElementById('4').style.color = "#FFD700"
+    })
+
+    document.querySelectorAll('.star')[4].addEventListener('click', function () {
+        document.getElementById('1').style.color = "#FFD700"
+        document.getElementById('2').style.color = "#FFD700"
+        document.getElementById('3').style.color = "#FFD700"
+        document.getElementById('4').style.color = "#FFD700"
+        document.getElementById('5').style.color = "#FFD700"
+    })
 }
 
 //função para trocar letras com caracteres especiais das letras, como acentos, cedilhas, etc por essa letra, simples.
@@ -139,53 +177,7 @@ function renderModalInfo(id) {
         //console.log(country._id + "-" + id)
         if (country._id == id) {
             document.querySelector("#modalFlag").src = country._flag
-            document.querySelector("#infoName").innerHTML = country._name
-            document.querySelector("#infoCapital").innerHTML = country._capital
-            document.querySelector("#infoLanguage").innerHTML = country._language
-            document.querySelector("#infoContinent").innerHTML = country._continent
-            document.querySelector("#modalMap").src = country._location
             document.querySelector("#infoInfo").innerHTML = country._information
         }
     }
-}
-
-function ratingButtons() {
-    let starBtn = document.getElementsByClassName('star')
-    for (const elem of starBtn) {
-        elem.addEventListener("click", function () {
-            ratingStars()
-        })
-    }
-}
-
-function ratingStars() {
-    document.querySelectorAll('.star')[0].addEventListener('click', function () {
-        document.getElementById('1').style.color = "#FFD700"
-    })
-
-    document.querySelectorAll('.star')[1].addEventListener('click', function () {
-        document.getElementById('1').style.color = "#FFD700"
-        document.getElementById('2').style.color = "#FFD700"
-    })
-
-    document.querySelectorAll('.star')[2].addEventListener('click', function () {
-        document.getElementById('1').style.color = "#FFD700"
-        document.getElementById('2').style.color = "#FFD700"
-        document.getElementById('3').style.color = "#FFD700"
-    })
-
-    document.querySelectorAll('.star')[3].addEventListener('click', function () {
-        document.getElementById('1').style.color = "#FFD700"
-        document.getElementById('2').style.color = "#FFD700"
-        document.getElementById('3').style.color = "#FFD700"
-        document.getElementById('4').style.color = "#FFD700"
-    })
-
-    document.querySelectorAll('.star')[4].addEventListener('click', function () {
-        document.getElementById('1').style.color = "#FFD700"
-        document.getElementById('2').style.color = "#FFD700"
-        document.getElementById('3').style.color = "#FFD700"
-        document.getElementById('4').style.color = "#FFD700"
-        document.getElementById('5').style.color = "#FFD700"
-    })
 }

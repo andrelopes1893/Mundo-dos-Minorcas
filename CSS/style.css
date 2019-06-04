@@ -484,7 +484,7 @@ div.row div.col-lg-6.imgInfo img.caption {
     margin-top: 2rem;
 }
 
-div.row div.col-lg-6.imgInfo {
+div.row div.col-12.imgInfo {
     margin: auto;
 }
 

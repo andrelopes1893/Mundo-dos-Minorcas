@@ -113,21 +113,32 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-xs-12 infoParagraph text-center">
-                            <p class="mt-4">Nome: <span id="infoName"></span></p>
-                            <p>Capital: <span id="infoCapital"></span></p>
-                            <p>Continente: <span id="infoContinent"></span></p>
-                            <p>Língua(s): <span id="infoLanguage"></span></p>
-                            <p>Informção: <span id="infoInfo"></span></p>
+                            <p>Informação: </p>
+                            <p id="infoInfo"></p>
                         </div>
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <form id="descriptionForm">
+                                <div class="descriptionText">
+                                    <div class="form-group">
+                                        <textarea class="form-control mt-5 description" id="txtDescription"
+                                            rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="row">
                         <div class="col-lg-6 col-md-12 col-xs-12 imgInfo">
-                            <img src="/Images/Mapa.png" id="modalMap" alt="Mapa" class="map">
-                            <img src="/Images/Legenda.png" id="modalCaption" alt="Legenda" class="caption mb-5">
                             <div class="form-group">
                                 <label for="comment" class="translateLabel">Translate:</label>
                                 <textarea class="form-control" rows="5" id="comment"></textarea>
                                 <button class="btn translateBtn mt-3">Traduzir</button>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+
                     </div>
                 </div>
             </div>
