@@ -156,6 +156,7 @@ function EditFormInfoAdd(id) {
     }
 }
 
+//parte de filtrar tablea de paises
 function adminCatalogContinentFilter() {
 
     let continentValue = document.querySelector("#stlContinent").value
@@ -166,3 +167,9 @@ function adminCatalogContinentFilter() {
         }
     }
 }
+
+let filtrarBtn = document.querySelector("#filtrarPorContinente")
+
+filtrarBtn.addEventListener("click", function() {
+    
+})
