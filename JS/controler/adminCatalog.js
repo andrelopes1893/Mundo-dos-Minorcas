@@ -1,5 +1,9 @@
 import Country from '../models/countriesModels.js'
 
+import{
+    removeAcento
+} from '../controler/countries.js'
+
 export let countries = []
 
 window.onload = function () {
@@ -148,6 +152,17 @@ function EditFormInfoAdd(id) {
             document.querySelector('#txtEditCountryInfo').value = country._information
             document.querySelector('#txtEditCountryLocation').value = country._location
             document.querySelector('#txtEditCountryFlag').value = country._flag
+        }
+    }
+}
+
+function adminCatalogContinentFilter() {
+
+    let continentValue = document.querySelector("#stlContinent").value
+
+    for (const country of countries) {
+        if (removeAcento(continentValue.toLowerCase()) == country._continent.toLowerCase()) {
+            renderTable()
         }
     }
 }

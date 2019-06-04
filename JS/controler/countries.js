@@ -20,7 +20,7 @@ window.onload = function () {
         // !Para eliminar
         sessionStorage.setItem('continentCatalogStyle', JSON.stringify(continentCatalogStyle))
     }*/
-    CatalogStyleChangeByContinent()
+   // CatalogStyleChangeByContinent()
 }
 
 searchCountry()
@@ -43,7 +43,7 @@ function renderCatalog() {
     let result = ""
     let i = 0
 
-    let contName = document.querySelector('#continentTitle').innerHTML
+    let contName = document.querySelector('.continentTitle').innerHTML
 
     for (const country of countries) {
         if (removeAcento(contName.toLowerCase()) == country._continent.toLowerCase()) {
@@ -93,7 +93,7 @@ function renderCatalog() {
 }
 
 //função para trocar letras com caracteres especiais das letras, como acentos, cedilhas, etc por essa letra, simples.
-function removeAcento (text)
+ export function removeAcento (text)
 {       
     text = text.toLowerCase();                                                         
     text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
@@ -148,7 +148,7 @@ function renderModalInfo(id) {
 
 
 
-
+/*
 
 let continentCatalogStyle=''
 
@@ -187,3 +187,5 @@ function CatalogStyleChangeByContinent() {
     }
 }
 
+
+*/
