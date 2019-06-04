@@ -6,18 +6,15 @@ window.onload = function () {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     }
-    // else {
-    //     let newCountry1 = new Country('Portugal', 'Europa', 'Lisboa', 'Português', 'pt', 'Portugal', '../../Images/Portugal.png', 'Info 1', 'Info 2', '../../Images/Noruega.png', '../../Images/Brasil.png', new Date())
-    //     countries.push(newCountry1)
-    //     localStorage.setItem("countries", JSON.stringify(countries))
-    // }
     renderCatalog();
     renderModalInfo();
     if (sessionStorage.getItem('continentCatalogStyle')) {
         continentCatalogStyle = sessionStorage.getItem('continentCatalogStyle')
+        console.log(continentCatalogStyle);
     }
-    CatalogStyleChangeByContinent()
+    console.log(CatalogStyleChangeByContinent())
 }
+let continentCatalogStyle = ""
 
 searchCountry()
 
@@ -141,7 +138,7 @@ function renderModalInfo(id) {
     }
 }
 
-let continentCatalogStyle = ''
+
 // !Page Looking
 function CatalogStyleChangeByContinent() {
     console.log(continentCatalogStyle);
@@ -175,30 +172,35 @@ function CatalogStyleChangeByContinent() {
 
     switch (continentCatalogStyle) {
         case 'africa':
+            console.log('1');
             document.querySelector('title').innerHTML += 'África'
             document.body.style.backgroundColor = '#F5BB00'
             document.querySelector('#continentTitle').innerHTML = 'África'
             document.querySelector('#continentTitle').style.color = '#FFFFFF'
             break;
         case 'america':
+            console.log('2');
             document.querySelector('title').innerHTML += 'América'
             document.body.style.backgroundColor = '#4AB71B'
             document.querySelector('#continentTitle').innerHTML = 'América'
             document.querySelector('#continentTitle').style.color = '#FFFFFF'
             break
         case 'asia':
+            console.log('3');
             document.querySelector('title').innerHTML += 'Ásia'
             document.body.style.backgroundColor = '#BE3DE3'
             document.querySelector('#continentTitle').innerHTML = 'Ásia'
             document.querySelector('#continentTitle').style.color = '#FFFFFF'
             break
         case 'europa':
+            console.log('4');
             document.querySelector('title').innerHTML += 'Europa'
             document.body.style.backgroundColor = '#204987'
             document.querySelector('#continentTitle').innerHTML = 'Europa'
             document.querySelector('#continentTitle').style.color = '#FFFFFF'
             break
         case 'oceania':
+            console.log('5');
             document.querySelector('title').innerHTML += 'Oceânia'
             document.body.style.backgroundColor = '#B7541B'
             document.querySelector('#continentTitle').innerHTML = 'Oceânia'

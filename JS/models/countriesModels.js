@@ -34,10 +34,10 @@ export default class Country {
     set name(value) {
         this._name = value
     }
+
     get continent() {
         return this._continent
     }
-
     set continent(value) {
         this._continent = value
     }
@@ -48,12 +48,14 @@ export default class Country {
     set capital(capital) {
         this._capital = capital
     }
+
     get language() {
         return this._language
     }
     set language(value) {
         this._language = value
     }
+
     get flag() {
         return this._flag
     }
@@ -71,7 +73,6 @@ export default class Country {
     get information() {
         return this._information
     }
-
     set information(value) {
         this._information = value
     }
@@ -79,7 +80,6 @@ export default class Country {
     get location() {
         return this._location
     }
-
     set location(value) {
         this._location = value
     }
@@ -87,14 +87,13 @@ export default class Country {
     get comments() {
         return this._comments
     }
-
     set comments(value) {
         this._comments = value
     }
+
     get visit() {
         return this._visit
     }
-
     set visit(value) {
         this._visit = value
     }
