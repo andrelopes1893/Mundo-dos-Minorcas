@@ -18,13 +18,15 @@ $('.owl-carousel').owlCarousel({
 })
 let continentCatalogStyle = ""
 
+
 document.querySelector('#africaCatalog').addEventListener('click', function() {
-    continentCatalogStyle = 'africa'
+    continentCatalogStyle = 'africa'    
     addCatalogValue(continentCatalogStyle)
 })
 
-document.querySelector('#americaCatalog').addEventListener('click', function() {    
+document.querySelector('#americaCatalog').addEventListener('click', function() {  
     continentCatalogStyle = 'america'
+    location.href = '/HTML/countries.html'
     addCatalogValue(continentCatalogStyle)
 })
 
