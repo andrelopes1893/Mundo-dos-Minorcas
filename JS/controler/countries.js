@@ -1,10 +1,17 @@
 import Country from "../models/countriesModels.js"
+import Comment from '../models/commentsModels.js'
+
+let comments = []
 
 let countries = []
 
 window.onload = function () {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
+    }
+
+    if (localStorage.comments) {
+        comments = JSON.parse(localStorage.comments)
     }
 
     renderCatalog();
@@ -181,3 +188,24 @@ function renderModalInfo(id) {
         }
     }
 }
+
+document.querySelector('#commentForm').addEventListener('submit', function (event) {
+
+    let txtComment = document.querySelector('#txtComment').value
+    let id = ""
+    if (sessionStorage.getItem('loggedUserId')) {
+            id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+    } else {
+            id = 1
+    }
+    
+    for (const user of users) {
+        for (const comment of comments) {
+            if (user._id == id) {
+                comment._comment = txtComment
+                comments.push(new Comment(txtComment))
+            }
+        }
+    }
+    event.preventDefault()
+})
