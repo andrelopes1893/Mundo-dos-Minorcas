@@ -3,7 +3,7 @@
  } from '../models/main.js'
 
  export default class User {
-     constructor(username, password, email, accountType = '1', avatar = '', description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = [], unlockCountries = [], unlockAvatar = [], birthday, country, rating = [],currentLevels=[],comments = []) {
+     constructor(username, password, email, accountType = '1', avatar = '', description = '', commentBlock = false, loginBlock = false, xp = 0, unlockCountries = [], unlockAvatar = [], birthday, country, rating = [], currentLevels = []) {
          this._id = User.getLastId() + 1
          this.username = username
          this.password = password
@@ -14,13 +14,12 @@
          this.commentBlock = commentBlock
          this.loginBlock = loginBlock
          this.xp = xp
-         this.suggestions = suggestions
          this.unlockCountries = unlockCountries
          this.unlockAvatar = unlockAvatar
          this.birthday = birthday
          this.country = country
          this._rating = rating
-         this.currentLevels=currentLevels
+         this.currentLevels = currentLevels
      }
 
      get id() {
@@ -74,7 +73,7 @@
      }
      set description(value) {
          if (value === '') {
-             value = 'Escreva algo sobre ti'
+             value = 'Escreve algo sobre ti'
          }
 
          this._description = value
@@ -99,13 +98,6 @@
      }
      set xp(value) {
          this._xp = value
-     }
-
-     get suggestions() {
-         return this._suggestions
-     }
-     set suggestions(value) {
-         this._suggestions = value
      }
 
      get unlockCountries() {
@@ -137,17 +129,17 @@
      }
 
      get rating() {
-        return this._rating
-    }
-    set rating(value) {
-        this._rating = value
-    }
-    get currentLevels() {
-        return this._currentLevels
-    }
-    set currentLevels(value) {
-        this._currentLevels = value
-    }
+         return this._rating
+     }
+     set rating(value) {
+         this._rating = value
+     }
+     get currentLevels() {
+         return this._currentLevels
+     }
+     set currentLevels(value) {
+         this._currentLevels = value
+     }
 
      static accessType(accountType) {
          if (accountType) {

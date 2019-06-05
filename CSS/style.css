@@ -256,13 +256,13 @@ button.btn.help {
 
 /* !JUMBOTRON FILTER */
 
-div.jumbotron.filter{
+div.jumbotron.filter {
     background-color: rgb(39, 169, 225, .9);
     padding-top: 1%;
     padding-bottom: 1%;
 }
 
-div.form-group.selection > label {
+div.form-group.selection>label {
     padding-right: 1.5rem;
     font-size: 1.2rem;
     font-weight: 500;
@@ -302,7 +302,7 @@ select.form-control:focus {
     box-shadow: 0 0 0 0;
 }
 
-select > option.optionStyle {
+select>option.optionStyle {
     color: #204987;
 }
 
@@ -501,7 +501,7 @@ div p#infoInfo {
     word-break: break-all;
 }
 
-div.form-group > label.modalLabel {
+div.form-group>label.modalLabel {
     color: #ffffff;
     font-size: 1.3rem;
     font-weight: 500;
@@ -585,6 +585,30 @@ div.card.quizzCards {
 div.container-fluid.quizzCardsContainer {
     margin-top: 3%;
     margin-bottom: 5%
+}
+
+.stars-outer {
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome;
+}
+
+.stars-outer::before {
+    content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: #f8ce0b;
 }
 
 div.card.quizzCards.africa {
@@ -752,7 +776,7 @@ form div.form-group.suggestion {
     margin-bottom: 0%;
 }
 
-form div.form-group.suggestion > label {
+form div.form-group.suggestion>label {
     color: #ffffff;
 }
 
@@ -860,6 +884,7 @@ button.buttonGirl:hover {
     color: #ffffff;
     transform: scale(1.1, 1.1);
 }
+
 /** Fim Botões Avatar */
 
 p.lead.avatarType {
@@ -1461,18 +1486,18 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     margin-left: 45%;
 }
 
-#europaCatalogTitle{
+#europaCatalogTitle {
     color: #29ABE2
 }
 
-#txtComment{
+#txtComment {
     resize: none;
 }
 
-#infoInfo{
+#infoInfo {
     color: #ffffff;
 }
 
-#modalContent{
+#modalContent {
     background-color: #29ABE2;
 }
