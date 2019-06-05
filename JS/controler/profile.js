@@ -2,7 +2,7 @@ import User from '../models/userModels.js'
 import Question from '../models/quizzesModels.js'
 import Suggestion from '../models/suggestionModels.js'
 
-let suggestions = []
+export let suggestions = []
 export let users = []
 
 window.onload = function () {
@@ -32,7 +32,7 @@ document.querySelector('#suggestionForm').addEventListener('submit', function (e
 
         for (const user of users) {
                 if (user._id == id) {
-                        suggestions.push(new Suggestion(user._id ,stlContinent, txtCountryName, txtCountryCapital, txtCountryLanguage))
+                        suggestions.push(new Suggestion(stlContinent, txtCountryName, txtCountryCapital, txtCountryLanguage))
                 }
 
         }
@@ -203,60 +203,63 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
 })
 
 document.querySelector('.buttonGirl').addEventListener('click', function () {
-        document.querySelector('.avatarPlaceHolder').innerHTML = `<div class="row text-center">
+        for (const user of users) {
+                document.querySelector('.avatarPlaceHolder').innerHTML = `<div class="row text-center">
                                                     <div class="col-3">
                                                         <p class="lead avatarType text-center">
                                                             Principiante
                                                         </p>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 1 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 1 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 2 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 2 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 3 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 3 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 4 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Principiante 4 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
                                                     </div>
                                                     <div class="col-3">
                                                         <p class="lead avatarType text-center">
                                                             Amador
                                                         </p>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Amador 1 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Amador 1 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Amador 2 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Amador 2 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Amador 3 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Amador 3 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Amador 4 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Amador 4 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
                                                     </div>
                                                     <div class="col-3">
                                                         <p class="lead avatarType text-center">
                                                             Profissional
                                                         </p>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Profissional 1 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Profissional 1 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Profissional  2 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Profissional  2 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Profissional  3 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Profissional  3 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Profissional  4 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Profissional  4 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
                                                     </div>
                                                     <div class="col-3">
                                                         <p class="lead avatarType text-center">
                                                             Experiente
                                                         </p>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avata Experiente 1 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avata Experiente 1 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Experiente 2 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Experiente 2 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Experiente 3 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Experiente 3 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/GirlAvatar/Avatar Experiente 4 Girl.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/GirlAvatar/Avatar Experiente 4 Girl.png"
                                                                 alt="Avatar1" class="girlAvatar"></button>
                                                     </div>
                                                 </div>`
+        }
+        avatarButtons()
         $('.girlAvatar').css({
                 'width': '6rem',
                 'height': '6rem',
@@ -386,6 +389,44 @@ function showAvatarOnload() {
                 'height': '6rem',
                 'box-shadow': '0 0 0 0'
         });
+}
+
+function avatarButtons() {
+        let profileBtns = document.querySelectorAll('.avatarButton')
+        for (const elem of profileBtns) {
+                elem.addEventListener("click", function () {
+                        sessionStorage.setItem('avatar', JSON.stringify(elem.querySelector('img').src))
+                        showAvatar(this.id)
+                })
+        }
+}
+
+function showAvatar(source) {
+        let avatarImg = document.querySelector('.girlAvatar').src
+
+        let id = ""
+        if (sessionStorage.getItem('loggedUserId')) {
+                id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        } else {
+                id = 1
+        }
+
+        for (const user of users) {
+                if (user._id == id) {
+                        for (let i = 0; i < users.length; i++) {
+                                if (users[i]._avatar != source) {
+                                        let avatar = ""
+                                        if (sessionStorage.getItem('avatar')) {
+                                                avatar = JSON.parse(sessionStorage.getItem('avatar'))
+                                        }
+                                        user._avatar = avatarImg
+                                        //Change avatar in navbar
+                                        document.querySelector('.avatar').src = avatarImg
+                                }
+                        }
+                }
+                localStorage.setItem('users', JSON.stringify(users))
+        }
 }
 
 function showCurrentXP() {

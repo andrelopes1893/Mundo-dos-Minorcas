@@ -54,7 +54,7 @@ function renderCatalog() {
     for (const country of countries) {
         if (removeAcento(contName.toLowerCase()) == country._continent.toLowerCase()) {
             if (i % 4 === 0) {
-                result += `<div class="row">`
+                result += <div class="row">
             }
             result += `
                 <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
@@ -66,23 +66,16 @@ function renderCatalog() {
                             <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
                             <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
                             <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
-                            <button type="button" class="btn star" id="1"><span
-                                    style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
-                            <button type="button" class="btn star" id="2"><span
-                                    style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
-                            <button type="button" class="btn star" id="3"><span
-                                    style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
-                            <button type="button" class="btn star" id="4"><span
-                                    style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
-                            <button type="button" class="btn star" id="5"><span
-                                    style="font-size:30px; padding: 0; box-shadow: 0 0 0 0;">&#9733;</span></button>
+                            <div class="stars-outer"
+                                <div class="stars-inner"></div>
+                            </div>
                         </div>
                     </div>
                 </div>`
             i++
 
             if (i % 4 === 0) {
-                result += `</div>`
+                result += </div>
             }
         }
     }
@@ -111,35 +104,45 @@ function ratingButtons() {
 }
 
 function ratingStars() {
-    document.querySelectorAll('.star')[0].addEventListener('click', function () {
-        document.getElementById('1').style.color = "#FFD700"
-    })
+    const starTotal = 5;
 
-    document.querySelectorAll('.star')[1].addEventListener('click', function () {
-        document.getElementById('1').style.color = "#FFD700"
-        document.getElementById('2').style.color = "#FFD700"
-    })
+    for (const rating in ratings) {
+        // 2
+        const starPercentage = (ratings[rating] / starTotal) * 100;
+        // 3
+        const starPercentageRounded = ${(Math.round(starPercentage / 10) * 10)}%;
+        // 4
+        document.querySelector(.${rating} .stars-inner).style.width = starPercentageRounded;
+    }
+    // document.querySelectorAll('.star')[0].addEventListener('click', function () {
+    //     document.getElementById('1').style.color = "#FFD700"
+    // })
 
-    document.querySelectorAll('.star')[2].addEventListener('click', function () {
-        document.getElementById('1').style.color = "#FFD700"
-        document.getElementById('2').style.color = "#FFD700"
-        document.getElementById('3').style.color = "#FFD700"
-    })
+    // document.querySelectorAll('.star')[1].addEventListener('click', function () {
+    //     document.getElementById('1').style.color = "#FFD700"
+    //     document.getElementById('2').style.color = "#FFD700"
+    // })
 
-    document.querySelectorAll('.star')[3].addEventListener('click', function () {
-        document.getElementById('1').style.color = "#FFD700"
-        document.getElementById('2').style.color = "#FFD700"
-        document.getElementById('3').style.color = "#FFD700"
-        document.getElementById('4').style.color = "#FFD700"
-    })
+    // document.querySelectorAll('.star')[2].addEventListener('click', function () {
+    //     document.getElementById('1').style.color = "#FFD700"
+    //     document.getElementById('2').style.color = "#FFD700"
+    //     document.getElementById('3').style.color = "#FFD700"
+    // })
 
-    document.querySelectorAll('.star')[4].addEventListener('click', function () {
-        document.getElementById('1').style.color = "#FFD700"
-        document.getElementById('2').style.color = "#FFD700"
-        document.getElementById('3').style.color = "#FFD700"
-        document.getElementById('4').style.color = "#FFD700"
-        document.getElementById('5').style.color = "#FFD700"
-    })
+    // document.querySelectorAll('.star')[3].addEventListener('click', function () {
+    //     document.getElementById('1').style.color = "#FFD700"
+    //     document.getElementById('2').style.color = "#FFD700"
+    //     document.getElementById('3').style.color = "#FFD700"
+    //     document.getElementById('4').style.color = "#FFD700"
+    // })
+
+    // document.querySelectorAll('.star')[4].addEventListener('click', function () {
+    //     document.getElementById('1').style.color = "#FFD700"
+    //     document.getElementById('2').style.color = "#FFD700"
+    //     document.getElementById('3').style.color = "#FFD700"
+    //     document.getElementById('4').style.color = "#FFD700"
+    //     document.getElementById('5').style.color = "#FFD700"
+    // })
 }
 
 //função para trocar letras com caracteres especiais das letras, como acentos, cedilhas, etc por essa letra, simples.
@@ -196,18 +199,17 @@ if (document.querySelector('#commentForm') != null) {
         let txtComment = document.querySelector('#txtComment').value
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
-                id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+            id = JSON.parse(sessionStorage.getItem("loggedUserId"))
         } else {
-                id = 1
+            id = 1
         }
-        
+
         for (const user of users) {
             for (const comment of comments) {
                 if (user._id == id) {
                     comment._comment = txtComment
                     comments.push(new Comment(txtComment))
                 }
-                localStorage.setItem('comments', JSON.stringify(comments))
             }
         }
         event.preventDefault()
