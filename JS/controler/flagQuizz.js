@@ -7,6 +7,19 @@ let ChosenQuizz = ''
 
 QuizzGenerator()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 //!!!!!funcao que adiciona ao utilizador o actualnivel que se encotra nos quizzes
 function actualLevel(level){
     if (localStorage.getItem("users")) {
