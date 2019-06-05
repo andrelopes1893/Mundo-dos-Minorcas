@@ -3,7 +3,7 @@
  } from '../models/main.js'
 
  export default class User {
-     constructor(username, password, email, accountType = '1', avatar = '', description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = [], unlockCountries = [], unlockAvatar = [], birthday, country, rating = []) {
+     constructor(username, password, email, accountType = '1', avatar = '', description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = [], unlockCountries = [], unlockAvatar = [], birthday, country, rating = [],quizzState=[]) {
          this._id = User.getLastId() + 1
          this.username = username
          this.password = password
@@ -20,6 +20,7 @@
          this.birthday = birthday
          this.country = country
          this._rating = rating
+         this.quizzState=quizzState
      }
 
      get id() {
@@ -140,6 +141,12 @@
     }
     set rating(value) {
         this._rating = value
+    }
+    get quizzState() {
+        return this._quizzState
+    }
+    set quizzState(value) {
+        this._quizzState = value
     }
 
      static accessType(accountType) {
