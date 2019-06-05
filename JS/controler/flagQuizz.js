@@ -7,17 +7,38 @@ let ChosenQuizz = ''
 
 QuizzGenerator()
 
+//!!!!!!!!!!!!funcao que busca o atual nivel
+function getActualLevel(continent,quizzType){
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
+    if (sessionStorage.getItem('loggedUserId')) {
+        loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
 
-
-
-
-
-
-
-
-
-
-
+    } else {
+        loggedUserId = 2
+    }
+ 
+    let level = 0;
+    
+    for (const user of users) {
+        if (user._id == loggedUserId) {
+            let currentLevels=user._currentLevels
+            if (currentLevels.length==0) {
+                return level
+            }
+            else{
+                for (const currentLevel of currentLevels) {
+                    if(currentLevel.continent==continent && currentLevel.quizzTitle==quizzType){
+                        level = currentLevel.level -1
+                        return level
+                    } 
+                }
+            }
+    
+        }
+    }
+}
 
 
 //!!!!!funcao que adiciona ao utilizador o actualnivel que se encotra nos quizzes
@@ -323,10 +344,10 @@ function QuizzGenerator() {
         sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
     }
 
-
+    let position = Number (getActualLevel(continentStyle,ChosenQuizz))
 
     let levels = unlockedLevels(continentStyle)
-    let level = levels[0]
+    let level = levels[position]
 
     // ??????Questionavel
     // Tells the actual level of the user 
