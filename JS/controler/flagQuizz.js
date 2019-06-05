@@ -80,7 +80,7 @@ function actualLevel(level) {
             break;
         }
     }
-    alert("danger")
+    QuizzGenerator()
 }
 
 
@@ -284,13 +284,13 @@ function renderLevelButtons(playebleLevels) {
     holder.innerHTML = ""
     for (let i = 0; i < playebleLevels.length; i++) {
         holder.innerHTML += `<div class="col">
-        <button type="button" class="btn btn-primary" id="${playebleLevels[i]}">${playebleLevels[i]}</button></div>`
+        <button type="button" class="btn btn-primary levelSelection" id="${playebleLevels[i]}">${playebleLevels[i]}</button></div>`
     }
     selectLevel()
 }
 
 function selectLevel() {
-    let btns = document.querySelectorAll(".btn btn-primary")
+    let btns = document.querySelectorAll(".levelSelection")
     for (const btn of btns) {
 
         btn.addEventListener("click", function () {
