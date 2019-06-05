@@ -21,7 +21,7 @@ QuizzGenerator()
 
 
 //!!!!!funcao que adiciona ao utilizador o actualnivel que se encotra nos quizzes
-function actualLevel(level){
+function actualLevel(level) {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
@@ -49,8 +49,8 @@ function actualLevel(level){
         sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
     }
     for (const user of users) {
-        if(user._id==loggedUserId){
-            let quizzState ={
+        if (user._id == loggedUserId) {
+            let quizzState = {
                 continent: continentStyle,
                 quizzTitle: ChosenQuizz,
                 level: level
@@ -91,12 +91,12 @@ function isTheAnswearRight(pointXp) {
     let options = document.querySelectorAll('.optionsButton')
     for (const option of options) {
         option.addEventListener('click', function () {
-            ConfIfUserIsRight(this.id,pointXp)
+            ConfIfUserIsRight(this.id, pointXp)
         })
     }
 }
 // !Confirm if the answear is right
-function ConfIfUserIsRight(id,pointXp) {
+function ConfIfUserIsRight(id, pointXp) {
     if (id === '3') {
         alert('Acertaste, vem ai o proximo nivel pa')
         assignXpToThePlayer(pointXp)
@@ -130,10 +130,10 @@ function unlockedLevels(continentStyle) {
     } else {
         loggedUserId = 2
     }
-    if(continentStyle=== 'africa'){
+    if (continentStyle === 'africa') {
         for (const user of users) {
             if (user._id == loggedUserId) {
-    
+
                 if (user._xp <= 50) {
                     playebleLevels.push(1)
                 }
@@ -154,11 +154,11 @@ function unlockedLevels(continentStyle) {
             }
         }
     }
-    if(continentStyle=== 'america'){
+    if (continentStyle === 'america') {
         for (const user of users) {
             if (user._id == loggedUserId) {
-    
-                if (user._xp > 250 && user._xp<300) {
+
+                if (user._xp > 250 && user._xp < 300) {
                     playebleLevels.push(1)
                 }
                 if (user._xp > 300 && user._xp <= 350) {
@@ -178,18 +178,18 @@ function unlockedLevels(continentStyle) {
             }
         }
     }
-    if(continentStyle=== 'europa'){
+    if (continentStyle === 'europa') {
         for (const user of users) {
             if (user._id == loggedUserId) {
-    
+
                 if (user._xp > 500 && user._xp <= 550) {
                     playebleLevels.push(1)
                 }
-    
+
                 if (user._xp > 550 && user._xp <= 600) {
                     playebleLevels.push(2)
                 }
-                if (user._xp > 600&& user._xp <= 650) {
+                if (user._xp > 600 && user._xp <= 650) {
                     playebleLevels.push(3)
                 }
                 if (user._xp > 650 && user._xp <= 700) {
@@ -203,18 +203,18 @@ function unlockedLevels(continentStyle) {
             }
         }
     }
-    if(continentStyle=== 'asia'){
+    if (continentStyle === 'asia') {
         for (const user of users) {
             if (user._id == loggedUserId) {
-    
+
                 if (user._xp > 750 && user._xp <= 800) {
                     playebleLevels.push(1)
                 }
-    
+
                 if (user._xp > 800 && user._xp <= 850) {
                     playebleLevels.push(2)
                 }
-                if (user._xp > 850  && user._xp <= 900) {
+                if (user._xp > 850 && user._xp <= 900) {
                     playebleLevels.push(3)
                 }
                 if (user._xp > 900 && user._xp <= 950) {
@@ -228,14 +228,14 @@ function unlockedLevels(continentStyle) {
             }
         }
     }
-    if(continentStyle=== 'oceania'){
+    if (continentStyle === 'oceania') {
         for (const user of users) {
             if (user._id == loggedUserId) {
-    
+
                 if (user._xp > 1050 && user._xp <= 1100) {
                     playebleLevels.push(1)
                 }
-    
+
                 if (user._xp > 1100 && user._xp <= 1150) {
                     playebleLevels.push(2)
                 }
@@ -252,36 +252,37 @@ function unlockedLevels(continentStyle) {
                 return playebleLevels
             }
         }
-    }   
+    }
 }
 /**
  * Generate the levels buttons          
  * @param {array} playebleLevels level that the user can play
  */
-function renderLevelButtons(playebleLevels){
-    let holder= document.querySelector('#levelButtonsHolder')
-    holder.innerHTML=""
-    for(let i = 0;i < playebleLevels.length; i++){
-        holder.innerHTML+=`<div class="col">
+function renderLevelButtons(playebleLevels) {
+    let holder = document.querySelector('#levelButtonsHolder')
+    holder.innerHTML = ""
+    for (let i = 0; i < playebleLevels.length; i++) {
+        holder.innerHTML += `<div class="col">
         <button type="button" class="btn btn-primary" id="${playebleLevels[i]}">${playebleLevels[i]}</button></div>`
     }
     selectLevel()
 }
 
-function selectLevel(){
+function selectLevel() {
     let btns = document.querySelectorAll(".btn btn-primary")
     for (const btn of btns) {
 
-        btn.addEventListener("click",function(){
+        btn.addEventListener("click", function () {
             ChosenLevel(this.id)
-        })   
+        })
     }
 }
-function ChosenLevel(id){
+
+function ChosenLevel(id) {
     // ******************************************************************
     actualLevel(id)
 }
-   
+
 
 
 
@@ -299,7 +300,7 @@ function ChosenLevel(id){
 function QuizzGenerator() {
 
     //  get the ulocked id
-  
+
     //!Exist because if it doesn't ann error will appear
     if (localStorage.getItem('quizzes')) {
         quizzes = JSON.parse(localStorage.getItem('quizzes'))
@@ -322,12 +323,12 @@ function QuizzGenerator() {
         sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
     }
 
-    
+
 
     let levels = unlockedLevels(continentStyle)
     let level = levels[0]
 
-// ??????Questionavel
+    // ??????Questionavel
     // Tells the actual level of the user 
     // actualLevel(continentStyle,level)
 
@@ -341,12 +342,12 @@ function QuizzGenerator() {
     let generatedNumbers = []
 
     // This create a new in case of the gamer cannot played de random game
-    let timesInsideQuizzes=0;
+    let timesInsideQuizzes = 0;
 
     // This is a number (id)
     let game = GenerateRandomGame()
     for (const quizz of quizzes) {
-        if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level ) {
+        if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level) {
             document.querySelector('#questionHolder').innerHTML = quizz._question
             console.log(quizz._pointXp)
             document.querySelector('#quizzImg').src = quizz._img
@@ -378,8 +379,8 @@ function QuizzGenerator() {
         // else{
         //     QuizzGenerator()
         // } 
-        timesInsideQuizzes ++;
-        if(timesInsideQuizzes==quizzes.length){
+        timesInsideQuizzes++;
+        if (timesInsideQuizzes == quizzes.length) {
             QuizzGenerator()
         }
     }
@@ -409,7 +410,7 @@ function alreadyPlayed(id) {
  * Give Xp To the user that get the answears right
  * @param {number} xp quantity of Xps that the user will gain
  */
-function assignXpToThePlayer(xp){
+function assignXpToThePlayer(xp) {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
@@ -420,8 +421,8 @@ function assignXpToThePlayer(xp){
         loggedUserId = 2
     }
     for (const user of users) {
-        if(user._id==loggedUserId){
-            user._xp+=  Number(xp)
+        if (user._id == loggedUserId) {
+            user._xp += Number(xp)
             localStorage.setItem("users", JSON.stringify(users))
         }
     }
