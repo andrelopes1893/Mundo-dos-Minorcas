@@ -1,7 +1,7 @@
 export default class Comment {
     constructor(comment) {
         this._id = Comment.getLastId() + 1
-        this._comment = comment
+        this.comment = comment
     }
 
     get comment() {

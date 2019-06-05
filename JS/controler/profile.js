@@ -1,7 +1,9 @@
 import User from '../models/userModels.js'
 import Question from '../models/quizzesModels.js'
+import Suggestion from '../models/suggestionModels.js'
 
-let users = []
+let suggestions = []
+export let users = []
 
 window.onload = function () {
         if (localStorage.getItem("users")) {
@@ -26,20 +28,15 @@ document.querySelector('#suggestionForm').addEventListener('submit', function (e
                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
         } else {
                 id = 1
-        }        
-
-        for (const user of users) {                
-                if (user._id == id) {
-                        if (users == "") {
-                                user._suggestions.push(stlContinent, txtCountryName, txtCountryCapital, txtCountryLanguage)
-                        } else{
-                                user._suggestions = []
-                                user._suggestions.push(stlContinent, txtCountryName, txtCountryCapital, txtCountryLanguage)
-                        }
-                        
-                }
-                localStorage.setItem('users', JSON.stringify(users))
         }
+
+        for (const user of users) {
+                if (user._id == id) {
+                        suggestions.push(new Suggestion(user._id ,stlContinent, txtCountryName, txtCountryCapital, txtCountryLanguage))
+                }
+
+        }
+        localStorage.setItem('suggestions', JSON.stringify(suggestions))
 
         event.preventDefault()
 })

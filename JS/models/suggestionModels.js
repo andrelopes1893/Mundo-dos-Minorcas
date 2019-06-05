@@ -1,13 +1,15 @@
-let suggestions = []
+import {
+    users
+} from '../controler/profile.js'
 
-class Suggestion {
+export default class Suggestion {
     constructor(continent, country, capital, language, confirmed = false) {
         this._id = Suggestion.getLastId() + 1
-        this._continent = continent
-        this._country = country
-        this._capital = capital
-        this._language = language
-        this._confirmed = confirmed
+        this.continent = continent
+        this.country = country
+        this.capital = capital
+        this.language = language
+        this.confirmed = confirmed
     }
 
     get id() {
