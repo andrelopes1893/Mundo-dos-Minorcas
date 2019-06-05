@@ -3,7 +3,7 @@
  } from '../models/main.js'
 
  export default class User {
-     constructor(username, password, email, accountType = '1', avatar = '', description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = [], unlockCountries = [], unlockAvatar = [], birthday, country, rating = [],quizzState=[]) {
+     constructor(username, password, email, accountType = '1', avatar = '', description = '', commentBlock = false, loginBlock = false, xp = 0, suggestions = [], unlockCountries = [], unlockAvatar = [], birthday, country, rating = [], comments = []) {
          this._id = User.getLastId() + 1
          this.username = username
          this.password = password
