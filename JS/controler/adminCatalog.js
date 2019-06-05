@@ -141,6 +141,7 @@ function editButtons() {
         })
     }
 }
+
 function EditFormInfoAdd(id) {
     for (const country of countries) {
         if (country._id == id) {
@@ -160,18 +161,18 @@ function EditFormInfoAdd(id) {
 //parte de filtrar tablea de paises
 function adminCatalogContinentFilter() {
 
-    let continentValue = document.querySelector("#stlContinent").value
+    let countriesTableBody = document.querySelector('#countriesTableBody')
+    let continentValue = document.querySelector("stlOrder").value
 
-    for (const country of countries) {
-        if (removeAcento(continentValue.toLowerCase()) == country._continent.toLowerCase()) {
+    if (removeAcento(continentValue.toLowerCase()) == country._continent.toLowerCase()) {
 
-        }
     }
 }
 
-let filtrarBtn = document.querySelector("#filtrarPorContinente")
+let ContinentFilterBtn = document.querySelector("#btnContinentFilter")
 
-filtrarBtn.addEventListener("click", function() {
+ContinentFilterBtn.addEventListener("click", function() {
     adminCatalogContinentFilter()
 })
+
 */

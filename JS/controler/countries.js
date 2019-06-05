@@ -185,6 +185,7 @@ function renderModalInfo(id) {
         if (country._id == id) {
             document.querySelector("#modalFlag").src = country._flag
             document.querySelector("#infoInfo").innerHTML = country._information
+            document.querySelector("#imgModal").src = country._location
         }
     }
 }

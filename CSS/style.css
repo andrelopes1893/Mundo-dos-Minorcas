@@ -515,6 +515,7 @@ p.lead.commentTitle {
 
 div.commentContainer {
     border: 2px solid #ffffff;
+    background-color: #ffffff;
     border-radius: 5px;
     width: 20rem;
     height: 15rem;
@@ -1462,4 +1463,16 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
 #europaCatalogTitle{
     color: #29ABE2
+}
+
+#txtComment{
+    resize: none;
+}
+
+#infoInfo{
+    color: #ffffff;
+}
+
+#modalContent{
+    background-color: #29ABE2;
 }
