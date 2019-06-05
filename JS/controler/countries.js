@@ -190,23 +190,26 @@ function renderModalInfo(id) {
     }
 }
 
-document.querySelector('#commentForm').addEventListener('submit', function (event) {
+if (document.querySelector('#commentForm') != null) {
+    document.querySelector('#commentForm').addEventListener('submit', function (event) {
 
-    let txtComment = document.querySelector('#txtComment').value
-    let id = ""
-    if (sessionStorage.getItem('loggedUserId')) {
-            id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-    } else {
-            id = 1
-    }
-    
-    for (const user of users) {
-        for (const comment of comments) {
-            if (user._id == id) {
-                comment._comment = txtComment
-                comments.push(new Comment(txtComment))
+        let txtComment = document.querySelector('#txtComment').value
+        let id = ""
+        if (sessionStorage.getItem('loggedUserId')) {
+                id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        } else {
+                id = 1
+        }
+        
+        for (const user of users) {
+            for (const comment of comments) {
+                if (user._id == id) {
+                    comment._comment = txtComment
+                    comments.push(new Comment(txtComment))
+                }
+                localStorage.setItem('comments', JSON.stringify(comments))
             }
         }
-    }
-    event.preventDefault()
-})
+        event.preventDefault()
+    })
+}
