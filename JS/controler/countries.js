@@ -54,7 +54,7 @@ function renderCatalog() {
     for (const country of countries) {
         if (removeAcento(contName.toLowerCase()) == country._continent.toLowerCase()) {
             if (i % 4 === 0) {
-                result += <div class="row">
+                result += `<div class="row">`
             }
             result += `
                 <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
@@ -75,7 +75,7 @@ function renderCatalog() {
             i++
 
             if (i % 4 === 0) {
-                result += </div>
+                result += `</div>`
             }
         }
     }
@@ -110,9 +110,9 @@ function ratingStars() {
         // 2
         const starPercentage = (ratings[rating] / starTotal) * 100;
         // 3
-        const starPercentageRounded = ${(Math.round(starPercentage / 10) * 10)}%;
+        const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
         // 4
-        document.querySelector(.${rating} .stars-inner).style.width = starPercentageRounded;
+        document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
     }
     // document.querySelectorAll('.star')[0].addEventListener('click', function () {
     //     document.getElementById('1').style.color = "#FFD700"
