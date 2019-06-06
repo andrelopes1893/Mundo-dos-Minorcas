@@ -2,13 +2,19 @@ let quizzes = []
 let continentStyle = ''
 let ChosenQuizz = ''
 
-
-
-
 QuizzGenerator()
+//! this function reads all the array and tells if the user have or not quizzes from that category
+function confExistence(continent, quizzes, type, level) {
+    for (const quizz of quizzes) {
+        if (quizz._continent == continent && quizz._quizType == type && quizz._level == level) {
+            return 1;
+        }
+    }
+    return 0
+}
 
 //!!!!!!!!!!!!funcao que busca o atual nivel
-function getActualLevel(continent,quizzType){
+function getActualLevel(continent, quizzType) {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
@@ -18,24 +24,23 @@ function getActualLevel(continent,quizzType){
     } else {
         loggedUserId = 2
     }
- 
+
     let level = 0;
-    
+
     for (const user of users) {
         if (user._id == loggedUserId) {
-            let currentLevels=user._currentLevels
-            if (currentLevels.length==0) {
+            let currentLevels = user._currentLevels
+            if (currentLevels.length == 0) {
                 return level
-            }
-            else{
+            } else {
                 for (const currentLevel of currentLevels) {
-                    if(currentLevel.continent==continent && currentLevel.quizzTitle==quizzType){
-                        level = currentLevel.level -1
+                    if (currentLevel.continent == continent && currentLevel.quizzTitle == quizzType) {
+                        level = currentLevel.level - 1
                         return level
-                    } 
+                    }
                 }
             }
-    
+
         }
     }
 }
@@ -71,15 +76,35 @@ function actualLevel(level) {
     }
     for (const user of users) {
         if (user._id == loggedUserId) {
-            let quizzState = {
-                continent: continentStyle,
-                quizzTitle: ChosenQuizz,
-                level: level
+            let cont = 0;
+            if (user._currentLevels.length > 0) {
+                for (const stage of user._currentLevels) {
+                    if (stage.continent == continentStyle && stage.quizzTitle == ChosenQuizz) {
+                        stage.level = level
+                        break;
+                    }
+                    cont++;
+                }
+                if (user._currentLevels == cont) {
+                    let quizzState = {
+                        continent: continentStyle,
+                        quizzTitle: ChosenQuizz,
+                        level: level
+                    }
+                    user._currentLevels.push(quizzState)
+                }
+                break;
+            } else {
+                let quizzState = {
+                    continent: continentStyle,
+                    quizzTitle: ChosenQuizz,
+                    level: level
+                }
+                user._currentLevels.push(quizzState)
             }
-            user._currentLevels.push(quizzState)
-            break;
         }
     }
+    localStorage.setItem('users', JSON.stringify(users))
     QuizzGenerator()
 }
 
@@ -159,16 +184,16 @@ function unlockedLevels(continentStyle) {
                     playebleLevels.push(1)
                 }
                 if (user._xp > 50 && user._xp <= 100) {
-                    playebleLevels.push(2)
+                    playebleLevels.push(1, 2)
                 }
                 if (user._xp > 100 && user._xp <= 150) {
-                    playebleLevels.push(3)
+                    playebleLevels.push(1, 2, 3)
                 }
                 if (user._xp > 150 && user._xp <= 200) {
-                    playebleLevels.push(4)
+                    playebleLevels.push(1, 2, 3, 4)
                 }
                 if (user._xp > 200 && user._xp <= 250) {
-                    playebleLevels.push(5)
+                    playebleLevels.push(1, 2, 3, 4, 5)
                 }
                 renderLevelButtons(playebleLevels)
                 return playebleLevels
@@ -183,16 +208,16 @@ function unlockedLevels(continentStyle) {
                     playebleLevels.push(1)
                 }
                 if (user._xp > 300 && user._xp <= 350) {
-                    playebleLevels.push(2)
+                    playebleLevels.push(1, 2)
                 }
                 if (user._xp > 350 && user._xp <= 400) {
-                    playebleLevels.push(3)
+                    playebleLevels.push(1, 2, 3)
                 }
                 if (user._xp > 400 && user._xp <= 450) {
-                    playebleLevels.push(4)
+                    playebleLevels.push(1, 2, 3, 4)
                 }
                 if (user._xp > 450 && user._xp <= 500) {
-                    playebleLevels.push(5)
+                    playebleLevels.push(1, 2, 3, 4, 5)
                 }
                 renderLevelButtons(playebleLevels)
                 return playebleLevels
@@ -208,16 +233,16 @@ function unlockedLevels(continentStyle) {
                 }
 
                 if (user._xp > 550 && user._xp <= 600) {
-                    playebleLevels.push(2)
+                    playebleLevels.push(1, 2)
                 }
                 if (user._xp > 600 && user._xp <= 650) {
-                    playebleLevels.push(3)
+                    playebleLevels.push(1, 2, 3)
                 }
                 if (user._xp > 650 && user._xp <= 700) {
-                    playebleLevels.push(4)
+                    playebleLevels.push(1, 2, 3, 4)
                 }
                 if (user._xp > 700 && user._xp <= 750) {
-                    playebleLevels.push(5)
+                    playebleLevels.push(1, 2, 3, 4, 5)
                 }
                 renderLevelButtons(playebleLevels)
                 return playebleLevels
@@ -233,16 +258,16 @@ function unlockedLevels(continentStyle) {
                 }
 
                 if (user._xp > 800 && user._xp <= 850) {
-                    playebleLevels.push(2)
+                    playebleLevels.push(1, 2)
                 }
                 if (user._xp > 850 && user._xp <= 900) {
-                    playebleLevels.push(3)
+                    playebleLevels.push(1, 2, 3)
                 }
                 if (user._xp > 900 && user._xp <= 950) {
-                    playebleLevels.push(4)
+                    playebleLevels.push(1, 2, 3, 4)
                 }
                 if (user._xp > 1000 && user._xp <= 1050) {
-                    playebleLevels.push(5)
+                    playebleLevels.push(1, 2, 3, 4, 5)
                 }
                 renderLevelButtons(playebleLevels)
                 return playebleLevels
@@ -258,16 +283,16 @@ function unlockedLevels(continentStyle) {
                 }
 
                 if (user._xp > 1100 && user._xp <= 1150) {
-                    playebleLevels.push(2)
+                    playebleLevels.push(1, 2)
                 }
                 if (user._xp > 1150 && user._xp <= 1200) {
-                    playebleLevels.push(3)
+                    playebleLevels.push(1, 2, 3)
                 }
                 if (user._xp > 1200 && user._xp <= 1250) {
-                    playebleLevels.push(4)
+                    playebleLevels.push(1, 2, 3, 4)
                 }
                 if (user._xp > 1300 && user._xp <= 1350) {
-                    playebleLevels.push(5)
+                    playebleLevels.push(1, 2, 3, 4, 5)
                 }
                 renderLevelButtons(playebleLevels)
                 return playebleLevels
@@ -305,16 +330,6 @@ function ChosenLevel(id) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 /**
  * This Function generate the quizz
  */
@@ -344,7 +359,7 @@ function QuizzGenerator() {
         sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
     }
 
-    let position = Number (getActualLevel(continentStyle,ChosenQuizz))
+    let position = Number(getActualLevel(continentStyle, ChosenQuizz))
 
     let levels = unlockedLevels(continentStyle)
     let level = levels[position]
@@ -365,46 +380,54 @@ function QuizzGenerator() {
     // This create a new in case of the gamer cannot played de random game
     let timesInsideQuizzes = 0;
 
-    // This is a number (id)
-    let game = GenerateRandomGame()
-    for (const quizz of quizzes) {
-        if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level) {
-            document.querySelector('#questionHolder').innerHTML = quizz._question
-            console.log(quizz._pointXp)
-            document.querySelector('#quizzImg').src = quizz._img
-            for (let i = 0; i < 4; i++) {
-                if (generatedNumbers.length == 0) {
-                    let position = GenerateRandomNumb()
-                    generatedNumbers.push(position)
-                    quizzPlaceHolder.innerHTML += ` <div class="row optionsRow">
-                    <button class="btn mx-auto optionsButton" id='${position -1}'>${quizz._answers[position-1]}</button>
-                     </div>`
 
-                } else {
-                    let position = GenerateRandomNumb()
 
-                    if (answearAddExistence(generatedNumbers, position) == false) {
+    //continent,quizzes, type
+    if (confExistence(continentStyle, quizzes, ChosenQuizz, level) == false) {
+        alert("Aquela")
+    } else {
+
+        let game = GenerateRandomGame()
+        for (const quizz of quizzes) {
+            if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level) {
+                document.querySelector('#questionHolder').innerHTML = quizz._question
+                console.log(quizz._pointXp)
+                document.querySelector('#quizzImg').src = quizz._img
+                for (let i = 0; i < 4; i++) {
+                    if (generatedNumbers.length == 0) {
+                        let position = GenerateRandomNumb()
                         generatedNumbers.push(position)
                         quizzPlaceHolder.innerHTML += ` <div class="row optionsRow">
-                    <button class="btn mx-auto optionsButton" id='${position-1}'>${quizz._answers[position-1]}</button>
-                     </div>`
+                        <button class="btn mx-auto optionsButton" id='${position -1}'>${quizz._answers[position-1]}</button>
+                         </div>`
+
                     } else {
-                        i--
+                        let position = GenerateRandomNumb()
+
+                        if (answearAddExistence(generatedNumbers, position) == false) {
+                            generatedNumbers.push(position)
+                            quizzPlaceHolder.innerHTML += ` <div class="row optionsRow">
+                        <button class="btn mx-auto optionsButton" id='${position-1}'>${quizz._answers[position-1]}</button>
+                         </div>`
+                        } else {
+                            i--
+                        }
                     }
                 }
+                isTheAnswearRight(quizz._pointXp)
+                break;
             }
-            isTheAnswearRight(quizz._pointXp)
-            break;
-        }
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // else{
-        //     QuizzGenerator()
-        // } 
-        timesInsideQuizzes++;
-        if (timesInsideQuizzes == quizzes.length) {
-            QuizzGenerator()
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            // else{
+            //     QuizzGenerator()
+            // } 
+            timesInsideQuizzes++;
+            if (timesInsideQuizzes == quizzes.length) {
+                QuizzGenerator()
+            }
         }
     }
+    // This is a number (id)
 }
 // !!!!!!!!!!!!!!!!!!Para continuar!!!!!!!!!!!!!!!!!!!!
 /**
