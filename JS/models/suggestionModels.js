@@ -1,5 +1,5 @@
 import {
-    users
+    suggestions
 } from '../controler/profile.js'
 
 export default class Suggestion {
@@ -17,8 +17,8 @@ export default class Suggestion {
     }
     static getLastId() {
         let lastId = 0
-        if (users.length != 0) {
-            lastId = users[users.length - 1]._id
+        if (suggestions.length != 0) {
+            lastId = suggestions[suggestions.length - 1]._id
         }
         return lastId
     }
