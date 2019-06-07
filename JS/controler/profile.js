@@ -480,7 +480,7 @@ function cleanInputData() {
         })
 }
 
-function showUserData() {
+export function showUserData() {
         if (localStorage.getItem("users")) {
                 users = JSON.parse(localStorage.getItem("users"))
         }
