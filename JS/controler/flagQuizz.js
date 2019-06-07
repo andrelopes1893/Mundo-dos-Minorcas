@@ -12,6 +12,26 @@ function confExistence(continent, quizzes, type, level) {
     }
     return 0
 }
+/**
+ * This functions add to the user the quizz that has already been played
+ * @param {number} quizzId This is the generated quizz id
+ */
+function setPlayedQuizzes(quizzId){
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
+    if (sessionStorage.getItem('loggedUserId')) {
+        loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
+
+    } else {
+        loggedUserId = 2
+    }
+    for (const user of users) {
+        if (user._id == loggedUserId) {
+            user._playedQuizzes.push(quizzId)
+        }
+    }
+}
 
 //!!!!!!!!!!!!funcao que busca o atual nivel
 function getActualLevel(continent, quizzType) {
@@ -133,21 +153,22 @@ function answearAddExistence(arrayAnswears, randomNumber) {
 }
 
 // !This fuctin get all the buttons with the options and add an event That will Check if the choosen answear is the right one
-function isTheAnswearRight(pointXp) {
+function isTheAnswearRight(pointXp,game) {
     let options = document.querySelectorAll('.optionsButton')
     for (const option of options) {
         option.addEventListener('click', function () {
-            ConfIfUserIsRight(this.id, pointXp)
+            ConfIfUserIsRight(this.id, pointXp,game)
         })
     }
 }
 // !Confirm if the answear is right
-function ConfIfUserIsRight(id, pointXp) {
+function ConfIfUserIsRight(id, pointXp,game) {
     if (id === '3') {
         alert('Acertaste, vem ai o proximo nivel pa')
         assignXpToThePlayer(pointXp)
         let quizzPlaceHolder = document.querySelector('#quizzHolder')
         // Eleminate the previouse quizz
+        setPlayedQuizzes(game)
         quizzPlaceHolder.innerHTML = ''
         QuizzGenerator()
     } else {
@@ -414,7 +435,7 @@ function QuizzGenerator() {
                         }
                     }
                 }
-                isTheAnswearRight(quizz._pointXp)
+                isTheAnswearRight(quizz._pointXp,game)
                 break;
             }
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -460,7 +481,6 @@ function assignXpToThePlayer(xp) {
     }
     if (sessionStorage.getItem('loggedUserId')) {
         loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
-
     } else {
         loggedUserId = 2
     }
