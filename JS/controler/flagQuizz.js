@@ -2,6 +2,60 @@ let quizzes = []
 let continentStyle = ''
 let ChosenQuizz = ''
 
+
+
+//Function ment to worn the user that he has completed the level and the avaliabel quizzes
+
+
+function avaliabelQuizzes() {
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
+    if (sessionStorage.getItem('loggedUserId')) {
+        loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
+
+    } else {
+        loggedUserId = 2
+    }
+
+
+
+
+    for (const quizz of quizzes) {
+        
+    }
+
+
+
+    for (const user of users) {
+        if (users._id == loggedUserId) {
+
+
+
+
+  
+
+
+
+
+
+        }
+    }
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
 QuizzGenerator()
 //! this function reads all the array and tells if the user have or not quizzes from that category
 function confExistence(continent, quizzes, type, level) {
@@ -13,10 +67,40 @@ function confExistence(continent, quizzes, type, level) {
     return 0
 }
 /**
+ * confirm if the game has already been played
+ * @param {string} generatedId the generated id from the randomGame Generator
+ */
+function getplayedQuizz(generatedId) {
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
+    if (sessionStorage.getItem('loggedUserId')) {
+        loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
+
+    } else {
+        loggedUserId = 2
+    }
+    for (const user of users) {
+        if (user._id == loggedUserId) {
+            for (const played of user._playedQuizzes) {
+                if (played == generatedId) {
+                    return true;
+                }
+
+            }
+        }
+    }
+    return false
+}
+
+
+
+
+/**
  * This functions add to the user the quizz that has already been played
  * @param {number} quizzId This is the generated quizz id
  */
-function setPlayedQuizzes(quizzId){
+function setPlayedQuizzes(quizzId) {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
@@ -31,6 +115,7 @@ function setPlayedQuizzes(quizzId){
             user._playedQuizzes.push(quizzId)
         }
     }
+    localStorage.setItem('users', JSON.stringify(users))
 }
 
 //!!!!!!!!!!!!funcao que busca o atual nivel
@@ -138,7 +223,11 @@ function GenerateRandomNumb() {
 //! This function Gives back an random "Id", id that will be the id of the quizz
 function GenerateRandomGame() {
     let maxNumber = quizzes.length
-    let game = Math.floor(Math.random() * maxNumber) + 1;
+    let game
+    do {
+        game = Math.floor(Math.random() * maxNumber) + 1;
+        pass = getplayedQuizz(game)
+    } while (pass !== false);
     return game;
 }
 
@@ -153,16 +242,16 @@ function answearAddExistence(arrayAnswears, randomNumber) {
 }
 
 // !This fuctin get all the buttons with the options and add an event That will Check if the choosen answear is the right one
-function isTheAnswearRight(pointXp,game) {
+function isTheAnswearRight(pointXp, game) {
     let options = document.querySelectorAll('.optionsButton')
     for (const option of options) {
         option.addEventListener('click', function () {
-            ConfIfUserIsRight(this.id, pointXp,game)
+            ConfIfUserIsRight(this.id, pointXp, game)
         })
     }
 }
 // !Confirm if the answear is right
-function ConfIfUserIsRight(id, pointXp,game) {
+function ConfIfUserIsRight(id, pointXp, game) {
     if (id === '3') {
         alert('Acertaste, vem ai o proximo nivel pa')
         assignXpToThePlayer(pointXp)
@@ -381,7 +470,6 @@ function QuizzGenerator() {
     }
 
     let position = Number(getActualLevel(continentStyle, ChosenQuizz))
-
     let levels = unlockedLevels(continentStyle)
     let level = levels[position]
 
@@ -435,7 +523,7 @@ function QuizzGenerator() {
                         }
                     }
                 }
-                isTheAnswearRight(quizz._pointXp,game)
+                isTheAnswearRight(quizz._pointXp, game)
                 break;
             }
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -2,8 +2,9 @@ import Country from "../models/countriesModels.js"
 import Comment from '../models/commentsModels.js'
 
 let comments = []
-
 let countries = []
+let users = []
+let countryId 
 
 window.onload = function () {
     if (localStorage.countries) {
@@ -14,18 +15,15 @@ window.onload = function () {
         comments = JSON.parse(localStorage.comments)
     }
 
+    if (localStorage.users) {
+        users = JSON.parse(localStorage.users)
+    }
+
     renderCatalog();
     renderModalInfo();
     if (sessionStorage.getItem('continentCatalogStyle')) {
         continentCatalogStyle = sessionStorage.getItem('continentCatalogStyle')
     }
-    /*else {
-            // !Para eliminar
-           continentCatalogStyle = 'africa'
-           // !Para eliminar
-           sessionStorage.setItem('continentCatalogStyle', JSON.stringify(continentCatalogStyle))
-       }*/
-    // CatalogStyleChangeByContinent()
 }
 
 searchCountry()
@@ -66,7 +64,7 @@ function renderCatalog() {
                             <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
                             <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
                             <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
-                            <div class="stars-outer"
+                            <div class="stars-outer">
                                 <div class="stars-inner"></div>
                             </div>
                         </div>
@@ -87,6 +85,7 @@ function renderCatalog() {
     let countryBtn = document.getElementsByClassName("countryButton")
     for (const elem of countryBtn) {
         elem.addEventListener("click", function () {
+            countryId = this.id
             renderModalInfo(this.id)
         })
     }
@@ -189,29 +188,44 @@ function renderModalInfo(id) {
             document.querySelector("#modalFlag").src = country._flag
             document.querySelector("#infoInfo").innerHTML = country._information
             document.querySelector("#imgModal").src = country._location
+            const divComments = document.querySelector(".commentContainer")
+
+            //listar comentario do pais em causa
+            for (let i = 0; i<country.comments; i++) {
+                console.log("123");
+                
+                divComments.innerHTML += `
+                    ${country.comments[i].comment}-${country.comments[i].dateTime}\n
+                `
+            }
         }
     }
 }
 
 if (document.querySelector('#commentForm') != null) {
     document.querySelector('#commentForm').addEventListener('submit', function (event) {
-
+        
         let txtComment = document.querySelector('#txtComment').value
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
             id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+            //inserir o comentario no array
+            for (const country of countries) {
+                if (country.id === countryId) {
+                    console.log("DFDF");
+                    
+                    country.comments.push(new Comment(txtComment, id))
+                }
+            }
         } else {
             id = 1
         }
-
-        for (const user of users) {
-            for (const comment of comments) {
-                if (user._id == id) {
-                    comment._comment = txtComment
-                    comments.push(new Comment(txtComment))
-                }
-            }
-        }
+            localStorage.setItem('comments', JSON.stringify(comments))
+        
         event.preventDefault()
     })
+}
+
+function renderComments() {
+    
 }
