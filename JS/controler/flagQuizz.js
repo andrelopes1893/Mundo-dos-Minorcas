@@ -2,6 +2,60 @@ let quizzes = []
 let continentStyle = ''
 let ChosenQuizz = ''
 
+
+
+//Function ment to worn the user that he has completed the level and the avaliabel quizzes
+
+
+function avaliabelQuizzes() {
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
+    if (sessionStorage.getItem('loggedUserId')) {
+        loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
+
+    } else {
+        loggedUserId = 2
+    }
+
+
+
+
+    for (const quizz of quizzes) {
+        
+    }
+
+
+
+    for (const user of users) {
+        if (users._id == loggedUserId) {
+
+
+
+
+  
+
+
+
+
+
+        }
+    }
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
 QuizzGenerator()
 //! this function reads all the array and tells if the user have or not quizzes from that category
 function confExistence(continent, quizzes, type, level) {
@@ -26,7 +80,6 @@ function getplayedQuizz(generatedId) {
     } else {
         loggedUserId = 2
     }
-
     for (const user of users) {
         if (user._id == loggedUserId) {
             for (const played of user._playedQuizzes) {
@@ -39,6 +92,9 @@ function getplayedQuizz(generatedId) {
     }
     return false
 }
+
+
+
 
 /**
  * This functions add to the user the quizz that has already been played
@@ -169,9 +225,9 @@ function GenerateRandomGame() {
     let maxNumber = quizzes.length
     let game
     do {
-         game = Math.floor(Math.random() * maxNumber) + 1;
-        pass =getplayedQuizz(game)
-    } while (pass!==false);
+        game = Math.floor(Math.random() * maxNumber) + 1;
+        pass = getplayedQuizz(game)
+    } while (pass !== false);
     return game;
 }
 
@@ -414,7 +470,6 @@ function QuizzGenerator() {
     }
 
     let position = Number(getActualLevel(continentStyle, ChosenQuizz))
-
     let levels = unlockedLevels(continentStyle)
     let level = levels[position]
 
