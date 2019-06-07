@@ -132,11 +132,16 @@ div .item {
 
 /* ! NAVBAR QUIZZES */
 
+div.quizContainer {
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+}
+
 div.container-fluid.navQuizz {
     background-color: #29ABE2;
 }
 
-div.container-fluid.navQuizz div.col-lg-6.text-center.flagInfoText {
+div.currentLevels {
     background-color: #CCCC33;
 }
 
@@ -182,11 +187,11 @@ div.row.questionImage div.col-lg-6 img.flagImage {
     margin: auto;
     border-radius: 20px 20px 20px 20px;
 }
-
+/* 
 div.col-lg-6.optionsCol {
     padding-top: 1%;
     padding-bottom: 1%;
-}
+} */
 
 div.row.optionsRow button.btn {
     width: 40%;

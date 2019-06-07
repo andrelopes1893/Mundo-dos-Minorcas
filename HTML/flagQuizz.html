@@ -45,13 +45,13 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid quizContainer">
         <div class="row questionImage">
             <div class="col-lg-6 col-sm-6 col-xs-6 d-flex align-items-center">
                 <img id="quizzImg" src="/Images/Portugal.png" alt="Cabo Verde" class="flagImage">
             </div>
             <div class="col-lg-6 col-sm-6 col-xs-6 optionsCol" id='quizzHolder'>
-        
+
             </div>
         </div>
     </div>
@@ -63,28 +63,22 @@
                     <button class="btn exit">Sair</button>
                 </a>
             </div>
-            <div class="col-6 text-center">
-                <button class="btn help">restart</button>
+            <div class="col-6 text-center currentLevels">
+                <div class="row mx-auto" id="levelButtonsHolder">
+                </div>
             </div>
         </div>
     </div>
 
-
-
     <div class="container-fluid navQuizz">
         <div class="row flagInfoRow">
-            <div class="col-lg-6 col-sm-6 col-xs-6 logoNavQuizz">
-                <a class="navbar-brand" href="#">
-                    <img src="/Images/logo.png" alt="Logo" class="logo logoQuizz">
-                </a>
-            </div>
-            <div class="col-lg-6 col-sm-6 col-xs-6 text-center d-flex align-items-center flagInfoText">
-              <div class="row mx-auto" id="levelButtonsHolder">
-                 
-
-
-
-              </div>
+            <div class="col-12 logoNavQuizz">
+                <div class="progress mr-lg-5 ml-lg-5 mt-lg-5 mb-lg-5">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <p id="currentXpBar"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
