@@ -259,7 +259,7 @@ document.querySelector('.buttonGirl').addEventListener('click', function () {
                                                     </div>
                                                 </div>`
         }
-        avatarButtons()
+        avatarChange()
         $('.girlAvatar').css({
                 'width': '6rem',
                 'height': '6rem',
@@ -391,39 +391,54 @@ function showAvatarOnload() {
         });
 }
 
-function avatarButtons() {
+function avatarChange() {
         let profileBtns = document.querySelectorAll('.avatarButton')
         for (const elem of profileBtns) {
                 elem.addEventListener("click", function () {
-                        sessionStorage.setItem('avatar', JSON.stringify(elem.querySelector('img').src))
-                        showAvatar(this.id)
+                        let id = ""
+                        if (sessionStorage.getItem('loggedUserId')) {
+                                id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+                        } else {
+                                id = 1
+                        }
+
+                        for (const user of users) {
+                                if (user._id == id) {
+                                        for (let i = 0; i < users.length; i++) {
+                                                user._avatar = elem.querySelector('img').src
+                                                //Change avatar in navbar
+                                                document.querySelector('.avatar').src = elem.querySelector('img').src
+                                        }
+                                }
+                                localStorage.setItem('users', JSON.stringify(users))
+                        }
                 })
         }
 }
 
-function showAvatar(source) {
-        let avatarImg = document.querySelector('.girlAvatar').src
+// function showAvatar(source) {
+//         let avatarImg = document.querySelector('.girlAvatar').src
 
-        let id = ""
-        if (sessionStorage.getItem('loggedUserId')) {
-                id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-        } else {
-                id = 1
-        }
+//         let id = ""
+//         if (sessionStorage.getItem('loggedUserId')) {
+//                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+//         } else {
+//                 id = 1
+//         }
 
-        for (const user of users) {
-                if (user._id == id) {
-                        for (let i = 0; i < users.length; i++) {
-                                if (users[i]._avatar != source) {
-                                        user._avatar = avatarImg
-                                        //Change avatar in navbar
-                                        document.querySelector('.avatar').src = avatarImg
-                                }
-                        }
-                }
-                localStorage.setItem('users', JSON.stringify(users))
-        }
-}
+//         for (const user of users) {
+//                 if (user._id == id) {
+//                         for (let i = 0; i < users.length; i++) {
+//                                 if (users[i]._avatar != source) {
+//                                         user._avatar = avatarImg
+//                                         //Change avatar in navbar
+//                                         document.querySelector('.avatar').src = avatarImg
+//                                 }
+//                         }
+//                 }
+//                 localStorage.setItem('users', JSON.stringify(users))
+//         }
+// }
 
 function showCurrentXP() {
         let width = 1
@@ -494,6 +509,8 @@ function showUserData() {
                         }
 
                         document.querySelector('#txtDescription').value = user._description
+
+                        document.querySelector('.avatar').src = user._avatar
                 }
         }
 }
