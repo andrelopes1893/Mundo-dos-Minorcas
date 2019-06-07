@@ -415,10 +415,6 @@ function showAvatar(source) {
                 if (user._id == id) {
                         for (let i = 0; i < users.length; i++) {
                                 if (users[i]._avatar != source) {
-                                        let avatar = ""
-                                        if (sessionStorage.getItem('avatar')) {
-                                                avatar = JSON.parse(sessionStorage.getItem('avatar'))
-                                        }
                                         user._avatar = avatarImg
                                         //Change avatar in navbar
                                         document.querySelector('.avatar').src = avatarImg
