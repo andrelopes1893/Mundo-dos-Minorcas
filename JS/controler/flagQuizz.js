@@ -3,43 +3,6 @@ let continentStyle = ''
 let ChosenQuizz = ''
 
 
-
-// //Function ment to worn the user that he has completed the level and the avaliabel quizzes
-// function avaliabelQuizzes() {
-//     if (localStorage.getItem("users")) {
-//         users = JSON.parse(localStorage.getItem("users"))
-//     }
-//     if (sessionStorage.getItem('loggedUserId')) {
-//         loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
-
-//     } else {
-//         loggedUserId = 2
-//     }
-
-
-
-
-//     for (const quizz of quizzes) {
-
-//     }
-
-
-
-//     for (const user of users) {
-//         if (users._id == loggedUserId) {
-
-
-
-
-//         }
-//     }
-// }
-
-
-
-
-
-
 QuizzGenerator()
 // *Working (Butt needs some adjustments)
 //! this function reads all the array and tells if the user have or not quizzes from that category
@@ -114,7 +77,6 @@ function getActualLevel(continent, quizzType) {
     } else {
         loggedUserId = 2
     }
-
     let level = 0;
 
     for (const user of users) {
@@ -215,9 +177,9 @@ function GenerateRandomGame() {
     } while (pass !== false);
     return game;
 }
-//????????????????????????????????
+
 // *Working
-//!This Fuction Looks if the has already number existes
+//!This Fuction Looks if the random number has already been generated
 function answearAddExistence(arrayAnswears, randomNumber) {
     for (const answear of arrayAnswears) {
         if (answear == randomNumber) {
@@ -259,21 +221,10 @@ function ConfIfUserIsRight(id, pointXp, game,level) {
 }
 
 
-
-
-
-
-
-
-
-
-// ????????????????????????????????????????????????????????????????????????????
-// !This Function confirm if the user xp let him play de quizz
 /**
- * This function see witch levels the player is able to play
- * @param {String} continentStyle The continent quizz that we choose
+ * !Function that make the level buttons 
  */
-function unlockedLevels(continentStyle) {
+function unlockedLevels(level) {
     let playebleLevels = []
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
@@ -284,127 +235,7 @@ function unlockedLevels(continentStyle) {
     } else {
         loggedUserId = 2
     }
-    // if (continentStyle === 'africa') {
-    //     for (const user of users) {
-    //         if (user._id == loggedUserId) {
-    //             if (user._xp <= 50) {
-    //                 playebleLevels.push(1)
-    //             }
-    //             if (user._xp > 50 && user._xp <= 100) {
-    //                 playebleLevels.push(1, 2)
-    //             }
-    //             if (user._xp > 100 && user._xp <= 150) {
-    //                 playebleLevels.push(1, 2, 3)
-    //             }
-    //             if (user._xp > 150 && user._xp <= 200) {
-    //                 playebleLevels.push(1, 2, 3, 4)
-    //             }
-    //             if (user._xp > 200 && user._xp <= 250) {
-    //                 playebleLevels.push(1, 2, 3, 4, 5)
-    //             }
-    //             renderLevelButtons(playebleLevels)
-    //             return playebleLevels
-    //         }
-    //     }
-    // }
-    // if (continentStyle === 'america') {
-    //     for (const user of users) {
-    //         if (user._id == loggedUserId) {
-
-    //             if (user._xp > 250 && user._xp < 300) {
-    //                 playebleLevels.push(1)
-    //             }
-    //             if (user._xp > 300 && user._xp <= 350) {
-    //                 playebleLevels.push(1, 2)
-    //             }
-    //             if (user._xp > 350 && user._xp <= 400) {
-    //                 playebleLevels.push(1, 2, 3)
-    //             }
-    //             if (user._xp > 400 && user._xp <= 450) {
-    //                 playebleLevels.push(1, 2, 3, 4)
-    //             }
-    //             if (user._xp > 450 && user._xp <= 500) {
-    //                 playebleLevels.push(1, 2, 3, 4, 5)
-    //             }
-    //             renderLevelButtons(playebleLevels)
-    //             return playebleLevels
-    //         }
-    //     }
-    // }
-    // if (continentStyle === 'europa') {
-    //     for (const user of users) {
-    //         if (user._id == loggedUserId) {
-
-    //             if (user._xp > 500 && user._xp <= 550) {
-    //                 playebleLevels.push(1)
-    //             }
-
-    //             if (user._xp > 550 && user._xp <= 600) {
-    //                 playebleLevels.push(1, 2)
-    //             }
-    //             if (user._xp > 600 && user._xp <= 650) {
-    //                 playebleLevels.push(1, 2, 3)
-    //             }
-    //             if (user._xp > 650 && user._xp <= 700) {
-    //                 playebleLevels.push(1, 2, 3, 4)
-    //             }
-    //             if (user._xp > 700 && user._xp <= 750) {
-    //                 playebleLevels.push(1, 2, 3, 4, 5)
-    //             }
-    //             renderLevelButtons(playebleLevels)
-    //             return playebleLevels
-    //         }
-    //     }
-    // }
-    // if (continentStyle === 'asia') {
-    //     for (const user of users) {
-    //         if (user._id == loggedUserId) {
-
-    //             if (user._xp > 750 && user._xp <= 800) {
-    //                 playebleLevels.push(1)
-    //             }
-
-    //             if (user._xp > 800 && user._xp <= 850) {
-    //                 playebleLevels.push(1, 2)
-    //             }
-    //             if (user._xp > 850 && user._xp <= 900) {
-    //                 playebleLevels.push(1, 2, 3)
-    //             }
-    //             if (user._xp > 900 && user._xp <= 950) {
-    //                 playebleLevels.push(1, 2, 3, 4)
-    //             }
-    //             if (user._xp > 1000 && user._xp <= 1050) {
-    //                 playebleLevels.push(1, 2, 3, 4, 5)
-    //             }
-    //             renderLevelButtons(playebleLevels)
-    //             return playebleLevels
-    //         }
-    //     }
-    // }
-    // if (continentStyle === 'oceania') {
-    //     for (const user of users) {
-    //         if (user._id == loggedUserId) {
-
-    //             if (user._xp > 1050 && user._xp <= 1100) {
-    //                 playebleLevels.push(1)
-    //             }
-
-    //             if (user._xp > 1100 && user._xp <= 1150) {
-    //                 playebleLevels.push(1, 2)
-    //             }
-    //             if (user._xp > 1150 && user._xp <= 1200) {
-    //                 playebleLevels.push(1, 2, 3)
-    //             }
-    //             if (user._xp > 1200 && user._xp <= 1250) {
-    //                 playebleLevels.push(1, 2, 3, 4)
-    //             }
-    //             if (user._xp > 1300 && user._xp <= 1350) {
-    //                 
-    //             }
-    //        
-    //         }
-    //     }
-    // }
+   
     playebleLevels.push(1, 2, 3, 4, 5)
     renderLevelButtons(playebleLevels)
 
@@ -414,7 +245,7 @@ function unlockedLevels(continentStyle) {
  * Generate the levels buttons          
  * @param {array} playebleLevels level that the user can play
  */
-function renderLevelButtons(playebleLevels) {
+function renderLevelButtons(playebleLevels,level) {
     let holder = document.querySelector('#levelButtonsHolder')
     holder.innerHTML = ""
     for (let i = 0; i < playebleLevels.length; i++) {
@@ -424,20 +255,21 @@ function renderLevelButtons(playebleLevels) {
     selectLevel()
 }
 
-function selectLevel() {
+function selectLevel(level) {
     let btns = document.querySelectorAll(".levelSelection")
     for (const btn of btns) {
 
-        btn.addEventListener("click", function () {
-            ChosenLevel(this.id)
-        })
+       if(level==this.id){
+        console.log(level+","+this.id)
+       //!!Nuno aqui
+       }
     }
 }
 
-function ChosenLevel(id) {
-    // ******************************************************************
-    actualLevel(id)
-}
+// function ChosenLevel(id) {
+//     // ******************************************************************
+//     actualLevel(id)
+// }
 
 
 
@@ -495,8 +327,9 @@ function QuizzGenerator() {
 
 
     let position = Number(getActualLevel(continentStyle, ChosenQuizz))+1
-    let levels = unlockedLevels()
     let level = position
+    unlockedLevels(level)
+   
 
     actualLevel(level)
     // ??????Questionavel
