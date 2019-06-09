@@ -259,8 +259,8 @@ function selectLevel(level) {
     let btns = document.querySelectorAll(".levelSelection")
     for (const btn of btns) {
 
-       if(level==this.id){
-        console.log(level+","+this.id)
+       if(level==btn.id){
+        console.log(level+","+btn.id)
        //!!Nuno aqui
        }
     }
