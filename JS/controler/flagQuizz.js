@@ -40,9 +40,6 @@ function getplayedQuizz(generatedId) {
     }
     return false
 }
-
-
-
 // *Working
 /**
  * This functions add to the user the quizz that he has already played
@@ -200,7 +197,7 @@ function isTheAnswearRight(pointXp, game, level) {
 }
 // *Working
 // !Confirm if the answear is right
-function ConfIfUserIsRight(id, pointXp, game,level) {
+function ConfIfUserIsRight(id, pointXp, game, level) {
     if (id === '3') {
         alert('Acertaste, vem ai o proximo nivel pa')
         assignXpToThePlayer(pointXp)
@@ -235,9 +232,9 @@ function unlockedLevels(level) {
     } else {
         loggedUserId = 2
     }
-   
+
     playebleLevels.push(1, 2, 3, 4, 5)
-    renderLevelButtons(playebleLevels,level)
+    renderLevelButtons(playebleLevels, level)
 
     return playebleLevels
 }
@@ -245,7 +242,7 @@ function unlockedLevels(level) {
  * Generate the levels buttons          
  * @param {array} playebleLevels level that the user can play
  */
-function renderLevelButtons(playebleLevels,level) {
+function renderLevelButtons(playebleLevels, level) {
     let holder = document.querySelector('#levelButtonsHolder')
     holder.innerHTML = ""
     for (let i = 0; i < playebleLevels.length; i++) {
@@ -259,10 +256,10 @@ function selectLevel(level) {
     let btns = document.querySelectorAll(".levelSelection")
     for (const btn of btns) {
 
-       if(level==btn.id){
-        console.log(level+","+btn.id)
-       //!!Nuno aqui
-       }
+        if (level == btn.id) {
+            console.log(level + "," + btn.id)
+            //!!Nuno aqui
+        }
     }
 }
 
@@ -326,12 +323,12 @@ function QuizzGenerator() {
 
 
 
-    let position = Number(getActualLevel(continentStyle, ChosenQuizz))+1
+    let position = Number(getActualLevel(continentStyle, ChosenQuizz)) + 1
     let level = position
     unlockedLevels(level)
-   
 
-    actualLevel(level)
+
+   
     // ??????Questionavel
     // Tells the actual level of the user 
     // actualLevel(continentStyle,level)
@@ -354,7 +351,7 @@ function QuizzGenerator() {
     if (confExistence(continentStyle, quizzes, ChosenQuizz, level) == false) {
         alert("Aquela")
     } else {
-
+        actualLevel(level)
         let game = GenerateRandomGame()
         for (const quizz of quizzes) {
             if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level) {
@@ -468,17 +465,19 @@ function checkLevelProgress(level) {
     let howManyQuizz = 0
     for (const quizz of quizzes) {
 
-        if (quizz._level == level) {
+        if (quizz._level == level && quizz._continent == continentStyle && quizz._quizType == ChosenQuizz) {
             howManyQuizz++
         }
-
     }
     let cont = 0
+
+    let toDelite = []
 
     for (let i = 0; i < played.length; i++) {
 
         for (const quizz of quizzes) {
             if (quizz._id == played[i]) {
+                toDelite.push(played[i])
                 cont++;
                 break;
             }
@@ -487,15 +486,27 @@ function checkLevelProgress(level) {
     if (howManyQuizz === cont) {
         for (const user of users) {
             if (user._id == loggedUserId) {
-                user._playedQuizzes = []
-                localStorage.setItem('users', JSON.stringify(users))
-                alert("Parabens subiste de nivel")
-                break;
+                for (let j = 0; j < toDelite.length; j++) {
+                    for (let i = 0; i < user._playedQuizzes.lengt; i++) {
+                        if (user._playedQuizzes[i] == toDelite[j]) {
+                            user._playedQuizzes.splice([i], 1)
+                            break;
+                        }
+                    }
+                }
+
             }
+            // !!!!!!!!!!!!
+            // user._playedQuizzes = []
+            localStorage.setItem('users', JSON.stringify(users))
+            alert("Parabens subiste de nivel")
+            break;
         }
-        actualLevel(level +1)
+        actualLevel(level + 1)
     }
+  
 }
+
 
 
 
