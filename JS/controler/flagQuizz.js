@@ -237,7 +237,7 @@ function unlockedLevels(level) {
     }
    
     playebleLevels.push(1, 2, 3, 4, 5)
-    renderLevelButtons(playebleLevels)
+    renderLevelButtons(playebleLevels,level)
 
     return playebleLevels
 }
@@ -252,7 +252,7 @@ function renderLevelButtons(playebleLevels,level) {
         holder.innerHTML += `<div class="col">
         <button type="button" class="btn btn-primary levelSelection" id="${playebleLevels[i]}">${playebleLevels[i]}</button></div>`
     }
-    selectLevel()
+    selectLevel(level)
 }
 
 function selectLevel(level) {
