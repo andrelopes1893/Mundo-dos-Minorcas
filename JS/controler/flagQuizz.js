@@ -328,7 +328,7 @@ function QuizzGenerator() {
     unlockedLevels(level)
 
 
-   
+
     // ??????Questionavel
     // Tells the actual level of the user 
     // actualLevel(continentStyle,level)
@@ -485,9 +485,15 @@ function checkLevelProgress(level) {
     }
     if (howManyQuizz === cont) {
         for (const user of users) {
+
+
             if (user._id == loggedUserId) {
+
                 for (let j = 0; j < toDelite.length; j++) {
-                    for (let i = 0; i < user._playedQuizzes.lengt; i++) {
+                   
+                    for (let i = 0; i < user._playedQuizzes.length; i++) {
+                        console.log(user._playedQuizzes[i])
+                        console.log(toDelite[j])
                         if (user._playedQuizzes[i] == toDelite[j]) {
                             user._playedQuizzes.splice([i], 1)
                             break;
@@ -497,14 +503,14 @@ function checkLevelProgress(level) {
 
             }
             // !!!!!!!!!!!!
-            // user._playedQuizzes = []
-            localStorage.setItem('users', JSON.stringify(users))
-            alert("Parabens subiste de nivel")
-            break;
         }
+
+        // user._playedQuizzes = []
+        localStorage.setItem('users', JSON.stringify(users))
+        alert("Parabens subiste de nivel")
         actualLevel(level + 1)
     }
-  
+
 }
 
 
