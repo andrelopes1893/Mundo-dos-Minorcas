@@ -19,10 +19,17 @@ $('.owl-carousel').owlCarousel({
 
 window.onload = function () {
     if (localStorage.getItem("users")) {
-        users = JSON.parse(localStorage.getItem("users"))
+            users = JSON.parse(localStorage.getItem("users"))
     }
+    userData()
 }
 
 window.addEventListener('beforeunload', function () {
     document.body.classList.add('animate-out')
 })
+
+function userData() {
+    for (const user of users) {
+        document.querySelector('.avatar').src = user._avatar
+    }
+}

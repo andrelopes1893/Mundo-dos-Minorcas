@@ -1,6 +1,9 @@
 import User from '../models/userModels.js'
 import Question from '../models/quizzesModels.js'
 import Suggestion from '../models/suggestionModels.js'
+import {
+        signOut
+} from '../controler/loginAndSignup.js'
 
 export let suggestions = []
 export let users = []
@@ -9,6 +12,10 @@ window.onload = function () {
         if (localStorage.getItem("users")) {
                 users = JSON.parse(localStorage.getItem("users"))
         }
+        let id = ""
+        if (sessionStorage.getItem("loggedUserId")) {
+                id = JSON.parse(sessionStorage.getItem('loggedUserId'))
+        }
         doNotShowPasswordData()
         showUserData()
         showAvatarOnload()
@@ -16,6 +23,13 @@ window.onload = function () {
 }
 
 cleanInputData()
+
+if (document.querySelector('#leaveAccount') != null) {
+        document.querySelector('#leaveAccount').addEventListener('click', function () {
+                signOut()
+                console.log('123');
+        })
+}
 
 document.querySelector('#suggestionForm').addEventListener('submit', function (event) {
         let stlContinent = document.querySelector('#stlContinent').value
@@ -26,8 +40,6 @@ document.querySelector('#suggestionForm').addEventListener('submit', function (e
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-        } else {
-                id = 1
         }
 
         for (const user of users) {
@@ -47,8 +59,6 @@ document.querySelector('#descriptionForm').addEventListener('keyup', function ()
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-        } else {
-                id = 1
         }
 
         for (const user of users) {
@@ -90,8 +100,6 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-        } else {
-                id = 1
         }
 
         for (const user of users) {
@@ -398,8 +406,6 @@ function avatarChange() {
                         let id = ""
                         if (sessionStorage.getItem('loggedUserId')) {
                                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-                        } else {
-                                id = 1
                         }
 
                         for (const user of users) {
@@ -487,9 +493,8 @@ export function showUserData() {
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-        } else {
-                id = 1 //Alterar
         }
+
         for (const user of users) {
                 if (user._id == id) {
                         document.querySelector('#txtUsername').value = user._username
