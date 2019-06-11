@@ -26,7 +26,7 @@ export function newUserByAdmin(txtUsername, txtEmail, txtPassword, txtPasswordCo
     }
 
     let exist = false
-    if (User.getIdByUsername(txtUsername) != -1) {
+    if (User.getIdByUsername(txtUsername) != -1) {        
         exist = true
         alert('O username já existe')
     }

@@ -1,6 +1,9 @@
 import User from '../models/userModels.js'
 import Question from '../models/quizzesModels.js'
 import Suggestion from '../models/suggestionModels.js'
+import {
+        signOut
+} from '../controler/loginAndSignup.js'
 
 export let suggestions = []
 export let users = []
@@ -9,6 +12,10 @@ window.onload = function () {
         if (localStorage.getItem("users")) {
                 users = JSON.parse(localStorage.getItem("users"))
         }
+        let id = ""
+        if (sessionStorage.getItem("loggedUserId")) {
+                id = JSON.parse(sessionStorage.getItem('loggedUserId'))
+        }
         doNotShowPasswordData()
         showUserData()
         showAvatarOnload()
@@ -16,6 +23,13 @@ window.onload = function () {
 }
 
 cleanInputData()
+
+if (document.querySelector('#leaveAccount') != null) {
+        document.querySelector('#leaveAccount').addEventListener('click', function () {
+                signOut()
+                console.log('123');
+        })
+}
 
 document.querySelector('#suggestionForm').addEventListener('submit', function (event) {
         let stlContinent = document.querySelector('#stlContinent').value
@@ -26,8 +40,6 @@ document.querySelector('#suggestionForm').addEventListener('submit', function (e
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-        } else {
-                id = 1
         }
 
         for (const user of users) {
@@ -47,8 +59,6 @@ document.querySelector('#descriptionForm').addEventListener('keyup', function ()
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-        } else {
-                id = 1
         }
 
         for (const user of users) {
@@ -90,8 +100,6 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-        } else {
-                id = 1
         }
 
         for (const user of users) {
@@ -269,60 +277,62 @@ document.querySelector('.buttonGirl').addEventListener('click', function () {
 })
 
 document.querySelector('.buttonBoy').addEventListener('click', function () {
-        document.querySelector('.avatarPlaceHolder').innerHTML = `<div class="row text-center">
+        for (const user of users) {
+                document.querySelector('.avatarPlaceHolder').innerHTML = `<div class="row text-center">
                                                     <div class="col-3">
                                                         <p class="lead avatarType text-center">
                                                             Principiante
                                                         </p>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 1.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 1.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 2.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 2.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 3.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 3.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 4.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 4.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
                                                     </div>
                                                     <div class="col-3">
                                                         <p class="lead avatarType text-center">
                                                             Amador
                                                         </p>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Amador 1.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Amador 1.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Amador 2.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Amador 2.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Amador 3.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Amador 3.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Amador 4.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Amador 4.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
                                                     </div>
                                                     <div class="col-3">
                                                         <p class="lead avatarType text-center">
                                                             Profissional
                                                         </p>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 1.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 1.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 2.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 2.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 3.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 3.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 4.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 4.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
                                                     </div>
                                                     <div class="col-3">
                                                         <p class="lead avatarType text-center">
                                                             Experiente
                                                         </p>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 1.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 1.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 2.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 2.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 3.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 3.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 4.png"
+                                                        <button class="btn avatarButton" id="${user._avatar}" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 4.png"
                                                                 alt="Avatar1" class="boyAvatar"></button>
                                                     </div>
                                                 </div>`
+        }
         $('.boyAvatar').css({
                 'width': '6rem',
                 'height': '6rem',
@@ -335,55 +345,56 @@ function showAvatarOnload() {
                                                                         <p class="lead avatarType text-center">
                                                                         Principiante
                                                                         </p>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 1.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 1.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 2.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 2.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 3.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 3.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 4.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Principiante 4.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
                                                                 </div>
                                                                 <div class="col-3">
                                                                         <p class="lead avatarType text-center">
                                                                         Amador
                                                                         </p>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Amador 1.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Amador 1.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Amador 2.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Amador 2.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Amador 3.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Amador 3.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Amador 4.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Amador 4.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
                                                                 </div>
                                                                 <div class="col-3">
                                                                         <p class="lead avatarType text-center">
                                                                         Profissional
                                                                         </p>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 1.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 1.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 2.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 2.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 3.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 3.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 4.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Profissional 4.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
                                                                 </div>
                                                                 <div class="col-3">
                                                                         <p class="lead avatarType text-center">
                                                                         Experiente
                                                                         </p>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 1.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 1.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 2.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 2.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 3.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 3.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
-                                                                        <button class="btn" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 4.png"
+                                                                        <button class="btn avatarButton" type="button"><img src="/Images/BoyAvatars/Avatar Experiente 4.png"
                                                                                 alt="Avatar1" class="boyAvatar"></button>
                                                                 </div>
                                                                 </div>`
+                                                                avatarChange()
         $('.boyAvatar').css({
                 'width': '6rem',
                 'height': '6rem',
@@ -398,8 +409,6 @@ function avatarChange() {
                         let id = ""
                         if (sessionStorage.getItem('loggedUserId')) {
                                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-                        } else {
-                                id = 1
                         }
 
                         for (const user of users) {
@@ -408,6 +417,7 @@ function avatarChange() {
                                                 user._avatar = elem.querySelector('img').src
                                                 //Change avatar in navbar
                                                 document.querySelector('.avatar').src = elem.querySelector('img').src
+                                                document.querySelector('#currentPhoto').src = user._avatar
                                         }
                                 }
                                 localStorage.setItem('users', JSON.stringify(users))
@@ -415,30 +425,6 @@ function avatarChange() {
                 })
         }
 }
-
-// function showAvatar(source) {
-//         let avatarImg = document.querySelector('.girlAvatar').src
-
-//         let id = ""
-//         if (sessionStorage.getItem('loggedUserId')) {
-//                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-//         } else {
-//                 id = 1
-//         }
-
-//         for (const user of users) {
-//                 if (user._id == id) {
-//                         for (let i = 0; i < users.length; i++) {
-//                                 if (users[i]._avatar != source) {
-//                                         user._avatar = avatarImg
-//                                         //Change avatar in navbar
-//                                         document.querySelector('.avatar').src = avatarImg
-//                                 }
-//                         }
-//                 }
-//                 localStorage.setItem('users', JSON.stringify(users))
-//         }
-// }
 
 function showCurrentXP() {
         let width = 1
@@ -487,9 +473,8 @@ export function showUserData() {
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-        } else {
-                id = 1 //Alterar
         }
+
         for (const user of users) {
                 if (user._id == id) {
                         document.querySelector('#txtUsername').value = user._username
@@ -511,6 +496,8 @@ export function showUserData() {
                         document.querySelector('#txtDescription').value = user._description
 
                         document.querySelector('.avatar').src = user._avatar
+
+                        document.querySelector('#currentPhoto').src = user._avatar
                 }
         }
 }

@@ -4,7 +4,8 @@ import {
 
 import User from '../models/userModels.js'
 
-let loggedUserId = ""
+let loggedUserId
+
 if (document.querySelector('#addUserBtn') != null) {
     document.querySelector('#addUserBtn').addEventListener("click", function () {
         let txtUsername = document.querySelector('#txtUserName').value
@@ -30,7 +31,8 @@ if(document.querySelector('#signInForm') != null){
         if (User.getIdByBlockUser(userId)) {
             alert('A tua conta encontra-se bloqueada')
         } else {
-            if (User.confirmUserExistent(txtEmail, txtPassword) == true) {
+            if (User.confirmUserExistent(txtEmail, txtPassword) == true) {  
+                loggedUserId = User.getIdByEmail(txtEmail)              
                 sessionStorage.setItem('loggedUserId', JSON.stringify(loggedUserId))
                 location.href = "/index.html"
             } else {
@@ -46,5 +48,4 @@ export function signOut() {
     location.reload()
     location.href = '/HTML/loginAndSigup.html'
     sessionStorage.removeItem('loggedUserId')
-
 }

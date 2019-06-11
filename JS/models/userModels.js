@@ -177,7 +177,7 @@
      static getIdByUsername(username) {
          let id = -1
          for (const user of users) {
-             if (user._username.toLowerCase() === username.toLowerCase()) {
+             if (user._username.toLowerCase() == username.toLowerCase()) {
                  id = user._id
              }
          }
@@ -187,7 +187,7 @@
      static getIdByEmail(email) {
          let id = -1
          for (const user of users) {
-             if (user._email.toLowerCase() === email.toLowerCase()) {
+             if (user._email.toLowerCase() == email.toLowerCase()) {
                  id = user._id
              }
          }
@@ -197,7 +197,7 @@
      static getIdByPassword(password) {
          let id = -1
          for (const user of users) {
-             if (user._password === password) {
+             if (user._password == password) {
                  id = user._id
              }
          }
