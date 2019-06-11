@@ -723,12 +723,6 @@ div.row.rounded {
     margin-bottom: 5%;
 }
 
-div.row.rounded div.col-lg-6>button>img {
-    padding: 10%;
-    border: 1px solid #CCCC33;
-    border-radius: 50%;
-}
-
 button.btn.profileAvatar:focus {
     box-shadow: 0 0 0 0;
 }
