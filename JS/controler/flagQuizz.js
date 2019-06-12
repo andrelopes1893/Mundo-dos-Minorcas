@@ -247,7 +247,7 @@ function renderLevelButtons(playebleLevels, level) {
     holder.innerHTML = ""
     for (let i = 0; i < playebleLevels.length; i++) {
         holder.innerHTML += `<div class="col">
-        <button type="button" class="btn btn-primary levelSelection" id="${playebleLevels[i]}">${playebleLevels[i]}</button></div>`
+        <button type="button" class="btn btn-primary levelSelection my-4" id="${playebleLevels[i]}">${playebleLevels[i]}</button></div>`
     }
     selectLevel(level)
 }
@@ -272,6 +272,7 @@ function selectLevel(level) {
  * This Function generate the quizz
  */
 function QuizzGenerator() {
+    exit()
 
     //  get the ulocked id
 
@@ -302,6 +303,11 @@ function QuizzGenerator() {
     let position = Number(getActualLevel(continentStyle, ChosenQuizz)) + 1
     let level = position
 
+
+    let numbers= quantity(continentStyle, quizzes, ChosenQuizz, level)
+
+    levelInfoBuilder(level, continentStyle, ChosenQuizz,numbers)
+
     if (isCompleted(level)) {
 
         Swal.fire({
@@ -317,7 +323,7 @@ function QuizzGenerator() {
     } else {
         unlockedLevels(level)
 
-        // ??????Questionavel
+        // ??????Questionavel 
         // Tells the actual level of the user 
         // actualLevel(continentStyle,level)
 
@@ -519,19 +525,98 @@ function checkLevelProgress(level) {
     }
 
 }
-
-
-
-
-
-
-
-
-
-//function that validade if the user has already completed the quizz
+//* Working
+//!function that validade if the user has already completed the quizz
 function isCompleted(level) {
     if (level == 6) {
         return true
     }
     return false
+}
+
+
+
+//!Function that add propriety to the exit button
+function exit() {
+    document.querySelector('#quit').addEventListener('click', function () {
+        // location.href = '/HTML/quizz.html'
+        // location.replace("https://www.w3schools.com");
+        window.location = "/HTML/quizz.html";
+    })
+}
+
+function levelInfoBuilder(level, continent, quizzType,numbers) {
+    let quizzInfoHolder = document.querySelector('#actualLevel')
+    let continentPlace = document.querySelector('#actualContinet')
+    if (continent === 'africa') {
+        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span>;<br> Nível: <span>${level}</span>;<br>Progresso: <span>${numbers[0]}/${numbers[1]}</span> `
+        continentPlace.innerHTML = `Continente: <span>África</span>`
+    }
+    if (continent === 'america') {
+        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span>;<br> Nível: <span>${level}</span>; <br>Progresso: <span>${numbers[0]}/${numbers[1]}</span> `
+        continentPlace.innerHTML = `Continente: <span>América</span>`
+    }
+    if (continent === 'asia') {
+        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span>;<br> Nível: <span>${level}</span>;<br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
+        continentPlace.innerHTML = `Continente: <span>Ásia</span>`
+    }
+    if (continent === 'europa') {
+        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span>; <br> Nível: <span>${level}</span>;<br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
+        continentPlace.innerHTML = `Continente: <span>Europa</span>`
+    }
+    if (continent === 'oceania') {
+        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span>; <br>Nível: <span>${level}</span>;<br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
+        continentPlace.innerHTML = `Continente: <span>Oceânia</span>`
+    }
+    let spans = document.querySelectorAll("span")
+    for (const span of spans) {
+        span.style.color = "#CCCC33"
+    }
+}
+
+
+function quantity(continent, quizzes, type, level) {
+
+
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
+    if (sessionStorage.getItem('loggedUserId')) {
+        loggedUserId = JSON.parse(sessionStorage.getItem('loggedUserId'))
+
+    } else {
+        loggedUserId = 2
+    }
+
+
+    let total = 0;
+    let comparations = []
+    for (const quizz of quizzes) {
+        if (quizz._continent == continent && quizz._quizType == type && quizz._level == level) {
+            total++;
+            comparations.push(quizz._id)
+        }
+    }
+
+    let play = 0;
+    for (const user of users) {
+        if (user._id == loggedUserId) {
+            for (const played of user._playedQuizzes) {
+                for (const id of comparations) {
+                    if (id == played) {
+                        play++;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+    let toReturn = []
+    toReturn.push(play)
+    toReturn.push(total)
+    return toReturn
+
 }

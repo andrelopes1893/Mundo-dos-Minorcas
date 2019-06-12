@@ -21,14 +21,19 @@
 
 </head>
 
-<body>
+<body style="background-color: #EEEBD0">
     <div class="container-fluid navQuizz">
         <div class="row flagInfoRow">
-            <div class="col-lg-6 col-sm-6 col-xs-6 logoNavQuizz">
+
+            <div class="col-lg-3 col-sm-3 col-xs-3 logoNavQuizz">
                 <a class="navbar-brand" href="#">
                     <img src="/Images/logo.png" alt="Logo" class="logo logoQuizz">
                 </a>
             </div>
+            <div class="col-lg-3 col-sm-3 col-xs-3 text-center d-flex align-items-center flagInfoText">
+                    <p id="actualContinet"  class='my-4 mx-auto' style="color: #ffff;font-size: 2rem"></p>
+            </div>
+
             <div class="col-lg-6 col-sm-6 col-xs-6 text-center d-flex align-items-center flagInfoText">
                 <p id="actualLevel"></p>
             </div>
@@ -60,7 +65,7 @@
         <div class="row">
             <div class="col-6 text-center">
                 <a href="">
-                    <button class="btn exit">Sair</button>
+                    <button class="btn exit" id='quit'>Sair</button>
                 </a>
             </div>
             <div class="col-6 text-center currentLevels">
@@ -84,24 +89,9 @@
     </div>
 
 
-    <div class="modal fade" id="quizzCompleted">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <!-- Cabeçalho da Modal -->
-                <div class="modal-header">
-                    <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
-                </div>
-                <!-- Corpo da Modal -->
-                <div class="modal-body text-center">
-                    <p>Já completaste este quizz!!</p>
-                    <button class="btn yesButton" role="button">Sim</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Optional JavaScript -->
-    
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="/JS/controler/timer.js"></script>
     <script src="/JS/controler/flagQuizz.js"></script>
