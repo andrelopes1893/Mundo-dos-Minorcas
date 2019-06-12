@@ -39,7 +39,7 @@
                     <a class="nav-link" href="../HTML/continentOrg.html">Ver Catálogo</a>
                 </li>
                 <li class="nav-item line">
-                    <a class="nav-link" href="../HTML/continentQuizz.html">Jogar Quizzes</a>
+                    <a class="nav-link" href="../HTML/quizz.html">Jogar Quizzes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link estatistic" href="#">Estatísticas</a>
@@ -85,12 +85,9 @@
                 <div class="progress mt-5">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                         aria-valuemin="0" aria-valuemax="100">
-                        <p id="currentXpBar"></p>
                     </div>
                 </div>
-                <p class="profileQuizP mt-4" id="currentFlagQ">Atual do Quiz das bandeiras: </p>
-                <p class="profileQuizP" id="currentCapitalQ">Atual do Quiz das capitais: </p>
-                <p class="profileQuizP" id="currentLocationQ">Atual do Quiz das localizações: </p>
+                <p class="lead" id="currentXpBar"></p>
             </div>
             <div class="line position-absolute d-none d-md-block"></div>
             <div class="col-lg-6 col-md-6 col-xs-6 d-flex align-items-center">
@@ -110,11 +107,6 @@
                     <div class="countryText pb-3">
                         <div class="form-group countryForm">
                             <input type="text" class="form-control country" id="txtCountry" placeholder="País">
-                        </div>
-                    </div>
-                    <div class="birthdayText">
-                        <div class="form-group birthdayForm">
-                            <input type="date" class="form-control birthday" id="txtBirthdayDate">
                         </div>
                     </div>
                     <button type="submit" class="btn edit">Editar</button>
