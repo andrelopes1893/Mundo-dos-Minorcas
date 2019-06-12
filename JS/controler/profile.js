@@ -79,7 +79,6 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
         let txtUsername = document.querySelector('#txtUsername').value
         let txtPassword = document.querySelector('#txtPassword').value
         let txtCountry = document.querySelector('#txtCountry').value
-        let txtBirthdayDate = document.querySelector('#txtBirthdayDate').value
 
         let usernameClass = document.querySelector('.username')
         let usernameDiv = document.createElement('div')
@@ -92,10 +91,6 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
         let countryClass = document.querySelector('.country')
         let countryDiv = document.createElement('div')
         let countryElement = countryClass.parentNode.insertBefore(countryDiv, countryClass.nextSibling)
-
-        let birthdayClass = document.querySelector('.birthday')
-        let birthdayDiv = document.createElement('div')
-        let birthdayElement = birthdayClass.parentNode.insertBefore(birthdayDiv, birthdayClass.nextSibling)
 
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
@@ -180,30 +175,6 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 document.querySelector('#txtCountry').value = txtCountry
                                 user._country = txtCountry
                         }
-
-                        if (txtBirthdayDate == "") {
-                                document.querySelector('.birthday').classList.add('is-invalid')
-                                birthdayElement.classList.add('invalid-feedback')
-                                birthdayElement.innerHTML += 'Escreve a tua data de aniversário!'
-                                // document.querySelector('.birthdayForm').style.marginBottom = 15 + '%';
-                                setInterval(() => {
-                                        document.querySelector('.birthday').classList.remove('is-invalid')
-                                        birthdayElement.classList.remove('invalid-feedback')
-                                        birthdayElement.innerHTML = ""
-                                }, 5000);
-                        } else {
-                                document.querySelector('.birthday').classList.add('is-valid')
-                                birthdayElement.classList.add('valid-feedback')
-                                birthdayElement.innerHTML += 'Data de aniversário aceite!'
-                                // document.querySelector('.birthdayForm').style.marginBottom = 0 + '%';
-                                setInterval(() => {
-                                        document.querySelector('.birthday').classList.remove('is-valid')
-                                        birthdayElement.classList.remove('valid-feedback')
-                                        birthdayElement.innerHTML = ""
-                                }, 5000);
-                                document.querySelector('#txtBirthdayDate').value = txtBirthdayDate
-                                user._birthday = txtBirthdayDate
-                        }
                 }
                 localStorage.setItem('users', JSON.stringify(users))
         }
@@ -272,8 +243,6 @@ document.querySelector('.buttonGirl').addEventListener('click', function () {
                 'width': '6rem',
                 'height': '6rem',
         });
-
-
 })
 
 document.querySelector('.buttonBoy').addEventListener('click', function () {
@@ -394,7 +363,7 @@ function showAvatarOnload() {
                                                                                 alt="Avatar1" class="boyAvatar"></button>
                                                                 </div>
                                                                 </div>`
-                                                                avatarChange()
+        avatarChange()
         $('.boyAvatar').css({
                 'width': '6rem',
                 'height': '6rem',
@@ -429,21 +398,94 @@ function avatarChange() {
 function showCurrentXP() {
         let width = 1
         for (const user of users) {
-                if (user._xp === 0) {
-                        document.querySelector('#currentXpBar').innerHTML = ""
-                        break
+                let id = ""
+                if (sessionStorage.getItem('loggedUserId')) {
+                        id = JSON.parse(sessionStorage.getItem("loggedUserId"))
                 }
 
-                if (user._xp >= 100) {
-                        $('.progress-bar').css({
-                                'width': '0%'
-                        });
-                        document.querySelector('#currentXpBar').innerHTML = user._xp
-                } else {
-                        width++
-                        document.querySelector('.progress-bar').style.width = width + '%'
-                        document.querySelector('#currentXpBar').innerHTML = user._xp
+                if (user._id == id) {
+                        if (user._xp <= 20) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 20 && user._xp <= 80) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 80 && user._xp <= 160) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 160 && user._xp <= 240) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 240 && user._xp <= 320) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 320 && user._xp <= 400) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 400 && user._xp <= 480) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 480 && user._xp <= 560) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 560 && user._xp <= 640) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 640 && user._xp <= 720) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 720 && user._xp <= 800) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 800 && user._xp <= 880) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 880 && user._xp <= 960) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 1040 && user._xp <= 1120) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else if (user._xp > 1120 && user._xp <= 1199) {
+                                width += 6.25
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        } else{
+                                width = 100
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        }
                 }
+                // if (user._xp == 0) {
+                //         document.querySelector('#currentXpBar').innerHTML = ""
+                //         break
+                // }
+                // document.querySelector('#currentXpBar').innerHTML = user._xp
+                // if (user._xp >= 100) {
+                //         $('.progress-bar').css({
+                //                 'width': '0%'
+                //         });
+                //         document.querySelector('#currentXpBar').innerHTML = user._xp
+                // } else {
+                //         width++
+
+                //         document.querySelector('#currentXpBar').innerHTML = user._xp
+                // }
+                // document.querySelector('.progress-bar').style.width = width + '%'
 
         }
 }
@@ -459,10 +501,6 @@ function cleanInputData() {
 
         document.querySelector('#txtCountry').addEventListener('click', function () {
                 document.querySelector('#txtCountry').value = ""
-        })
-
-        document.querySelector('#txtBirthdayDate').addEventListener('click', function () {
-                document.querySelector('#txtBirthdayDate').value = ""
         })
 }
 
@@ -485,12 +523,6 @@ export function showUserData() {
                                 document.querySelector('#txtCountry').value = ""
                         } else {
                                 document.querySelector('#txtCountry').value = user._country
-                        }
-
-                        if (user._birthday === undefined) {
-                                document.querySelector('#txtBirthdayDate').value = ""
-                        } else {
-                                document.querySelector('#txtBirthdayDate').value = user._birthday
                         }
 
                         document.querySelector('#txtDescription').value = user._description
