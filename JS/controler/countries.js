@@ -86,6 +86,7 @@ function renderCatalog() {
     for (const elem of countryBtn) {
         elem.addEventListener("click", function () {
             countryId = this.id
+            //console.log(this.id)
             renderModalInfo(this.id)
         })
     }
@@ -189,13 +190,14 @@ function renderModalInfo(id) {
             document.querySelector("#infoInfo").innerHTML = country._information
             document.querySelector("#imgModal").src = country._location
             const divComments = document.querySelector(".commentContainer")
-
+            console.log(country._comments);
             //listar comentario do pais em causa
-            for (let i = 0; i<country.comments; i++) {
-                console.log("123");
+            divComments.innerHTML=""
+            for (let i = 0; i<country._comments.length; i++) {
+                console.log("xxx");
                 
                 divComments.innerHTML += `
-                    ${country.comments[i].comment}-${country.comments[i].dateTime}\n
+                 Utilizador: ${country._comments[i]._userId} |  Comentário: "${country._comments[i]._comment}" | ${country._comments[i]._dateTime}<br>
                 `
             }
         }
@@ -211,17 +213,25 @@ if (document.querySelector('#commentForm') != null) {
             id = JSON.parse(sessionStorage.getItem("loggedUserId"))
             //inserir o comentario no array
             for (const country of countries) {
-                if (country.id === countryId) {
-                    console.log("DFDF");
-                    
-                    country.comments.push(new Comment(txtComment, id))
+                if (country._id == countryId) {
+                    console.log(country._id + "-" + countryId)
+                    const newComment = new Comment(txtComment, id)
+                    comments.push(newComment)
+                    country._comments.push(newComment)
                 }
             }
-        } else {
-            id = 1
+            alert("Comentário Efetuado com sucesso!")
+        } 
+        else {
+            alert("Não é possivel efetuar comentários sem iniciar sessão primeiro!")            
         }
-            localStorage.setItem('comments', JSON.stringify(comments))
+        /*console.log(countryId);
+        console.log(id);
+        console.log(txtComment);
+        console.log(new Date());*/
         
+        localStorage.setItem('comments', JSON.stringify(comments))
+        localStorage.setItem('countries', JSON.stringify(countries))
         event.preventDefault()
     })
 }
