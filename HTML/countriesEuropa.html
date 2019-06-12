@@ -102,7 +102,7 @@
     <!-- Modal -->
     <div class="modal fade" id="countryModal">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content" id="modalContent">
                 <!-- Cabeçalho da Modal -->
                 <div class="modal-header">
                     <img src="" id="modalFlag" class="modalLogo" alt="Logo">
@@ -112,28 +112,36 @@
                 <!-- Corpo da Modal -->
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-lg-6 col-md-12 col-xs-12 infoParagraph text-center">
-                            <p class="mt-4">Nome: <span id="infoName"></span></p>
-                            <p>Capital: <span id="infoCapital"></span></p>
-                            <p>Continente: <span id="infoContinent"></span></p>
-                            <p>Língua(s): <span id="infoLanguage"></span></p>
-                            <p>Informção: <span id="infoInfo"></span></p>
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <img class="modal-content" id="imgModal"></i>
+                        
+                            </img>
                         </div>
+                        <div class="col-lg-6 col-md-12 col-xs-12 infoParagraph text-center">
+                            <p>Informação: </p>
+                            <p id="infoInfo"></p>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
                         <div class="col-lg-6 col-md-12 col-xs-12 imgInfo">
-                            <img src="/Images/Mapa.png" id="modalMap" alt="Mapa" class="map">
-                            <img src="/Images/Legenda.png" id="modalCaption" alt="Legenda" class="caption mb-5">
-                            <div class="form-group">
-                                <label for="comment" class="translateLabel">Translate:</label>
-                                <textarea class="form-control" rows="5" id="comment"></textarea>
-                                <button class="btn translateBtn mt-3">Traduzir</button>
-                            </div>
+                            <p class="lead commentTitle" id="commentTitle">Comentários Anteriores:</p>
+                            <div class="commentContainer" rows="7" cols="20"></div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <form id="commentForm">
+                                <div class="form-group">
+                                    <label for="txtComment" class="modalLabel"> Escreva o seu Comentário:</label>
+                                    <textarea class="form-control comment" id="txtComment"  rows="7" cols="20" maxlength="750"></textarea>
+                                    <button class="btn commentBtn mt-3" id="commentBtn">Comentar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- Fim Modal -->
 
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
