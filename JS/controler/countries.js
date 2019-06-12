@@ -6,6 +6,7 @@ let countries = []
 let users = []
 let countryId 
 
+//o que acontece quando a paginas que usam com suposto este ficheiro, são carregadas
 window.onload = function () {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
@@ -28,6 +29,7 @@ window.onload = function () {
 
 searchCountry()
 
+//botão de filtrar
 if (document.querySelector("#btnFilter") != null) {
     document.querySelector("#btnFilter").addEventListener("click", function (event) {
         renderCatalog()
@@ -36,6 +38,7 @@ if (document.querySelector("#btnFilter") != null) {
     })
 }
 
+//função que renderiza o catalogo
 function renderCatalog() {
     if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Crescente") {
         sortCountriesAscendent()
@@ -86,6 +89,7 @@ function renderCatalog() {
     for (const elem of countryBtn) {
         elem.addEventListener("click", function () {
             countryId = this.id
+            //console.log(this.id)
             renderModalInfo(this.id)
         })
     }
@@ -144,7 +148,7 @@ function ratingStars() {
     // })
 }
 
-//função para trocar letras com caracteres especiais das letras, como acentos, cedilhas, etc por essa letra, simples.
+//função para trocar letras com caracteres especiais das letras (como acentos, cedilhas, etc por essa letra, simples.)
 export function removeAcento(text) {
     text = text.toLowerCase();
     text = text.replace(new RegExp('[ÁÀÂÃ]', 'gi'), 'a');
@@ -156,17 +160,18 @@ export function removeAcento(text) {
     return text;
 }
 
-/**
- * Função que ordena o array de paises pelo nome, no container
- */
+
+//Função que ordena o array de paises pelo nome, de forma crescente, no container
 function sortCountriesAscendent() {
     countries.sort(Country.ascendentAlphabeticOrder)
 }
 
+//Função que ordena o array de paises pelo nome, de forma decrescente, no container
 function sortCountriesDescendent() {
     countries.sort(Country.descendentAlphabeticOrder)
 }
 
+//funçao para procurar paises 
 function searchCountry() {
     $(document).ready(function () {
         $("#txtName").on("keyup", function () {
@@ -178,30 +183,28 @@ function searchCountry() {
     });
 }
 
-/**
- * Função que injeta na modal as informaçoes correspondentes ao pais em que o card foi carregado
- */
+//Função que injeta na modal as informaçoes correspondentes ao pais em que o card foi carregado
 function renderModalInfo(id) {
     for (const country of countries) {
-        //console.log(country._id + "-" + id)
         if (country._id == id) {
             document.querySelector("#modalFlag").src = country._flag
             document.querySelector("#infoInfo").innerHTML = country._information
             document.querySelector("#imgModal").src = country._location
             const divComments = document.querySelector(".commentContainer")
 
-            //listar comentario do pais em causa
-            for (let i = 0; i<country.comments; i++) {
-                console.log("123");
+            //listar comentario(s) registados sobre o pais em causa
+            divComments.innerHTML=""
+            for (let i = 0; i<country._comments.length; i++) {
                 
                 divComments.innerHTML += `
-                    ${country.comments[i].comment}-${country.comments[i].dateTime}\n
+                 Utilizador: ${country._comments[i]._userId} | Comentário: "${country._comments[i]._comment}" | ${country._comments[i]._dateTime}<br>
                 `
             }
         }
     }
 }
 
+//codigo para adicionar comentarios
 if (document.querySelector('#commentForm') != null) {
     document.querySelector('#commentForm').addEventListener('submit', function (event) {
         
@@ -210,22 +213,27 @@ if (document.querySelector('#commentForm') != null) {
         if (sessionStorage.getItem('loggedUserId')) {
             id = JSON.parse(sessionStorage.getItem("loggedUserId"))
             //inserir o comentario no array
-            for (const country of countries) {
-                if (country.id === countryId) {
-                    console.log("DFDF");
-                    
-                    country.comments.push(new Comment(txtComment, id))
-                }
+            if(txtComment == ""){
+                alert("Para comentar tem que escrever um comentário.")
             }
-        } else {
-            id = 1
+            else{
+                for (const country of countries) {
+                    if (country._id == countryId) {
+                        console.log(country._id + "-" + countryId)
+                        const newComment = new Comment(txtComment, id)
+                        comments.push(newComment)
+                        country._comments.push(newComment)
+                    }
+                }
+                alert("O teu comentário foi registado com sucesso!")
+            }
+        } 
+        else {
+            alert("Não é possível efetuar comentários sem primeiro iniciar sessão!\nSe ainda não tens conta, cria uma e anda divertir-te connosco.")            
         }
-            localStorage.setItem('comments', JSON.stringify(comments))
-        
+
+        localStorage.setItem('comments', JSON.stringify(comments))
+        localStorage.setItem('countries', JSON.stringify(countries))
         event.preventDefault()
     })
-}
-
-function renderComments() {
-    
 }
