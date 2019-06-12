@@ -257,8 +257,7 @@ function selectLevel(level) {
     for (const btn of btns) {
 
         if (level == btn.id) {
-            console.log(level + "," + btn.id)
-            //!!Nuno aqui
+            btn.style.backgroundColor = "red"
         }
     }
 }
@@ -325,74 +324,88 @@ function QuizzGenerator() {
 
     let position = Number(getActualLevel(continentStyle, ChosenQuizz)) + 1
     let level = position
-    unlockedLevels(level)
 
 
 
-    // ??????Questionavel
-    // Tells the actual level of the user 
-    // actualLevel(continentStyle,level)
-
-    // Get the place where the quizzes are going to be generated
-    let quizzPlaceHolder = document.querySelector('#quizzHolder')
-
-    // Eleminate the previouse quizz
-    quizzPlaceHolder.innerHTML = ''
-
-    //Array that will prevent the generation of the same number
-    let generatedNumbers = []
-
-    // This create a new in case of the gamer cannot played de random game
-    let timesInsideQuizzes = 0;
+    if (isCompleted(level)) {
 
 
 
-    //continent,quizzes, type
-    if (confExistence(continentStyle, quizzes, ChosenQuizz, level) == false) {
-        alert("Aquela")
     } else {
-        actualLevel(level)
-        let game = GenerateRandomGame()
-        for (const quizz of quizzes) {
-            if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level) {
-                document.querySelector('#questionHolder').innerHTML = quizz._question
-                console.log(quizz._pointXp)
-                document.querySelector('#quizzImg').src = quizz._img
-                for (let i = 0; i < 4; i++) {
-                    if (generatedNumbers.length == 0) {
-                        let position = GenerateRandomNumb()
-                        generatedNumbers.push(position)
-                        quizzPlaceHolder.innerHTML += ` <div class="row optionsRow">
+        unlockedLevels(level)
+
+        // ??????Questionavel
+        // Tells the actual level of the user 
+        // actualLevel(continentStyle,level)
+
+        // Get the place where the quizzes are going to be generated
+        let quizzPlaceHolder = document.querySelector('#quizzHolder')
+
+        // Eleminate the previouse quizz
+        quizzPlaceHolder.innerHTML = ''
+
+        //Array that will prevent the generation of the same number
+        let generatedNumbers = []
+
+        // This create a new in case of the gamer cannot played de random game
+        let timesInsideQuizzes = 0;
+
+
+
+        //continent,quizzes, type
+        if (confExistence(continentStyle, quizzes, ChosenQuizz, level) == false) {
+            alert("Aquela")
+        } else {
+            actualLevel(level)
+            let game = GenerateRandomGame()
+            for (const quizz of quizzes) {
+                if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level) {
+                    document.querySelector('#questionHolder').innerHTML = quizz._question
+                    console.log(quizz._pointXp)
+                    document.querySelector('#quizzImg').src = quizz._img
+                    for (let i = 0; i < 4; i++) {
+                        if (generatedNumbers.length == 0) {
+                            let position = GenerateRandomNumb()
+                            generatedNumbers.push(position)
+                            quizzPlaceHolder.innerHTML += ` <div class="row optionsRow">
                         <button class="btn mx-auto optionsButton" id='${position -1}'>${quizz._answers[position-1]}</button>
                          </div>`
 
-                    } else {
-                        let position = GenerateRandomNumb()
+                        } else {
+                            let position = GenerateRandomNumb()
 
-                        if (answearAddExistence(generatedNumbers, position) == false) {
-                            generatedNumbers.push(position)
-                            quizzPlaceHolder.innerHTML += ` <div class="row optionsRow">
+                            if (answearAddExistence(generatedNumbers, position) == false) {
+                                generatedNumbers.push(position)
+                                quizzPlaceHolder.innerHTML += ` <div class="row optionsRow">
                         <button class="btn mx-auto optionsButton" id='${position-1}'>${quizz._answers[position-1]}</button>
                          </div>`
-                        } else {
-                            i--
+                            } else {
+                                i--
+                            }
                         }
                     }
+                    // !Validade answer
+                    isTheAnswearRight(quizz._pointXp, game, level)
+                    break;
                 }
-                // !Validade answer
-                isTheAnswearRight(quizz._pointXp, game, level)
-                break;
-            }
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // else{
-            //     QuizzGenerator()
-            // } 
-            timesInsideQuizzes++;
-            if (timesInsideQuizzes == quizzes.length) {
-                QuizzGenerator()
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                // else{
+                //     QuizzGenerator()
+                // } 
+                timesInsideQuizzes++;
+                if (timesInsideQuizzes == quizzes.length) {
+                    QuizzGenerator()
+                }
             }
         }
+
+
+
+
     }
+
+
+
     // This is a number (id)
 }
 
@@ -490,7 +503,7 @@ function checkLevelProgress(level) {
             if (user._id == loggedUserId) {
 
                 for (let j = 0; j < toDelite.length; j++) {
-                   
+
                     for (let i = 0; i < user._playedQuizzes.length; i++) {
                         console.log(user._playedQuizzes[i])
                         console.log(toDelite[j])
@@ -521,39 +534,10 @@ function checkLevelProgress(level) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // !!!!!!!!!!!!!!!!!!Para continuar!!!!!!!!!!!!!!!!!!!!
-// /**
-//  * This function validate if the quizz has already been played by the user
-//  * @param {string} id this is the id of the current quizz
-//  */
-// function alreadyPlayed(id) {
-
-//     let playedQuizzes = []
-
-//     if (localStorage.getItem('playedQuizzes')) {
-//         playedQuizzes = JSON.parse(localStorage.getItem('playedQuizzes'))
-//     }
-//     for (const playedQuizz of playedQuizzes) {
-
-//         if (playedQuizz == id) {
-//             return true;
-//         }
-//     }
-//     return false;
-// }
+//function that validade if the user has already completed the quizz
+function isCompleted(level) {
+    if (level == 6) {
+        return true
+    }
+    return false
+}
