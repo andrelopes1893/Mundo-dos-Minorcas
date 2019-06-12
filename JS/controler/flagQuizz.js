@@ -217,7 +217,7 @@ function ConfIfUserIsRight(id, pointXp, game, level) {
     }
 }
 
-
+// *Working
 /**
  * !Function that make the level buttons 
  */
@@ -267,29 +267,6 @@ function selectLevel(level) {
 //     actualLevel(id)
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // *Working(main function)
 /**
  * This Function generate the quizz
@@ -324,20 +301,19 @@ function QuizzGenerator() {
 
     let position = Number(getActualLevel(continentStyle, ChosenQuizz)) + 1
     let level = position
-// //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//     level=6
-
-
 
     if (isCompleted(level)) {
 
         Swal.fire({
-            title: 'Error!',
-            text: 'Do you want to continue',
-            type: 'error',
-            confirmButtonText: 'Cool'
-          })
-   
+            title: '<span style="color:#ffff ; font-size:1.7rem">Já Completaste este quizz</span>',
+            type: 'info',
+            confirmButtonText: 'ok',
+            background: `#29ABE2`
+        }).then((result) => {
+            if (result.value) {
+                location.href = '/HTML/quizz.html'
+            }
+        })
     } else {
         unlockedLevels(level)
 
@@ -361,7 +337,18 @@ function QuizzGenerator() {
 
         //continent,quizzes, type
         if (confExistence(continentStyle, quizzes, ChosenQuizz, level) == false) {
-            alert("Aquela")
+            Swal.fire({
+                title: '<span style="color:#ffff ; font-size:1.7rem">Neste momento não existem quizzes deste nível nesta catergoria deste Continente</span>',
+                type: 'info',
+                confirmButtonText: 'ok',
+                background: `#CCCC33`,
+                confirmButtonColor: `#29ABE2`
+
+            }).then((result) => {
+                if (result.value) {
+                    location.href = '/HTML/quizz.html'
+                }
+            })
         } else {
             actualLevel(level)
             let game = GenerateRandomGame()
