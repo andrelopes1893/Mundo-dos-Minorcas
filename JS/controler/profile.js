@@ -80,18 +80,6 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
         let txtPassword = document.querySelector('#txtPassword').value
         let txtCountry = document.querySelector('#txtCountry').value
 
-        let usernameClass = document.querySelector('.username')
-        let usernameDiv = document.createElement('div')
-        let usernameElement = usernameClass.parentNode.insertBefore(usernameDiv, usernameClass.nextSibling)
-
-        let passwordClass = document.querySelector('.password')
-        let passwordDiv = document.createElement('div')
-        let passwordElement = passwordClass.parentNode.insertBefore(passwordDiv, passwordClass.nextSibling)
-
-        let countryClass = document.querySelector('.country')
-        let countryDiv = document.createElement('div')
-        let countryElement = countryClass.parentNode.insertBefore(countryDiv, countryClass.nextSibling)
-
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
                 id = JSON.parse(sessionStorage.getItem("loggedUserId"))
@@ -100,80 +88,83 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
         for (const user of users) {
                 if (user._id == id) {
                         if (txtUsername == "") {
-                                document.querySelector('.username').classList.add('is-invalid')
-                                usernameElement.classList.add('invalid-feedback')
-                                usernameElement.innerHTML += 'Escreve o teu novo nome de utilizador!'
-                                // document.querySelector('.invalid-feedback').style.transition = 'all .5s ease-in-out'
-                                // document.querySelector('.invalid-feedback').style.transform = 'scale(1.1, 1.1)'
-                                // document.querySelector('.usernameForm').style.marginBottom = 15 + '%';
-                                setTimeout(() => {
-                                        document.querySelector('.usernameForm').style.transition = 'all .5s ease-in-out'
-                                        document.querySelector('.usernameForm').style.transform = 'scale(1, 1)'
-                                        document.querySelector('.username').classList.remove('is-invalid')
-                                        usernameElement.classList.remove('invalid-feedback')
-                                        usernameElement.innerHTML = ""
-
-                                }, 5000);
+                                Swal.fire({
+                                        type: 'error',
+                                        title: 'Oops...',
+                                        text: 'Tens de ter um username!',
+                                        padding: '1rem',
+                                        background: '#CCCC33',
+                                        confirmButtonColor: '#29ABE2'
+                                }).then((result) => {
+                                        if (result.value) {
+                                                document.querySelector('#txtUsername').value = user._username
+                                        }
+                                })
                         } else {
-                                document.querySelector('.username').classList.add('is-valid')
-                                usernameElement.classList.add('valid-feedback')
-                                usernameElement.innerHTML += 'Que nome mais altamente!'
-                                // document.querySelector('.usernameForm').style.marginBottom = 15 + '%';
-                                setTimeout(() => {
-                                        document.querySelector('.username').classList.remove('is-valid')
-                                        usernameElement.classList.remove('valid-feedback')
-                                        usernameElement.innerHTML = ""
-                                }, 5000);
-                                document.querySelector('#txtUsername').value = txtUsername
+                                const Toast = Swal.mixin({
+                                        toast: true,
+                                        position: 'bottom-end',
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                        background: '#29ABE2'
+                                });
+                                Toast.fire({
+                                        type: 'success',
+                                        title: '<span style="color:#FFFFFF">Alterações guardadas com sucesso!<span>'
+                                })
                                 user._username = txtUsername
                         }
 
                         if (txtPassword == "") {
-                                document.querySelector('.password').classList.add('is-invalid')
-                                passwordElement.classList.add('invalid-feedback')
-                                passwordElement.innerHTML += 'Escreve a tua nova palavra-passe!'
-                                // document.querySelector('.passwordForm').style.marginBottom = 15 + '%';
-                                setInterval(() => {
-                                        document.querySelector('.password').classList.remove('is-invalid')
-                                        passwordElement.classList.remove('invalid-feedback')
-                                        passwordElement.innerHTML = ""
-                                }, 5000);
+                                Swal.fire({
+                                        type: 'error',
+                                        title: 'Oops...',
+                                        text: 'Tens de ter uma password!',
+                                        padding: '1rem',
+                                        background: '#CCCC33',
+                                        confirmButtonColor: '#29ABE2'
+                                }).then((result) => {
+                                        if (result.value) {
+                                                document.querySelector('#txtPassword').value = user._password
+                                        }
+                                })
                         } else {
-                                document.querySelector('.password').classList.add('is-valid')
-                                passwordElement.classList.add('valid-feedback')
-                                passwordElement.innerHTML += 'Palavra-passe segura!'
-                                // document.querySelector('.passwordForm').style.marginBottom = 15 + '%';
-                                setInterval(() => {
-                                        document.querySelector('.password').classList.remove('is-valid')
-                                        passwordElement.classList.remove('valid-feedback')
-                                        passwordElement.innerHTML = ""
-                                }, 5000);
-                                document.querySelector('#txtPassword').value = txtPassword
+                                const Toast = Swal.mixin({
+                                        toast: true,
+                                        position: 'bottom-end',
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                        background: '#29ABE2'
+                                });
+                                Toast.fire({
+                                        type: 'success',
+                                        title: '<span style="color:#FFFFFF">Alterações guardadas com sucesso!<span>'
+                                })
                                 user._password = txtPassword
                         }
 
                         if (txtCountry == "") {
-                                document.querySelector('.country').classList.add('is-invalid')
-                                countryElement.classList.add('invalid-feedback')
-                                countryElement.innerHTML += 'Escreve o teu país!'
+                                // document.querySelector('.country').classList.add('is-invalid')
+                                // countryElement.classList.add('invalid-feedback')
+                                // countryElement.innerHTML += 'Escreve o teu país!'
                                 // document.querySelector('.countryForm').style.marginBottom = 15 + '%';
-                                setInterval(() => {
-                                        document.querySelector('.country').classList.remove('is-invalid')
-                                        countryElement.classList.remove('invalid-feedback')
-                                        countryElement.innerHTML = ""
-                                }, 5000);
+                                // setInterval(() => {
+                                //         document.querySelector('.country').classList.remove('is-invalid')
+                                //         countryElement.classList.remove('invalid-feedback')
+                                //         countryElement.innerHTML = ""
+                                // }, 5000);
                         } else {
-                                document.querySelector('.country').classList.add('is-valid')
-                                countryElement.classList.add('valid-feedback')
-                                countryElement.innerHTML += 'País Localizado!'
+                                // document.querySelector('.country').classList.add('is-valid')
+                                // countryElement.classList.add('valid-feedback')
+                                // countryElement.innerHTML += 'País Localizado!'
                                 // document.querySelector('.countryForm').style.marginBottom = 15 + '%';
-                                setInterval(() => {
-                                        document.querySelector('.country').classList.remove('is-valid')
-                                        countryElement.classList.remove('valid-feedback')
-                                        countryElement.innerHTML = ""
-                                }, 5000);
-                                document.querySelector('#txtCountry').value = txtCountry
-                                user._country = txtCountry
+                                // setInterval(() => {
+                                //         document.querySelector('.country').classList.remove('is-valid')
+                                //         countryElement.classList.remove('valid-feedback')
+                                //         countryElement.innerHTML = ""
+                                // }, 5000);
+                                // document.querySelector('#txtCountry').value = txtCountry
+                                // user._country = txtCountry
                         }
                 }
                 localStorage.setItem('users', JSON.stringify(users))
@@ -464,7 +455,7 @@ function showCurrentXP() {
                                 width += 6.25
                                 document.querySelector('.progress-bar').style.width = width + '%'
                                 document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                        } else{
+                        } else {
                                 width = 100
                                 document.querySelector('.progress-bar').style.width = width + '%'
                                 document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
