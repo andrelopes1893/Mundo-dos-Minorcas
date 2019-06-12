@@ -87,7 +87,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
 
         for (const user of users) {
                 if (user._id == id) {
-                        if (txtUsername == "") {
+                        if (txtUsername == '') {
                                 Swal.fire({
                                         type: 'error',
                                         title: 'Oops...',
