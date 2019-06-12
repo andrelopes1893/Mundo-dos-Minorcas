@@ -516,12 +516,14 @@ p.lead.commentTitle {
     color: #ffffff;
     margin-bottom: .7rem;
     font-weight: 500;
+    text-decoration: underline;
 }
 
 p.lead.informationTitle{
     color: #ffffff;
     margin-bottom: .7rem;
     font-weight: 500;
+    text-decoration: underline;
 }
 
 div.commentContainer {
@@ -1527,6 +1529,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     border: 2px solid #ffffff;
     background-color:  #29ABE2;
     color: #ffffff;
+    text-decoration: underline;
 }
 
 #modalContent {
