@@ -16,6 +16,9 @@ window.onload = function () {
         if (sessionStorage.getItem("loggedUserId")) {
                 id = JSON.parse(sessionStorage.getItem('loggedUserId'))
         }
+        if (localStorage.getItem("suggestions")) {
+                suggestions = JSON.parse(localStorage.getItem("suggestions"))
+        }
         doNotShowPasswordData()
         showUserData()
         showAvatarOnload()
@@ -44,9 +47,15 @@ document.querySelector('#suggestionForm').addEventListener('submit', function (e
 
         for (const user of users) {
                 if (user._id == id) {
-                        suggestions.push(new Suggestion(stlContinent, txtCountryName, txtCountryCapital, txtCountryLanguage))
+                        suggestions.push(new Suggestion({
+                                user: id,
+                                continent: stlContinent,
+                                country: txtCountryName,
+                                capital: txtCountryCapital,
+                                language: txtCountryLanguage
+                        }))
+                        // suggestions.push(new Suggestion(user._id, suggestion._confirmed, stlContinent, txtCountryName, txtCountryLanguage, txtCountryCapital))
                 }
-
         }
         localStorage.setItem('suggestions', JSON.stringify(suggestions))
 
@@ -87,85 +96,37 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
 
         for (const user of users) {
                 if (user._id == id) {
-                        if (txtUsername == '') {
+                        if (txtUsername == '' || txtPassword == "") {
                                 Swal.fire({
                                         type: 'error',
-                                        title: 'Oops...',
-                                        text: 'Tens de ter um username!',
+                                        title: 'Erro...',
+                                        text: 'Tens de preencher todos os campos!',
                                         padding: '1rem',
                                         background: '#CCCC33',
                                         confirmButtonColor: '#29ABE2'
                                 }).then((result) => {
                                         if (result.value) {
                                                 document.querySelector('#txtUsername').value = user._username
-                                        }
-                                })
-                        } else {
-                                const Toast = Swal.mixin({
-                                        toast: true,
-                                        position: 'bottom-end',
-                                        showConfirmButton: false,
-                                        timer: 3000,
-                                        background: '#29ABE2'
-                                });
-                                Toast.fire({
-                                        type: 'success',
-                                        title: '<span style="color:#FFFFFF">Alterações guardadas com sucesso!<span>'
-                                })
-                                user._username = txtUsername
-                        }
-
-                        if (txtPassword == "") {
-                                Swal.fire({
-                                        type: 'error',
-                                        title: 'Oops...',
-                                        text: 'Tens de ter uma password!',
-                                        padding: '1rem',
-                                        background: '#CCCC33',
-                                        confirmButtonColor: '#29ABE2'
-                                }).then((result) => {
-                                        if (result.value) {
                                                 document.querySelector('#txtPassword').value = user._password
                                         }
                                 })
                         } else {
-                                const Toast = Swal.mixin({
+                                const usernameToast = Swal.mixin({
                                         toast: true,
                                         position: 'bottom-end',
                                         showConfirmButton: false,
                                         timer: 3000,
                                         background: '#29ABE2'
                                 });
-                                Toast.fire({
+                                usernameToast.fire({
                                         type: 'success',
                                         title: '<span style="color:#FFFFFF">Alterações guardadas com sucesso!<span>'
                                 })
+                                user._username = txtUsername
                                 user._password = txtPassword
                         }
-
-                        if (txtCountry == "") {
-                                // document.querySelector('.country').classList.add('is-invalid')
-                                // countryElement.classList.add('invalid-feedback')
-                                // countryElement.innerHTML += 'Escreve o teu país!'
-                                // document.querySelector('.countryForm').style.marginBottom = 15 + '%';
-                                // setInterval(() => {
-                                //         document.querySelector('.country').classList.remove('is-invalid')
-                                //         countryElement.classList.remove('invalid-feedback')
-                                //         countryElement.innerHTML = ""
-                                // }, 5000);
-                        } else {
-                                // document.querySelector('.country').classList.add('is-valid')
-                                // countryElement.classList.add('valid-feedback')
-                                // countryElement.innerHTML += 'País Localizado!'
-                                // document.querySelector('.countryForm').style.marginBottom = 15 + '%';
-                                // setInterval(() => {
-                                //         document.querySelector('.country').classList.remove('is-valid')
-                                //         countryElement.classList.remove('valid-feedback')
-                                //         countryElement.innerHTML = ""
-                                // }, 5000);
-                                // document.querySelector('#txtCountry').value = txtCountry
-                                // user._country = txtCountry
-                        }
+                        document.querySelector('#txtCountry').value = txtCountry
+                        user._country = txtCountry
                 }
                 localStorage.setItem('users', JSON.stringify(users))
         }
@@ -461,23 +422,6 @@ function showCurrentXP() {
                                 document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
                         }
                 }
-                // if (user._xp == 0) {
-                //         document.querySelector('#currentXpBar').innerHTML = ""
-                //         break
-                // }
-                // document.querySelector('#currentXpBar').innerHTML = user._xp
-                // if (user._xp >= 100) {
-                //         $('.progress-bar').css({
-                //                 'width': '0%'
-                //         });
-                //         document.querySelector('#currentXpBar').innerHTML = user._xp
-                // } else {
-                //         width++
-
-                //         document.querySelector('#currentXpBar').innerHTML = user._xp
-                // }
-                // document.querySelector('.progress-bar').style.width = width + '%'
-
         }
 }
 
