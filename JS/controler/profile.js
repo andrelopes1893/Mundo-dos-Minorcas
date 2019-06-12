@@ -433,7 +433,7 @@ function showCurrentXP() {
                         document.querySelector('#currentXpBar').innerHTML = ""
                         break
                 }
-
+                document.querySelector('#currentXpBar').innerHTML = user._xp
                 if (user._xp >= 100) {
                         $('.progress-bar').css({
                                 'width': '0%'
