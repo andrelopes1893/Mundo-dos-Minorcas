@@ -518,6 +518,12 @@ p.lead.commentTitle {
     font-weight: 500;
 }
 
+p.lead.informationTitle{
+    color: #ffffff;
+    margin-bottom: .7rem;
+    font-weight: 500;
+}
+
 div.commentContainer {
     border: 2px solid #29ABE2;
     background-color: #29ABE2;
@@ -525,6 +531,14 @@ div.commentContainer {
     width: 20rem;
     height: 15rem;
     overflow: auto;
+    color: #ffffff;
+}
+
+#infoInfo{
+    background-color: #29ABE2;
+    border-radius: 5px;
+    width: 20rem;
+    height: 15rem;
     color: #ffffff;
 }
 
@@ -1512,10 +1526,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     resize: none;
     border: 2px solid #ffffff;
     background-color:  #29ABE2;
-    color: #ffffff;
-}
-
-#infoInfo {
     color: #ffffff;
 }
 
