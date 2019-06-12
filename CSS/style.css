@@ -516,15 +516,50 @@ p.lead.commentTitle {
     color: #ffffff;
     margin-bottom: .7rem;
     font-weight: 500;
+    text-decoration: underline;
+}
+
+p.lead.informationTitle{
+    color: #ffffff;
+    margin-bottom: .7rem;
+    font-weight: 500;
+    text-decoration: underline;
 }
 
 div.commentContainer {
-    border: 2px solid #ffffff;
-    background-color: #ffffff;
+    border: 2px solid #29ABE2;
+    background-color: #29ABE2;
     border-radius: 5px;
     width: 20rem;
     height: 15rem;
+    overflow: auto;
+    color: #ffffff;
 }
+
+#infoInfo{
+    background-color: #29ABE2;
+    border-radius: 5px;
+    width: 20rem;
+    height: 15rem;
+    color: #ffffff;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #CCCC33; 
+    border-radius: 10px;
+  }
 
 button.translateBtn {
     color: #ffffff;
@@ -764,7 +799,7 @@ form div.form-group>input {
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom-color: #29ABE2;
+    border-bottom-color: #29abe2;
 }
 
 form div.form-group {
@@ -1491,10 +1526,10 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
 #txtComment {
     resize: none;
-}
-
-#infoInfo {
+    border: 2px solid #ffffff;
+    background-color:  #29ABE2;
     color: #ffffff;
+    text-decoration: underline;
 }
 
 #modalContent {

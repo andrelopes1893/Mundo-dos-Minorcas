@@ -197,7 +197,7 @@ function renderModalInfo(id) {
             for (let i = 0; i<country._comments.length; i++) {
                 
                 divComments.innerHTML += `
-                 Utilizador: ${country._comments[i]._userId} | Comentário: "${country._comments[i]._comment}" | ${country._comments[i]._dateTime}<br>
+                 Utilizador: ${country._comments[i]._userId} | Comentário: "${country._comments[i]._comment}" | ${country._comments[i]._dateTime}<br><br>
                 `
             }
         }
