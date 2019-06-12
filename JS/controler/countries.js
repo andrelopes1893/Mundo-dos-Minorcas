@@ -197,7 +197,7 @@ function renderModalInfo(id) {
             for (let i = 0; i<country._comments.length; i++) {
                 
                 divComments.innerHTML += `
-                 Utilizador: ${country._comments[i]._userId} |  Comentário: "${country._comments[i]._comment}" | ${country._comments[i]._dateTime}<br>
+                 Utilizador: ${country._comments[i]._userId} | Comentário: "${country._comments[i]._comment}" | ${country._comments[i]._dateTime}<br>
                 `
             }
         }
@@ -213,15 +213,20 @@ if (document.querySelector('#commentForm') != null) {
         if (sessionStorage.getItem('loggedUserId')) {
             id = JSON.parse(sessionStorage.getItem("loggedUserId"))
             //inserir o comentario no array
-            for (const country of countries) {
-                if (country._id == countryId) {
-                    console.log(country._id + "-" + countryId)
-                    const newComment = new Comment(txtComment, id)
-                    comments.push(newComment)
-                    country._comments.push(newComment)
-                }
+            if(txtComment == ""){
+                alert("Para comentar tem que escrever um comentário.")
             }
-            alert("O teu comentário foi registado com sucesso!")
+            else{
+                for (const country of countries) {
+                    if (country._id == countryId) {
+                        console.log(country._id + "-" + countryId)
+                        const newComment = new Comment(txtComment, id)
+                        comments.push(newComment)
+                        country._comments.push(newComment)
+                    }
+                }
+                alert("O teu comentário foi registado com sucesso!")
+            }
         } 
         else {
             alert("Não é possível efetuar comentários sem primeiro iniciar sessão!\nSe ainda não tens conta, cria uma e anda divertir-te connosco.")            
