@@ -324,13 +324,20 @@ function QuizzGenerator() {
 
     let position = Number(getActualLevel(continentStyle, ChosenQuizz)) + 1
     let level = position
+// //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//     level=6
 
 
 
     if (isCompleted(level)) {
 
-
-
+        Swal.fire({
+            title: 'Error!',
+            text: 'Do you want to continue',
+            type: 'error',
+            confirmButtonText: 'Cool'
+          })
+   
     } else {
         unlockedLevels(level)
 
