@@ -47,14 +47,7 @@ document.querySelector('#suggestionForm').addEventListener('submit', function (e
 
         for (const user of users) {
                 if (user._id == id) {
-                        suggestions.push(new Suggestion({
-                                user: id,
-                                continent: stlContinent,
-                                country: txtCountryName,
-                                capital: txtCountryCapital,
-                                language: txtCountryLanguage
-                        }))
-                        // suggestions.push(new Suggestion(user._id, suggestion._confirmed, stlContinent, txtCountryName, txtCountryLanguage, txtCountryCapital))
+                        suggestions.push(new Suggestion(stlContinent, txtCountryName, txtCountryCapital, txtCountryLanguage))
                 }
         }
         localStorage.setItem('suggestions', JSON.stringify(suggestions))
