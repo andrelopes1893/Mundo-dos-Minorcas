@@ -171,6 +171,16 @@ function sortCountriesDescendent() {
     countries.sort(Country.descendentAlphabeticOrder)
 }
 
+//Função que ordena o array de comentarios pela data, de forma crescente, no modal
+function sortDateAscendent() {
+    country._comments.sort(Comment.dateFromRecentToOld)
+}
+
+//Função que ordena o array de comentarios pela data, de forma decrescente, no modal
+function sortDateDescendent() {
+    country._comments.sort(Comment.dateFromOldToRecent)
+}
+
 //funçao para procurar paises 
 function searchCountry() {
     $(document).ready(function () {
