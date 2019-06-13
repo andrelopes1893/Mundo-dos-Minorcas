@@ -2,10 +2,9 @@ let quizzes = []
 let continentStyle = ''
 let ChosenQuizz = ''
 
-
 QuizzGenerator()
 // *Working (Butt needs some adjustments)
-//! this function reads all the array and tells if the user have or not quizzes from that category
+//! this function reads all the components of an  array and tells if the user have or not quizzes from that category and level(optional)
 function confExistence(continent, quizzes, type, level) {
     for (const quizz of quizzes) {
         if (quizz._continent == continent && quizz._quizType == type && quizz._level == level) {
@@ -63,7 +62,11 @@ function setPlayedQuizzes(quizzId) {
     localStorage.setItem('users', JSON.stringify(users))
 }
 // *Working
-//!!!!!!!!!!!!funcao que busca o atual nivel
+/**
+ * Get the user acctual status inside a quizz
+ * @param {String} continent The continet 
+ * @param {String} quizzType Type of quizz
+ */
 function getActualLevel(continent, quizzType) {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
@@ -95,7 +98,10 @@ function getActualLevel(continent, quizzType) {
 }
 
 // *Working
-//!!!!!funcao que adiciona ao utilizador o actualnivel que se encotra nos quizzes
+/**
+ * update the user status inside a expecific quizz
+ * @param {String} level The actual level inside a quizz
+ */
 function actualLevel(level) {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
@@ -197,6 +203,13 @@ function isTheAnswearRight(pointXp, game, level) {
 }
 // *Working
 // !Confirm if the answear is right
+/**
+ * gives xp to the user if he is write and updates user status inside a quizz
+ * @param {Number} id The position of the answear inside the array
+ * @param {String} pointXp Number of xp that the user will win
+ * @param {Number} game The id of the question that the user is playind
+ * @param {Number} level 
+ */
 function ConfIfUserIsRight(id, pointXp, game, level) {
     if (id === '3') {
         alert('Acertaste, vem ai o proximo nivel pa')
@@ -219,7 +232,7 @@ function ConfIfUserIsRight(id, pointXp, game, level) {
 
 // *Working
 /**
- * !Function that make the level buttons 
+ * Function that make the level buttons 
  */
 function unlockedLevels(level) {
     let playebleLevels = []
@@ -239,7 +252,7 @@ function unlockedLevels(level) {
     return playebleLevels
 }
 /**
- * Generate the levels buttons          
+ * Generate the levels buttons  (helps identify the level that the user is playing)         
  * @param {array} playebleLevels level that the user can play
  */
 function renderLevelButtons(playebleLevels, level) {
@@ -307,7 +320,7 @@ function QuizzGenerator() {
     let numbers= quantity(continentStyle, quizzes, ChosenQuizz, level)
 
     levelInfoBuilder(level, continentStyle, ChosenQuizz,numbers)
-
+    showCurrentXP()
     if (isCompleted(level)) {
 
         Swal.fire({
@@ -388,10 +401,6 @@ function QuizzGenerator() {
                     isTheAnswearRight(quizz._pointXp, game, level)
                     break;
                 }
-                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                // else{
-                //     QuizzGenerator()
-                // } 
                 timesInsideQuizzes++;
                 if (timesInsideQuizzes == quizzes.length) {
                     QuizzGenerator()
@@ -435,7 +444,11 @@ function assignXpToThePlayer(xp) {
 
 
 
-
+//* Working
+/**
+ * This function validadte if the user is ready to play another level from the quizz in the continet from that category 
+ * @param {Number} level the actual level that the user is inside in that quizz
+ */
 function checkLevelProgress(level) {
 
     if (localStorage.getItem("users")) {
@@ -515,10 +528,7 @@ function checkLevelProgress(level) {
                 }
 
             }
-            // !!!!!!!!!!!!
         }
-
-        // user._playedQuizzes = []
         localStorage.setItem('users', JSON.stringify(users))
         alert("Parabens subiste de nivel")
         actualLevel(level + 1)
@@ -535,7 +545,7 @@ function isCompleted(level) {
 }
 
 
-
+//!!!!!!!!!!! Not Working
 //!Function that add propriety to the exit button
 function exit() {
     document.querySelector('#quit').addEventListener('click', function () {
@@ -545,27 +555,37 @@ function exit() {
     })
 }
 
+
+
+/**
+ * build the information to update the user about his status inside the quizz           
+ * @param {String} level the actual level that the user is inside in that quizz
+ * @param {String} continent The continent that the quizz represents
+ * @param {String} quizzType Type of Quizz (flag,Capital or Location)
+ * @param {Array} numbers array with the number of games existence in that level from that category and continent(second possition (1) inside the array ) and the number of quizzes from the same that the user has played (first possition (0) inside the array)
+ */
+
 function levelInfoBuilder(level, continent, quizzType,numbers) {
     let quizzInfoHolder = document.querySelector('#actualLevel')
     let continentPlace = document.querySelector('#actualContinet')
     if (continent === 'africa') {
-        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span>;<br> Nível: <span>${level}</span>;<br>Progresso: <span>${numbers[0]}/${numbers[1]}</span> `
+        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span><br> Nível: <span>${level}</span><br>Progresso: <span>${numbers[0]}/${numbers[1]}</span> `
         continentPlace.innerHTML = `Continente: <span>África</span>`
     }
     if (continent === 'america') {
-        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span>;<br> Nível: <span>${level}</span>; <br>Progresso: <span>${numbers[0]}/${numbers[1]}</span> `
+        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span><br> Nível: <span>${level}</span> <br>Progresso: <span>${numbers[0]}/${numbers[1]}</span> `
         continentPlace.innerHTML = `Continente: <span>América</span>`
     }
     if (continent === 'asia') {
-        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span>;<br> Nível: <span>${level}</span>;<br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
+        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span><br> Nível: <span>${level}</span><br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
         continentPlace.innerHTML = `Continente: <span>Ásia</span>`
     }
     if (continent === 'europa') {
-        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span>; <br> Nível: <span>${level}</span>;<br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
+        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span> <br> Nível: <span>${level}</span><br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
         continentPlace.innerHTML = `Continente: <span>Europa</span>`
     }
     if (continent === 'oceania') {
-        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span>; <br>Nível: <span>${level}</span>;<br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
+        quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span> <br>Nível: <span>${level}</span><br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
         continentPlace.innerHTML = `Continente: <span>Oceânia</span>`
     }
     let spans = document.querySelectorAll("span")
@@ -573,8 +593,14 @@ function levelInfoBuilder(level, continent, quizzType,numbers) {
         span.style.color = "#CCCC33"
     }
 }
-
-
+//* Working
+/**
+ * This function gives back the number of quizzes from the current level category and continet that the user has played and gives the total of level from the same condition that existes 
+ * @param {String} continent The continent that the quizz represents
+ * @param {Array} quizzes The quizzes from the app
+ * @param {String} type  Type of Quizz (flag,Capital or Location)
+ * @param {Number} level the actual level that the user is inside one quizz
+ */
 function quantity(continent, quizzes, type, level) {
 
 
@@ -619,4 +645,88 @@ function quantity(continent, quizzes, type, level) {
     toReturn.push(total)
     return toReturn
 
+}
+
+
+//*WORKING
+// !Progress bar fill
+function showCurrentXP() {
+    let width = 1
+    for (const user of users) {
+            let id = ""
+            if (sessionStorage.getItem('loggedUserId')) {
+                    id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+            }else{
+                id=2
+            }
+
+            if (user._id == id) {
+                    if (user._xp <= 20) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 20 && user._xp <= 80) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 80 && user._xp <= 160) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 160 && user._xp <= 240) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 240 && user._xp <= 320) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 320 && user._xp <= 400) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 400 && user._xp <= 480) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 480 && user._xp <= 560) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 560 && user._xp <= 640) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 640 && user._xp <= 720) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 720 && user._xp <= 800) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 800 && user._xp <= 880) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 880 && user._xp <= 960) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 1040 && user._xp <= 1120) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else if (user._xp > 1120 && user._xp <= 1199) {
+                            width += 6.25
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    } else {
+                            width = 100
+                            document.querySelector('.progress-bar').style.width = width + '%'
+                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                    }
+            }
+
+    }
 }
