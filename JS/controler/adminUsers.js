@@ -8,6 +8,7 @@ window.onload = function () {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
+    dataCards()
     renderTable()
 }
 
@@ -15,8 +16,6 @@ import {
     newUserByAdmin
 } from '../models/main.js'
 
-
-//Este event ainda nao esta a funcionar devido ao erro: Cannot read property 'addEventListener' of null at loginAndSignup.js:9
 document.querySelector('#adminForm').addEventListener('submit', function (event) {
     const txtUsername = document.querySelector('#txtUsername').value
     const txtEmail = document.querySelector('#txtEmail').value
@@ -60,10 +59,12 @@ function renderTable() {
                                         <td><button type="button" id="${user._id}" data-toggle="modal" data-target="#newBlockUserModal" class="btn blockButton pt-2"><img src="/Images/lock.png" alt="Bloquear"></button></td>
                                         <td><button type="button" id="${user._username}" data-toggle="modal" data-target="#removeUser" class="btn remove"><img src="/Images/x.png" alt="Eliminar"></button></td>
                                         <td>${type}</td>
+                                        <td><button type="button" id="${user._id}" class="btn change"><img src="/Images/changeUser.png" class="changeUser" alt="Mudar"></td>
                                     </tr>`
     });
     removeButtons()
     blockBtnNewEvent()
+    changeUsersTypeBtns()
 }
 
 function removeButtons() {
@@ -90,12 +91,8 @@ function removeUser(username) {
 
 function blockBtnNewEvent() {
     let editButtons = document.getElementsByClassName('blockButton')
-    console.log(editButtons.length);
-
     for (const elem of editButtons) {
         elem.addEventListener('click', function () {
-            console.log(this.id);
-
             blockUser(this.id)
         })
     }
@@ -147,4 +144,39 @@ function blockUser(id) {
             //$('#newBlockUserModal').modal('hide')
         })
     }
+}
+
+function changeUsersTypeBtns() {
+    let changeBtns = document.getElementsByClassName("btn change")
+    for (const elem of changeBtns) {
+        elem.addEventListener("click", function () {
+            changeUsersType(this.id)
+        })
+    }
+}
+
+let change = 1
+
+function changeUsersType(id) {
+    for (const user of users) {
+        console.log(user._accountType);
+        
+        if (user._id == id) {
+            if (change == 1) {
+                user._accountType = '1'
+                change = 0  
+                localStorage.setItem('users', JSON.stringify(users))
+            } else {
+                user._accountType = '2'
+                change = 1
+                localStorage.setItem('users', JSON.stringify(users))
+            }
+        }
+    }
+}
+
+
+function dataCards() {
+    document.querySelector('#usersTotal').innerHTML = '<img src="/Images/user.png" class="userImage" alt="Utilizador" style="width: 3rem;"> ' + users.length
+    document.querySelector('#usersTotal').style.fontSize = '2rem'
 }

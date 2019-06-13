@@ -185,6 +185,11 @@ button.btn.createAdmin {
     padding: 0%;
 }
 
+.changeUser {
+    width: 3rem;
+    height: 3rem;
+}
+
 button.block{
     border: 1px solid #29ABE2;
     color: #29ABE2;
