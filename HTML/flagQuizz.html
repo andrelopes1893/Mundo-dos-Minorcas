@@ -21,7 +21,7 @@
 
 </head>
 
-<body style="background-color: #EEEBD0">
+<body style="background-color: #EEEBD0 ;overflow: hidden;">
     <div class="container-fluid navQuizz">
         <div class="row flagInfoRow">
 
@@ -31,7 +31,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-sm-3 col-xs-3 text-center d-flex align-items-center flagInfoText">
-                    <p id="actualContinet"  class='my-4 mx-auto' style="color: #ffff;font-size: 2rem"></p>
+                <p id="actualContinet" class='my-4 mx-auto' style="color: #ffff;font-size: 2rem"></p>
             </div>
 
             <div class="col-lg-6 col-sm-6 col-xs-6 text-center d-flex align-items-center flagInfoText">
@@ -76,10 +76,13 @@
     </div>
 
     <div class="container-fluid navQuizz">
-        <div class="row flagInfoRow">
+        <div class="row flagInfoRow" style="margin-bottom: 0%">
+            <div class="col-12 logoNavQuizz text-center mt-lg-3">
+                <p class="my-1" style="color: #ffff;font-size:1.5rem">Progresso</p>
+            </div>
             <div class="col-12 logoNavQuizz">
-                <div class="progress mr-lg-5 ml-lg-5 mt-lg-5 mb-lg-5">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                <div class="progress mr-lg-5 ml-lg-5 mt-lg-1 mb-lg-5 mt-lg-1">
+                    <div  style="margin-top: 0%;" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                         aria-valuemin="0" aria-valuemax="100">
                         <p id="currentXpBar"></p>
                     </div>
