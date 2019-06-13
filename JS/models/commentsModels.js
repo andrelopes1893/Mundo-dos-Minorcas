@@ -22,4 +22,26 @@ export default class Comment {
     set dateTime(value){
         this._dateTime = value
     }
+
+    // Compara duas datas. Faz uma ordenação da data mais recente para o mais antigo
+    static dateFromRecentToOld(dateA, dateB){
+        if (dateA._dateTime < dateB._dateTime) {
+            return -1;
+        }
+        if (dateA._dateTime > dateB._dateTime) {
+            return 1;
+        }
+        return 0;
+    }
+
+    // Compara duas datas. Faz uma ordenação da data mais antigo para o mais recente
+    static dateFromOldToRecent(dateA, dateB){
+        if (dateA._dateTime < dateB._dateTime) {
+            return 1;
+        }
+        if (dateA._dateTime > dateB._dateTime) {
+            return -1;
+        }
+        return 0;
+    }
 }
