@@ -30,7 +30,61 @@ if (document.getElementById('quizCreateForm') != null) {
             localStorage.setItem('quizzes', JSON.stringify(quizzes))
             answers = []
         }
-    
+        renderTable()
         event.preventDefault()
+    })
+}
+
+
+renderTable()
+function renderTable() {
+
+    if (localStorage.getItem("quizzes")) {
+        quizzes= JSON.parse(localStorage.getItem("quizzes"))
+    }
+    let usersBodyTable = document.querySelector('#QuizzTableBody')
+    usersBodyTable.innerHTML = ''
+    let type = ""
+
+    let r = 0
+
+    quizzes.forEach(quizze => {
+        r++
+        usersBodyTable.innerHTML += `<tr>
+                                        <th scope="row">${r}</th>
+                                        <td> ${quizze._continent}</td>
+                                        <td>${quizze._quizType}</td>
+                                        <td>${quizze._level}</td>
+                                        <td>${quizze._answers[3]}</td>
+                                        <td><button type="button" id="${quizze._id}" data-toggle="modal" data-target="#removeQuizz" class="btn remove"><img src="/Images/x.png" alt="Eliminar"></button></td>
+                                       
+                                    </tr>`
+    });
+    removeButtons()
+   
+}
+
+
+
+function removeButtons() {
+    let removeBtns = document.getElementsByClassName("btn remove")
+    for (const elem of removeBtns) {
+        elem.addEventListener("click", function () {
+            removeUser(this.id)
+        })
+    }
+}
+
+
+function removeUser(quizzId) {
+    document.querySelector('.yesButton').addEventListener('click', function () {
+        for (let i = 0; i < quizzes.length; i++) {
+            if (quizzes[i]._id == quizzId) {
+                quizzes.splice(i, 1)
+            }
+        }
+        localStorage.setItem('quizzes', JSON.stringify(quizzes))
+        renderTable()
+        $('#removeQuizz').modal('hide')
     })
 }
