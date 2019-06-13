@@ -147,18 +147,6 @@
          this._playedQuizzes = value
      }
 
-
-
-
-
-
-
-
-
-
-
-
-
      static accessType(accountType) {
          if (accountType) {
              return 'Administrador'
@@ -229,17 +217,7 @@
              }
          }
      }
-
-     //  static getIdByXP(xp) {
-     //      let id = -1
-     //      for (const user of users) {
-     //          if (user._xp === xp) {
-     //             id = user._id
-     //          }
-     //      }
-     //      return id
-     //  }
-
+     
      static getAvatarByXP() {
          for (const user of users) {
              if (user._xp <= 15) {

@@ -4,7 +4,7 @@ import Comment from '../models/commentsModels.js'
 let comments = []
 let countries = []
 let users = []
-let countryId 
+let countryId
 
 //o que acontece quando a paginas que usam com suposto este ficheiro, são carregadas
 window.onload = function () {
@@ -185,6 +185,7 @@ function searchCountry() {
 
 //Função que injeta na modal as informaçoes correspondentes ao pais em que o card foi carregado
 function renderModalInfo(id) {
+
     for (const country of countries) {
         if (country._id == id) {
             document.querySelector("#modalFlag").src = country._flag
@@ -193,9 +194,10 @@ function renderModalInfo(id) {
             const divComments = document.querySelector(".commentContainer")
 
             //listar comentario(s) registados sobre o pais em causa
-            divComments.innerHTML=""
-            for (let i = 0; i<country._comments.length; i++) {
-                
+            divComments.innerHTML = ""
+
+            for (let i = 0; i < country._comments.length; i++) {
+
                 divComments.innerHTML += `
                  Utilizador: ${country._comments[i]._userId} | Comentário: "${country._comments[i]._comment}" | ${country._comments[i]._dateTime}<br><br>
                 `
@@ -207,19 +209,18 @@ function renderModalInfo(id) {
 //codigo para adicionar comentarios
 if (document.querySelector('#commentForm') != null) {
     document.querySelector('#commentForm').addEventListener('submit', function (event) {
-        
+
         let txtComment = document.querySelector('#txtComment').value
         let id = ""
         if (sessionStorage.getItem('loggedUserId')) {
             id = JSON.parse(sessionStorage.getItem("loggedUserId"))
             //inserir o comentario no array
-            if(txtComment == ""){
+            if (txtComment == "") {
                 alert("Para comentar tem que escrever um comentário.")
-            }
-            else{
+            } else {
                 for (const country of countries) {
                     if (country._id == countryId) {
-                        console.log(country._id + "-" + countryId)
+
                         const newComment = new Comment(txtComment, id)
                         comments.push(newComment)
                         country._comments.push(newComment)
@@ -227,9 +228,8 @@ if (document.querySelector('#commentForm') != null) {
                 }
                 alert("O teu comentário foi registado com sucesso!")
             }
-        } 
-        else {
-            alert("Não é possível efetuar comentários sem primeiro iniciar sessão!\nSe ainda não tens conta, cria uma e anda divertir-te connosco.")            
+        } else {
+            alert("Não é possível efetuar comentários sem primeiro iniciar sessão!\nSe ainda não tens conta, cria uma e anda divertir-te connosco.")
         }
 
         localStorage.setItem('comments', JSON.stringify(comments))
@@ -237,3 +237,26 @@ if (document.querySelector('#commentForm') != null) {
         event.preventDefault()
     })
 }
+
+//Função que ordena o array de comentarios dentro do array dos paises, pela data, de forma crescente, no modal
+function sortDateFromRecentToOld() {
+    country._comments.sort(Comment.dateFromRecentToOld)
+}
+
+//Função que ordena o array de comentarios dentro do array dos paises, pela data, de forma decrescente, no modal
+function sortDateFromOldToRecent() {
+    country._comments.sort(Comment.dateFromOldToRecent)
+}
+
+//filtrar comentarios por data
+const stlGenreComment = document.querySelector('#stlGenreComment')
+
+stlGenreComment.addEventListener("click", function () {
+    console.log(stlGenreComment.value)
+    if (stlGenreComment.value == "Ordem Antigo para Recente") {
+        sortDateFromRecentToOld()
+    }
+    if (stlGenreComment.value == "Ordem Recente para Antigo") {
+        sortDateFromOldToRecent()
+    }
+})

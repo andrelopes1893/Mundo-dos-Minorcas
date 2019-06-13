@@ -22,7 +22,7 @@ if(document.querySelector('#signInForm') != null){
         let txtEmail = document.querySelector('#txtEmail').value
         let txtPassword = document.querySelector('#txtPassword').value
     
-        let userId = User.getIdByEmail(txtEmail) // 1
+        let userId = User.getIdByEmail(txtEmail)
     
         if (User.getIdByEmail(txtEmail) == -1) {
             alert('A conta não existe')
