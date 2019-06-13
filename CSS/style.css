@@ -597,33 +597,6 @@ button.commentBtn:hover {
     color: #ffffff;
 }
 
-button.commentFilterModalBtn {
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 1.1rem;
-    background-color: transparent;
-    border: 2px solid #ffffff;
-    transition: all .4s ease-in-out;
-}
-
-button.translateBtn:focus {
-    box-shadow: 0 0 0 0;
-}
-
-button.commentFilterModalBtn:focus {
-    box-shadow: 0 0 0 0;
-}
-
-button.translateBtn:hover {
-    transform: scale(1.1, 1.1);
-    color: #ffffff;
-}
-
-button.commentFilterModalBtn:hover {
-    transform: scale(1.1, 1.1);
-    color: #ffffff;
-}
-
 /* ! INFO COUNTRY PAGE
 div.col-lg-6.infoParagraphImg {
     padding-top: 3%;
