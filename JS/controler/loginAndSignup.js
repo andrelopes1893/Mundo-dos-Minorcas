@@ -4,6 +4,8 @@ import {
 
 import User from '../models/userModels.js'
 
+let users = []
+
 let loggedUserId
 
 if (document.querySelector('#addUserBtn') != null) {
@@ -17,29 +19,39 @@ if (document.querySelector('#addUserBtn') != null) {
     })
 }
 
-if(document.querySelector('#signInForm') != null){
+if (document.querySelector('#signInForm') != null) {
     document.querySelector('#signInForm').addEventListener('submit', function (event) {
         let txtEmail = document.querySelector('#txtEmail').value
         let txtPassword = document.querySelector('#txtPassword').value
-    
+
         let userId = User.getIdByEmail(txtEmail)
-    
+
         if (User.getIdByEmail(txtEmail) == -1) {
             alert('A conta não existe')
         }
-    
+
         if (User.getIdByBlockUser(userId)) {
             alert('A tua conta encontra-se bloqueada')
         } else {
-            if (User.confirmUserExistent(txtEmail, txtPassword) == true) {  
-                loggedUserId = User.getIdByEmail(txtEmail)              
+            if (User.confirmUserExistent(txtEmail, txtPassword) == true) {
+                loggedUserId = User.getIdByEmail(txtEmail)
                 sessionStorage.setItem('loggedUserId', JSON.stringify(loggedUserId))
-                location.href = "/index.html"
             } else {
                 alert('Dados Inválidos!')
             }
         }
-    
+
+        if (localStorage.getItem("users")) {
+            users = JSON.parse(localStorage.getItem("users"))
+        }
+
+        for (const user of users) {
+            if (User.getIdByEmail(txtEmail) == user._id && user._accountType == '2') {
+                location.href = "/index.html"
+            } else if (User.getIdByEmail(txtEmail) == user._id && user._accountType == '1') {
+                location.href = "/adminIndex.html"
+            }
+        }
         event.preventDefault()
     })
 }

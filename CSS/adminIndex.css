@@ -88,15 +88,23 @@ div.row div.card.userCard {
 }
 
 div.row div.card.catalogoCard {
-    background-color: #4AB71B;
+    background-color: #FF873D;
 }
 
 div.row div.card.quizzCard {
-    background-color: #FF873D;
+    background-color: #4AB71B;
 }
 
 div.row div.card.cardSuggestions {
     background-color: #EE11DE;
+}
+
+button.adminBtns {
+    padding-top: 1.5rem;
+}
+
+button.adminBtns:focus {
+    box-shadow: 0 0 0 0
 }
 
 img.userImg {
@@ -105,18 +113,35 @@ img.userImg {
 }
 
 img.catalogImg {
-    width: 50%;
+    width: 38%;
+    padding-bottom: .2rem;
     margin: auto;
+}
+
+img.catalogImg:focus {
+    box-shadow: 0 0 0 0
 }
 
 img.quizzesImg {
-    width: 50%;
+    width: 42%;
+    padding-top: .5rem;
+    padding-bottom: 1rem;
     margin: auto;
 }
 
+img.quizzesImg:focus {
+    box-shadow: 0 0 0 0
+}
+
 img.imageSuggestions {
-    width: 50%;
+    width: 45%;
+    padding-top: .5rem;
+    padding-bottom: .8rem;
     margin: auto;
+}
+
+img.imageSuggestions:focus {
+    box-shadow: 0 0 0 0
 }
 
 div.row div.card h1 {

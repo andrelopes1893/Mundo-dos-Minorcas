@@ -18,7 +18,7 @@ export default class Suggestion {
     static getLastId() {
         let lastId = 0
         if (suggestions.length != 0) {
-            lastId = suggestions[suggestions.length - 1]._id
+            lastId = suggestions[suggestions.length - 1]._id            
         }
         return lastId
     }
