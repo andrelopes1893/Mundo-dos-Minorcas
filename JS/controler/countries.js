@@ -171,12 +171,12 @@ function sortCountriesDescendent() {
     countries.sort(Country.descendentAlphabeticOrder)
 }
 
-//Função que ordena o array de comentarios pela data, de forma crescente, no modal
+//Função que ordena o array de comentarios dentro do array dos paises, pela data, de forma crescente, no modal
 function sortDateAscendent() {
     country._comments.sort(Comment.dateFromRecentToOld)
 }
 
-//Função que ordena o array de comentarios pela data, de forma decrescente, no modal
+//Função que ordena o array de comentarios dentro do array dos paises, pela data, de forma decrescente, no modal
 function sortDateDescendent() {
     country._comments.sort(Comment.dateFromOldToRecent)
 }
@@ -195,6 +195,7 @@ function searchCountry() {
 
 //Função que injeta na modal as informaçoes correspondentes ao pais em que o card foi carregado
 function renderModalInfo(id) {
+
     for (const country of countries) {
         if (country._id == id) {
             document.querySelector("#modalFlag").src = country._flag
@@ -209,6 +210,13 @@ function renderModalInfo(id) {
                 divComments.innerHTML += `
                  Utilizador: ${country._comments[i]._userId} | Comentário: "${country._comments[i]._comment}" | ${country._comments[i]._dateTime}<br><br>
                 `
+            }
+            if (document.querySelector('#stlGenreComment').value == "Ordem Recente para Antigo") {
+                sortDateAscendent()
+            }
+            
+            if (document.querySelector('#stlGenreComment').value == "Ordem Antigo para Recente") {
+                sortDateDescendent()
             }
         }
     }
