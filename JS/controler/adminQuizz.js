@@ -42,15 +42,15 @@ function renderTable() {
     if (localStorage.getItem("quizzes")) {
         quizzes= JSON.parse(localStorage.getItem("quizzes"))
     }
-    let usersBodyTable = document.querySelector('#QuizzTableBody')
-    usersBodyTable.innerHTML = ''
-    let type = ""
+    let QuizzTableBody = document.querySelector('#QuizzTableBody')
+    QuizzTableBody.innerHTML = ''
+ 
 
     let r = 0
 
     quizzes.forEach(quizze => {
         r++
-        usersBodyTable.innerHTML += `<tr>
+        QuizzTableBody.innerHTML += `<tr>
                                         <th scope="row">${r}</th>
                                         <td> ${quizze._continent}</td>
                                         <td>${quizze._quizType}</td>
