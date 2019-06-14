@@ -58,23 +58,26 @@ function renderTable() {
         quizzes = JSON.parse(localStorage.getItem("quizzes"))
     }
 
-    if (document.querySelector('#stlOrder').value == 'Continente') {
-        quizzes.sort(Question.continentFilter)
+    if (document.querySelector('#stlOrder') != null) {
+        if (document.querySelector('#stlOrder').value == 'Continente') {
+            quizzes.sort(Question.continentFilter)
+        }
     }
 
-    if (document.querySelector('#stlOrder').value == '') {
-        quizzes.sort(Question.levelFilter)
+    if (document.querySelector('#stlOrder') != null) {
+        if (document.querySelector('#stlOrder').value == '') {
+            quizzes.sort(Question.levelFilter)
+        }
     }
 
-    let QuizzTableBody = document.querySelector('#QuizzTableBody')
+    if (document.querySelector('#QuizzTableBody') != null) {
+        document.querySelector('#QuizzTableBody').innerHTML = ''
 
-    QuizzTableBody.innerHTML = ''
+        let r = 0
 
-    let r = 0
-
-    quizzes.forEach(quiz => {
-        r++
-        QuizzTableBody.innerHTML += `<tr>
+        quizzes.forEach(quiz => {
+            r++
+            document.querySelector('#QuizzTableBody').innerHTML += `<tr>
                                         <th scope="row">${r}</th>
                                         <td> ${quiz._continent}</td>
                                         <td>${quiz._quizType}</td>
@@ -83,12 +86,10 @@ function renderTable() {
                                         <td><button type="button" id="${quiz._id}" data-toggle="modal" data-target="#removeQuizz" class="btn remove"><img src="/Images/x.png" alt="Eliminar"></button></td>
                                        
                                     </tr>`
-    });
+        });
+    }
     removeButtons()
-
 }
-
-
 
 function removeButtons() {
     let removeBtns = document.getElementsByClassName("btn remove")

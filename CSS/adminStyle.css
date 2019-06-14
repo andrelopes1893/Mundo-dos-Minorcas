@@ -577,12 +577,6 @@ div.container-fluid.suggestionCard div.row {
     padding-bottom: 3%;
 }
 
-div.card.suggestionCards {
-    background-color: #F249E6;
-    font-size: 20px;
-    color: #ffffff
-}
-
 /* ! TABLE HEADER CONTAINER SUGGESTION TABLE + TABLE */
 div.col-12.text-center.suggestionTableHeader {
     color: #ffffff

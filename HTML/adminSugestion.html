@@ -68,29 +68,6 @@
 
     <div class="container-fluid suggestionCard">
         <div class="row">
-            <div class="card-deck mx-auto">
-                <div class="card suggestionCards" style="width: 18rem;">
-                    <div class="card-body text-center">
-                        <p>Sugestões Aprovadas</p>
-                        <p><img src="/Images/ideias.png" class="userImage" alt="Catálogo" style="width: 30%;"> 2
-                        </p>
-                    </div>
-                </div>
-                <div class="card suggestionCards" style="width: 18rem;">
-                    <div class="card-body text-center">
-                        <p>Sugestões Reprovadas</p>
-                        <p><img src="/Images/ideias.png" class="userImage" alt="Catálogo" style="width: 30%;"> 2
-                        </p>
-                    </div>
-                </div>
-                <div class="card suggestionCards" style="width: 18rem;">
-                    <div class="card-body text-center">
-                        <p>Sugestões por Visualizar</p>
-                        <p><img src="/Images/ideias.png" class="userImage" alt="Catálogo" style="width: 30%;"> 2
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -101,19 +78,6 @@
                 <h1 class="display-5 mt-5 mb-5">Tabela de Sugestões</h1>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center suggestionTable">
-                <!-- FILTER -->
-                <form class="form-inline mb-5">
-                    <div class="form-group">
-                        <label for="stlGenre" class="mr-3">Mostrar: </label>
-                        <select class="form-control" id="stlOrder">
-                            <option value="">Todas</option>
-                            <option value="naoLidas">Não lidas</option>
-                            <option value="reprovado">Reprovadas</option>
-                            <option value="aprovado">Aprovadas</option>
-                        </select>
-                    </div>
-                </form>
-
                 <div class="table-responsive">
                     <table class="table table-bordered mx-auto">
                         <thead>
@@ -133,7 +97,7 @@
         </div>
     </div>
 
-    <!-- Modal - será criado através de javaScript -->
+    <!-- Modal Sugestão -->
     <div class="modal fade" id="suggestionModal">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -152,25 +116,7 @@
                 </div>
             </div>
         </div>
-    </div>`
-    <!-- Modal de confirmaçao de remoçao -->
-
-    <div class="modal fade" id="removeSuggestion">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-                    <!-- Cabeçalho da Modal -->
-                    <div class="modal-header">
-                        <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
-                    </div>
-                    <!-- Corpo da Modal -->
-                    <div class="modal-body text-center">
-                        <p>Tem a certeza que pretende recusar a sugestão?</p>
-                        <button class="btn yesButton" role="button">Sim</button>
-                        <button class="btn noButton" data-dismiss="modal" role="button">Não</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
 
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
@@ -283,6 +229,7 @@
     </footer>
 
     <!-- Optional JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="/JS/controler/adminSugestion.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

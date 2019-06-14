@@ -184,8 +184,18 @@
          return id
      }
 
-     static checkLoginBlocked(email) {
-         for (const user of users) {
+     static loginVerifyById(password, email) {
+        let id = -1
+        for (const user of users) {
+            if (user._password == password && user._email == email) {
+                id = user._id
+            }
+        }
+        return id
+    }
+
+     static checkLoginBlocked(email) {         
+         for (const user of users) {             
              if (user._email === email && user._loginBlock == true) {
                  return true
              }
@@ -194,8 +204,8 @@
      }
 
      static confirmUserExistent(email, password) {
-         for (const user of users) {
-             if (user._email === email && user._password === password) {
+         for (const user of users) {             
+             if (user._email == email && user._password == password) {
                  return true
              }
          }
