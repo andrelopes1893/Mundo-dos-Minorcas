@@ -1,7 +1,10 @@
 let quizzes = []
 let continentStyle = ''
 let ChosenQuizz = ''
-
+document.querySelector('#quit').addEventListener('click', function () {
+    location.href = '/HTML/quizz.html'
+  
+})
 QuizzGenerator()
 // *Working (Butt needs some adjustments)
 //! this function reads all the components of an  array and tells if the user have or not quizzes from that category and level(optional)
@@ -285,7 +288,7 @@ function selectLevel(level) {
  * This Function generate the quizz
  */
 function QuizzGenerator() {
-    exit()
+    // exit()
 
     //  get the ulocked id
 
@@ -547,13 +550,13 @@ function isCompleted(level) {
 
 //!!!!!!!!!!! Not Working
 //!Function that add propriety to the exit button
-function exit() {
-    document.querySelector('#quit').addEventListener('click', function () {
-        // location.href = '/HTML/quizz.html'
-        // location.replace("https://www.w3schools.com");
-        window.location = "/HTML/quizz.html";
-    })
-}
+// function exit() {
+//     document.querySelector('#quit').addEventListener('click', function () {
+//         console.log('1223')
+//         location.href = '/HTML/quizz.html'
+      
+//     })
+// }
 
 
 
