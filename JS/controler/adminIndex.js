@@ -13,3 +13,7 @@ document.querySelector('.quizzesStats').addEventListener('click', function() {
 document.querySelector('.suggestionsStats').addEventListener('click', function() {
     location.href = '/HTML/adminSugestion.html'
 })
+
+window.addEventListener('beforeunload', function () {
+    document.body.classList.add('animate-out')
+})

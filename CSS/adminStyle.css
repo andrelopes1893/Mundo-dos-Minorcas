@@ -122,6 +122,21 @@ div.container-fluid.userFilter {
     font-size: 24px;
 }
 
+button.filterUsers {
+    border: 1px solid #ffffff;
+    margin-left: 3rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+button.filterUsers:focus {
+    box-shadow: 0 0 0 0
+}
+
+button.filterUsers:hover {
+    color: #ffffff
+}
+
 /* ! USERS TABLE + CONTAINER + HEADER*/
 div.container-fluid.users {
     background-color: #29ABE2;
@@ -218,6 +233,26 @@ button.btn.newUserDetails {
     border: 1px solid #29ABE2;
     border-radius: 8px;
     color: #29ABE2;
+}
+
+button.btn.yesBlock{
+    background-color: #ffffff;
+    border: 1px solid #29ABE2;
+    color: #29ABE2;
+}
+
+button.btn.yesBlock:focus{
+    box-shadow: 0 0 0 0;
+}
+
+button.btn.noBlock{
+    background-color: #ffffff;
+    border: 1px solid #29ABE2;
+    color: #29ABE2;
+}
+
+button.btn.noBlock:focus{
+    box-shadow: 0 0 0 0;
 }
 
 button.btn.yesButton{

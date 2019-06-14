@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Our CSS -->
     <link rel="stylesheet" href="/CSS/adminStyle.css">
+    <link rel="stylesheet" href="/CSS/pagesAnimations.css">
     <!-- Our Favicon -->
     <link rel="icon" type="image/png" href="/Images/Logo2.png">
 </head>
@@ -76,13 +77,13 @@
                 <div class="card userCards">
                     <div class="card-body text-center">
                         <p>Total de Administradores</p>
-                        <p><img src="/Images/user.png" class="userImage" alt="Utilizador" style="width: 20%;"> 3</p>
+                        <p id="adminUsers"></p>
                     </div>
                 </div>
                 <div class="card userCards">
                     <div class="card-body text-center">
                         <p>Total de Contas Bloqueadas</p>
-                        <p><img src="/Images/user.png" class="userImage" alt="Utilizador" style="width: 20%;"> 2</p>
+                        <p id="blockedAccounts"></p>
                     </div>
                 </div>
             </div>
@@ -100,11 +101,12 @@
         <div class="container-fluid userFilter">
             <form class="form-inline">
                 <div class="form-group">
-                    <label for="stlGenre" class="mr-3">Filtrar Por:</label>
+                    <label for="stlOrder" class="mr-3">Filtrar Por:</label>
                     <select class="form-control" id="stlOrder">
-                        <option value="">Ordem Alfabéticas</option>
-                        <option value="Mais Comentados">Total de XP</option>
+                        <option value="">Ordem Alfabética</option>
+                        <option value="Maior XP">Total de XP</option>
                     </select>
+                    <button class="btn filterUsers">Filtrar</button>
                 </div>
             </form>
         </div>
@@ -126,7 +128,7 @@
                             </tr>
                         </thead>
                         <tbody id="usersTableBody">
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -184,7 +186,7 @@
     </div>
 
     <!-- modal 2-->
-    <div class="modal fade" id="newBlockUserModal">
+    <div class="modal fade" id="blockUserModal">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <!-- Cabeçalho da Modal -->
@@ -194,22 +196,10 @@
                         style="color:#ffff">Voltar</button>
                 </div>
                 <!-- Corpo da Modal -->
-                <div class="modal-body">
-                    <form id="blockUserForm">
-                        <div class="form-group" class="mb-5">
-                            <label for="txtBlockUserName">Nome do Utilizador:</label>
-                            <input type="text" class="form-control" id="txtBlockUserName" readonly>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox">
-                                <label><input type="radio" id="yesComment" class="mr-2">Pode Comentar</label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="radio" id="noComment" class="mr-2">Não Pode Comentar</label>
-                            </div>
-                        </div>
-                        <button type="button" class="btn block">Bloquear</button>
-                    </form>
+                <div class="modal-body text-center">
+                    <p>Tens a certeza?</p>
+                    <button class="btn yesBlock" role="button">Sim</button>
+                    <button class="btn noBlock" data-dismiss="modal" role="button">Não</button>
                 </div>
                 <!-- Rodapé da Modal -->
             </div>
@@ -388,6 +378,7 @@
 
     </footer>
     <!-- Optional JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script type="module" src="/JS/controler/adminUsers.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

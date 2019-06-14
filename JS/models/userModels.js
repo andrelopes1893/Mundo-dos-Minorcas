@@ -3,7 +3,7 @@
  } from '../models/main.js'
 
  export default class User {
-     constructor(username, password, email, accountType = '1', avatar = '', description = '', commentBlock = false, loginBlock = false, xp = 0, unlockCountries = [], unlockAvatar = [], birthday, country, rating = [], currentLevels = [], playedQuizzes = []) {
+     constructor(username, password, email, accountType = '1', avatar = '', description = '', loginBlock = false, xp = 0, unlockCountries = [], unlockAvatar = [], birthday, country, rating = [], currentLevels = [], playedQuizzes = []) {
          this._id = User.getLastId() + 1
          this.username = username
          this.password = password
@@ -11,7 +11,6 @@
          this.accountType = accountType
          this.avatar = avatar
          this.description = description
-         this.commentBlock = commentBlock
          this.loginBlock = loginBlock
          this.xp = xp
          this.unlockCountries = unlockCountries
@@ -77,13 +76,6 @@
          }
 
          this._description = value
-     }
-
-     get commentBlock() {
-         return this._commentBlock
-     }
-     set commentBlock(value) {
-         this._commentBlock = value
      }
 
      get loginBlock() {
@@ -255,4 +247,24 @@
              }
          }
      }
+
+     static mostXpFilter(userA, userB) {
+        if (userA._xp < userB._xp){
+            return 1;
+        }
+        if (userA._xp > userB._xp){
+            return -1;
+        }
+        return 0;
+    }
+
+    static alphabeticOrder(userA, userB) {
+        if (userA._username.toLowerCase() < userB._username.toLowerCase()){
+            return -1;
+        }
+        if (userA._username.toLowerCase() > userB._username.toLowerCase()){
+            return 1;
+        }
+        return 0;
+    }
  }
