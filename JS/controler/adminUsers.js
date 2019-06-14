@@ -1,5 +1,9 @@
 import User from "../models/userModels.js";
 
+import {
+    newUserByAdmin
+} from '../models/main.js'
+
 let users = [];
 
 window.onload = function () {
@@ -9,10 +13,6 @@ window.onload = function () {
     dataCards()
     renderTable()
 }
-
-import {
-    newUserByAdmin
-} from '../models/main.js'
 
 document.querySelector('#adminForm').addEventListener('submit', function (event) {
     const txtUsername = document.querySelector('#txtUsername').value
@@ -30,8 +30,9 @@ document.querySelector('#adminForm').addEventListener('submit', function (event)
     event.preventDefault()
 })
 
-document.querySelector('.filterUsers').addEventListener('click', function () {
+document.querySelector('.filterUsers').addEventListener('submit', function (e) {
     renderTable()
+    e.preventDefault()
 })
 
 function xpFilter() {
@@ -52,7 +53,7 @@ function renderTable() {
     if (document.querySelector('#stlOrder').value == "") {
         ascendentAlphabeticOder()
     }
-
+    
     if (document.querySelector('#stlOrder').value == "Maior XP") {
         xpFilter()
     }
@@ -101,6 +102,17 @@ function removeUser(username) {
                 users.splice(i, 1)
             }
         }
+        const toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            background: '#29ABE2'
+        });
+        toast.fire({
+            type: 'success',
+            title: '<span style="color:#FFFFFF">Utilizador removido!<span>'
+        })
         localStorage.setItem('users', JSON.stringify(users))
         renderTable()
         $('#removeUser').modal('hide')
@@ -115,7 +127,6 @@ function blockBtnNewEvent() {
         })
     }
 }
-
 
 function blockUser(id) {
     document.querySelector('.yesBlock').addEventListener('click', function () {
