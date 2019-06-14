@@ -30,9 +30,8 @@ document.querySelector('#adminForm').addEventListener('submit', function (event)
     event.preventDefault()
 })
 
-document.querySelector('.filterUsers').addEventListener('submit', function (e) {
+document.querySelector('.filterUsers').addEventListener('click', function () {
     renderTable()
-    e.preventDefault()
 })
 
 function xpFilter() {
@@ -53,7 +52,7 @@ function renderTable() {
     if (document.querySelector('#stlOrder').value == "") {
         ascendentAlphabeticOder()
     }
-    
+
     if (document.querySelector('#stlOrder').value == "Maior XP") {
         xpFilter()
     }
@@ -75,14 +74,14 @@ function renderTable() {
                                         <th scope="row">${r}</th>
                                         <td> ${user._username}</td>
                                         <td>${user._xp}</td>
-                                        <td><button type="button" id="${user._id}" data-toggle="modal" data-target="#blockUserModal" class="btn blockButton pt-2"><img src="/Images/lock.png" alt="Bloquear"></button></td>
+                                        <td><button type="button" id="${user._id}" class="btn blockButton pt-2"><img src="/Images/lock.png" alt="Bloquear"></button></td>
                                         <td><button type="button" id="${user._username}" data-toggle="modal" data-target="#removeUser" class="btn remove"><img src="/Images/x.png" alt="Eliminar"></button></td>
                                         <td>${type}</td>
                                         <td><button type="button" id="${user._id}" class="btn change"><img src="/Images/changeUser.png" class="changeUser" alt="Mudar"></td>
                                     </tr>`
     });
     removeButtons()
-    blockBtnNewEvent()
+    block()
     changeUsersTypeBtns()
 }
 
@@ -119,7 +118,7 @@ function removeUser(username) {
     })
 }
 
-function blockBtnNewEvent() {
+function block() {
     let editButtons = document.getElementsByClassName('blockButton')
     for (const elem of editButtons) {
         elem.addEventListener('click', function () {
@@ -129,46 +128,45 @@ function blockBtnNewEvent() {
 }
 
 function blockUser(id) {
-    document.querySelector('.yesBlock').addEventListener('click', function () {
-        for (const user of users) {
-            if (user._id == id) {
-                if (user._loginBlock == true) {
-                    user._loginBlock = false
-                    console.log(user._loginBlock);
-                    localStorage.setItem('users', JSON.stringify(users))
-                    const toast = Swal.mixin({
-                        toast: true,
-                        position: 'bottom-end',
-                        showConfirmButton: false,
-                        timer: 3000,
-                        background: '#29ABE2'
-                    });
-                    toast.fire({
-                        type: 'success',
-                        title: '<span style="color:#FFFFFF">Utilizador desbloqueado!<span>'
-                    })
-                    // location.reload()
+    id = 5
+    for (const user of users) {
+        if (user._id == id) {
+            if (user._loginBlock == true) {
+                user._loginBlock = false
+                console.log(user._loginBlock);
+                localStorage.setItem('users', JSON.stringify(users))
+                const toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    background: '#29ABE2'
+                });
+                toast.fire({
+                    type: 'success',
+                    title: '<span style="color:#FFFFFF">Utilizador desbloqueado!<span>'
+                })
+                // location.reload()
 
-                } else {
-                    user._loginBlock = true
-                    console.log(user._loginBlock);
-                    localStorage.setItem('users', JSON.stringify(users))
-                    const toast = Swal.mixin({
-                        toast: true,
-                        position: 'bottom-end',
-                        showConfirmButton: false,
-                        timer: 3000,
-                        background: '#29ABE2'
-                    });
-                    toast.fire({
-                        type: 'success',
-                        title: '<span style="color:#FFFFFF">Utilizador bloqueado!<span>'
-                    })
-                }
+            } else {
+                user._loginBlock = true
+                console.log(user._loginBlock);
+                localStorage.setItem('users', JSON.stringify(users))
+                const toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    background: '#29ABE2'
+                });
+                toast.fire({
+                    type: 'success',
+                    title: '<span style="color:#FFFFFF">Utilizador bloqueado!<span>'
+                })
             }
-            // $('#blockUserModal').modal('hide')
         }
-    })
+        // $('#blockUserModal').modal('hide')
+    }
 }
 
 function changeUsersTypeBtns() {
@@ -185,14 +183,14 @@ let change = 1
 function changeUsersType(id) {
     for (const user of users) {
         if (user._id == id) {
-            if (change == 1) {
-                user._accountType = '1'
-                change = 0
-                localStorage.setItem('users', JSON.stringify(users))
-            } else {
+            if (user._accountType == '1') {
                 user._accountType = '2'
-                change = 1
                 localStorage.setItem('users', JSON.stringify(users))
+                renderTable()
+            } else {
+                user._accountType = '1'
+                localStorage.setItem('users', JSON.stringify(users))
+                renderTable()
             }
         }
     }
