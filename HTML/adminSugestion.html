@@ -134,7 +134,25 @@
     </div>
 
     <!-- Modal - será criado através de javaScript -->
-
+    <div class="modal fade" id="suggestionModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho da Modal -->
+                <div class="modal-header">
+                    <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        style="color:#ffff">Voltar</button>
+                </div>
+                <!-- Corpo da Modal -->
+                <div class="modal-body text-center suggestion">
+                    <p class="lead" id="txtContinent">Continente: </p>
+                    <p class="lead" id="txtCountry">País: </p>
+                    <p class="lead" id="txtCapital">Capital: </p>
+                    <p class="lead" id="txtLanguage">Línguas Oficiais: </p>
+                </div>
+            </div>
+        </div>
+    </div>`
     <!-- Modal de confirmaçao de remoçao -->
 
     <div class="modal fade" id="removeSuggestion">
