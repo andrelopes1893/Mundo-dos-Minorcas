@@ -1,68 +1,49 @@
-#home {
-    clip-path: url(#cache);
+body {
+    font-family: Mali;
+    background-color: #29abe2;
+
 }
 
-#red {
-    fill: none;
-    opacity: 0.15;
-    stroke: #CE1B5F;
-    stroke-width: 12;
-    stroke-miterlimit: 10;
-    animation: show 4s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
-
-#blue {
-    fill: none;
-    opacity: 0.15;
-    stroke: #06A1C4;
-    stroke-width: 12;
-    stroke-miterlimit: 10;
-    animation: show 4s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
-
-#light-blue {
-    fill: none;
-    opacity: 0.15;
-    stroke: #06A1C4;
-    stroke-width: 6;
-    stroke-miterlimit: 10;
-    stroke-dasharray: 200;
-    stroke-dashoffset: 800;
-    animation: draw 4s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
-
-@keyframes draw {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-@keyframes show {
+@-webkit-keyframes AnimationName {
     0% {
-        opacity: 0.15;
+        background-position: 0% 50%
     }
 
     50% {
-        opacity: 0.2;
+        background-position: 100% 50%
     }
 
     100% {
-        opacity: 0.15;
+        background-position: 0% 50%
     }
 }
 
-body {
-    font-family: Mali;
-    /* background-color: #0079AC; */
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
 }
 
 /* !"Navbar" */
@@ -76,7 +57,13 @@ body {
 }
 
 .navbar {
-    background-color: #29abe2;
+    /* background-color: #29abe2; */
+    background: linear-gradient(270deg, #29abe2, #ffffff);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
 }
 
 /* !CONTAINERHEADER(IMG) */
@@ -91,9 +78,8 @@ div.header img.header {
 
 /* !THE FULL CONTAINER  FORM */
 div.container-fluid.formContainer {
-    align-items: center;
     margin-top: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
 
 form div.form-group>input {
@@ -104,12 +90,8 @@ form div.form-group>input {
     border-bottom-color: #29abe2;
 }
 
-div.container-fluid.formContainer {
-    position: absolute
-}
-
 /* !ROW CONTAINER FORM AND OTHER ELEMENTS */
- div.row {
+div.container-fluid.formContainer div.row {
     margin: auto;
     margin-left: 20%;
     margin-right: 20%;
@@ -186,6 +168,7 @@ div.modal-header button.btn.btn-danger {
 /* !FOOTER */
 /* Footer */
 footer.page-footer {
+    border-top: 2px solid #ffffff;
     background: #29ABE2;
     color: #ffffff;
     font-size: .9rem;
@@ -420,10 +403,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     /* !ROW CONTAINER FORM AND OTHER ELEMENTS */
     div.container-fluid.formContainer div.row {
         padding: 1%;
-    }
-
-    div.container-fluid.formContainer {
-        position: relative;
     }
 
     /* !FORM INPUT */

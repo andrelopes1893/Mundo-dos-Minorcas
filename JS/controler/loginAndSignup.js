@@ -28,7 +28,7 @@ if (document.querySelector('#addUserBtn') != null) {
 if (document.querySelector('#signInForm') != null) {
     document.querySelector('#signInForm').addEventListener('submit', function (event) {
         let txtEmail = document.querySelector('#txtEmail').value
-        let txtPassword = document.querySelector('#txtPassword').value        
+        let txtPassword = document.querySelector('#txtPassword').value
 
         let userId = User.getIdByEmail(txtEmail)
 
@@ -68,11 +68,11 @@ if (document.querySelector('#signInForm') != null) {
         if (localStorage.getItem("users")) {
             users = JSON.parse(localStorage.getItem("users"))
         }
-        
-        for (const user of users) {                        
-            if (User.getIdByEmail(txtEmail) == user._id  && user._accountType == '2' && User.getIdByBlockUser(userId) == false) {
+
+        for (const user of users) {
+            if (User.getIdByEmail(txtEmail) == user._id && user._accountType == '2' && User.getIdByBlockUser(userId) == false) {
                 location.href = "/index.html"
-            } else if (User.getIdByEmail(txtEmail) == user._id && User.loginVerifyById(txtPassword, txtEmail) == user._id && user._accountType == '1' && User.getIdByBlockUser(userId) == false) {                
+            } else if (User.getIdByEmail(txtEmail) == user._id && User.loginVerifyById(txtPassword, txtEmail) == user._id && user._accountType == '1' && User.getIdByBlockUser(userId) == false) {
                 location.href = "/adminIndex.html"
             }
         }
