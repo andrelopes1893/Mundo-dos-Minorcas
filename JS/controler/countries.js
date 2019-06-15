@@ -5,6 +5,7 @@ let comments = []
 let countries = []
 let users = []
 let countryId
+let currentCountry
 
 //o que acontece quando a paginas que usam com suposto este ficheiro, são carregadas
 window.onload = function () {
@@ -188,20 +189,12 @@ function renderModalInfo(id) {
 
     for (const country of countries) {
         if (country._id == id) {
+            currentCountry = country
             document.querySelector("#modalFlag").src = country._flag
             document.querySelector("#infoInfo").innerHTML = country._information
             document.querySelector("#imgModal").src = country._location
-            const divComments = document.querySelector(".commentContainer")
 
-            //listar comentario(s) registados sobre o pais em causa
-            divComments.innerHTML = ""
-
-            for (let i = 0; i < country._comments.length; i++) {
-
-                divComments.innerHTML += `
-                 Utilizador: ${country._comments[i]._userId} | Comentário: "${country._comments[i]._comment}" | ${country._comments[i]._dateTime}<br><br>
-                `
-            }
+            renderComments()
         }
     }
 }
@@ -222,7 +215,6 @@ if (document.querySelector('#commentForm') != null) {
                     if (country._id == countryId) {
 
                         const newComment = new Comment(txtComment, id)
-                        comments.push(newComment)
                         country._comments.push(newComment)
                     }
                 }
@@ -238,25 +230,36 @@ if (document.querySelector('#commentForm') != null) {
     })
 }
 
-//Função que ordena o array de comentarios dentro do array dos paises, pela data, de forma crescente, no modal
-function sortDateFromRecentToOld() {
-    country._comments.sort(Comment.dateFromRecentToOld)
-}
-
-//Função que ordena o array de comentarios dentro do array dos paises, pela data, de forma decrescente, no modal
-function sortDateFromOldToRecent() {
-    country._comments.sort(Comment.dateFromOldToRecent)
-}
-
-//filtrar comentarios por data
+//ordenar comentarios por data
 const stlGenreComment = document.querySelector('#stlGenreComment')
 
-stlGenreComment.addEventListener("click", function () {
-    console.log(stlGenreComment.value)
-    if (stlGenreComment.value == "Ordem Antigo para Recente") {
-        sortDateFromRecentToOld()
+if (stlGenreComment != null) {
+    stlGenreComment.addEventListener("change", function () {
+        console.log(stlGenreComment.value)
+        if (stlGenreComment.value == "Ordem Antigo para Recente") {
+            currentCountry._comments.sort(Comment.dateFromOldToRecent)
+          
+            console.log(currentCountry._comments);
+            
+        }
+        if (stlGenreComment.value == "Ordem Recente para Antigo") {
+         
+            currentCountry._comments.sort(Comment.dateFromRecentToOld)
+            console.log(currentCountry._comments);
+        }
+        renderComments()         
+    })
+}
+
+function renderComments() {
+    const divComments = document.querySelector(".commentContainer")
+    //listar comentario(s) registados sobre o pais em causa
+    divComments.innerHTML = ""
+    
+    for (let i = 0; i < currentCountry._comments.length; i++) {
+
+        divComments.innerHTML += `
+         Utilizador: ${currentCountry._comments[i]._userId} | Comentário: "${currentCountry._comments[i]._comment}" | ${currentCountry._comments[i]._dateTime}<br><br>
+        `
     }
-    if (stlGenreComment.value == "Ordem Recente para Antigo") {
-        sortDateFromOldToRecent()
-    }
-})
+}

@@ -1,5 +1,6 @@
 body {
     font-family: Mali;
+    overflow-x: hidden;
 }
 
 .logo {
@@ -116,6 +117,7 @@ div.row div.card-deck.mx-auto div.card.userCards {
 
 /* !USER TABLE FILTER*/
 div.container-fluid.userFilter {
+    padding-top: 5rem;
     margin-bottom: 3%;
     margin-top: 1%;
     padding-left: 5%;
@@ -283,13 +285,6 @@ div.container-fluid.userFilter form label {
 
 /*!ADMIN ADD MODAL*/
 
-div.row div.card-deck.mx-auto div.card.quizzCards {
-    background-color: #4AB71B;
-    color: #ffffff;
-}
-
-/*!ADMIN ADD MODAL*/
-
 div#newUserModal div.modal-content {
     background-color: #29ABE2;
     color: #ffffff;
@@ -356,6 +351,10 @@ div.row div.col-12.quizzes {
 
 div.row div.col-12.quizzes img {
     width: 5%;
+}
+
+div.row.separator {
+    margin-bottom: 5rem;
 }
 
 /* ! COUNTER QUIZZES - CARDS*/
@@ -576,12 +575,6 @@ div.container-fluid.tableInsideSugestions {
 div.container-fluid.suggestionCard div.row {
     padding-top: 3%;
     padding-bottom: 3%;
-}
-
-div.card.suggestionCards {
-    background-color: #F249E6;
-    font-size: 20px;
-    color: #ffffff
 }
 
 /* ! TABLE HEADER CONTAINER SUGGESTION TABLE + TABLE */
@@ -901,8 +894,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         width: 40%
     }
 
-
-
     /**CATALOG PAGE*/
     /* ! CATALOG + HEADER CONTAINER*/
     div.row div.col-12.text-center.catalog h1 {
@@ -925,17 +916,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         font-size: 2rem;
     }
 
-    /* !TABLE FILTER*/
-    /* div.col-12.text-center.catalogTable form label {
-        font-size: 0.rem;
-    } */
-    /* ?THIS MAY WORK FOR ALL FILTERS  FOR THE TABLES*/
-    /* select#stlOrder {
-        font-size: 1.3rem;
-    }*/
-    /* div.col-12.text-center.catalogTable form select#stlOrder option{
-        font-size: 0.9rem;
-    } */
     /* !TABLE TEXT*/
     table.table.table-bordered.mx-auto.catalogTable {
         font-size: 1.3rem
@@ -944,6 +924,21 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     /*!TABLE BUTTON IMG*/
     table.table.table-bordered.mx-auto.catalogTable img {
         width: 40px
+    }
+
+    button.filterCatalog {
+        border: 1px solid #ffffff !important;
+        margin-left: 3rem;
+        color: #ffffff;
+        font-weight: 500;
+    }
+    
+    button.filterCatalog:focus {
+        box-shadow: 0 0 0 0
+    }
+    
+    button.filterCatalog:hover {
+        color: #ffffff
     }
 
 }

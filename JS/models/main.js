@@ -26,25 +26,52 @@ export function newUserByAdmin(txtUsername, txtEmail, txtPassword, txtPasswordCo
     }
 
     let exist = false
-    if (User.getIdByUsername(txtUsername) != -1) {        
+    if (User.getIdByUsername(txtUsername) != -1) {
         exist = true
-        alert('O username já existe')
+        Swal.fire({
+            type: 'error',
+            title: 'Ja existe um nome de utilizador com este nome :(',
+            padding: '1rem',
+            background: '#CCCC33',
+            confirmButtonColor: '#29ABE2'
+        })
     }
 
     if (User.getIdByEmail(txtEmail) != -1) {
         exist = true
-        alert('ja existe uma conta com esse e-mail')
+        Swal.fire({
+            type: 'error',
+            title: 'Este e-mail já foi utilizado :(',
+            padding: '1rem',
+            background: '#CCCC33',
+            confirmButtonColor: '#29ABE2'
+        })
     }
 
     if (txtPassword !== txtPasswordConf) {
         exist = true
-        alert('as passwords nao coincidem')
+        Swal.fire({
+            type: 'error',
+            title: 'As palavras-passe não são iguais :(',
+            padding: '1rem',
+            background: '#CCCC33',
+            confirmButtonColor: '#29ABE2'
+        })
     }
 
-    if (exist) {
-        alert('Erro')
-    } else {
-        users.push(new User(txtUsername, txtPassword, txtEmail,userType))
+    if (!exist) {
+        const toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            background: '#29ABE2'
+        });
+        toast.fire({
+            type: 'success',
+            title: '<span style="color:#FFFFFF">Registado com sucesso!<span>'
+        })
+        users.push(new User(txtUsername, txtPassword, txtEmail, userType))
         localStorage.setItem('users', JSON.stringify(users))
     }
 }

@@ -6,6 +6,12 @@ import User from '../models/userModels.js'
 
 let users = []
 
+// window.onload = function() {
+//     if (localStorage.getItem("users")) {
+//         users = JSON.parse(localStorage.getItem("users"))
+//     }
+// }
+
 let loggedUserId
 
 if (document.querySelector('#addUserBtn') != null) {
@@ -22,33 +28,51 @@ if (document.querySelector('#addUserBtn') != null) {
 if (document.querySelector('#signInForm') != null) {
     document.querySelector('#signInForm').addEventListener('submit', function (event) {
         let txtEmail = document.querySelector('#txtEmail').value
-        let txtPassword = document.querySelector('#txtPassword').value
+        let txtPassword = document.querySelector('#txtPassword').value        
 
         let userId = User.getIdByEmail(txtEmail)
 
         if (User.getIdByEmail(txtEmail) == -1) {
-            alert('A conta não existe')
+            Swal.fire({
+                type: 'error',
+                title: 'A conta não existe :(',
+                padding: '1rem',
+                background: '#CCCC33',
+                confirmButtonColor: '#29ABE2'
+            })
         }
 
         if (User.getIdByBlockUser(userId)) {
-            alert('A tua conta encontra-se bloqueada')
+            Swal.fire({
+                type: 'error',
+                title: 'A tua encontra-se bloqueada :(',
+                padding: '1rem',
+                background: '#CCCC33',
+                confirmButtonColor: '#29ABE2'
+            })
         } else {
             if (User.confirmUserExistent(txtEmail, txtPassword) == true) {
                 loggedUserId = User.getIdByEmail(txtEmail)
                 sessionStorage.setItem('loggedUserId', JSON.stringify(loggedUserId))
             } else {
-                alert('Dados Inválidos!')
+                Swal.fire({
+                    type: 'error',
+                    title: 'Dados incorretos :(',
+                    padding: '1rem',
+                    background: '#CCCC33',
+                    confirmButtonColor: '#29ABE2'
+                })
             }
         }
 
         if (localStorage.getItem("users")) {
             users = JSON.parse(localStorage.getItem("users"))
         }
-
-        for (const user of users) {
-            if (User.getIdByEmail(txtEmail) == user._id && user._accountType == '2') {
+        
+        for (const user of users) {                        
+            if (User.getIdByEmail(txtEmail) == user._id  && user._accountType == '2' && User.getIdByBlockUser(userId) == false) {
                 location.href = "/index.html"
-            } else if (User.getIdByEmail(txtEmail) == user._id && user._accountType == '1') {
+            } else if (User.getIdByEmail(txtEmail) == user._id && User.loginVerifyById(txtPassword, txtEmail) == user._id && user._accountType == '1' && User.getIdByBlockUser(userId) == false) {                
                 location.href = "/adminIndex.html"
             }
         }

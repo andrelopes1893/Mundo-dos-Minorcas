@@ -64,84 +64,52 @@
         </div>
     </div>
 
-    <div class="container-fluid quizzCard">
+    <div class="row separator">
+        
+    </div>
+
+    <div class="container-fluid quizz" style="background-color: #4AB71B">
+        <!-- FILTER -->
+        <div class="container-fluid userFilter">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="stlOrder" class="mr-3">Filtrar Por:</label>
+                    <select class="form-control" id="stlOrder">
+                        <option value="">Nível</option>
+                        <option value="Continente">Continente</option>
+                    </select>
+                   <button type="button" class="btn filterCatalog">Filtrar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- table -->
         <div class="row">
-            <div class="card-deck mx-auto mt-5 mb-5">
-                <div class="card quizzCards">
-                    <div class="card-body text-center">
-                        <p>Total de Quizzes</p>
-                        <p><img src="/Images/information.png" class="userImage" alt="Informação" style="width: 20%;"> 3
-                        </p>
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered QuizzTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Continente</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Nível</th>
+                                <th scope="col">Resposta Correta</th>
+                                <th scope="col">Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="QuizzTableBody">
 
-                    </div>
-                </div>
-                <div class="card quizzCards">
-                    <div class="card-body text-center">
-                        <p>Total de Categorias</p>
-                        <p><img src="/Images/information.png" class="userImage" alt="Informação" style="width: 20%;"> 3
-                        </p>
-
-                    </div>
-                </div>
-                <div class="card quizzCards">
-                    <div class="card-body text-center">
-                        <p>Categoria Mais Jogada</p>
-                        <p><img src="/Images/information.png" class="userImage" alt="Informação" style="width: 20%;">
-                            Bandeiras</p>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="container-fluid quizz" style="background-color: #4AB71B">
-            <div class="row userHeader">
-                <div class="col-lg-12">
-                    <h1 class="display-4 text-center">Quizzes</h1>
-                </div>
-            </div>
-    
-            <!-- FILTER -->
-            <div class="container-fluid userFilter">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label for="stlGenre" class="mr-3">Filtrar Por:</label>
-                        <select class="form-control" id="stlOrder">
-                            <option value="">Nível</option>
-                            <option value="continente">Continente</option>
-                                <!-- <option value="continente">Categoria</option> -->
-                        </select>
-                    </div>
-                </form>
-            </div>
-    
-            <!-- table -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="table-responsive">
-                        <table class="table table-bordered QuizzTable">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Continente</th>
-                                    <th scope="col">Categoria</th>
-                                    <th scope="col">Nível</th>
-                                    <th scope="col">Resposta Correta</th>
-                                    <th scope="col">Eliminar</th>
-                                </tr>
-                            </thead>
-                            <tbody id="QuizzTableBody">
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row quizzesInfo">
-            <button href="#" class="btn newLevelBtn mx-auto mb-5" data-toggle="modal" data-target="#newLevel">Criar
-                Nível</button>
-        </div>
+    <div class="row quizzesInfo">
+        <button href="#" class="btn newLevelBtn mx-auto mb-5" data-toggle="modal" data-target="#newLevel">Criar
+            Nível</button>
+    </div>
     </div>
 
     <div class="modal fade" id="newLevel">
@@ -213,21 +181,21 @@
 
 
     <div class="modal fade" id="removeQuizz">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-                    <!-- Cabeçalho da Modal -->
-                    <div class="modal-header">
-                        <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
-                    </div>
-                    <!-- Corpo da Modal -->
-                    <div class="modal-body text-center">
-                        <p>Tem a certeza que pretende eliminar este Quizz?</p>
-                        <button class="btn yesButton" role="button">Sim</button>
-                        <button class="btn noButton" data-dismiss="modal" role="button">Não</button>
-                    </div>
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Cabeçalho da Modal -->
+                <div class="modal-header">
+                    <img src="/Images/Logo2.png" class="modalLogo" alt="Logo">
+                </div>
+                <!-- Corpo da Modal -->
+                <div class="modal-body text-center">
+                    <p>Tem a certeza que pretende eliminar este Quizz?</p>
+                    <button class="btn yesButton" role="button">Sim</button>
+                    <button class="btn noButton" data-dismiss="modal" role="button">Não</button>
                 </div>
             </div>
         </div>
+    </div>
 
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 

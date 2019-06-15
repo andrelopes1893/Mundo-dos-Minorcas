@@ -2,7 +2,7 @@ import {
     quizzes
 } from '../controler/adminQuizz.js'
 export default class Question {
-    constructor(quizType, continent, level = 1, question, answers = [], correctAnswer, pointXp,img) {
+    constructor(quizType, continent, level = 1, question, answers = [], correctAnswer, pointXp, img) {
         this._id = Question.getLastId() + 1
         this.quizType = quizType
         this.continent = continent
@@ -11,7 +11,7 @@ export default class Question {
         this.answers = answers
         this.correctAnswer = correctAnswer
         this.pointXp = pointXp
-        this.img=img
+        this.img = img
     }
     get id() {
         return this._id
@@ -141,5 +141,25 @@ export default class Question {
             }
         }
         return id
+    }
+
+    static continentFilter(quizA, quizB) {
+        if (quizA._continent < quizB._continent) {
+            return -1;
+        }
+        if (quizA._continent > quizB._continent) {
+            return 1;
+        }
+        return 0;
+    }
+
+    static levelFilter(quizA, quizB) {
+        if (quizA._level < quizB._level) {
+            return -1;
+        }
+        if (quizA._level > quizB._level) {
+            return 1;
+        }
+        return 0;
     }
 }
