@@ -16,13 +16,13 @@
 
     let quantity = a.length / 16
     let quantityTostring = String(quantity)
-    let contains=false
-   
+    let contains = false
 
 
-    for (let i = 0; i<u.length;i++) {
-       if(quantityTostring[i]=='.'){
-          contains=true
+
+    for (let i = 0; i < quantityTostring.length; i++) {
+       if (quantityTostring[i] == '.') {
+          contains = true
        }
     }
 
@@ -55,7 +55,6 @@
        })
     }
  }
-
  function renderCatalog(quantity = 16) {
     if (quantity == 'prev' || quantity == 'next') {
        let value = 16;
@@ -72,11 +71,21 @@
 
           }
           localStorage.setItem('page', JSON.stringify(quantity))
-
        } else {
           if (JSON.parse(localStorage.getItem('page'))) {
-             if (JSON.parse(localStorage.getItem('page')) == a.length) {
+             if (JSON.parse(localStorage.getItem('page')) >= a.length) {
                 value = 0
+                const usernameToast = Swal.mixin({
+                   toast: true,
+                   position: 'bottom-end',
+                   showConfirmButton: false,
+                   timer: 3000,
+                   background: '#29ABE2'
+                });
+                usernameToast.fire({
+                   type: 'info',
+                   title: '<span style="color:#FFFFFF">Já estás na ultima página<span>'
+                })
              }
              quantity = Number(JSON.parse(localStorage.getItem('page'))) + value
           } else {
