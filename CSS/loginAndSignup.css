@@ -1,6 +1,68 @@
+#home {
+    clip-path: url(#cache);
+}
+
+#red {
+    fill: none;
+    opacity: 0.15;
+    stroke: #CE1B5F;
+    stroke-width: 12;
+    stroke-miterlimit: 10;
+    animation: show 4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+#blue {
+    fill: none;
+    opacity: 0.15;
+    stroke: #06A1C4;
+    stroke-width: 12;
+    stroke-miterlimit: 10;
+    animation: show 4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+#light-blue {
+    fill: none;
+    opacity: 0.15;
+    stroke: #06A1C4;
+    stroke-width: 6;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 800;
+    animation: draw 4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0.15;
+    }
+}
+
 body {
     font-family: Mali;
-    background-color: #0079AC;
+    /* background-color: #0079AC; */
 }
 
 /* !"Navbar" */
@@ -29,12 +91,25 @@ div.header img.header {
 
 /* !THE FULL CONTAINER  FORM */
 div.container-fluid.formContainer {
+    align-items: center;
     margin-top: 5%;
     margin-bottom: 5%;
 }
 
+form div.form-group>input {
+    border-radius: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #29abe2;
+}
+
+div.container-fluid.formContainer {
+    position: absolute
+}
+
 /* !ROW CONTAINER FORM AND OTHER ELEMENTS */
-div.container-fluid.formContainer div.row {
+ div.row {
     margin: auto;
     margin-left: 20%;
     margin-right: 20%;
@@ -190,10 +265,10 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
-  
-  /* The actual popup */
-  .popupError .popupText {
+}
+
+/* The actual popup */
+.popupError .popupText {
     visibility: hidden;
     width: 160px;
     background-color: #555;
@@ -206,10 +281,10 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     bottom: 125%;
     left: 50%;
     margin-left: -80px;
-  }
-  
-  /* Popup arrow */
-  .popupError .popupText::after {
+}
+
+/* Popup arrow */
+.popupError .popupText::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -218,25 +293,35 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
-  }
-  
-  /* Toggle this class - hide and show the popup */
-  .popupError .show {
+}
+
+/* Toggle this class - hide and show the popup */
+.popupError .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
-  }
-  
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 
 
 
@@ -335,6 +420,10 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     /* !ROW CONTAINER FORM AND OTHER ELEMENTS */
     div.container-fluid.formContainer div.row {
         padding: 1%;
+    }
+
+    div.container-fluid.formContainer {
+        position: relative;
     }
 
     /* !FORM INPUT */

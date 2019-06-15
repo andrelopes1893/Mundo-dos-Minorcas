@@ -327,12 +327,10 @@ function avatarChange() {
 
                         for (const user of users) {
                                 if (user._id == id) {
-                                        for (let i = 0; i < users.length; i++) {
-                                                user._avatar = elem.querySelector('img').src
-                                                //Change avatar in navbar
-                                                document.querySelector('.avatar').src = elem.querySelector('img').src
-                                                document.querySelector('#currentPhoto').src = user._avatar
-                                        }
+                                        user._avatar = elem.querySelector('img').src
+                                        //Change avatar in navbar
+                                        document.querySelector('.avatar').src = elem.querySelector('img').src
+                                        document.querySelector('#currentPhoto').src = user._avatar
                                 }
                                 localStorage.setItem('users', JSON.stringify(users))
                         }
@@ -349,12 +347,11 @@ function showCurrentXP() {
                 }
 
                 if (user._id == id) {
-                        if(user._xp == 0) {
+                        if (user._xp == 0) {
                                 width = 0
                                 document.querySelector('.progress-bar').style.width = width + '%'
                                 document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                        }
-                        else if (user._xp >= 1 && user._xp <= 20) {
+                        } else if (user._xp >= 1 && user._xp <= 20) {
                                 width += 6.25
                                 document.querySelector('.progress-bar').style.width = width + '%'
                                 document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
