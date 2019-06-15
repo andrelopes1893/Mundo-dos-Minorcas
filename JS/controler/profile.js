@@ -349,7 +349,12 @@ function showCurrentXP() {
                 }
 
                 if (user._id == id) {
-                        if (user._xp <= 20) {
+                        if(user._xp == 0) {
+                                width = 0
+                                document.querySelector('.progress-bar').style.width = width + '%'
+                                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+                        }
+                        else if (user._xp >= 1 && user._xp <= 20) {
                                 width += 6.25
                                 document.querySelector('.progress-bar').style.width = width + '%'
                                 document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'

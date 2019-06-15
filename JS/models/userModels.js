@@ -57,7 +57,11 @@
          return this._avatar
      }
      set avatar(value) {
-         this._avatar = value
+        if (value === '') {
+            value = '../../Images/BoyAvatars/Avatar Amador 1.png'
+        }
+
+        this._avatar = value
      }
 
      get accountType() {
