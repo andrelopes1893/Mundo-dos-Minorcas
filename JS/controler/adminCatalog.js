@@ -152,22 +152,43 @@ function EditFormInfoAdd(id) {
     }
 }
 
-/*
-//parte de filtrar tablea de paises
+
+//parte de filtrar tabela de paises, por continente
 function adminCatalogContinentFilter() {
 
     let countriesTableBody = document.querySelector('#countriesTableBody')
-    let continentValue = document.querySelector("stlOrder").value
+    let continentFilterValue = document.querySelector("stlOrder").value
 
-    if (removeAcento(continentValue.toLowerCase()) == country._continent.toLowerCase()) {
-
+    if (continentFilterValue == country._continent) {
+        
     }
 }
 
-let ContinentFilterBtn = document.querySelector("#btnContinentFilter")
-
-ContinentFilterBtn.addEventListener("click", function() {
+/*
+document.querySelector("#btnContinentFilter").addEventListener("click", function() {
     adminCatalogContinentFilter()
 })
 
+
+
+countriesTableBody.innerHTML = ''
+
+        let r = 0
+        for (const country of countries) {
+            r++
+            countriesTableBody.innerHTML += `<tr>
+                                            <th scope="row">${r}</th>
+                                            <td>${country._name}</td>
+                                            <td>${country._continent}</td>
+                                            <td><button type="button" id="${country._id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
+                                            <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
+                                        </tr> `
+        }
+        removeButtons()
+        editButtons()
+
 */
+
+
+
+
