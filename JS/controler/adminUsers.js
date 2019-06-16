@@ -86,7 +86,7 @@ function renderTable() {
 }
 
 function removeButtons() {
-    let removeBtns = document.getElementsByClassName("btn remove")
+    let removeBtns = document.getElementsByClassName("remove")
     for (const elem of removeBtns) {
         elem.addEventListener("click", function () {
             removeUser(this.id)
@@ -95,27 +95,30 @@ function removeButtons() {
 }
 
 function removeUser(username) {
-    document.querySelector('.yesButton').addEventListener('click', function () {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i]._username == username) {
-                users.splice(i, 1)
+    if (document.querySelector('.yesButton') != null) {
+        document.querySelector('.yesButton').addEventListener('click', function () {
+            for (let i = 0; i < users.length; i++) {
+                if (users[i]._username == username) {
+                    users.splice(i, 1)
+                }
             }
-        }
-        const toast = Swal.mixin({
-            toast: true,
-            position: 'bottom-end',
-            showConfirmButton: false,
-            timer: 3000,
-            background: '#29ABE2'
-        });
-        toast.fire({
-            type: 'success',
-            title: '<span style="color:#FFFFFF">Utilizador removido!<span>'
-        })
-        localStorage.setItem('users', JSON.stringify(users))
-        renderTable()
-        $('#removeUser').modal('hide')
-    })
+            const toast = Swal.mixin({
+                toast: true,
+                position: 'bottom-end',
+                showConfirmButton: false,
+                timer: 3000,
+                background: '#29ABE2'
+            });
+            toast.fire({
+                type: 'success',
+                title: '<span style="color:#FFFFFF">Utilizador removido!<span>'
+            })
+            localStorage.setItem('users', JSON.stringify(users))
+            renderTable()
+            $('#removeUser').modal('hide')
+        }) 
+    }
+    
 }
 
 function block() {
