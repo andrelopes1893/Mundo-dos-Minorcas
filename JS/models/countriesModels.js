@@ -106,24 +106,13 @@ export default class Country {
         }
     }
 
-    // Compara dois paises pelo seu nome. Faz uma ordenação alfabética crescente.
-    static ascendentAlphabeticOrder(countryA, countryB) {
-        if (countryA._name < countryB._name){
-            return -1;
-        }
-        if (countryA._name > countryB._name){
-            return 1;
-        }
-        return 0;
+    // Compara duas datas. Faz uma ordenação da data mais recente para o mais antigo
+    static dateFromRecentToOld(a, b){
+        return new Date(b._dateTime) - new Date(a._dateTime);
     }
 
-    static descendentAlphabeticOrder(countryA, countryB) {
-        if (countryA._name < countryB._name){
-            return 1;
-        }
-        if (countryA._name > countryB._name){
-            return -1;
-        }
-        return 0;
+    // Compara duas datas. Faz uma ordenação da data mais antigo para o mais recente
+    static dateFromOldToRecent(a, b){
+        return new Date(a._dateTime) - new Date(b._dateTime);
     }
 }

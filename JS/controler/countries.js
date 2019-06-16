@@ -1,7 +1,6 @@
 import Country from "../models/countriesModels.js"
 import Comment from '../models/commentsModels.js'
 
-let comments = []
 let countries = []
 let users = []
 let countryId
@@ -11,10 +10,6 @@ let currentCountry
 window.onload = function () {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
-    }
-
-    if (localStorage.comments) {
-        comments = JSON.parse(localStorage.comments)
     }
 
     if (localStorage.users) {
@@ -186,7 +181,6 @@ function searchCountry() {
 
 //Função que injeta na modal as informaçoes correspondentes ao pais em que o card foi carregado
 function renderModalInfo(id) {
-
     for (const country of countries) {
         if (country._id == id) {
             currentCountry = country
@@ -194,7 +188,16 @@ function renderModalInfo(id) {
             document.querySelector("#infoInfo").innerHTML = country._information
             document.querySelector("#imgModal").src = country._location
 
-            renderComments()
+            const divComments = document.querySelector(".commentContainer")
+            //listar comentario(s) registados sobre o pais em causa
+            divComments.innerHTML = ""
+            
+            for (let i = 0; i < currentCountry._comments.length; i++) {
+
+                divComments.innerHTML += `
+                Utilizador: ${currentCountry._comments[i]._userId} | Comentário: "${currentCountry._comments[i]._comment}" | ${currentCountry._comments[i]._dateTime}<br><br>
+                `
+            }
         }
     }
 }
@@ -224,7 +227,6 @@ if (document.querySelector('#commentForm') != null) {
             alert("Não é possível efetuar comentários sem primeiro iniciar sessão!\nSe ainda não tens conta, cria uma e anda divertir-te connosco.")
         }
 
-        localStorage.setItem('comments', JSON.stringify(comments))
         localStorage.setItem('countries', JSON.stringify(countries))
         event.preventDefault()
     })
@@ -232,34 +234,28 @@ if (document.querySelector('#commentForm') != null) {
 
 //ordenar comentarios por data
 const stlGenreComment = document.querySelector('#stlGenreComment')
-
 if (stlGenreComment != null) {
     stlGenreComment.addEventListener("change", function () {
         console.log(stlGenreComment.value)
+        
         if (stlGenreComment.value == "Ordem Antigo para Recente") {
-            currentCountry._comments.sort(Comment.dateFromOldToRecent)
-          
             console.log(currentCountry._comments);
-            
+            currentCountry._comments.sort(Comment.dateFromOldToRecent) 
         }
+
         if (stlGenreComment.value == "Ordem Recente para Antigo") {
-         
-            currentCountry._comments.sort(Comment.dateFromRecentToOld)
             console.log(currentCountry._comments);
+            currentCountry._comments.sort(Comment.dateFromRecentToOld)
         }
-        renderComments()         
+
+        //listar comentario(s) registados sobre o pais em causa
+        const divComments = document.querySelector(".commentContainer")
+        divComments.innerHTML = ""
+        for (let i = 0; i < currentCountry._comments.length; i++) {
+
+            divComments.innerHTML += `
+            Utilizador: ${currentCountry._comments[i]._userId} | Comentário: "${currentCountry._comments[i]._comment}" | ${currentCountry._comments[i]._dateTime}<br><br>
+            `
+        }
     })
-}
-
-function renderComments() {
-    const divComments = document.querySelector(".commentContainer")
-    //listar comentario(s) registados sobre o pais em causa
-    divComments.innerHTML = ""
-    
-    for (let i = 0; i < currentCountry._comments.length; i++) {
-
-        divComments.innerHTML += `
-         Utilizador: ${currentCountry._comments[i]._userId} | Comentário: "${currentCountry._comments[i]._comment}" | ${currentCountry._comments[i]._dateTime}<br><br>
-        `
-    }
 }
