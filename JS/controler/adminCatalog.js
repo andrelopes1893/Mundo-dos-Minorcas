@@ -7,6 +7,8 @@ import{
 export let countries = []
 
 window.onload = function () {
+    console.log(countries);
+    
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     }
@@ -58,10 +60,9 @@ function renderTable() {
         }
         removeButtons()
         editButtons()
+    }
 }
-    
- 
-}
+
 function removeButtons() {
     let removeBtns = document.getElementsByClassName("btn remove")
     for (const elem of removeBtns) {
@@ -81,7 +82,6 @@ function removeCountry(name) {
     }
     localStorage.setItem('countries', JSON.stringify(countries))
     $('#ModalEditCountry').modal('hide')
-
 }
 
 function isRepeated(name) {
@@ -95,10 +95,7 @@ function isRepeated(name) {
 }
 
 function submitEdit(id) {
-    
     document.getElementById('editCountry').addEventListener('click', function () {
-
-
 
         if (localStorage.countries) {
             countries = JSON.parse(localStorage.countries)
@@ -131,7 +128,6 @@ function submitEdit(id) {
 }
 
 function editButtons() {
-
     let editButtons = document.getElementsByClassName('editBtn')
 
     for (const elem of editButtons) {
@@ -145,7 +141,6 @@ function editButtons() {
 function EditFormInfoAdd(id) {
     for (const country of countries) {
         if (country._id == id) {
-
             document.querySelector('#txtEditCountryName').value = country._name
             document.querySelector('#newSltContinent').value = country._continent
             document.querySelector('#txtEditCountryCapital').value = country._capital

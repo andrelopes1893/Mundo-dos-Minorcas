@@ -234,17 +234,14 @@ if (document.querySelector('#commentForm') != null) {
 
 //ordenar comentarios por data
 const stlGenreComment = document.querySelector('#stlGenreComment')
-//if (stlGenreComment != null) {
+if (stlGenreComment != null) {
     stlGenreComment.addEventListener("change", function () {
-        console.log(stlGenreComment.value)
         
         if (stlGenreComment.value == "Ordem Antigo para Recente") {
-            console.log(currentCountry._comments);
             currentCountry._comments.sort(Comment.dateFromOldToRecent) 
         }
 
         if (stlGenreComment.value == "Ordem Recente para Antigo") {
-            console.log(currentCountry._comments);
             currentCountry._comments.sort(Comment.dateFromRecentToOld)
         }
 
@@ -258,4 +255,4 @@ const stlGenreComment = document.querySelector('#stlGenreComment')
             `
         }
     })
-//}
+}
