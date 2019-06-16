@@ -26,10 +26,10 @@ export default class Comment {
     // Compara duas datas. Faz uma ordenação da data mais recente para o mais antigo
     static dateFromRecentToOld(a, b){
         if (a._dateTime < b._dateTime){
-            return -1;
+            return 1;
         }
         if (a._dateTime > b._dateTime){
-            return 1;
+            return -1;
         }
         return 0;
     }
@@ -37,10 +37,10 @@ export default class Comment {
     // Compara duas datas. Faz uma ordenação da data mais antigo para o mais recente
     static dateFromOldToRecent(a, b){
         if (a._dateTime < b._dateTime){
-            return 1;
+            return -1;
         }
         if (a._dateTime > b._dateTime){
-            return -1;
+            return 1;
         }
         return 0;
     }

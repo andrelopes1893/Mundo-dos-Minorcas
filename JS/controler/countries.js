@@ -234,7 +234,7 @@ if (document.querySelector('#commentForm') != null) {
 
 //ordenar comentarios por data
 const stlGenreComment = document.querySelector('#stlGenreComment')
-if (stlGenreComment != null) {
+//if (stlGenreComment != null) {
     stlGenreComment.addEventListener("change", function () {
         console.log(stlGenreComment.value)
         
@@ -258,4 +258,4 @@ if (stlGenreComment != null) {
             `
         }
     })
-}
+//}
