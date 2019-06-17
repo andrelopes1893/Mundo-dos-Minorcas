@@ -11,7 +11,7 @@ window.onload = function () {
         countries = JSON.parse(localStorage.countries)
     }
     if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Crescente dos Continentes") {
-        sortCountriesAscendent()
+        countries.sort(Country.continentFilterascendentAlphabeticOrder)
     }
     console.log(document.querySelector('#stlOrder').value)
     renderTable()
@@ -48,11 +48,10 @@ function renderTable() {
 
     document.querySelector("#stlOrder").addEventListener("change", function () {
         if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Crescente dos Continentes") {
-            sortCountriesAscendent()
+            countries.sort(Country.continentFilterascendentAlphabeticOrder)
         }
-        if (
-            document.querySelector('#stlOrder').value == "Ordem Alfabetica Decrescente dos Continentes") {
-            sortCountriesDescendent()
+        if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Decrescente dos Continentes") {
+            countries.sort(Country.continentFilterDescendentAlphabeticOrder)
         }
         if (countriesTableBody != null) {
             countriesTableBody.innerHTML = ''
@@ -163,15 +162,4 @@ function EditFormInfoAdd(id) {
             document.querySelector('#txtEditCountryFlag').value = country._flag
         }
     }
-}
-
-
-//Função que ordena o array de paises pelo continente, de forma crescente, na tabela
-function sortCountriesAscendent() {
-    countries.sort(Country.continentFilterascendentAlphabeticOrder)
-}
-
-//Função que ordena o array de paises pelo continente, de forma decrescente, na tabela
-function sortCountriesDescendent() {
-    countries.sort(Country.continentFilterDescendentAlphabeticOrder)
 }
