@@ -34,39 +34,41 @@ if (document.querySelector('#createCountryForm') != null) {
     })
 }
 
-//função de renderizar a tabela de paises
+
+if (document.querySelector('.filterCatalog') != null) {
+    document.querySelector('.filterCatalog').addEventListener('click', function () {
+        renderTable()
+    })
+}
+
 function renderTable() {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     }
 
-    document.querySelector("#stlOrder").addEventListener("change", function () {
-        if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Crescente dos Continentes") {
-            countries.sort(Country.continentFilterascendentAlphabeticOrder)
-        }
-        if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Decrescente dos Continentes") {
-            countries.sort(Country.continentFilterDescendentAlphabeticOrder)
-        }
-        if (document.querySelector('#countriesTableBody') != null) {
-            
-            document.querySelector('#countriesTableBody').innerHTML = ''
-    
-            let r = 0
-            for (const country of countries) {
-                r++
-                document.querySelector('#countriesTableBody').innerHTML += `<tr>
-                                                <th scope="row">${r}</th>
-                                                <td>${country._continent}</td>
-                                                <td>${country._name}</td>
-                                                <td><button type="button" id="${country._id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
-                                                <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
-                                            </tr> `
-            }
+    if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Crescente dos Continentes") {        
+        countries.sort(Country.ascendentContinentOrder)
+    }
 
-        }
-        removeButtons()
-        editButtons()
-    })
+    if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Decrescente dos Continentes") {
+        countries.sort(Country.descendentContinentOrder)
+    }
+
+    document.querySelector('#countriesTableBody').innerHTML = ''
+
+    let r = 0
+    for (const country of countries) {
+        r++
+        document.querySelector('#countriesTableBody').innerHTML += `<tr>
+                                                                        <th scope="row">${r}</th>
+                                                                        <td>${country._continent}</td>
+                                                                        <td>${country._name}</td>
+                                                                        <td><button type="button" id="${country._id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
+                                                                        <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
+                                                                    </tr> `
+    }
+    removeButtons()
+    editButtons()
 }
 
 function removeButtons() {

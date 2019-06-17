@@ -129,7 +129,7 @@ export default class Country {
     }
 
     // Compara dois paises pelo seu nome. Faz uma ordenação alfabética crescente por continente.
-    static continentFilterascendentAlphabeticOrder(continentA, continentB) {
+    static ascendentContinentOrder(continentA, continentB) {
         if (continentA._continent < continentB._continent) {
             return -1;
         }
@@ -140,7 +140,7 @@ export default class Country {
     }
 
     // Compara dois paises pelo seu nome. Faz uma ordenação alfabética decrescente por continente..
-    static continentFilterDescendentAlphabeticOrder(continentA, continentB) {
+    static descendentContinentOrder(continentA, continentB) {
         if (continentA._continent < continentB._continent){
             return 1;
         }
