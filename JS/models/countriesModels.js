@@ -117,6 +117,7 @@ export default class Country {
         return 0;
     }
 
+    // Compara dois paises pelo seu nome. Faz uma ordenação alfabética decrescente.
     static descendentAlphabeticOrder(countryA, countryB) {
         if (countryA._name < countryB._name){
             return 1;
