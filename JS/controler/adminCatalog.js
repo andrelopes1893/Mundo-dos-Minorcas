@@ -10,10 +10,6 @@ window.onload = function () {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     }
-    if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Crescente dos Continentes") {
-        countries.sort(Country.continentFilterascendentAlphabeticOrder)
-    }
-    console.log(document.querySelector('#stlOrder').value)
     renderTable()
 }
 
