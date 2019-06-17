@@ -247,6 +247,7 @@ document.querySelector('.buttonBoy').addEventListener('click', function () {
                                                     </div>
                                                 </div>`
         }
+        avatarChange()
         $('.boyAvatar').css({
                 'width': '6rem',
                 'height': '6rem',
@@ -317,7 +318,7 @@ function showAvatarOnload() {
 }
 
 function avatarChange() {
-        let profileBtns = document.querySelectorAll('.avatarButton')
+        let profileBtns = document.querySelectorAll('.avatarButton')        
         for (const elem of profileBtns) {
                 elem.addEventListener("click", function () {
                         let id = ""
