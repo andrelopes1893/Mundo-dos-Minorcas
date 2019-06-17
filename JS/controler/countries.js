@@ -3,6 +3,7 @@ import Comment from '../models/commentsModels.js'
 
 let countries = []
 let users = []
+let ratings = []
 let countryId
 let currentCountry
 
@@ -89,10 +90,10 @@ function renderCatalog() {
             renderModalInfo(this.id)
         })
     }
-
     renderModalInfo()
 }
 
+//codigo de implementar a avaliação de cada card de um pais
 function ratingButtons() {
     let starBtn = document.getElementsByClassName('star')
     for (const elem of starBtn) {
@@ -111,37 +112,8 @@ function ratingStars() {
         // 3
         const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
         // 4
-        document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
+        document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;   
     }
-    // document.querySelectorAll('.star')[0].addEventListener('click', function () {
-    //     document.getElementById('1').style.color = "#FFD700"
-    // })
-
-    // document.querySelectorAll('.star')[1].addEventListener('click', function () {
-    //     document.getElementById('1').style.color = "#FFD700"
-    //     document.getElementById('2').style.color = "#FFD700"
-    // })
-
-    // document.querySelectorAll('.star')[2].addEventListener('click', function () {
-    //     document.getElementById('1').style.color = "#FFD700"
-    //     document.getElementById('2').style.color = "#FFD700"
-    //     document.getElementById('3').style.color = "#FFD700"
-    // })
-
-    // document.querySelectorAll('.star')[3].addEventListener('click', function () {
-    //     document.getElementById('1').style.color = "#FFD700"
-    //     document.getElementById('2').style.color = "#FFD700"
-    //     document.getElementById('3').style.color = "#FFD700"
-    //     document.getElementById('4').style.color = "#FFD700"
-    // })
-
-    // document.querySelectorAll('.star')[4].addEventListener('click', function () {
-    //     document.getElementById('1').style.color = "#FFD700"
-    //     document.getElementById('2').style.color = "#FFD700"
-    //     document.getElementById('3').style.color = "#FFD700"
-    //     document.getElementById('4').style.color = "#FFD700"
-    //     document.getElementById('5').style.color = "#FFD700"
-    // })
 }
 
 //função para trocar letras com caracteres especiais das letras (como acentos, cedilhas, etc por essa letra, simples.)
