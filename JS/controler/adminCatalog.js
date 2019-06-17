@@ -48,6 +48,8 @@ function renderTable() {
             countries.sort(Country.continentFilterDescendentAlphabeticOrder)
         }
         if (document.querySelector('#countriesTableBody') != null) {
+            
+            document.querySelector('#countriesTableBody').innerHTML = ''
     
             let r = 0
             for (const country of countries) {
