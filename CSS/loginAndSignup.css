@@ -61,9 +61,9 @@ body {
     background: linear-gradient(270deg, #29abe2, #ffffff);
     background-size: 400% 400%;
 
-    -webkit-animation: AnimationName 30s ease infinite;
-    -moz-animation: AnimationName 30s ease infinite;
-    animation: AnimationName 30s ease infinite;
+    -webkit-animation: AnimationName 15s ease infinite;
+    -moz-animation: AnimationName 15s ease infinite;
+    animation: AnimationName 15s ease infinite;
 }
 
 /* !CONTAINERHEADER(IMG) */
@@ -127,7 +127,20 @@ form#signInForm input.btn.logIn {
 }
 
 div.text-center.buttonContainer {
-    margin-top: 7%
+    margin-top: 7%;
+    transition: all .5s ease-in-out;
+}
+
+div.text-center.buttonContainer:hover {
+    transform: scale(1.05, 1.05)
+}
+
+div.text-center.buttonContainer2 {
+    transition: all .5s ease-in-out;
+}
+
+div.text-center.buttonContainer2:hover {
+    transform: scale(1.05, 1.05)
 }
 
 /* !SIGN IN OR SIGN UP DIVIDOR */

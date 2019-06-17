@@ -3,14 +3,26 @@ window.onload = function () {
     if (sessionStorage.getItem('continentStyle')) {
         continentStyle = JSON.parse(sessionStorage.getItem('continentStyle'))
     }
-    // else {
-    //      // !Para eliminar
-    //     continentStyle = 'africa'
-    //     // !Para eliminar
-    //     sessionStorage.setItem('continentStyle', JSON.stringify(continentStyle))
-    // }
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
+    userData()
     styleChangeByContinent()
 }
+
+function userData() {
+    for (const user of users) {
+        let id = ""
+        if (sessionStorage.getItem('loggedUserId')) {
+            id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        }
+
+        if (user._id == id) {
+            document.querySelector('.avatar').src = user._avatar
+        }
+    }
+}
+
 // !Page Looking
 function styleChangeByContinent() {
     if (continentStyle == 'africa') {

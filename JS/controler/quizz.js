@@ -1,3 +1,12 @@
+let users = []
+
+window.onload = function () {
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    }
+    userData()
+}
+
 let continentStyle = ""
 
 document.querySelector('#africanBtnQuiz').addEventListener('click', function() {
@@ -28,4 +37,17 @@ document.querySelector('#oceaniaBtnQuiz').addEventListener('click', function() {
 function addValue(continentStyle) {
     sessionStorage.setItem('continentStyle', JSON.stringify(continentStyle))
     location.href = '../../HTML/continentQuizz.html'
+}
+
+function userData() {
+    for (const user of users) {
+        let id = ""
+        if (sessionStorage.getItem('loggedUserId')) {
+            id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        }
+
+        if (user._id == id) {
+            document.querySelector('.avatar').src = user._avatar
+        }
+    }
 }

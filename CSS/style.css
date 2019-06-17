@@ -957,6 +957,76 @@ p.lead.avatarType {
     color: #CCCC33
 }
 
+/** Statistics */
+
+/* ! STATISTICS + HEADER CONTAINER*/
+
+div.row div.col-12.statistics {
+    color: #ffffff;
+}
+
+div.row div.col-12.statistics img {
+    width: 5%;
+}
+
+/* !USER TABLE FILTER*/
+
+button.statsFilter {
+    border: 1px solid #ffffff;
+    margin-left: 3rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+button.statsFilter:focus {
+    box-shadow: 0 0 0 0
+}
+
+button.statsFilter:hover {
+    color: #ffffff
+}
+
+/* ! USERS TABLE + CONTAINER + HEADER*/
+div.container-fluid.users {
+    background-color: #29ABE2;
+}
+
+div.row div.col-lg-6 div.card.mx-auto {
+    background-color: #29ABE2;
+}
+
+div.container-fluid div.row.userHeader div.col-lg-12 h1.display-4.text-center {
+    color: #ffffff;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    font-weight: 500;
+}
+
+table.table-bordered {
+    font-size: 24px;
+    border: 2px solid #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 5%;
+}
+
+div.table-responsive{
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+table.table-bordered>thead>tr>th {
+    border: 2px solid #ffffff;
+}
+
+table.table-bordered>tbody>tr>td {
+    border: 2px solid #ffffff;
+}
+
+table.table-bordered>tbody>tr>th {
+    border: 2px solid #ffffff;
+}
+
 /* Footer */
 footer.page-footer {
     background: #29ABE2;

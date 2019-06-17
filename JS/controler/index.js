@@ -6,7 +6,7 @@ let users = []
 
 window.onload = function () {
     if (localStorage.getItem("users")) {
-            users = JSON.parse(localStorage.getItem("users"))
+        users = JSON.parse(localStorage.getItem("users"))
     }
     userData()
 }
@@ -31,11 +31,17 @@ $('.owl-carousel').owlCarousel({
 
 function userData() {
     for (const user of users) {
-        document.querySelector('.avatar').src = user._avatar
+        let id = ""
+        if (sessionStorage.getItem('loggedUserId')) {
+            id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        }
+
+        if (user._id == id) {
+            document.querySelector('.avatar').src = user._avatar
+        }
     }
 }
 
 document.getElementById('signOut').addEventListener('click', function () {
     signOut()
 })
-
