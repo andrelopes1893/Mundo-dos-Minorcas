@@ -7,8 +7,6 @@ import{
 export let countries = []
 
 window.onload = function () {
-    console.log(countries);
-    
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     }
@@ -41,27 +39,35 @@ function renderTable() {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     }
-    
+
     let countriesTableBody = document.querySelector('#countriesTableBody')
     
-    if(countriesTableBody != null){
-        countriesTableBody.innerHTML = ''
-        countriesTableBody.innerHTML = ''
-
-        let r = 0
-        for (const country of countries) {
-            r++
-            countriesTableBody.innerHTML += `<tr>
-                                            <th scope="row">${r}</th>
-                                            <td>${country._name}</td>
-                                            <td>${country._continent}</td>
-                                            <td><button type="button" id="${country._id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
-                                            <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
-                                        </tr> `
+    document.querySelector("#stlOrder").addEventListener("change", function () {
+        if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Crescente dos Continentes") {
+            sortCountriesAscendent()
         }
-        removeButtons()
-        editButtons()
-    }
+        if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Decrescente dos Continentes") {
+            sortCountriesDescendent()
+        }
+        if(countriesTableBody != null){
+            countriesTableBody.innerHTML = ''
+            countriesTableBody.innerHTML = ''
+    
+            let r = 0
+            for (const country of countries) {
+                r++
+                countriesTableBody.innerHTML += `<tr>
+                                                <th scope="row">${r}</th>
+                                                <td>${country._continent}</td>
+                                                <td>${country._name}</td>
+                                                <td><button type="button" id="${country._id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
+                                                <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
+                                            </tr> `
+            }
+            removeButtons()
+            editButtons()
+        }
+    })
 }
 
 function removeButtons() {
@@ -156,42 +162,12 @@ function EditFormInfoAdd(id) {
 }
 
 
-//parte de filtrar tabela de paises, por continente
-function adminCatalogContinentFilter() {
-
-    let countriesTableBody = document.querySelector('#countriesTableBody')
-    let continentFilterValue = document.querySelector("stlOrder").value
-
-    if (continentFilterValue == country._continent) {
-        
-    }
+//Função que ordena o array de paises pelo continente, de forma crescente, na tabela
+function sortCountriesAscendent() {
+    countries.sort(Country.continentFilterascendentAlphabeticOrder)
 }
 
-/*
-document.querySelector("#btnContinentFilter").addEventListener("click", function() {
-    adminCatalogContinentFilter()
-})
-
-
-
-countriesTableBody.innerHTML = ''
-
-        let r = 0
-        for (const country of countries) {
-            r++
-            countriesTableBody.innerHTML += `<tr>
-                                            <th scope="row">${r}</th>
-                                            <td>${country._name}</td>
-                                            <td>${country._continent}</td>
-                                            <td><button type="button" id="${country._id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
-                                            <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
-                                        </tr> `
-        }
-        removeButtons()
-        editButtons()
-
-*/
-
-
-
-
+//Função que ordena o array de paises pelo continente, de forma decrescente, na tabela
+function sortCountriesDescendent() {
+    countries.sort(Country.continentFilterDescendentAlphabeticOrder)
+}

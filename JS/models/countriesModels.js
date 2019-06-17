@@ -127,4 +127,26 @@ export default class Country {
         }
         return 0;
     }
+
+    // Compara dois paises pelo seu nome. Faz uma ordenação alfabética crescente por continente.
+    static continentFilterascendentAlphabeticOrder(continentA, continentB) {
+        if (continentA._continent < continentB._continent) {
+            return -1;
+        }
+        if (continentA._continent > continentB._continent) {
+            return 1;
+        }
+        return 0;
+    }
+
+    // Compara dois paises pelo seu nome. Faz uma ordenação alfabética decrescente por continente..
+    static continentFilterDescendentAlphabeticOrder(continentA, continentB) {
+        if (continentA._continent < continentB._continent){
+            return 1;
+        }
+        if (continentA._continent > continentB._continent){
+            return -1;
+        }
+        return 0;
+    }
 }

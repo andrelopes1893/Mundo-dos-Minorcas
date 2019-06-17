@@ -104,14 +104,10 @@
                 <div class="container-fluid userFilter">
                     <form class="form-inline">
                         <div class="form-group">
-                            <label for="stlGenre" class="mr-3">Filtrar Por:</label>
+                            <label for="stlGenre" class="mr-3">Ordenar Por:</label>
                             <select class="form-control" id="stlOrder">
-                                <option value="">Continente</option>
-                                <option value="Africa">África</option>
-                                <option value="America">América</option>
-                                <option value="Asia">Ásia</option>
-                                <option value="Europa">Europa</option>
-                                <option value="Oceania">Oceânia</option>
+                                <option value="Ordem Alfabetica Crescente dos Continentes">Ordem Alfabética Crescente dos Continentes</option>
+                                <option value="Ordem Alfabetica Decrescente dos Continentes">Ordem Alfabética Decrescente dos Continentes</option>
                             </select>
                             <button type="button" class="btn filterContinent" id="btnContinentFilterTable">Filtrar</button>
                         </div>
@@ -123,8 +119,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Nome do País</th>
                                 <th scope="col">Continente</th>
+                                <th scope="col">Nome do País</th>
                                 <th scope="col">Editar</th>
                                 <th scope="col">Eliminar</th>
                             </tr>
