@@ -40,8 +40,6 @@ function renderTable() {
         countries = JSON.parse(localStorage.countries)
     }
 
-    let countriesTableBody = document.querySelector('#countriesTableBody')
-
     document.querySelector("#stlOrder").addEventListener("change", function () {
         if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Crescente dos Continentes") {
             countries.sort(Country.continentFilterascendentAlphabeticOrder)
@@ -49,13 +47,12 @@ function renderTable() {
         if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Decrescente dos Continentes") {
             countries.sort(Country.continentFilterDescendentAlphabeticOrder)
         }
-        if (countriesTableBody != null) {
-            countriesTableBody.innerHTML = ''
+        if (document.querySelector('#countriesTableBody') != null) {
     
             let r = 0
             for (const country of countries) {
                 r++
-                countriesTableBody.innerHTML += `<tr>
+                document.querySelector('#countriesTableBody').innerHTML += `<tr>
                                                 <th scope="row">${r}</th>
                                                 <td>${country._continent}</td>
                                                 <td>${country._name}</td>
@@ -63,9 +60,10 @@ function renderTable() {
                                                 <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
                                             </tr> `
             }
-            removeButtons()
-            editButtons()
+
         }
+        removeButtons()
+        editButtons()
     })
 }
 
@@ -73,7 +71,6 @@ function removeButtons() {
     let removeBtns = document.getElementsByClassName("btn remove")
     for (const elem of removeBtns) {
         elem.addEventListener("click", function () {
-            // O this.id é o valor do atributo id de cada elemento button
             removeCountry(this.id)
             renderTable()
         })
