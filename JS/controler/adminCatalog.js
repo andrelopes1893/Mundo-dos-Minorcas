@@ -1,6 +1,6 @@
 import Country from '../models/countriesModels.js'
 
-import{
+import {
     removeAcento
 } from '../controler/countries.js'
 
@@ -10,6 +10,10 @@ window.onload = function () {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     }
+    if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Crescente dos Continentes") {
+        sortCountriesAscendent()
+    }
+    console.log(document.querySelector('#stlOrder').value)
     renderTable()
 }
 
@@ -22,14 +26,14 @@ if (document.querySelector('#createCountryForm') != null) {
         const countryInfo = document.querySelector('#txtInfo').value
         const countryLocation = document.querySelector('#txtLocation').value
         const countryFlag = document.querySelector('#txtFlag').value
-    
+
         if (!isRepeated(countryName)) {
             countries.push(new Country(countryName, countryCapital, countryFlag, countryLanguage, countryContinent, countryInfo, countryLocation))
             localStorage.setItem('countries', JSON.stringify(countries))
             renderTable()
             document.querySelector('#createCountryForm').reset();
         }
-    
+
         event.preventDefault()
     })
 }
@@ -41,16 +45,16 @@ function renderTable() {
     }
 
     let countriesTableBody = document.querySelector('#countriesTableBody')
-    
+
     document.querySelector("#stlOrder").addEventListener("change", function () {
         if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Crescente dos Continentes") {
             sortCountriesAscendent()
         }
-        if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Decrescente dos Continentes") {
+        if (
+            document.querySelector('#stlOrder').value == "Ordem Alfabetica Decrescente dos Continentes") {
             sortCountriesDescendent()
         }
-        if(countriesTableBody != null){
-            countriesTableBody.innerHTML = ''
+        if (countriesTableBody != null) {
             countriesTableBody.innerHTML = ''
     
             let r = 0
@@ -110,14 +114,14 @@ function submitEdit(id) {
             countries = JSON.parse(localStorage.countries)
         }
         let txtName = document.getElementById('txtEditCountryName').value
-        let txtContinent = document.querySelector('#newSltContinent').value 
+        let txtContinent = document.querySelector('#newSltContinent').value
         let txtCapital = document.querySelector('#txtEditCountryCapital').value
         let txtLanguage = document.querySelector('#txtEditCountryLanguage').value
-        let txtInfo = document.querySelector('#txtEditCountryInfo').value 
-        let txtLocation = document.querySelector('#txtEditCountryLocation').value 
-        let txtFlag = document.querySelector('#txtEditCountryFlag').value 
+        let txtInfo = document.querySelector('#txtEditCountryInfo').value
+        let txtLocation = document.querySelector('#txtEditCountryLocation').value
+        let txtFlag = document.querySelector('#txtEditCountryFlag').value
         for (const country of countries) {
-            if (id==country._id ) {
+            if (id == country._id) {
                 console.log(country._id)
                 country._name = txtName
                 country._continent = txtContinent
