@@ -58,7 +58,7 @@
      }
      set avatar(value) {
         if (value === '') {
-            value = '../../Images/BoyAvatars/Avatar Amador 1.png'
+            value = '../../Images/BoyAvatars/Avatar Principiante 1.png'
         }
 
         this._avatar = value
