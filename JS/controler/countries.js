@@ -99,6 +99,7 @@ function ratingButtons() {
     for (const elem of starBtn) {
         elem.addEventListener("click", function () {
             ratingStars()
+            console.log(elem)
         })
     }
 }
