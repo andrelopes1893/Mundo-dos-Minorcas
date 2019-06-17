@@ -926,21 +926,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         width: 40px
     }
 
-    button.filterCatalog {
-        border: 1px solid #ffffff !important;
-        margin-left: 3rem;
-        color: #ffffff;
-        font-weight: 500;
-    }
-    
-    button.filterCatalog:focus {
-        box-shadow: 0 0 0 0
-    }
-    
-    button.filterCatalog:hover {
-        color: #ffffff
-    }
-
 }
 
 /* !IPAD */
@@ -1750,4 +1735,45 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     table.table.table-bordered.mx-auto.catalogTable img {
         width: 35px
     }
+}
+
+
+#btnContinentFilterTable{
+    border: 2px solid #ffffff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: all .2s ease-in-out;
+    margin-left: 3rem;
+}
+
+#btnContinentFilterTable:focus {
+    box-shadow: 0 0 0 0;
+}
+
+#btnContinentFilterTable:hover {
+    color: #ffffff;
+    transform: scale(1.1, 1.1);
+}
+
+
+#btnQuizzFilterTable {
+    border: 2px solid #ffffff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: all .2s ease-in-out;
+    margin-left: 3rem;
+}
+
+#btnQuizzFilterTable:focus {
+    box-shadow: 0 0 0 0
+}
+
+#btnQuizzFilterTable:hover {
+    transform: scale(1.1, 1.1);
 }

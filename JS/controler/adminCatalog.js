@@ -36,6 +36,7 @@ if (document.querySelector('#createCountryForm') != null) {
     })
 }
 
+//função de renderizar a tabela de paises
 function renderTable() {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
@@ -74,6 +75,7 @@ function removeButtons() {
     }
 }
 
+//função de remover pais
 function removeCountry(name) {
     for (let i = 0; i < countries.length; i++) {
         if (countries[i]._name === name) {
@@ -94,6 +96,7 @@ function isRepeated(name) {
     return false
 }
 
+//função de editar pais do catalogo
 function submitEdit(id) {
     document.getElementById('editCountry').addEventListener('click', function () {
 
