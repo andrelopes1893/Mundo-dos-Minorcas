@@ -77,7 +77,8 @@
                 <div class="form-group selection mx-auto">
                     <label for="stlGenre">Filtrar Por: </label>
                     <select class="form-control" id="stlGenre">
-                        <option class="optionStyle" value="Ordem Alfabetica Crescente">Ordem Alfabética Crescente</option>
+                        <option class="optionStyle" value="Ordem Alfabetica Crescente">Ordem Alfabética Crescente
+                        </option>
                         <option value="Ordem Alfabetica Decrescente">Ordem Alfabética Decrescente</option>
                         <option value="Mais Visitados">Mais Visitados</option>
                         <option value="Melhor Pontuação">Melhor Pontuação</option>
@@ -96,6 +97,13 @@
 
     <!--Card-->
     <div class="container-fluid" id="containerCatalog"></div>
+
+
+    <div class="text-center">
+        <ul class="pagination">
+
+        </ul>
+    </div>
 
 
     <!-- Modal -->
@@ -124,8 +132,10 @@
                         <div class="col-lg-6 col-md-12 col-xs-12 imgInfo">
                             <p class="lead commentTitle" id="commentTitle">Comentários Anteriores:</p>
                             <select class="form-control" id="stlGenreComment">
-                                <option class="optionStyle" id="dateFromOldToRecent" value="Ordem Antigo para Recente">Do mais antigo para o mais recente</option>
-                                <option class="optionStyle" id="dateFromRecentToOld" value="Ordem Recente para Antigo">Do mais recente para o mais antigo</option>
+                                <option class="optionStyle" id="dateFromOldToRecent" value="Ordem Antigo para Recente">
+                                    Do mais antigo para o mais recente</option>
+                                <option class="optionStyle" id="dateFromRecentToOld" value="Ordem Recente para Antigo">
+                                    Do mais recente para o mais antigo</option>
                             </select>
                             <div class="commentContainer" rows="7" cols="10"></div>
                         </div>
@@ -133,7 +143,8 @@
                             <form id="commentForm">
                                 <div class="form-group">
                                     <p class="lead informationTitle">Escreva o teu Comentário: </p>
-                                    <textarea class="form-control comment" id="txtComment" rows="7" cols="20" maxlength="750"></textarea>
+                                    <textarea class="form-control comment" id="txtComment" rows="7" cols="20"
+                                        maxlength="750"></textarea>
                                     <button class="btn commentBtn mt-3" id="commentBtn">Comentar</button>
                                 </div>
                             </form>

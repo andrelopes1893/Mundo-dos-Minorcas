@@ -16,8 +16,16 @@ window.onload = function () {
     if (localStorage.users) {
         users = JSON.parse(localStorage.users)
     }
+    if (localStorage.getItem('page')) {
+        localStorage.removeItem('page')
+    }
+
+   
+
 
     renderCatalog()
+    // !!!new
+    ConstructPaginationButton() 
     renderModalInfo()
     userData()
     if (sessionStorage.getItem('continentCatalogStyle')) {
@@ -37,7 +45,7 @@ if (document.querySelector("#btnFilter") != null) {
 }
 
 //função que renderiza o catalogo
-function renderCatalog() {
+function renderCatalog(quantity = 16) {
     if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Crescente") {
         sortCountriesAscendent()
     }
@@ -46,38 +54,127 @@ function renderCatalog() {
         sortCountriesDescendent()
     }
 
+    if (quantity == 'prev' || quantity == 'next') {
+        let value = 16;
+        if (quantity == 'prev') {
+            if (JSON.parse(localStorage.getItem('page'))) {
+                if (JSON.parse(localStorage.getItem('page')) == 16) {
+                    value = 0
+
+                }
+                quantity = Number(JSON.parse(localStorage.getItem('page'))) - value
+
+            } else {
+                quantity = 16
+
+            }
+            localStorage.setItem('page', JSON.stringify(quantity))
+        } else {
+            if (JSON.parse(localStorage.getItem('page'))) {
+                if (JSON.parse(localStorage.getItem('page')) >= a.length) {
+                    value = 0
+                    const usernameToast = Swal.mixin({
+                        toast: true,
+                        position: 'bottom-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        background: '#29ABE2'
+                    });
+                    usernameToast.fire({
+                        type: 'info',
+                        title: '<span style="color:#FFFFFF">Já estás na ultima página<span>'
+                    })
+                }
+                quantity = Number(JSON.parse(localStorage.getItem('page'))) + value
+            } else {
+                quantity = 32
+            }
+            localStorage.setItem('page', JSON.stringify(quantity))
+        }
+    }
+
+
+
+
+
     let result = ""
     let i = 0
     let contName = document.querySelector('.continentTitle').innerHTML
 
-    for (const country of countries) {
-        if (removeAcento(contName.toLowerCase()) == country._continent.toLowerCase()) {
-            if (i % 4 === 0) {
-                result += `<div class="row">`
-            }
-            result += `
-                <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
-                    <div class="card africanCards" style="width: 18rem;">
-                    <button type="button" id="${country._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal">
-                        <img src="${country._flag}" class="card-img-top" alt="Brasil">
-                    </button>
-                        <div class="card-body" id="${country._id}">
-                            <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
-                            <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
-                            <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
-                            <div class="stars-outer">
-                                <div class="stars-inner"></div>
+
+    if(countries.length>0){
+        for (let j = Number(quantity) - 16; j < Number(quantity); j++) {
+
+            if (removeAcento(contName.toLowerCase()) == countries[j]._continent.toLowerCase()) {
+                if (i % 4 === 0) {
+                    result += `<div class="row">`
+                }
+                result += `
+                    <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
+                        <div class="card africanCards" style="width: 18rem;">
+                        <button type="button" id="${countries[j]._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal">
+                            <img src="${countries[j]._flag}" class="card-img-top" alt="Brasil">
+                        </button>
+                            <div class="card-body" id="${countries[j]._id}">
+                                <p class="card-text paragraph">NOME: <span>${countries[j]._name}</span> </p>
+                                <p class="card-text paragraph">CAPITAL: <span>${countries[j]._capital}</span></p>
+                                <p class="card-text paragraph">LÍNGUA: <span>${countries[j]._language}</span></p>
+                                <div class="stars-outer">
+                                    <div class="stars-inner"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>`
-            i++
-
-            if (i % 4 === 0) {
-                result += `</div>`
+                    </div>`
+                i++
+    
+                if (i % 4 === 0) {
+                    result += `</div>`
+                }
+    
+                if ((i + 1) == countries.length) {
+                    break;
+                 }
             }
         }
+
     }
+
+    
+
+
+
+
+
+
+
+    // for (const country of countries) {
+    //     if (removeAcento(contName.toLowerCase()) == country._continent.toLowerCase()) {
+    //         if (i % 4 === 0) {
+    //             result += `<div class="row">`
+    //         }
+    //         result += `
+    //             <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
+    //                 <div class="card africanCards" style="width: 18rem;">
+    //                 <button type="button" id="${country._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal">
+    //                     <img src="${country._flag}" class="card-img-top" alt="Brasil">
+    //                 </button>
+    //                     <div class="card-body" id="${country._id}">
+    //                         <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
+    //                         <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
+    //                         <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
+    //                         <div class="stars-outer">
+    //                             <div class="stars-inner"></div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </div>`
+    //         i++
+
+    //         if (i % 4 === 0) {
+    //             result += `</div>`
+    //         }
+    //     }
+    // }
     ratingButtons()
 
     document.querySelector("#containerCatalog").innerHTML = result
@@ -114,7 +211,7 @@ function ratingStars() {
         // 3
         const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
         // 4
-        document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;   
+        document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
     }
 }
 
@@ -165,7 +262,7 @@ function renderModalInfo(id) {
             const divComments = document.querySelector(".commentContainer")
             //listar comentario(s) registados sobre o pais em causa
             divComments.innerHTML = ""
-            
+
             for (let i = 0; i < currentCountry._comments.length; i++) {
 
                 divComments.innerHTML += `
@@ -210,9 +307,9 @@ if (document.querySelector('#commentForm') != null) {
 const stlGenreComment = document.querySelector('#stlGenreComment')
 if (stlGenreComment != null) {
     stlGenreComment.addEventListener("change", function () {
-        
+
         if (stlGenreComment.value == "Ordem Antigo para Recente") {
-            currentCountry._comments.sort(Comment.dateFromOldToRecent) 
+            currentCountry._comments.sort(Comment.dateFromOldToRecent)
         }
 
         if (stlGenreComment.value == "Ordem Recente para Antigo") {
@@ -242,3 +339,53 @@ function userData() {
         }
     }
 }
+
+
+//!New
+/**
+ * This Function builds the pagination buttons 
+ */
+function ConstructPaginationButton() {
+
+
+    let quantity = countries.length / 16
+    let quantityTostring = String(quantity)
+    let contains = false
+ 
+ 
+ 
+    for (let i = 0; i < quantityTostring.length; i++) {
+       if (quantityTostring[i] == '.') {
+          contains = true
+       }
+    }
+ 
+    if (contains == true) {
+       quantity = parseInt(quantity) + 1
+    } 
+    else {
+       quantity = quantity
+    }
+ 
+    let paginationHolder = document.querySelector('.pagination')
+    paginationHolder.innerHTML = ``
+    paginationHolder.innerHTML += `<li class="page-item"><button id='prev'class="page-link">Prev</button></li>`
+    for (let i = 1; i <= quantity; i++) {
+       paginationHolder.innerHTML += `<li class="page-item"><button  id='${i*16}'class="page-link">${i}</button></li>`
+    }
+    paginationHolder.innerHTML += `<li class="page-item"><button id="next"class="page-link">Next</button></li>`
+    getPageSelection()
+ }
+ 
+ 
+ function getPageSelection() {
+    let pagesLinks = document.querySelectorAll(".page-link")
+    for (const button of pagesLinks) {
+       button.addEventListener('click', function () {
+          if (this.id != 'prev' && this.id != 'next') {
+             localStorage.setItem('page', JSON.stringify(this.id))
+          }
+          renderCatalog(this.id)
+       })
+    }
+ }
