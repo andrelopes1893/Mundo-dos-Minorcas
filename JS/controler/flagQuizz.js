@@ -571,23 +571,23 @@ function isCompleted(level) {
 function levelInfoBuilder(level, continent, quizzType,numbers) {
     let quizzInfoHolder = document.querySelector('#actualLevel')
     let continentPlace = document.querySelector('#actualContinet')
-    if (continent === 'africa') {
+    if (continent === 'Africa') {
         quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span><br> Nível: <span>${level}</span><br>Progresso: <span>${numbers[0]}/${numbers[1]}</span> `
         continentPlace.innerHTML = `Continente: <span>África</span>`
     }
-    if (continent === 'america') {
+    if (continent === 'America') {
         quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span><br> Nível: <span>${level}</span> <br>Progresso: <span>${numbers[0]}/${numbers[1]}</span> `
         continentPlace.innerHTML = `Continente: <span>América</span>`
     }
-    if (continent === 'asia') {
+    if (continent === 'Asia') {
         quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span><br> Nível: <span>${level}</span><br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
         continentPlace.innerHTML = `Continente: <span>Ásia</span>`
     }
-    if (continent === 'europa') {
+    if (continent === 'Europa') {
         quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span> <br> Nível: <span>${level}</span><br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
         continentPlace.innerHTML = `Continente: <span>Europa</span>`
     }
-    if (continent === 'oceania') {
+    if (continent === 'Oceania') {
         quizzInfoHolder.innerHTML = `Tipo de Quizz: <span>${quizzType}</span> <br>Nível: <span>${level}</span><br>Progresso: <span>${numbers[0]}/${numbers[1]}</span>`
         continentPlace.innerHTML = `Continente: <span>Oceânia</span>`
     }
