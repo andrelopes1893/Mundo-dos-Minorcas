@@ -9,12 +9,15 @@ let currentCountry
 
 //o que acontece quando a paginas que usam com suposto este ficheiro, são carregadas
 window.onload = function () {
-    if (localStorage.countries) {
-        countries = JSON.parse(localStorage.countries)
+    // if (localStorage.countries) {
+    //     countries = JSON.parse(localStorage.countries)
+    // }
+    if (localStorage.getItem("countries")) {
+        countries = JSON.parse(localStorage.getItem("users"))
     }
 
-    if (localStorage.users) {
-        users = JSON.parse(localStorage.users)
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
     }
     if (localStorage.getItem('page')) {
         localStorage.removeItem('page')
