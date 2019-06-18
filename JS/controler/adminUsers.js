@@ -111,7 +111,7 @@ function removeUser(username) {
             });
             toast.fire({
                 type: 'success',
-                title: '<span style="color:#FFFFFF">Utilizador removido!<span>'
+                title: '<span style="color:#FFFFFF">Utilizador removido com sucesso!<span>'
             })
             localStorage.setItem('users', JSON.stringify(users))
             renderTable()
@@ -181,17 +181,37 @@ function changeUsersTypeBtns() {
     }
 }
 
-let change = 1
-
 function changeUsersType(id) {
     for (const user of users) {
         if (user._id == id) {
             if (user._accountType == '1') {
                 user._accountType = '2'
+                const toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    background: '#29ABE2'
+                });
+                toast.fire({
+                    type: 'success',
+                    title: '<span style="color:#FFFFFF">Utilizador é agora normal!<span>'
+                })
                 localStorage.setItem('users', JSON.stringify(users))
                 renderTable()
             } else {
                 user._accountType = '1'
+                const toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    background: '#29ABE2'
+                });
+                toast.fire({
+                    type: 'success',
+                    title: '<span style="color:#FFFFFF">Utilizador é agora administrador!<span>'
+                })
                 localStorage.setItem('users', JSON.stringify(users))
                 renderTable()
             }

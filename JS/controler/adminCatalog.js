@@ -30,6 +30,18 @@ if (document.querySelector('#createCountryForm') != null) {
             document.querySelector('#createCountryForm').reset();
         }
 
+        const toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            background: '#29ABE2'
+        });
+        toast.fire({
+            type: 'success',
+            title: '<span style="color:#FFFFFF">País adicionado com sucesso!<span>'
+        })
+        $('#newCountryModal').modal('hide')
         event.preventDefault()
     })
 }
@@ -81,13 +93,23 @@ function removeButtons() {
     }
 }
 
-//função de remover pais
 function removeCountry(name) {
     for (let i = 0; i < countries.length; i++) {
         if (countries[i]._name === name) {
             countries.splice(i, 1)
         }
     }
+    const toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 3000,
+        background: '#29ABE2'
+    });
+    toast.fire({
+        type: 'success',
+        title: '<span style="color:#FFFFFF">País removido com sucesso!<span>'
+    })
     localStorage.setItem('countries', JSON.stringify(countries))
     $('#ModalEditCountry').modal('hide')
 }
@@ -102,47 +124,45 @@ function isRepeated(name) {
     return false
 }
 
-//função de editar pais do catalogo
 function submitEdit(id) {
     document.getElementById('editCountry').addEventListener('click', function () {
-
         if (localStorage.countries) {
             countries = JSON.parse(localStorage.countries)
         }
-        let txtName = document.getElementById('txtEditCountryName').value
-        let txtContinent = document.querySelector('#newSltContinent').value
-        let txtCapital = document.querySelector('#txtEditCountryCapital').value
-        let txtLanguage = document.querySelector('#txtEditCountryLanguage').value
-        let txtInfo = document.querySelector('#txtEditCountryInfo').value
-        let txtLocation = document.querySelector('#txtEditCountryLocation').value
-        let txtFlag = document.querySelector('#txtEditCountryFlag').value
         for (const country of countries) {
-            if (id == country._id) {
-                console.log(country._id)
-                country._name = txtName
-                country._continent = txtContinent
-                country._capital = txtCapital
-                country._language = txtLanguage
-                country._information = txtInfo
-                country._location = txtLocation
-                country._flag = txtFlag
+            if (country._id == id) {
+                country._name = document.querySelector('#txtEditCountryName').value
+                country._continent = document.querySelector('#newSltContinent').value
+                country._capital = document.querySelector('#txtEditCountryCapital').value
+                country._language = document.querySelector('#txtEditCountryLanguage').value
+                country._information = document.querySelector('#txtEditCountryInfo').value
+                country._location = document.querySelector('#txtEditCountryLocation').value
+                country._flag = document.querySelector('#txtEditCountryFlag').value
             }
         }
+        const toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            background: '#29ABE2'
+        });
+        toast.fire({
+            type: 'success',
+            title: '<span style="color:#FFFFFF">País editado com sucesso!<span>'
+        })
         localStorage.setItem('countries', JSON.stringify(countries))
         $('#ModalEditCountry').modal('hide')
-        alert("Catalogo Editado com Sucesso")
-        // ?Questionable solution
-        location.reload()
     })
 }
 
 function editButtons() {
     let editButtons = document.getElementsByClassName('editBtn')
-
     for (const elem of editButtons) {
         elem.addEventListener('click', function () {
             EditFormInfoAdd(this.id)
             submitEdit(this.id)
+            renderTable()
         })
     }
 }

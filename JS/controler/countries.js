@@ -17,8 +17,9 @@ window.onload = function () {
         users = JSON.parse(localStorage.users)
     }
 
-    renderCatalog();
-    renderModalInfo();
+    renderCatalog()
+    renderModalInfo()
+    userData()
     if (sessionStorage.getItem('continentCatalogStyle')) {
         continentCatalogStyle = sessionStorage.getItem('continentCatalogStyle')
     }
@@ -228,4 +229,16 @@ if (stlGenreComment != null) {
             `
         }
     })
+}
+
+function userData() {
+    let id = ""
+    if (sessionStorage.getItem("loggedUserId")) {
+        id = JSON.parse(sessionStorage.getItem('loggedUserId'))
+    }
+    for (const user of users) {
+        if (user._id == id) {
+            document.querySelector('.avatar').src = user._avatar
+        }
+    }
 }

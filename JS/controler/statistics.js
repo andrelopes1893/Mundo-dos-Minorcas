@@ -7,6 +7,7 @@ window.onload = function () {
         users = JSON.parse(localStorage.getItem("users"))
     }
     renderTable()
+    userData()
 }
 
 function renderTable() {
@@ -14,11 +15,22 @@ function renderTable() {
     users.sort(User.mostXpFilter)
     for (const user of users) {
         r++
-        
         document.querySelector('#statsFilterTableBody').innerHTML += `<tr>
                                                                         <th scope="row">${r}</th>
                                                                         <td>${user._username}</td>
                                                                         <td>${user._xp}</td>
                                                                     </tr>`
+    }
+}
+
+function userData() {
+    let id = ""
+    if (sessionStorage.getItem("loggedUserId")) {
+        id = JSON.parse(sessionStorage.getItem('loggedUserId'))
+    }
+    for (const user of users) {
+        if (user._id == id) {
+            document.querySelector('.avatar').src = user._avatar
+        }
     }
 }

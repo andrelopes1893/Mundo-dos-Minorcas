@@ -31,14 +31,33 @@ if (document.getElementById('quizCreateForm') != null) {
         let representationImg = document.querySelector('#representationImg').value
 
         if (Question.ConfirmQuizExistence(quizContinent, quizCategory, txtCorrectAnswer)) {
-            alert("O quiz já existente ")
+            Swal.fire({
+                type: 'error',
+                title: 'Erro...',
+                text: 'Esse quiz já existe!',
+                padding: '1rem',
+                background: '#CCCC33',
+                confirmButtonColor: '#29ABE2'
+            })
         } else {
             answers.push(txtWrongAnswer1, txtWrongAnswer2, txtWrongAnswer3, txtCorrectAnswer)
             quizzes.push(new Question(quizCategory, quizContinent, level, Question.establishQuizQuestion(quizCategory), answers, 3, Question.xpByLevel(level), representationImg))
             localStorage.setItem('quizzes', JSON.stringify(quizzes))
             answers = []
         }
+        const toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            background: '#29ABE2'
+        });
+        toast.fire({
+            type: 'success',
+            title: '<span style="color:#FFFFFF">Quiz criado com sucesso!<span>'
+        })
         renderTable()
+        $('#newLevel').modal('hide')
         event.preventDefault()
     })
 }
@@ -95,18 +114,29 @@ function removeButtons() {
     let removeBtns = document.getElementsByClassName("btn remove")
     for (const elem of removeBtns) {
         elem.addEventListener("click", function () {
-            removeUser(this.id)
+            removeQuiz(this.id)
         })
     }
 }
 
-function removeUser(quizzId) {
+function removeQuiz(quizzId) {
     document.querySelector('.yesButton').addEventListener('click', function () {
         for (let i = 0; i < quizzes.length; i++) {
             if (quizzes[i]._id == quizzId) {
                 quizzes.splice(i, 1)
             }
         }
+        const toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            background: '#29ABE2'
+        });
+        toast.fire({
+            type: 'success',
+            title: '<span style="color:#FFFFFF">Quiz removido com sucesso!<span>'
+        })
         localStorage.setItem('quizzes', JSON.stringify(quizzes))
         renderTable()
         $('#removeQuizz').modal('hide')

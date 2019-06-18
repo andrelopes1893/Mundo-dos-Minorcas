@@ -19,7 +19,7 @@ $('.owl-carousel').owlCarousel({
 
 window.onload = function () {
     if (localStorage.getItem("users")) {
-            users = JSON.parse(localStorage.getItem("users"))
+        users = JSON.parse(localStorage.getItem("users"))
     }
     userData()
 }
@@ -29,7 +29,13 @@ window.addEventListener('beforeunload', function () {
 })
 
 function userData() {
+    let id = ""
+    if (sessionStorage.getItem("loggedUserId")) {
+        id = JSON.parse(sessionStorage.getItem('loggedUserId'))
+    }
     for (const user of users) {
-        document.querySelector('.avatar').src = user._avatar
+        if (user._id == id) {
+            document.querySelector('.avatar').src = user._avatar
+        }
     }
 }

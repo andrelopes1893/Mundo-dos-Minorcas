@@ -13,8 +13,11 @@ window.onload = function () {
     if (localStorage.getItem("suggestions")) {
         suggestions = JSON.parse(localStorage.getItem("suggestions"))
     }
+    notification()
     renderTable()
 }
+
+let countSuggestions = 0
 
 function renderTable() {
     if (localStorage.getItem("users")) {
@@ -27,8 +30,21 @@ function renderTable() {
     document.querySelector('#suggestionsTableBody').innerHTML = ''
     let r = 0
     for (const suggestion of suggestions) {
+        console.log(suggestions);
+        
         r++
         if (suggestion._confirmed == false) {
+            countSuggestions++
+            Swal.fire({
+                title: `<span style="color:#ffffff">Tens ${countSuggestions} sugestões por ler!<span>`,
+                animation: true,
+                customClass: {
+                    popup: 'animated tada'
+                },
+                background: '#CCCC33',
+                confirmButtonColor: '#29ABE2',
+                timer: 2000,
+            })
             document.querySelector('#suggestionsTableBody').innerHTML += `<tr>
                                             <th scope="row">${r}</th>
                                             <td>${suggestion._id}</td>
@@ -37,8 +53,9 @@ function renderTable() {
                                             <td><button type="button" id="${suggestion._id}" class="btn acceptSuggestion"><img src="/Images/lock.png" alt="Bloquear"></button></td>
                                         </tr>`
         }
-        
+
     }
+    countSuggestions = 0
     rejectButtons()
     approveButtons()
     openModals()
@@ -47,7 +64,7 @@ function renderTable() {
 function openModals() {
     let openBtns = document.getElementsByClassName('open')
     for (const elem of openBtns) {
-        elem.addEventListener('click', function () {            
+        elem.addEventListener('click', function () {
             renderSuggestionModal(this.id)
         })
     }
@@ -69,6 +86,7 @@ function rejectButtons() {
     for (const elem of removeBtns) {
         elem.addEventListener("click", function () {
             rejectSuggestion(this.id)
+            renderTable()
         })
     }
 }
@@ -122,4 +140,12 @@ function approveSuggestion(id) {
     }
     localStorage.setItem('suggestions', JSON.stringify(suggestions))
     renderTable()
+}
+
+function notification() {
+    for (const suggestion of suggestions) {
+        if (suggestion._confirmed == false) {
+            
+        }
+    }
 }
