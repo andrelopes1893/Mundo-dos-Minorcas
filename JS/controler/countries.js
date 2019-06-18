@@ -16,7 +16,7 @@ function motherFunction() {
     // if (localStorage.countries) {
     //     countries = JSON.parse(localStorage.countries)
     // }
-   
+
     if (localStorage.getItem("countries")) {
         countries = JSON.parse(localStorage.getItem("countries"))
     }
@@ -30,9 +30,6 @@ function motherFunction() {
 
     continentCountrysFill()
 
-
-
-
     renderCatalog()
     // !!!new
     ConstructPaginationButton()
@@ -41,9 +38,6 @@ function motherFunction() {
     if (sessionStorage.getItem('continentCatalogStyle')) {
         continentCatalogStyle = sessionStorage.getItem('continentCatalogStyle')
     }
-
-
-
 }
 
 
@@ -60,17 +54,15 @@ if (document.querySelector("#btnFilter") != null) {
 
 //função que renderiza o catalogo
 function renderCatalog(quantity = 16) {
-    if(document.querySelector('#stlGenre')){
+    if (document.querySelector('#stlGenre')) {
         if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Crescente") {
             sortCountriesAscendent()
         }
-    
+
         if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Decrescente") {
             sortCountriesDescendent()
         }
     }
-    
-
 
     if (quantity == 'prev' || quantity == 'next') {
         let value = 16;
@@ -78,14 +70,14 @@ function renderCatalog(quantity = 16) {
             if (JSON.parse(localStorage.getItem('page'))) {
                 if (JSON.parse(localStorage.getItem('page')) == 16) {
                     value = 0
-                    const usernameToast = Swal.mixin({
+                    const toast = Swal.mixin({
                         toast: true,
                         position: 'bottom-end',
                         showConfirmButton: false,
                         timer: 3000,
                         background: '#29ABE2'
                     });
-                    usernameToast.fire({
+                    toast.fire({
                         type: 'info',
                         title: '<span style="color:#FFFFFF">Já estás na primeira página<span>'
                     })
@@ -95,31 +87,30 @@ function renderCatalog(quantity = 16) {
 
             } else {
                 quantity = 16
-
             }
             localStorage.setItem('page', JSON.stringify(quantity))
         } else {
             if (JSON.parse(localStorage.getItem('page'))) {
                 if (JSON.parse(localStorage.getItem('page')) >= continentCountrys.length) {
                     value = 0
-                    const usernameToast = Swal.mixin({
+                    const toast = Swal.mixin({
                         toast: true,
                         position: 'bottom-end',
                         showConfirmButton: false,
                         timer: 3000,
                         background: '#29ABE2'
                     });
-                    usernameToast.fire({
+                    toast.fire({
                         type: 'info',
-                        title: '<span style="color:#FFFFFF">Já estás na ultima página<span>'
+                        title: '<span style="color:#FFFFFF">Já estás na última página<span>'
                     })
                 }
                 quantity = Number(JSON.parse(localStorage.getItem('page'))) + value
             } else {
                 quantity = 32
 
-                if(continentCountrys[32-16]==null){
-                    quantity=32-16
+                if (continentCountrys[32 - 16] == null) {
+                    quantity = 32 - 16
 
                 }
             }
@@ -127,40 +118,29 @@ function renderCatalog(quantity = 16) {
         }
     }
 
-
-
-
-
-
-
     let result = ""
     let i = 0
-    // let contName = document.querySelector('.continentTitle').innerHTML
-
 
     if (continentCountrys.length > 0) {
         for (let j = Number(quantity) - 16; j < Number(quantity); j++) {
-
-
             if (i % 4 === 0) {
                 result += `<div class="row">`
             }
-            result += `
-                <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
-                    <div class="card africanCards" style="width: 18rem;">
-                    <button type="button" id="${continentCountrys[j]._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal">
-                        <img src="${continentCountrys[j]._flag}" class="card-img-top" alt="Brasil">
-                    </button>
-                        <div class="card-body" id="${continentCountrys[j]._id}">
-                            <p class="card-text paragraph">NOME: <span>${continentCountrys[j]._name}</span> </p>
-                            <p class="card-text paragraph">CAPITAL: <span>${continentCountrys[j]._capital}</span></p>
-                            <p class="card-text paragraph">LÍNGUA: <span>${continentCountrys[j]._language}</span></p>
-                            <div class="stars-outer">
-                                <div class="stars-inner"></div>
+            result += `<div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
+                            <div class="card africanCards" style="width: 18rem;">
+                            <button type="button" id="${continentCountrys[j]._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal">
+                                <img src="${continentCountrys[j]._flag}" class="card-img-top" alt="Brasil">
+                            </button>
+                                <div class="card-body" id="${continentCountrys[j]._id}">
+                                    <p class="card-text paragraph">NOME: <span>${continentCountrys[j]._name}</span> </p>
+                                    <p class="card-text paragraph">CAPITAL: <span>${continentCountrys[j]._capital}</span></p>
+                                    <p class="card-text paragraph">LÍNGUA: <span>${continentCountrys[j]._language}</span></p>
+                                    <div class="stars-outer">
+                                        <div class="stars-inner"></div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>`
+                        </div>`
             i++
 
             if (i % 4 === 0) {
@@ -170,22 +150,8 @@ function renderCatalog(quantity = 16) {
             if ((j + 1) == continentCountrys.length) {
                 break;
             }
-
-            // if (removeAcento(contName.toLowerCase()) ==continentCountrys[j]._continent.toLowerCase()) {
-
-            // }
         }
-
     }
-
-
-
-
-
-
-
-
-
     // for (const country of countries) {
     //     if (removeAcento(contName.toLowerCase()) == country._continent.toLowerCase()) {
     //         if (i % 4 === 0) {
@@ -216,11 +182,11 @@ function renderCatalog(quantity = 16) {
     // }
     ratingButtons()
 
-    if(document.querySelector("#containerCatalog")!=null){
+    if (document.querySelector("#containerCatalog") != null) {
         document.querySelector("#containerCatalog").innerHTML = result
     }
 
-   
+
 
     // Programar botoes nas imagens dos modais
     let countryBtn = document.getElementsByClassName("countryButton")
@@ -307,10 +273,7 @@ function renderModalInfo(id) {
             divComments.innerHTML = ""
 
             for (let i = 0; i < currentCountry._comments.length; i++) {
-
-                divComments.innerHTML += `
-                Utilizador: ${currentCountry._comments[i]._userId} | Comentário: "${currentCountry._comments[i]._comment}" | ${currentCountry._comments[i]._dateTime}<br><br>
-                `
+                divComments.innerHTML += `Utilizador: ${currentCountry._comments[i]._userId} | Comentário: "${currentCountry._comments[i]._comment}" | ${currentCountry._comments[i]._dateTime}<br><br>`
             }
         }
     }
@@ -389,13 +352,9 @@ function userData() {
  * This Function builds the pagination buttons 
  */
 function ConstructPaginationButton() {
-
-
     let quantity = continentCountrys.length / 16
     let quantityTostring = String(quantity)
     let contains = false
-
-
 
     for (let i = 0; i < quantityTostring.length; i++) {
         if (quantityTostring[i] == '.') {
@@ -414,15 +373,13 @@ function ConstructPaginationButton() {
     if (document.querySelector('.pagination')) {
         let paginationHolder = document.querySelector('.pagination')
         paginationHolder.innerHTML = ``
-        paginationHolder.innerHTML += `<li class="page-item"><button id='prev'class="page-link">Prev</button></li>`
+        paginationHolder.innerHTML += `<li class="page-item"><button id='prev' class="page-link"><<</button></li>`
         for (let i = 1; i <= quantity; i++) {
-            paginationHolder.innerHTML += `<li class="page-item"><button  id='${i*16}'class="page-link">${i}</button></li>`
+            paginationHolder.innerHTML += `<li class="page-item"><button id='${i*16}'class="page-link">${i}</button></li>`
         }
-        paginationHolder.innerHTML += `<li class="page-item"><button id="next"class="page-link">Next</button></li>`
+        paginationHolder.innerHTML += `<li class="page-item"><button id="next"class="page-link">>></button></li>`
         getPageSelection()
-
     }
-
 }
 
 
@@ -438,21 +395,13 @@ function getPageSelection() {
     }
 }
 
-
-
-
 function continentCountrysFill() {
-    if(document.querySelector('.continentTitle')){
+    if (document.querySelector('.continentTitle')) {
         let contName = document.querySelector('.continentTitle').innerHTML
         for (const country of countries) {
             if (removeAcento(contName.toLowerCase()) == country._continent.toLowerCase()) {
                 continentCountrys.push(country)
             }
         }
-
     }
-
-    
-
- 
 }

@@ -1,3 +1,5 @@
+import { signOut } from "../controler/loginAndSignup.js";
+
 let users = []
 
 window.onload = function () {
@@ -50,4 +52,10 @@ function userData() {
             document.querySelector('.avatar').src = user._avatar
         }
     }
+}
+
+if (document.getElementById('signOut') != null) {
+    document.getElementById('signOut').addEventListener('click', function () {
+        signOut()
+    })
 }

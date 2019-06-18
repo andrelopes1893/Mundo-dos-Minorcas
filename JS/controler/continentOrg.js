@@ -1,3 +1,7 @@
+import {
+    signOut
+} from '../controler/loginAndSignup.js'
+
 // !this sis a jquery code and it makes the owl carousel work
 $('.owl-carousel').owlCarousel({
     loop: true,
@@ -16,6 +20,8 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
+
+let users = []
 
 window.onload = function () {
     if (localStorage.getItem("users")) {
@@ -38,4 +44,10 @@ function userData() {
             document.querySelector('.avatar').src = user._avatar
         }
     }
+}
+
+if (document.getElementById('signOut') != null) {
+    document.getElementById('signOut').addEventListener('click', function () {
+        signOut()
+    })
 }

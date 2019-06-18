@@ -65,7 +65,8 @@
         <div class="row mx-auto">
             <div class="col-12 text-center catalog">
                 <img src="/Images/Catalogos.png" alt="Catalogo" class="mt-3">
-                <h1 class="display-5 mb-5 mt-3" id="europaCatalogTitle">Catálogo da <span class="continentTitle">Europa</span></h1>
+                <h1 class="display-5 mb-5 mt-3" id="europaCatalogTitle">Catálogo da <span
+                        class="continentTitle">Europa</span></h1>
             </div>
         </div>
     </div>
@@ -84,7 +85,7 @@
                         <option value="Melhor Pontuação">Melhor Pontuação</option>
                     </select>
                 </div>
-                <button id="btnFilter" class="btn filterCountry mx-auto">Filtrar</button>
+                <button id="btnFilter" class="btn filterCountry d-flex justify-content-center">Filtrar</button>
                 <div class="form-group name mx-auto">
                     <label for="txtName">Nome do País: </label>
                     <input type="text" id="txtName" class="form-control m-2" aria-describedby="helpId">
@@ -95,8 +96,13 @@
     </div>
 
 
-    <!--Card-->
+    <!--Pagination-->
     <div class="container-fluid" id="containerCatalog"></div>
+    <div class="paginationContainer text-center d-flex justify-content-center mt-4 mr-5">
+        <ul class="pagination">
+
+        </ul>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="countryModal">
@@ -124,8 +130,10 @@
                         <div class="col-lg-6 col-md-12 col-xs-12 imgInfo">
                             <p class="lead commentTitle" id="commentTitle">Comentários Anteriores:</p>
                             <select class="form-control" id="stlGenreComment">
-                                <option class="optionStyle" id="dateFromOldToRecent" value="Ordem Antigo para Recente">Do mais antigo para o mais recente</option>
-                                <option class="optionStyle" id="dateFromRecentToOld" value="Ordem Recente para Antigo">Do mais recente para o mais antigo</option>
+                                <option class="optionStyle" id="dateFromOldToRecent" value="Ordem Antigo para Recente">
+                                    Do mais antigo para o mais recente</option>
+                                <option class="optionStyle" id="dateFromRecentToOld" value="Ordem Recente para Antigo">
+                                    Do mais recente para o mais antigo</option>
                             </select>
                             <div class="commentContainer" rows="7" cols="10"></div>
                         </div>
@@ -133,7 +141,8 @@
                             <form id="commentForm">
                                 <div class="form-group">
                                     <p class="lead informationTitle">Escreva o teu Comentário: </p>
-                                    <textarea class="form-control comment" id="txtComment" rows="7" cols="20" maxlength="750"></textarea>
+                                    <textarea class="form-control comment" id="txtComment" rows="7" cols="20"
+                                        maxlength="750"></textarea>
                                     <button class="btn commentBtn mt-3" id="commentBtn">Comentar</button>
                                 </div>
                             </form>
@@ -144,7 +153,7 @@
         </div>
     </div>
     <!-- Fim Modal -->
-    
+
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
 
         <!-- Footer Links -->
@@ -236,8 +245,6 @@
                             class="fa fa-instagram"></a>
                     </div>
 
-
-
                 </div>
                 <!-- Grid column -->
 
@@ -255,6 +262,7 @@
     </footer>
 
     <!-- Optional JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script type="module" src="/JS/controler/countries.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

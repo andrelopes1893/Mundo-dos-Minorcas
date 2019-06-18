@@ -1,3 +1,9 @@
+import {
+    signOut
+} from '../controler/loginAndSignup.js'
+
+let users = []
+
 let continentStyle = ''
 window.onload = function () {
     if (sessionStorage.getItem('continentStyle')) {
@@ -80,8 +86,13 @@ function turnImgintoBtn() {
 
 }
 
-
 function playQuizzByType(id) {
     sessionStorage.setItem('ChosenQuizz', JSON.stringify(id))
     location.href = '../../HTML/flagQuizz.html'
+}
+
+if (document.getElementById('signOut') != null) {
+    document.getElementById('signOut').addEventListener('click', function () {
+        signOut()
+    })
 }
