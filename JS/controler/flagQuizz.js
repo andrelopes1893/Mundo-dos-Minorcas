@@ -94,6 +94,7 @@ function getActualLevel(continent, quizzType) {
                         return level
                     }
                 }
+                return level
             }
 
         }
@@ -215,7 +216,12 @@ function isTheAnswearRight(pointXp, game, level) {
  */
 function ConfIfUserIsRight(id, pointXp, game, level) {
     if (id === '3') {
-        alert('Acertaste, vem ai o proximo nivel pa')
+        Swal.fire({
+            title: '<span style="color:#ffff ; font-size:1.7rem">Parabéns, acertaste</span>',
+            type: 'info',
+            confirmButtonText: 'ok',
+            background: `#29ABE2`
+        })
         assignXpToThePlayer(pointXp)
         setPlayedQuizzes(game)
         checkLevelProgress(level)
@@ -224,7 +230,12 @@ function ConfIfUserIsRight(id, pointXp, game, level) {
         quizzPlaceHolder.innerHTML = ''
         QuizzGenerator()
     } else {
-        alert('Pff es pior que o benfica quando falhou o penta')
+        Swal.fire({
+            title: '<span style="color:#ffff ; font-size:1.7rem">Erraste!</span>',
+            type: 'info',
+            confirmButtonText: 'ok',
+            background: `#29ABE2`
+        })
         // location.reload()//This is not right
         let quizzPlaceHolder = document.querySelector('#quizzHolder')
         // Eleminate the previouse quizz
@@ -533,7 +544,12 @@ function checkLevelProgress(level) {
             }
         }
         localStorage.setItem('users', JSON.stringify(users))
-        alert("Parabens subiste de nivel")
+        Swal.fire({
+            title: '<span style="color:#ffff ; font-size:1.7rem">Parabéns, Subiste de Nível</span>',
+            type: 'info',
+            confirmButtonText: 'ok',
+            background: `#29ABE2`
+        })
         actualLevel(level + 1)
     }
 
