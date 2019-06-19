@@ -202,51 +202,78 @@ function renderCatalog(quantity = 16) {
     }
     renderModalInfo()
 }
-// ratingButtons()
 
-// function ratingButtons() {
-//     let starBtn = document.getElementsByClassName('stars-outer')
-//     for (const elem of starBtn) {        
-//         elem.addEventListener("click", function () {
-//             console.log(this.id)
-//             ratingStars(this.id)
-//         })
-//     }
-// }
-
-rating()
-function rating() {
-    let stars = document.querySelectorAll('.star');
-    document.querySelectorAll('.star').forEach(function(star){
-        star.addEventListener('click', setRating); 
-    });
-    
-    //work with int and get the attribute data-rating
-    let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
-    //get the current data-target star - subtract 1 because it's an array
-    let target = stars[rating - 1];
-    //Will trigger the function setRating - will trigger the star we clicked before
-    target.dispatchEvent(new MouseEvent('click'));
+ratingButtons()
+function ratingButtons() {
+    let stars = document.querySelectorAll('.stars');
+    for (const elem of stars) {
+        elem.addEventListener("click", function () {
+            rating(this.id)
+        })
+    }
 }
 
-function setRating(ev){
+
+//initial setup
+function rating(id) {
+    for (const country of countries) {
+        if (country._id == id) {
+            console.log(id);
+
+            let stars = document.querySelectorAll('.star');
+            document.querySelectorAll('.star').forEach(function (star) {
+                star.addEventListener('click', setRating);
+                sessionStorage.setItem('id', JSON.stringify(country._id))
+            });
+
+            //work with int and get the attribute data-rating
+            let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+            //get the current data-target star - subtract 1 because it's an array
+            let target = stars[rating - 1];
+            //Will trigger the function setRating - will trigger the star we clicked before
+            target.dispatchEvent(new MouseEvent('click'));
+        }
+    }
+}
+
+
+function setRating(ev) {
+    let asd = ""
+    if (sessionStorage.getItem("id")) {
+        asd = JSON.parse(sessionStorage.getItem('id'))
+    }
     let span = ev.currentTarget;
     let stars = document.querySelectorAll('.star');
     let match = false;
     let num = 0;
-    stars.forEach(function(star, index){
-        if(match){
+    stars.forEach(function (star, index) {
+        if (match) {
             star.classList.remove('rated');
-        }else{
+        } else {
             star.classList.add('rated');
         }
         //are we currently looking at the span that was clicked
-        if(star === span){
+        if (star === span) {
             match = true;
             num = index + 1;
         }
-    });
-    document.querySelector('.stars').setAttribute('data-rating', num);
+    })
+    let a = ""
+    if (sessionStorage.getItem("loggedUserId")) {
+        a = JSON.parse(sessionStorage.getItem('loggedUserId'))
+    }
+    for (const user of users) {
+        if (user._id == a) {
+            for (const country of countries) {
+                if (country._id == asd) {
+                    console.log(asd);
+                    document.querySelector('.stars').setAttribute('data-rating', num);
+                    country._points = num
+                }
+            }
+        }
+    }
+    localStorage.setItem('countries', JSON.stringify(countries))
 }
 
 
