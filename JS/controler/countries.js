@@ -7,14 +7,31 @@ let countryId
 let currentCountry
 let continentCountrys = []
 
-window.onload = function () {
-    if (localStorage.countries) {
-        countries = JSON.parse(localStorage.countries)
-    }
 
-    if (localStorage.users) {
-        users = JSON.parse(localStorage.users)
+function renderCatalogByXP() {
+    let value = 0
+    let id = ""
+    if (sessionStorage.getItem("loggedUserId")) {
+        id = JSON.parse(sessionStorage.getItem('loggedUserId'))
     }
+    for (const user of users) {
+        if (user._id == id) {
+            console.log(user._xp);
+
+            if (user._xp >= 0 && user._xp <= 240) {
+                value = 1
+            } else if (user._xp > 240 && user._xp <= 480) {
+                value = 2
+            } else if (user._xp > 480 && user._xp <= 720) {
+                value = 3
+            } else if (user._xp > 720 && user._xp <= 960) {
+                value = 4
+            } else {
+                value = 5
+            }
+        }
+    }
+    return value
 }
 
 motherFunction()
@@ -130,12 +147,15 @@ function renderCatalog(quantity = 16) {
     let result = ""
     let i = 0
 
+    let value = renderCatalogByXP()
+
     if (continentCountrys.length > 0) {
         for (let j = Number(quantity) - 16; j < Number(quantity); j++) {
             if (i % 4 === 0) {
                 result += `<div class="row">`
             }
-            result += `<div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
+            if (continentCountrys[j]._level <= value) {
+                result += `<div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
                             <div class="card africanCards" style="width: 18rem;">
                             <button type="button" id="${continentCountrys[j]._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal">
                                 <img src="${continentCountrys[j]._flag}" class="card-img-top" alt="Brasil">
@@ -154,6 +174,21 @@ function renderCatalog(quantity = 16) {
                                 </div>
                             </div>
                         </div>`
+            } else {
+                result += `<div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
+                            <div class="card africanCards" style="width: 18rem;">
+                            <img src="/Images/lockCountries.png" class="card-img-top" alt="Lock" id="lockImg">
+                            <button type="button" id="${continentCountrys[j]._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal" disabled>
+                                <img src="${continentCountrys[j]._flag}" class="card-img-top" alt="Brasil">
+                            </button>
+                                <div class="card-body" id="${continentCountrys[j]._id}">
+                                    <p class="card-text paragraph">NOME: <span>---</span> </p>
+                                    <p class="card-text paragraph">CAPITAL: <span>---</span></p>
+                                    <p class="card-text paragraph">LÍNGUA: <span>---</span></p>
+                                </div>
+                            </div>
+                        </div>`
+            }
             i++
 
             if (i % 4 === 0) {
@@ -170,6 +205,16 @@ function renderCatalog(quantity = 16) {
         document.querySelector("#containerCatalog").innerHTML = result
     }
 
+    $('#lockImg').css({
+        'position': 'absolute',
+        'align-content': 'center',
+        'justify-content': 'center'
+    });
+
+    $('.africanCards').css({
+        'background-color': 'rgb(255, 255, 255, .8)'
+    })
+
     // Programar botoes nas imagens dos modais
     let countryBtn = document.getElementsByClassName("countryButton")
     for (const elem of countryBtn) {
@@ -179,8 +224,6 @@ function renderCatalog(quantity = 16) {
     }
     renderModalInfo()
 }
-
-
 
 function ratingButtons() {
     let stars = document.querySelectorAll('.stars');

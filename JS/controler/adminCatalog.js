@@ -18,13 +18,16 @@ if (document.querySelector('#createCountryForm') != null) {
         const countryName = document.querySelector('#txtCountryName').value
         const countryCapital = document.querySelector('#txtCountryCapital').value
         const countryContinent = document.querySelector('#stlContinent').value
+        const countryLevel = document.querySelector('#stlLevel').value
+        console.log(countryLevel);
+        
         const countryLanguage = document.querySelector('#txtCountryLanguage').value
         const countryInfo = document.querySelector('#txtInfo').value
         const countryLocation = document.querySelector('#txtLocation').value
         const countryFlag = document.querySelector('#txtFlag').value
 
         if (!isRepeated(countryName)) {
-            countries.push(new Country(countryName, countryCapital, countryFlag, countryLanguage, countryContinent, countryInfo, countryLocation))
+            countries.push(new Country(countryName, countryCapital, countryFlag, countryLanguage, countryContinent, countryLevel, countryInfo, countryLocation))
             localStorage.setItem('countries', JSON.stringify(countries))
             renderTable()
             document.querySelector('#createCountryForm').reset();
@@ -45,7 +48,6 @@ if (document.querySelector('#createCountryForm') != null) {
         event.preventDefault()
     })
 }
-
 
 if (document.querySelector('.filterCatalog') != null) {
     document.querySelector('.filterCatalog').addEventListener('click', function () {
@@ -70,21 +72,20 @@ function renderTable() {
 
         let r = 0
         for (const country of countries) {
+            console.log(country._level)
             r++
             document.querySelector('#countriesTableBody').innerHTML += `<tr>
                                                                             <th scope="row">${r}</th>
                                                                             <td>${country._continent}</td>
                                                                             <td>${country._name}</td>
+                                                                            <td>${country._level}</td>
                                                                             <td><button type="button" id="${country._id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
                                                                             <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
                                                                         </tr> `
         }
         removeButtons()
         editButtons()
-
-
     }
-  
 }
 
 function removeButtons() {
@@ -137,6 +138,7 @@ function submitEdit(id) {
             if (country._id == id) {
                 country._name = document.querySelector('#txtEditCountryName').value
                 country._continent = document.querySelector('#newSltContinent').value
+                country._level = document.querySelector('#stlLevelEdit').value                
                 country._capital = document.querySelector('#txtEditCountryCapital').value
                 country._language = document.querySelector('#txtEditCountryLanguage').value
                 country._information = document.querySelector('#txtEditCountryInfo').value
@@ -177,7 +179,8 @@ function EditFormInfoAdd(id) {
             document.querySelector('#txtEditCountryName').value = country._name
             document.querySelector('#newSltContinent').value = country._continent
             document.querySelector('#txtEditCountryCapital').value = country._capital
-            document.querySelector('#txtEditCountryLanguage').value = country._language
+            document.querySelector('#txtEditCountryLanguage').value = country._language            
+            document.querySelector('#stlLevelEdit').value = country._level            
             document.querySelector('#txtEditCountryInfo').value = country._information
             document.querySelector('#txtEditCountryLocation').value = country._location
             document.querySelector('#txtEditCountryFlag').value = country._flag
