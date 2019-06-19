@@ -12,27 +12,27 @@ window.onload = function () {
 let continentStyle = ""
 
 document.querySelector('#africanBtnQuiz').addEventListener('click', function() {
-    continentStyle = 'africa'
+    continentStyle = 'Africa'
     addValue(continentStyle)
 })
 
 document.querySelector('#americanBtnQuiz').addEventListener('click', function() {
-    continentStyle = 'america'
+    continentStyle = 'America'
     addValue(continentStyle)
 })
 
 document.querySelector('#asianBtnQuiz').addEventListener('click', function() {
-    continentStyle = 'asia'
+    continentStyle = 'Asia'
     addValue(continentStyle)
 })
 
 document.querySelector('#europeanBtnQuiz').addEventListener('click', function() {
-    continentStyle = 'europa'
+    continentStyle = 'Europa'
     addValue(continentStyle)
 })
 
 document.querySelector('#oceaniaBtnQuiz').addEventListener('click', function() {
-    continentStyle = 'oceania' 
+    continentStyle = 'Oceania' 
     addValue(continentStyle)  
 })
 

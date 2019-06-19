@@ -23,6 +23,26 @@ body.oceania {
     background-color: #B7541B;
 }
 
+body.Africa {
+    background-color: #F5BB00;
+}
+
+body.America {
+    background-color: #4AB71B;
+}
+
+body.Asia {
+    background-color: #BE3DE3;
+}
+
+body.Europa {
+    background-color: #204987;
+}
+
+body.Oceania {
+    background-color: #B7541B;
+}
+
 .logo {
     width: 120px;
     height: 80px;
