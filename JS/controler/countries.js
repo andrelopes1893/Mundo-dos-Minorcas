@@ -3,10 +3,19 @@ import Comment from '../models/commentsModels.js'
 
 let countries = []
 let users = []
-let ratings = []
 let countryId
 let currentCountry
 let continentCountrys = []
+
+window.onload = function () {
+    if (localStorage.countries) {
+        countries = JSON.parse(localStorage.countries)
+    }
+
+    if (localStorage.users) {
+        users = JSON.parse(localStorage.users)
+    }
+}
 
 motherFunction()
 //o que acontece quando a paginas que usam com suposto este ficheiro, são carregadas
@@ -135,8 +144,12 @@ function renderCatalog(quantity = 16) {
                                     <p class="card-text paragraph">NOME: <span>${continentCountrys[j]._name}</span> </p>
                                     <p class="card-text paragraph">CAPITAL: <span>${continentCountrys[j]._capital}</span></p>
                                     <p class="card-text paragraph">LÍNGUA: <span>${continentCountrys[j]._language}</span></p>
-                                    <div class="stars-outer">
-                                        <div class="stars-inner"></div>
+                                    <div class="stars" data-rating="${continentCountrys[j]._points}" id="${continentCountrys[j]._id}">
+                                        <span class="star star_${continentCountrys[j]._id}">&nbsp;</span>
+                                        <span class="star star_${continentCountrys[j]._id}">&nbsp;</span>
+                                        <span class="star star_${continentCountrys[j]._id}">&nbsp;</span>
+                                        <span class="star star_${continentCountrys[j]._id}">&nbsp;</span>
+                                        <span class="star star_${continentCountrys[j]._id}">&nbsp;</span>
                                     </div>
                                 </div>
                             </div>
@@ -152,77 +165,156 @@ function renderCatalog(quantity = 16) {
             }
         }
     }
-    // for (const country of countries) {
-    //     if (removeAcento(contName.toLowerCase()) == country._continent.toLowerCase()) {
-    //         if (i % 4 === 0) {
-    //             result += `<div class="row">`
-    //         }
-    //         result += `
-    //             <div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
-    //                 <div class="card africanCards" style="width: 18rem;">
-    //                 <button type="button" id="${country._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal">
-    //                     <img src="${country._flag}" class="card-img-top" alt="Brasil">
-    //                 </button>
-    //                     <div class="card-body" id="${country._id}">
-    //                         <p class="card-text paragraph">NOME: <span>${country._name}</span> </p>
-    //                         <p class="card-text paragraph">CAPITAL: <span>${country._capital}</span></p>
-    //                         <p class="card-text paragraph">LÍNGUA: <span>${country._language}</span></p>
-    //                         <div class="stars-outer">
-    //                             <div class="stars-inner"></div>
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //             </div>`
-    //         i++
-
-    //         if (i % 4 === 0) {
-    //             result += `</div>`
-    //         }
-    //     }
-    // }
-    ratingButtons()
 
     if (document.querySelector("#containerCatalog") != null) {
         document.querySelector("#containerCatalog").innerHTML = result
     }
 
-
-
     // Programar botoes nas imagens dos modais
     let countryBtn = document.getElementsByClassName("countryButton")
     for (const elem of countryBtn) {
         elem.addEventListener("click", function () {
-            countryId = this.id
-            //console.log(this.id)
             renderModalInfo(this.id)
         })
     }
     renderModalInfo()
 }
 
-//codigo de implementar a avaliação de cada card de um pais
+
+
 function ratingButtons() {
-    let starBtn = document.getElementsByClassName('star')
-    for (const elem of starBtn) {
+    let stars = document.querySelectorAll('.stars');
+    for (const elem of stars) {
         elem.addEventListener("click", function () {
-            ratingStars()
-            console.log(elem)
+            rating(this.id)
         })
     }
 }
 
-function ratingStars() {
-    const starTotal = 5;
+//initial setup
+function rating(id) {
+    for (const country of countries) {
+        if (country._id == id) {
+            let stars = document.querySelectorAll('.star');
+            const str = `.star_${id}`
+            document.querySelectorAll(str).forEach(function (star) {
+                star.addEventListener('click', function (ev) {
+                    let asd = ""
+                    if (sessionStorage.getItem("id")) {
+                        asd = JSON.parse(sessionStorage.getItem('id'))
+                    }
+                    let span = ev.currentTarget;
+                    const str = `.star_${id}`
+                    let stars = document.querySelectorAll(str);
+                    let match = false;
+                    let num = 0;
+                    stars.forEach(function (star, index) {
+                        if (match) {
+                            star.classList.remove('rated');
+                        } else {
+                            star.classList.add('rated');
+                        }
+                        //are we currently looking at the span that was clicked
+                        if (star === span) {
+                            match = true;
+                            num = index + 1;
+                        }
+                    })
+                    let a = ""
+                    if (sessionStorage.getItem("loggedUserId")) {
+                        a = JSON.parse(sessionStorage.getItem('loggedUserId'))
+                    }
+                    for (const user of users) {
+                        if (user._id == a) {
+                            for (const country of countries) {
+                                if (country._id == asd) {
+                                    document.querySelector('.stars').setAttribute('data-rating', num);
+                                    let obj = {
+                                        user: user._username,
+                                        points: num
+                                    }
+                                    country._points.push(obj)
+                                }
+                            }
+                        }
+                    }
+                    localStorage.setItem('countries', JSON.stringify(countries))
+                });
+                sessionStorage.setItem('id', JSON.stringify(country._id))
+            });
 
-    for (const rating in ratings) {
-        // 2
-        const starPercentage = (ratings[rating] / starTotal) * 100;
-        // 3
-        const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
-        // 4
-        document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
+            //work with int and get the attribute data-rating
+            let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+            //get the current data-target star - subtract 1 because it's an array
+            let target = stars[rating - 1];
+            //Will trigger the function setRating - will trigger the star we clicked before
+            //target.dispatchEvent(new MouseEvent('click'));
+        }
     }
 }
+
+function loadCSSstar() {
+    let a = ""
+    if (sessionStorage.getItem("loggedUserId")) {
+        a = JSON.parse(sessionStorage.getItem('loggedUserId'))
+    }
+
+    for (const country of countries) {
+        for (const points of country._points) {
+            if (points.username == a) {
+                let stars = document.querySelectorAll('.star')
+                for (const star of stars) {
+                    let match = false;
+                    let num = 0;
+                    if (match) {
+                        star.classList.remove('rated');
+                    } else {
+                        star.classList.add('rated');
+                    }
+                    //are we currently looking at the span that was clicked
+                    if (star === span) {
+                        match = true;
+                        num = index + 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// function setRating(ev) {
+
+// }
+
+
+// function ratingStars(id) {
+
+//     console.log(id);
+//     const starTotal = 5;
+//     let a = ""
+//     if (sessionStorage.getItem("loggedUserId")) {
+//         a = JSON.parse(sessionStorage.getItem('loggedUserId'))
+//     }
+//     for (const user of users) {
+//         if (user._id == a) {
+//             for (const country of countries) {     
+//                 if (country._id == id) {
+//                     console.log(country._points[country._points]);
+//                     // 2
+//                     const starPercentage = (country._points[country._points] / starTotal) * 100;
+//                     // 3
+//                     const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+//                     // 4                    
+//                     console.log(Number(starPercentageRounded));
+
+//                     country._points = starPercentageRounded
+//                     document.querySelector(`.${country._points} .stars-inner`).style.width = starPercentageRounded;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 //função para trocar letras com caracteres especiais das letras (como acentos, cedilhas, etc por essa letra, simples.)
 export function removeAcento(text) {

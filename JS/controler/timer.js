@@ -12,5 +12,5 @@ function countdown() {
 }
 
 function afterStop() {
-    document.querySelectorAll('.optionsButton').disabled = true
+    document.getElementsByClassName('optionsRow').disabled = true
 }
