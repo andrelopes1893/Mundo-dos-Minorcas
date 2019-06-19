@@ -3,7 +3,7 @@ import {
 } from '../controler/adminCatalog.js'
 
 export default class Country {
-    constructor(name, capital, flag, language, continent, information = '', location = "", points = [], comments = [], visit = 0) {
+    constructor(name, capital, flag, language, continent, information = '', location = "", points = 0, comments = [], visit = 0) {
         this._id = Country.getLastId() + 1
         this.name = name
         this.continent = continent
