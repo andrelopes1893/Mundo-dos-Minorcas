@@ -274,9 +274,9 @@ function renderLevelButtons(playebleLevels, level) {
     holder.innerHTML = ""
     for (let i = 0; i < playebleLevels.length; i++) {
         holder.innerHTML += `<div class="col">
-        <button type="button" class="btn btn-primary levelSelection my-4" id="${playebleLevels[i]}">${playebleLevels[i]}</button></div>`
+        <button type="button" class="btn btn-primary levelSelection my-4" id="${playebleLevels[i]}" disabled>${playebleLevels[i]}</button></div>`
     }
-    selectLevel(level)
+     selectLevel(level)
 }
 
 function selectLevel(level) {

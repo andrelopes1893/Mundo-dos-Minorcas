@@ -1731,3 +1731,142 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     height: 17rem;
     width: 17rem;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p#actualContinet {
+    font-size: 1.7rem
+}
+
+
+
+
+
+
+
+
+
+
+/* ? MEDIA QUERIES */
+/* !iPhone 6,8,9*/
+@media only screen and (max-width: 411px) and (min-width: 370px) {}
+
+/* !SMALL PHONES FOCUS*/
+@media screen and (max-width: 376px) {
+    div.col-lg-3.col-sm-3.col-xs-3.logoNavQuizz {
+        text-align: center;
+    }
+
+    p#actualContinet {
+        font-size: 1.4rem;
+        margin: 0%;
+    }
+
+    p#actualLevel {
+        font-size: 1.2rem
+    }
+
+
+    p#questionHolder {
+        font-size: 1.2rem
+    }
+
+    p.timer.mt-3 {
+        font-size: 1.2rem;
+        margin-bottom: 4%
+    }
+
+    div#timerHolder {
+        background-color: #4AB71B
+    }
+
+    div.row.questionImage div.col-lg-6 img.flagImage {
+        width: 70%;
+        margin: auto;
+        border-radius: 20px 20px 20px 20px;
+    }
+
+    div.col-lg-3.col-sm-3.col-xs-3.text-center.d-flex.align-items-center.flagInfoText {
+        margin: 0%
+    }
+
+   
+    div.row.optionsRow{
+        width: 100%;
+    }
+
+
+
+
+
+}
+
+/* !PIXEL & IPHONE PLUS*/
+@media only screen and (max-width: 415px) and (min-width: 411px) {}
+
+
+
+
+
+
+@media only screen and (max-width: 321px) and (min-width: 320px) {}
+
+/* !IPAD */
+
+@media only screen and (max-width: 769px) and (min-width: 767px) {
+    div#secondOne.container-fluid.navQuizz{
+
+        color: #000000
+
+
+    }
+}
+
+/* !(IPAD-PRO) */
+@media only screen and (max-width: 1025px) and (min-width: 1024px) {
+    p.my-1{
+        margin-top: 70%
+    }
+
+    p#actualContinet {
+        font-size: 1.4rem;
+        margin: 0%;
+    }
+
+    p#actualLevel {
+        font-size: 1.2rem
+    }
+
+
+    p#questionHolder {
+        font-size: 1.2rem
+    }
+
+    p.timer.mt-3 {
+        font-size: 1.2rem;
+        margin-bottom: 4%
+    }
+
+
+  
+
+}
