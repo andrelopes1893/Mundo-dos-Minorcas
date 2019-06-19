@@ -1,4 +1,10 @@
+import {
+    signOut
+} from '../controler/loginAndSignup.js'
+
 let suggestions = []
+
+document.querySelector('#leaveAccount').addEventListener('click', signOut)
 
 document.querySelector('.usersStats').addEventListener('click', function () {
     location.href = '/HTML/adminUsers.html'
@@ -42,12 +48,11 @@ window.onload = function () {
                 reverseButtons: true,
             }).then((result) => {
                 if (result.value) {
-                  Swal.fire(
-                    location.href = '/HTML/adminSugestion.html'
-                  )
+                    Swal.fire(
+                        location.href = '/HTML/adminSugestion.html'
+                    )
                 }
-              })
+            })
         }
     }
-
 }

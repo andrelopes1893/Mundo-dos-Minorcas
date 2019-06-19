@@ -42,23 +42,6 @@ li.nav-item.line {
     border-right: 2px solid #CCCC33;
 }
 
-div.dropdown-menu {
-    background-color: #0079AC;
-    border: 0;
-    padding-top: 20px;
-    padding-bottom: 10px;
-}
-
-.dropdown-menu a.dropdown-item {
-    color: #ffffff;
-    font-size: 24px;
-}
-
-.dropdown-menu a.dropdown-item:hover {
-    color: #CCCC33;
-    background-color: #0079AC;
-}
-
 @media screen and (max-width: 375px) {
     li.nav-item.line {
         border-right: 0px;
@@ -775,14 +758,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         white-space: nowrap;
     }
 
-    li.nav-item.dropdown {
-        padding-left: 0;
-    }
-
-    .dropdown-menu a.dropdown-item {
-        font-size: 1rem;
-    }
-
     /* title and title img */
     div.row div.col-12.quizzes img {
         width: 6%;
@@ -945,14 +920,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
     li.nav-item {
         padding-left: 0%;
-    }
-
-    .dropdown-menu a.dropdown-item {
-        font-size: 1.15rem;
-    }
-
-    div.dropdown-menu.show {
-        padding-top: 0%
     }
 
     /** QUIZZ PAGE CARDS */
@@ -1152,14 +1119,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
     li.nav-item {
         padding-left: 0%;
-    }
-
-    .dropdown-menu a.dropdown-item {
-        font-size: 1rem;
-    }
-
-    div.dropdown-menu.show {
-        padding-top: 0%
     }
 
     /* title and title img */
@@ -1369,14 +1328,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         padding-left: 0%;
     }
 
-    .dropdown-menu a.dropdown-item {
-        font-size: 1.15rem;
-    }
-
-    div.dropdown-menu.show {
-        padding-top: 0%
-    }
-
     /* title and title img */
     div.row div.col-12.quizzes img {
         width: 8%;
@@ -1559,14 +1510,6 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     .nav-link {
         font-size: 1rem;
         white-space: nowrap;
-    }
-
-    li.nav-item.dropdown {
-        padding-left: 0;
-    }
-
-    .dropdown-menu a.dropdown-item {
-        font-size: 1rem;
     }
 
     /** QUIZZ PAGE CARDS */

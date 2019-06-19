@@ -1,5 +1,7 @@
 export let quizzes = []
-
+import {
+    signOut
+} from '../controler/loginAndSignup.js'
 import Question from '../models/quizzesModels.js'
 
 window.onload = function () {
@@ -16,6 +18,8 @@ window.onload = function () {
 
     renderTable()
 }
+
+document.querySelector('#leaveAccount').addEventListener('click', signOut)
 
 let answers = []
 

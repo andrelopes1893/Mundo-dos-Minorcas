@@ -1,5 +1,7 @@
 import User from "../models/userModels.js";
-
+import {
+    signOut
+} from '../controler/loginAndSignup.js'
 import {
     newUserByAdmin
 } from '../models/main.js'
@@ -13,6 +15,8 @@ window.onload = function () {
     dataCards()
     renderTable()
 }
+
+document.querySelector('#leaveAccount').addEventListener('click', signOut)
 
 document.querySelector('#adminForm').addEventListener('submit', function (event) {
     const txtUsername = document.querySelector('#txtUsername').value
@@ -76,7 +80,7 @@ function renderTable() {
                                         <td>${user._xp}</td>
                                         <td><button type="button" id="${user._id}" class="btn blockButton pt-2"><img src="/Images/lock.png" alt="Bloquear"></button></td>
                                         <td><button type="button" id="${user._username}" data-toggle="modal" data-target="#removeUser" class="btn remove"><img src="/Images/x.png" alt="Eliminar"></button></td>
-                                        <td>${type}</td>
+                                        <td>${type} - <p id="blockedState"></p></td>
                                         <td><button type="button" id="${user._id}" class="btn change"><img src="/Images/changeUser.png" class="changeUser" alt="Mudar"></td>
                                     </tr>`
     });
@@ -131,12 +135,10 @@ function block() {
 }
 
 function blockUser(id) {
-    id = 5
     for (const user of users) {
         if (user._id == id) {
             if (user._loginBlock == true) {
                 user._loginBlock = false
-                console.log(user._loginBlock);
                 localStorage.setItem('users', JSON.stringify(users))
                 const toast = Swal.mixin({
                     toast: true,
@@ -153,7 +155,6 @@ function blockUser(id) {
 
             } else {
                 user._loginBlock = true
-                console.log(user._loginBlock);
                 localStorage.setItem('users', JSON.stringify(users))
                 const toast = Swal.mixin({
                     toast: true,

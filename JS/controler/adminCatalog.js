@@ -1,8 +1,7 @@
 import Country from '../models/countriesModels.js'
-
 import {
-    removeAcento
-} from '../controler/countries.js'
+    signOut
+} from '../controler/loginAndSignup.js'
 
 export let countries = []
 
@@ -12,6 +11,8 @@ window.onload = function () {
     }
     renderTable()
 }
+
+document.querySelector('#leaveAccount').addEventListener('click', signOut)
 
 if (document.querySelector('#createCountryForm') != null) {
     document.querySelector('#createCountryForm').addEventListener('submit', function (event) {

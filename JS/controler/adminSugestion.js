@@ -1,3 +1,5 @@
+import { signOut } from "../controler/loginAndSignup.js";
+
 let users = []
 let suggestions = []
 
@@ -16,6 +18,8 @@ window.onload = function () {
     notification()
     renderTable()
 }
+
+document.querySelector('#leaveAccount').addEventListener('click', signOut)
 
 let countSuggestions = 0
 
