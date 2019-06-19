@@ -230,6 +230,7 @@ function ConfIfUserIsRight(id, pointXp, game, level) {
         quizzPlaceHolder.innerHTML = ''
         QuizzGenerator()
     } else {
+
         Swal.fire({
             title: '<span style="color:#ffff ; font-size:1.7rem">Erraste!</span>',
             type: 'info',
@@ -240,7 +241,7 @@ function ConfIfUserIsRight(id, pointXp, game, level) {
         let quizzPlaceHolder = document.querySelector('#quizzHolder')
         // Eleminate the previouse quizz
         quizzPlaceHolder.innerHTML = ''
-        location.href = '/HTML/continentQuizz.html'
+        //location.href = '/HTML/continentQuizz.html'
     }
 }
 
@@ -274,7 +275,7 @@ function renderLevelButtons(playebleLevels, level) {
     holder.innerHTML = ""
     for (let i = 0; i < playebleLevels.length; i++) {
         holder.innerHTML += `<div class="col">
-        <button type="button" class="btn btn-primary levelSelection my-4" id="${playebleLevels[i]}" disabled>${playebleLevels[i]}</button></div>`
+        <button type="button" class="btn levelSelection my-4" id="${playebleLevels[i]}" disabled>${playebleLevels[i]}</button></div>`
     }
      selectLevel(level)
 }
@@ -299,6 +300,8 @@ function selectLevel(level) {
  * This Function generate the quizz
  */
 function QuizzGenerator() {
+    //countdown()
+
     // exit()
 
     //  get the ulocked id
@@ -336,7 +339,7 @@ function QuizzGenerator() {
     levelInfoBuilder(level, continentStyle, ChosenQuizz,numbers)
     showCurrentXP()
     if (isCompleted(level)) {
-
+        //countdown()
         Swal.fire({
             title: '<span style="color:#ffff ; font-size:1.7rem">Já Completaste este quizz</span>',
             type: 'info',
