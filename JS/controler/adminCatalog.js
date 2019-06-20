@@ -12,7 +12,9 @@ window.onload = function () {
     renderTable()
 }
 
-document.querySelector('#leaveAccount').addEventListener('click', signOut)
+if (document.querySelector('#leaveAccount') != null) {
+    document.querySelector('#leaveAccount').addEventListener('click', signOut)
+}
 
 if (document.querySelector('#createCountryForm') != null) {
     document.querySelector('#createCountryForm').addEventListener('submit', function (event) {

@@ -177,7 +177,7 @@ function renderCatalog(quantity = 16) {
             } else {
                 result += `<div class="col-lg-3 col-sm-6 col-xs-12" id="countriesCol">
                             <div class="card africanCards" style="width: 18rem;">
-                            <img src="/Images/lockCountries.png" class="card-img-top" alt="Lock" id="lockImg">
+                            <img src="/Images/lockCountries.png" class="card-img-top lockImg" alt="Lock">
                             <button type="button" id="${continentCountrys[j]._id}" class="btn countryButton" data-toggle="modal" data-target="#countryModal" disabled>
                                 <img src="${continentCountrys[j]._flag}" class="card-img-top" alt="Brasil">
                             </button>
@@ -205,7 +205,7 @@ function renderCatalog(quantity = 16) {
         document.querySelector("#containerCatalog").innerHTML = result
     }
 
-    $('#lockImg').css({
+    $('.lockImg').css({
         'position': 'absolute',
         'align-content': 'center',
         'justify-content': 'center'
