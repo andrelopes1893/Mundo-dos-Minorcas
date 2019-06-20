@@ -1738,42 +1738,57 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* *Quizz Focus adjustments and MQ  */
 p#actualContinet {
     font-size: 1.7rem
 }
 
-
-
-
-
-
-
-
-
-
 /* ? MEDIA QUERIES */
 /* !iPhone 6,8,9*/
-@media only screen and (max-width: 411px) and (min-width: 370px) {}
+@media only screen and (max-width: 411px) and (min-width: 370px) {
+
+    div.col-lg-3.col-sm-3.col-xs-3.logoNavQuizz {
+        text-align: center;
+    }
+
+    p#actualContinet {
+        font-size: 1.4rem;
+        margin: 0%;
+    }
+
+    p#actualLevel {
+        font-size: 1.2rem
+    }
+
+
+    p#questionHolder {
+        font-size: 1.2rem
+    }
+
+    p.timer.mt-3 {
+        font-size: 1.2rem;
+        margin-bottom: 4%
+    }
+
+    div#timerHolder {
+        background-color: #4AB71B
+    }
+
+    div.row.questionImage div.col-lg-6 img.flagImage {
+        width: 70%;
+        margin: auto;
+        border-radius: 20px 20px 20px 20px;
+    }
+
+    div.col-lg-3.col-sm-3.col-xs-3.text-center.d-flex.align-items-center.flagInfoText {
+        margin: 0%
+    }
+
+    div.row.optionsRow{
+        margin: 0%
+    }
+
+}
 
 /* !SMALL PHONES FOCUS*/
 @media screen and (max-width: 376px) {
@@ -1816,7 +1831,7 @@ p#actualContinet {
 
    
     div.row.optionsRow{
-        width: 100%;
+        margin: 0%
     }
 
 
@@ -1826,23 +1841,103 @@ p#actualContinet {
 }
 
 /* !PIXEL & IPHONE PLUS*/
-@media only screen and (max-width: 415px) and (min-width: 411px) {}
+@media only screen and (max-width: 415px) and (min-width: 411px) {
+    div.col-lg-3.col-sm-3.col-xs-3.logoNavQuizz {
+        text-align: center;
+    }
+
+    p#actualContinet {
+        font-size: 1.4rem;
+        margin: 0%;
+    }
+
+    p#actualLevel {
+        font-size: 1.2rem
+    }
+
+
+    p#questionHolder {
+        font-size: 1.2rem
+    }
+
+    p.timer.mt-3 {
+        font-size: 1.2rem;
+        margin-bottom: 4%
+    }
+
+    div#timerHolder {
+        background-color: #4AB71B
+    }
+
+    div.row.questionImage div.col-lg-6 img.flagImage {
+        width: 70%;
+        margin: auto;
+        border-radius: 20px 20px 20px 20px;
+    }
+
+    div.col-lg-3.col-sm-3.col-xs-3.text-center.d-flex.align-items-center.flagInfoText {
+        margin: 0%
+    }
+
+   
+    div.row.optionsRow{
+        margin: 0%
+    }
+
+}
 
 
 
 
 
 
-@media only screen and (max-width: 321px) and (min-width: 320px) {}
+@media only screen and (max-width: 321px) and (min-width: 320px) {  div.col-lg-3.col-sm-3.col-xs-3.logoNavQuizz {
+    text-align: center;
+}
+
+p#actualContinet {
+    font-size: 1.4rem;
+    margin: 0%;
+}
+
+p#actualLevel {
+    font-size: 1.2rem
+}
+
+
+p#questionHolder {
+    font-size: 1.2rem
+}
+
+p.timer.mt-3 {
+    font-size: 1.2rem;
+    margin-bottom: 4%
+}
+
+div#timerHolder {
+    background-color: #4AB71B
+}
+
+div.row.questionImage div.col-lg-6 img.flagImage {
+    width: 70%;
+    margin: auto;
+    border-radius: 20px 20px 20px 20px;
+}
+
+div.col-lg-3.col-sm-3.col-xs-3.text-center.d-flex.align-items-center.flagInfoText {
+    margin: 0%
+}
+
+
+div.row.optionsRow{
+    margin: 0%
+}}
 
 /* !IPAD */
 
 @media only screen and (max-width: 769px) and (min-width: 767px) {
-    div#secondOne.container-fluid.navQuizz{
-
-        color: #000000
-
-
+    div#progressionContainer.progress.mr-lg-5.ml-lg-5.mt-lg-1.mb-lg-5.mt-lg-1{
+        margin-bottom:5%;
     }
 }
 
@@ -1870,7 +1965,6 @@ p#actualContinet {
         font-size: 1.2rem;
         margin-bottom: 4%
     }
-
 
   
 
