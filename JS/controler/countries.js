@@ -409,13 +409,15 @@ function renderModalInfo(id) {
             document.querySelector("#modalFlag").src = country._flag
             document.querySelector("#infoInfo").innerHTML = country._information
             document.querySelector("#imgModal").src = country._location
-            //country._visit++
+            country._visit +=1
             const divComments = document.querySelector(".commentContainer")
             //listar comentario(s) registados sobre o pais em causa
             divComments.innerHTML = ""
+            localStorage.setItem('countries', JSON.stringify(countries))
             for (let i = 0; i < currentCountry._comments.length; i++) {
                 divComments.innerHTML += `Utilizador: ${currentCountry._comments[i]._userId} | Comentário: "${currentCountry._comments[i]._comment}" | ${currentCountry._comments[i]._dateTime}<br><br>`
             }
+
         }
     }
     comment(id)
