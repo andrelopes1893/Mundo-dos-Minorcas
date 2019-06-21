@@ -200,13 +200,16 @@ function infoCardsfill() {
     if (document.querySelector('#catalogQuantity') != null) {
         document.querySelector('#catalogQuantity').innerHTML = countries.length
     }
-    
+
     let countriesSortbyVisit = countries
 
     if (countries.length > 0) {
         countriesSortbyVisit.sort(Country.sortByMostVisited)
-        document.querySelector('#mostVisited').innerHTML = countriesSortbyVisit[0]._name
-        
+        if (document.querySelector('#mostVisited') != null) {
+            document.querySelector('#mostVisited').innerHTML = countriesSortbyVisit[0]._name
+        }
+
+
     }
 
 
