@@ -81,15 +81,17 @@ function renderTable() {
         quizzes = JSON.parse(localStorage.getItem("quizzes"))
     }
 
+    let quizzOutput=quizzes
+
     if (document.querySelector('#stlOrder') != null) {
         if (document.querySelector('#stlOrder').value == 'Continente') {
-            quizzes.sort(Question.continentFilter)
+            quizzOutput.sort(Question.continentFilter)
         }
     }
 
     if (document.querySelector('#stlOrder') != null) {
         if (document.querySelector('#stlOrder').value == '') {
-            quizzes.sort(Question.levelFilter)
+            quizzOutput.sort(Question.levelFilter)
         }
     }
 
@@ -98,7 +100,7 @@ function renderTable() {
 
         let r = 0
 
-        quizzes.forEach(quiz => {
+        quizzOutput.forEach(quiz => {
             r++
             document.querySelector('#QuizzTableBody').innerHTML += `<tr>
                                         <th scope="row">${r}</th>

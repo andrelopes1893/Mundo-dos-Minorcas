@@ -62,19 +62,22 @@ function renderTable() {
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     }
+
+
+     let countryOutput=countries
     if (document.querySelector('#stlOrder')) {
 
         if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Crescente dos Continentes") {
-            countries.sort(Country.ascendentContinentOrder)
+            countryOutput.sort(Country.ascendentContinentOrder)
         }
 
         if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Decrescente dos Continentes") {
-            countries.sort(Country.descendentContinentOrder)
+            countryOutput.sort(Country.descendentContinentOrder)
         }
         document.querySelector('#countriesTableBody').innerHTML = ''
 
         let r = 0
-        for (const country of countries) {
+        for (const country of countryOutput) {
             console.log(country._level)
             r++
             document.querySelector('#countriesTableBody').innerHTML += `<tr>

@@ -8,6 +8,8 @@ import {
 
 let users = [];
 
+let userOutput=[]
+
 window.onload = function () {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
@@ -39,11 +41,11 @@ document.querySelector('.filterUsers').addEventListener('click', function () {
 })
 
 function xpFilter() {
-    users.sort(User.mostXpFilter)
+    userOutput.sort(User.mostXpFilter)
 }
 
 function ascendentAlphabeticOder() {
-    users.sort(User.alphabeticOrder)
+    userOutput.sort(User.alphabeticOrder)
 }
 
 // !This function form the body of the table based on the users array
@@ -52,6 +54,8 @@ function renderTable() {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
+
+     userOutput= users
 
     if (document.querySelector('#stlOrder').value == "") {
         ascendentAlphabeticOder()
@@ -67,7 +71,7 @@ function renderTable() {
 
     let r = 0
 
-    users.forEach(user => {
+    userOutput.forEach(user => {
         if (user._accountType == '1') {
             type = 'Administador'
         } else {
@@ -87,6 +91,7 @@ function renderTable() {
     removeButtons()
     block()
     changeUsersTypeBtns()
+    dataCards()
 }
 
 function removeButtons() {
