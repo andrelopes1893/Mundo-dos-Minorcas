@@ -3,7 +3,6 @@ import Comment from '../models/commentsModels.js'
 
 let countries = []
 let users = []
-let countryId
 let currentCountry
 
 // !This array get the countries from an expecific continent
@@ -410,7 +409,7 @@ function renderModalInfo(id) {
             document.querySelector("#modalFlag").src = country._flag
             document.querySelector("#infoInfo").innerHTML = country._information
             document.querySelector("#imgModal").src = country._location
-            country._visit++
+            //country._visit++
             const divComments = document.querySelector(".commentContainer")
             //listar comentario(s) registados sobre o pais em causa
             divComments.innerHTML = ""
@@ -419,37 +418,42 @@ function renderModalInfo(id) {
             }
         }
     }
+    comment(id)
+}
+
+function comment(id) {
+    if (document.querySelector('#commentForm') != null) {
+        document.querySelector('#commentForm').addEventListener('submit', function (event) {
+
+            let txtComment = document.querySelector('#txtComment').value
+            let as = ""
+            if (sessionStorage.getItem('loggedUserId')) {
+                as = JSON.parse(sessionStorage.getItem("loggedUserId"))
+                //inserir o comentario no array
+                if (txtComment == "") {
+                    alert("Para comentar tem que escrever um comentário.")
+                } else {
+                    for (const country of countries) {
+                        if (country._id == id) {
+                            const newComment = new Comment(txtComment, id)
+                            country._comments.push(newComment)
+                            localStorage.setItem('countries', JSON.stringify(countries))
+                            alert("O teu comentário foi registado com sucesso!")
+                            break;
+                        }
+                    }
+
+                }
+            } else {
+                alert("Não é possível efetuar comentários sem primeiro iniciar sessão!\nSe ainda não tens conta, cria uma e anda divertir-te connosco.")
+            }
+            event.preventDefault()
+        })
+    }
 }
 
 //codigo para adicionar comentarios
-if (document.querySelector('#commentForm') != null) {
-    document.querySelector('#commentForm').addEventListener('submit', function (event) {
 
-        let txtComment = document.querySelector('#txtComment').value
-        let id = ""
-        if (sessionStorage.getItem('loggedUserId')) {
-            id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-            //inserir o comentario no array
-            if (txtComment == "") {
-                alert("Para comentar tem que escrever um comentário.")
-            } else {
-                for (const country of countries) {
-                    if (country._id == countryId) {
-
-                        const newComment = new Comment(txtComment, id)
-                        country._comments.push(newComment)
-                    }
-                }
-                alert("O teu comentário foi registado com sucesso!")
-            }
-        } else {
-            alert("Não é possível efetuar comentários sem primeiro iniciar sessão!\nSe ainda não tens conta, cria uma e anda divertir-te connosco.")
-        }
-
-        localStorage.setItem('countries', JSON.stringify(countries))
-        event.preventDefault()
-    })
-}
 
 //ordenar comentarios por data
 const stlGenreComment = document.querySelector('#stlGenreComment')
