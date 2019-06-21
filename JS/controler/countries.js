@@ -409,7 +409,7 @@ function renderModalInfo(id) {
             document.querySelector("#modalFlag").src = country._flag
             document.querySelector("#infoInfo").innerHTML = country._information
             document.querySelector("#imgModal").src = country._location
-            country._visit++
+            //country._visit++
             const divComments = document.querySelector(".commentContainer")
             //listar comentario(s) registados sobre o pais em causa
             divComments.innerHTML = ""
