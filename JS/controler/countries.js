@@ -5,6 +5,35 @@ let countries = []
 let users = []
 let currentCountry
 
+window.onload = function () {
+    if (localStorage.getItem("countries")) {
+        countries = JSON.parse(localStorage.getItem("countries"))
+    }
+
+    let id = ""
+    if (sessionStorage.getItem("loggedUserId")) {
+        id = JSON.parse(sessionStorage.getItem('loggedUserId'))
+    }
+
+    let asd = ""
+    if (sessionStorage.getItem("id")) {
+        asd = JSON.parse(sessionStorage.getItem('id'))
+    }
+    console.log(asd);
+
+    for (const country of countries) {
+        if (country._id == asd) {
+            console.log(country._points.length);
+            ratingButtons()
+
+            document.querySelector('.stars').setAttribute('data-rating', country._points.points);
+        }
+
+
+    }
+
+}
+
 // !This array get the countries from an expecific continent
 let continentCountrys = []
 
@@ -226,6 +255,7 @@ function renderCatalog(quantity = 16) {
             renderModalInfo(this.id)
         })
     }
+    ratingButtons()
     renderModalInfo()
 }
 
@@ -274,13 +304,19 @@ function rating(id) {
                     for (const user of users) {
                         if (user._id == a) {
                             for (const country of countries) {
-                                if (country._id == asd) {
-                                    document.querySelector('.stars').setAttribute('data-rating', num);
-                                    let obj = {
-                                        user: user._username,
-                                        points: num
+                                if (country._id == asd) {                                    
+                                    console.log(country._points.points);
+                                    
+                                    if (country._points.length > 0) {
+                                        alert('123')
+                                    } else if(country._points.length == 0){
+                                        document.querySelector('.stars').setAttribute('data-rating', num);
+                                        let obj = {
+                                            user: user._id,
+                                            points: num
+                                        }
+                                        country._points.push(obj)
                                     }
-                                    country._points.push(obj)
                                 }
                             }
                         }
@@ -300,34 +336,34 @@ function rating(id) {
     }
 }
 
-function loadCSSstar() {
-    let a = ""
-    if (sessionStorage.getItem("loggedUserId")) {
-        a = JSON.parse(sessionStorage.getItem('loggedUserId'))
-    }
+// function loadCSSstar() {
+//     let a = ""
+//     if (sessionStorage.getItem("loggedUserId")) {
+//         a = JSON.parse(sessionStorage.getItem('loggedUserId'))
+//     }
 
-    for (const country of countries) {
-        for (const points of country._points) {
-            if (points.username == a) {
-                let stars = document.querySelectorAll('.star')
-                for (const star of stars) {
-                    let match = false;
-                    let num = 0;
-                    if (match) {
-                        star.classList.remove('rated');
-                    } else {
-                        star.classList.add('rated');
-                    }
-                    //are we currently looking at the span that was clicked
-                    if (star === span) {
-                        match = true;
-                        num = index + 1;
-                    }
-                }
-            }
-        }
-    }
-}
+//     for (const country of countries) {
+//         for (const points of country._points) {
+//             if (points.username == a) {
+//                 let stars = document.querySelectorAll('.star')
+//                 for (const star of stars) {
+//                     let match = false;
+//                     let num = 0;
+//                     if (match) {
+//                         star.classList.remove('rated');
+//                     } else {
+//                         star.classList.add('rated');
+//                     }
+//                     //are we currently looking at the span that was clicked
+//                     if (star === span) {
+//                         match = true;
+//                         num = index + 1;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 
 
 // function setRating(ev) {
@@ -409,7 +445,7 @@ function renderModalInfo(id) {
             document.querySelector("#modalFlag").src = country._flag
             document.querySelector("#infoInfo").innerHTML = country._information
             document.querySelector("#imgModal").src = country._location
-            country._visit +=1
+            country._visit += 1
             const divComments = document.querySelector(".commentContainer")
             //listar comentario(s) registados sobre o pais em causa
             divComments.innerHTML = ""
