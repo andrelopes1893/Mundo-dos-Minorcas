@@ -8,6 +8,7 @@ window.onload = function () {
         users = JSON.parse(localStorage.getItem("users"))
     }
 
+    let id = ""
     if (sessionStorage.getItem('loggedUserId')) {
         id = JSON.parse(sessionStorage.getItem("loggedUserId"))
     }

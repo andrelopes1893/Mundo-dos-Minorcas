@@ -197,7 +197,10 @@ function EditFormInfoAdd(id) {
 
 
 function infoCardsfill() {
-    document.querySelector('#catalogQuantity').innerHTML = countries.length
+    if (document.querySelector('#catalogQuantity') != null) {
+        document.querySelector('#catalogQuantity').innerHTML = countries.length
+    }
+    
     let countriesSortbyVisit = countries
 
     if (countries.length > 0) {
