@@ -6,6 +6,7 @@ window.onload = function () {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
+    
     userData()
 }
 

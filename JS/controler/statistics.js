@@ -12,8 +12,16 @@ window.onload = function () {
 
 function renderTable() {
     let r = 0
-    users.sort(User.mostXpFilter)
+
+
+    let normalUsers = [] 
     for (const user of users) {
+        if(user._accountType==2){
+            normalUsers.push(user)
+        }
+    }
+    normalUsers.sort(User.mostXpFilter)
+    for (const user of normalUsers) {
         r++
         document.querySelector('#statsFilterTableBody').innerHTML += `<tr>
                                                                         <th scope="row">${r}</th>

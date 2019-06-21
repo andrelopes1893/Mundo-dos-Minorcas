@@ -10,6 +10,7 @@ window.onload = function () {
         countries = JSON.parse(localStorage.countries)
     }
     renderTable()
+    infoCardsfill()
 }
 
 if (document.querySelector('#leaveAccount') != null) {
@@ -23,7 +24,7 @@ if (document.querySelector('#createCountryForm') != null) {
         const countryContinent = document.querySelector('#stlContinent').value
         const countryLevel = document.querySelector('#stlLevel').value
         console.log(countryLevel);
-        
+
         const countryLanguage = document.querySelector('#txtCountryLanguage').value
         const countryInfo = document.querySelector('#txtInfo').value
         const countryLocation = document.querySelector('#txtLocation').value
@@ -64,7 +65,7 @@ function renderTable() {
     }
 
 
-     let countryOutput=countries
+    let countryOutput = countries
     if (document.querySelector('#stlOrder')) {
 
         if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Crescente dos Continentes") {
@@ -144,7 +145,7 @@ function submitEdit(id) {
             if (country._id == id) {
                 country._name = document.querySelector('#txtEditCountryName').value
                 country._continent = document.querySelector('#newSltContinent').value
-                country._level = document.querySelector('#stlLevelEdit').value                
+                country._level = document.querySelector('#stlLevelEdit').value
                 country._capital = document.querySelector('#txtEditCountryCapital').value
                 country._language = document.querySelector('#txtEditCountryLanguage').value
                 country._information = document.querySelector('#txtEditCountryInfo').value
@@ -185,11 +186,28 @@ function EditFormInfoAdd(id) {
             document.querySelector('#txtEditCountryName').value = country._name
             document.querySelector('#newSltContinent').value = country._continent
             document.querySelector('#txtEditCountryCapital').value = country._capital
-            document.querySelector('#txtEditCountryLanguage').value = country._language            
-            document.querySelector('#stlLevelEdit').value = country._level            
+            document.querySelector('#txtEditCountryLanguage').value = country._language
+            document.querySelector('#stlLevelEdit').value = country._level
             document.querySelector('#txtEditCountryInfo').value = country._information
             document.querySelector('#txtEditCountryLocation').value = country._location
             document.querySelector('#txtEditCountryFlag').value = country._flag
         }
     }
+}
+
+
+function infoCardsfill() {
+    document.querySelector('#catalogQuantity').innerHTML = countries.length
+    let countriesSortbyVisit = countries
+
+    if (countries.length > 0) {
+        countriesSortbyVisit.sort(Country.sortByMostVisited)
+        document.querySelector('#mostVisited').innerHTML = countriesSortbyVisit[0]._name
+        
+    }
+
+
+
+
+
 }

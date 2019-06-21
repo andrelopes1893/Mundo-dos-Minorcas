@@ -5,9 +5,11 @@ let countries = []
 let users = []
 let countryId
 let currentCountry
+
+// !This array get the countries from an expecific continent
 let continentCountrys = []
 
-
+// !Function that gives back the cards levels that the user have unlocked based on xp (obs: if it gives back 4 the user can see cards information from levels 1,2,3,4)
 function renderCatalogByXP() {
     let value = 0
     let id = ""
@@ -35,8 +37,7 @@ function renderCatalogByXP() {
 }
 
 motherFunction()
-//o que acontece quando a paginas que usam com suposto este ficheiro, são carregadas
-
+//!Since that windows on load wasn't working we based on this function to do all the work when the window loads 
 function motherFunction() {
 
     // if (localStorage.countries) {
@@ -50,6 +51,7 @@ function motherFunction() {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
+    //!page is the page that you are in the countrie ,its main "job" is to help with the pagination
     if (localStorage.getItem('page')) {
         localStorage.removeItem('page')
     }
@@ -77,8 +79,11 @@ if (document.querySelector("#btnFilter") != null) {
         event.preventDefault()
     })
 }
-
-//função que renderiza o catalogo
+/**
+ * Function that render the catalog
+ * @param {Number} quantity the position that it stops getting elements from the array to render and this value - 16 = to the the position where it starts
+ */
+// função que renderiza o catalogo
 function renderCatalog(quantity = 16) {
     if (document.querySelector('#stlGenre')) {
         if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Crescente") {
@@ -394,7 +399,10 @@ function searchCountry() {
     });
 }
 
-//Função que injeta na modal as informaçoes correspondentes ao pais em que o card foi carregado
+/**
+ * This function opens the modal with the information about one of the countries 
+ * @param {Number} id This is The id of an country 
+ */
 function renderModalInfo(id) {
     for (const country of countries) {
         if (country._id == id) {
@@ -402,11 +410,10 @@ function renderModalInfo(id) {
             document.querySelector("#modalFlag").src = country._flag
             document.querySelector("#infoInfo").innerHTML = country._information
             document.querySelector("#imgModal").src = country._location
-
+            country._visit++
             const divComments = document.querySelector(".commentContainer")
             //listar comentario(s) registados sobre o pais em causa
             divComments.innerHTML = ""
-
             for (let i = 0; i < currentCountry._comments.length; i++) {
                 divComments.innerHTML += `Utilizador: ${currentCountry._comments[i]._userId} | Comentário: "${currentCountry._comments[i]._comment}" | ${currentCountry._comments[i]._dateTime}<br><br>`
             }
@@ -517,7 +524,7 @@ function ConstructPaginationButton() {
     }
 }
 
-
+// This function controls the travell Between  pages
 function getPageSelection() {
     let pagesLinks = document.querySelectorAll(".page-link")
     for (const button of pagesLinks) {
@@ -530,6 +537,7 @@ function getPageSelection() {
     }
 }
 
+// This function gets the elements from the array countries that are going to be showed based on the continent and  push them to the array continentCountrys
 function continentCountrysFill() {
     if (document.querySelector('.continentTitle')) {
         let contName = document.querySelector('.continentTitle').innerHTML

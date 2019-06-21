@@ -157,4 +157,15 @@ export default class Country {
         }
         return 0;
     }
+
+
+    static sortByMostVisited(countryA, countryB) {
+        if (countryA._visit < countryB._visit){
+            return 1;
+        }
+        if (countryA._visit > countryB._visit){
+            return -1;
+        }
+        return 0;
+    }
 }
