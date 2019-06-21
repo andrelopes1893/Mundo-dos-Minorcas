@@ -15,7 +15,6 @@ window.onload = function () {
     if (localStorage.getItem("suggestions")) {
         suggestions = JSON.parse(localStorage.getItem("suggestions"))
     }
-    notification()
     renderTable()
 }
 
@@ -33,11 +32,9 @@ function renderTable() {
 
     document.querySelector('#suggestionsTableBody').innerHTML = ''
     let r = 0
-    for (const suggestion of suggestions) {
-        console.log(suggestions);
-        
+    for (const suggestion of suggestions) {        
         r++
-        if (suggestion._confirmed == false) {
+        if (suggestion._confirmedAdmin == false) {
             countSuggestions++
             Swal.fire({
                 title: `<span style="color:#ffffff">Tens ${countSuggestions} sugestões por ler!<span>`,
@@ -57,7 +54,6 @@ function renderTable() {
                                             <td><button type="button" id="${suggestion._id}" class="btn acceptSuggestion"><img src="/Images/lock.png" alt="Bloquear"></button></td>
                                         </tr>`
         }
-
     }
     countSuggestions = 0
     rejectButtons()
@@ -96,9 +92,11 @@ function rejectButtons() {
 }
 
 function rejectSuggestion(id) {
-    for (let i = 0; i < suggestions.length; i++) {
+    for (let i = 0; i < suggestions.length; i++) {        
         if (suggestions[i]._id == id) {
-            suggestions.splice(i, 1)
+            suggestions[i]._confirmedAdmin = true
+            suggestions[i].__confirmedUser = false
+            // suggestions.splice(i, 1)
             const toast = Swal.mixin({
                 toast: true,
                 position: 'bottom-end',
@@ -128,7 +126,8 @@ function approveButtons() {
 function approveSuggestion(id) {
     for (const suggestion of suggestions) {
         if (suggestion._id == id) {
-            suggestion._confirmed = true
+            suggestion._confirmedAdmin = true
+            suggestion._confirmedUser = true
             const toast = Swal.mixin({
                 toast: true,
                 position: 'bottom-end',
@@ -144,12 +143,4 @@ function approveSuggestion(id) {
     }
     localStorage.setItem('suggestions', JSON.stringify(suggestions))
     renderTable()
-}
-
-function notification() {
-    for (const suggestion of suggestions) {
-        if (suggestion._confirmed == false) {
-            
-        }
-    }
 }
