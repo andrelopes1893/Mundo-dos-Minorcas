@@ -7,6 +7,7 @@ import {
 
 export let suggestions = []
 export let users = []
+let currentSuggestion
 
 window.onload = function () {
         if (localStorage.getItem("users")) {
@@ -23,6 +24,7 @@ window.onload = function () {
         showUserData()
         showAvatarOnload()
         showCurrentXP()
+        suggestionStatus()
 }
 
 cleanInputData()
@@ -471,5 +473,46 @@ function doNotShowPasswordData() {
                 text.type = "text";
         } else {
                 text.type = "password";
+        }
+}
+
+function suggestionStatus() {
+        let as = ""
+        if (sessionStorage.getItem('loggedUserId')) {
+                as = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        }
+
+        // currentSuggestion = Suggestion.getIdBySuggestion()
+        // sessionStorage.setItem('currentSuggestion', JSON.stringify(currentSuggestion))
+        // console.log(currentSuggestion);
+
+        for (const user of users) {
+                if (user._id == as) {
+                        for (const suggestion of suggestions) {
+                                if (suggestion._confirmedAdmin == true && suggestion._confirmedUser == true) {
+                                        Swal.fire({
+                                                title: '<span style="color:#ffffff">A tua sugestão foi aceite!<span>',
+                                                animation: true,
+                                                customClass: {
+                                                    popup: 'animated tada'
+                                                },
+                                                background: '#CCCC33',
+                                                confirmButtonColor: '#29ABE2',
+                                                timer: 3000,
+                                            })
+                                } else if(suggestion._confirmedUser == false) {
+                                        Swal.fire({
+                                                title: '<span style="color:#ffffff">A tua sugestão foi recusada!<span>',
+                                                animation: true,
+                                                customClass: {
+                                                    popup: 'animated tada'
+                                                },
+                                                background: '#CCCC33',
+                                                confirmButtonColor: '#29ABE2',
+                                                timer: 3000,
+                                            })
+                                }
+                        }
+                }
         }
 }
