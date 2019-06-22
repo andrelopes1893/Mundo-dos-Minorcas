@@ -3,7 +3,7 @@
  } from '../models/main.js'
 
  export default class User {
-     constructor(username, password, email, accountType = '1', avatar = '', description = '',id="undefine", loginBlock = false, xp = 0, unlockCountries = [], country, rating = [], currentLevels = [], playedQuizzes = []) {
+     constructor(username, password, email, accountType = '1', avatar = '', description = '', id = "undefine", loginBlock = false, xp = 0, unlockCountries = [], country, rating = [], currentLevels = [], playedQuizzes = []) {
          this._id = User.getLastId(id) + 1
          this.username = username
          this.password = password
@@ -24,16 +24,15 @@
      }
      static getLastId(id) {
 
-        if(id=="undefine"){
-            let lastId = 0
-         if (users.length != 0) {
-             lastId = users[users.length - 1]._id
+         if (id == "undefine") {
+             let lastId = 0
+             if (users.length != 0) {
+                 lastId = users[users.length - 1]._id
+             }
+             return lastId
+         } else {
+             return id - 1
          }
-         return lastId
-        }
-        else{
-            return id-1
-        }
      }
 
      get username() {
@@ -61,10 +60,10 @@
          return this._avatar
      }
      set avatar(value) {
-        if (value == '') {
-            value = '../../Images/BoyAvatars/Avatar Principiante 1.png'
-        }
-        this._avatar = value
+         if (value == '') {
+             value = '../../Images/BoyAvatars/Avatar Principiante 1.png'
+         }
+         this._avatar = value
      }
 
      get accountType() {
@@ -178,17 +177,17 @@
      }
 
      static loginVerifyById(password, email) {
-        let id = -1
-        for (const user of users) {
-            if (user._password == password && user._email == email) {
-                id = user._id
-            }
-        }
-        return id
-    }
+         let id = -1
+         for (const user of users) {
+             if (user._password == password && user._email == email) {
+                 id = user._id
+             }
+         }
+         return id
+     }
 
-     static checkLoginBlocked(email) {         
-         for (const user of users) {             
+     static checkLoginBlocked(email) {
+         for (const user of users) {
              if (user._email === email && user._loginBlock == true) {
                  return true
              }
@@ -197,7 +196,7 @@
      }
 
      static confirmUserExistent(email, password) {
-         for (const user of users) {             
+         for (const user of users) {
              if (user._email == email && user._password == password) {
                  return true
              }
@@ -212,7 +211,7 @@
              }
          }
      }
-     
+
      static getAvatarByXP() {
          for (const user of users) {
              if (user._xp <= 15) {
@@ -252,22 +251,22 @@
      }
 
      static mostXpFilter(userA, userB) {
-        if (userA._xp < userB._xp){
-            return 1;
-        }
-        if (userA._xp > userB._xp){
-            return -1;
-        }
-        return 0;
-    }
+         if (userA._xp < userB._xp) {
+             return 1;
+         }
+         if (userA._xp > userB._xp) {
+             return -1;
+         }
+         return 0;
+     }
 
-    static alphabeticOrder(userA, userB) {
-        if (userA._username.toLowerCase() < userB._username.toLowerCase()){
-            return -1;
-        }
-        if (userA._username.toLowerCase() > userB._username.toLowerCase()){
-            return 1;
-        }
-        return 0;
-    }
+     static alphabeticOrder(userA, userB) {
+         if (userA._username.toLowerCase() < userB._username.toLowerCase()) {
+             return -1;
+         }
+         if (userA._username.toLowerCase() > userB._username.toLowerCase()) {
+             return 1;
+         }
+         return 0;
+     }
  }
