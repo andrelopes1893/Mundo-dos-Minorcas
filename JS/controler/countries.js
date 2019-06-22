@@ -267,12 +267,12 @@ function ratingButtons() {
     let stars = document.querySelectorAll('.stars');
     for (const elem of stars) {
         elem.addEventListener("click", function () {
-           let man =  rating(this.id)
+          rating(this.id)
 
 
-           if(man==true){
-            location.reload() 
-           }
+        //    if(man==true){
+        //     location.reload() 
+        //    }
 
 
             // 
@@ -368,8 +368,8 @@ function rating(id) {
             //target.dispatchEvent(new MouseEvent('click'));
         }
     }
-    
-return true}
+// return true    
+}
 
 // function loadCSSstar() {
 //     let a = ""
