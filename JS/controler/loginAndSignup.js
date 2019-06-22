@@ -2,6 +2,10 @@ import {
     newUserByAdmin
 } from '../models/main.js'
 
+
+
+let countries = []
+let quizzes = []
 let users = []
 
 if (localStorage.getItem("users")) {
@@ -17,7 +21,17 @@ if (localStorage.getItem("users")) {
     localStorage.setItem('users', JSON.stringify(users))
 }
 
+if (localStorage.getItem("countries")) {
+    countries = JSON.parse(localStorage.getItem("countries"))
+} else {
+    //obs: arrays: unlockCountries, rating, currentLevels, playedQuizzes, NÃO APAGAR
+    countries.push(new Country('Nuno', 'asdasd', 'nuno@gmail.com', '1', 'Escreve algo sobre ti', 1)
+    )
+    localStorage.setItem('countries', JSON.stringify(countries))
+}
+
 import User from '../models/userModels.js'
+import Country from '../models/countriesModels.js'
 
 
 let loggedUserId
