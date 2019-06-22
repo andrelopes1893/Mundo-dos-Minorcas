@@ -238,6 +238,12 @@ div.row.optionsRow button.btn {
     }
 }
 
+
+body#quizzBody {
+    background-color: #EEEBD0;
+    overflow: hidden;
+}
+
 /* !BUTTON HELP AND EXIT QUIZZ */
 
 div.container-fluid.exitHelp {
@@ -1269,6 +1275,12 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         font-size: 1.2rem;
     }
 
+
+    body#quizzBody {
+        background-color: #EEEBD0;
+        overflow: scroll;
+    }
+
     /**CONTINENT ORGANIZATION - CATALOG*/
     /* Carousel cards headers */
     Div.owl-carousel div.item div.card-header {
@@ -1344,6 +1356,11 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     /* INFO COUNTRIES IMAGE */
     div.row div.col-lg-6.infoParagraphImg img.map {
         width: 80%;
+    }
+
+    body#quizzBody {
+        background-color: #EEEBD0;
+        overflow: scroll;
     }
 
     /**CONTINENT ORGANIZATION - CATALOG*/
@@ -1430,6 +1447,10 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     div.col-lg-6.flagInfoText p {
         font-size: 1.1rem
     }
+    body#quizzBody {
+        background-color: #EEEBD0;
+        overflow: scroll;
+    }
 
     div.row div.col-12.text-center p.question {
         font-size: 1.2rem;
@@ -1475,6 +1496,10 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     div.row.rounded.position-relative {
         margin-right: 5%;
         margin-left: 5%;
+    }
+    body#quizzBody {
+        background-color: #EEEBD0;
+        overflow: scroll;
     }
 }
 
@@ -1784,7 +1809,7 @@ p#actualContinet {
         margin: 0%
     }
 
-    div.row.optionsRow{
+    div.row.optionsRow {
         margin: 0%
     }
 
@@ -1829,8 +1854,8 @@ p#actualContinet {
         margin: 0%
     }
 
-   
-    div.row.optionsRow{
+
+    div.row.optionsRow {
         margin: 0%
     }
 
@@ -1879,8 +1904,8 @@ p#actualContinet {
         margin: 0%
     }
 
-   
-    div.row.optionsRow{
+
+    div.row.optionsRow {
         margin: 0%
     }
 
@@ -1891,59 +1916,61 @@ p#actualContinet {
 
 
 
-@media only screen and (max-width: 321px) and (min-width: 320px) {  div.col-lg-3.col-sm-3.col-xs-3.logoNavQuizz {
-    text-align: center;
+@media only screen and (max-width: 321px) and (min-width: 320px) {
+    div.col-lg-3.col-sm-3.col-xs-3.logoNavQuizz {
+        text-align: center;
+    }
+
+    p#actualContinet {
+        font-size: 1.4rem;
+        margin: 0%;
+    }
+
+    p#actualLevel {
+        font-size: 1.2rem
+    }
+
+
+    p#questionHolder {
+        font-size: 1.2rem
+    }
+
+    p.timer.mt-3 {
+        font-size: 1.2rem;
+        margin-bottom: 4%
+    }
+
+    div#timerHolder {
+        background-color: #4AB71B
+    }
+
+    div.row.questionImage div.col-lg-6 img.flagImage {
+        width: 70%;
+        margin: auto;
+        border-radius: 20px 20px 20px 20px;
+    }
+
+    div.col-lg-3.col-sm-3.col-xs-3.text-center.d-flex.align-items-center.flagInfoText {
+        margin: 0%
+    }
+
+
+    div.row.optionsRow {
+        margin: 0%
+    }
 }
-
-p#actualContinet {
-    font-size: 1.4rem;
-    margin: 0%;
-}
-
-p#actualLevel {
-    font-size: 1.2rem
-}
-
-
-p#questionHolder {
-    font-size: 1.2rem
-}
-
-p.timer.mt-3 {
-    font-size: 1.2rem;
-    margin-bottom: 4%
-}
-
-div#timerHolder {
-    background-color: #4AB71B
-}
-
-div.row.questionImage div.col-lg-6 img.flagImage {
-    width: 70%;
-    margin: auto;
-    border-radius: 20px 20px 20px 20px;
-}
-
-div.col-lg-3.col-sm-3.col-xs-3.text-center.d-flex.align-items-center.flagInfoText {
-    margin: 0%
-}
-
-
-div.row.optionsRow{
-    margin: 0%
-}}
 
 /* !IPAD */
 
 @media only screen and (max-width: 769px) and (min-width: 767px) {
-    div#progressionContainer.progress.mr-lg-5.ml-lg-5.mt-lg-1.mb-lg-5.mt-lg-1{
-        margin-bottom:5%;
+    div#progressionContainer.progress.mr-lg-5.ml-lg-5.mt-lg-1.mb-lg-5.mt-lg-1 {
+        margin-bottom: 5%;
     }
 }
 
 /* !(IPAD-PRO) */
 @media only screen and (max-width: 1025px) and (min-width: 1024px) {
-    p.my-1{
+    p.my-1 {
         margin-top: 70%
     }
 
@@ -1966,6 +1993,6 @@ div.row.optionsRow{
         margin-bottom: 4%
     }
 
-  
+
 
 }
