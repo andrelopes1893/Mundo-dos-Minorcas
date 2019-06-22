@@ -3,8 +3,8 @@ import {
 } from '../controler/adminCatalog.js'
 
 export default class Country {
-    constructor(name, capital, flag, language, continent, level, information = '', location = "", points = [], comments = [], visit = 0) {
-        this._id = Country.getLastId() + 1
+    constructor(name, capital, flag, language, continent, level, information = '', location = "",id="undefine", points = [], comments = [], visit = 0) {
+        this._id = Country.getLastId(id) + 1
         this.name = name
         this.continent = continent
         this.capital = capital
@@ -20,14 +20,20 @@ export default class Country {
     get id() {
         return this._id
     }
-    static getLastId() {
-        let id = 0
-        if (countries.length > 0) {
-            for (let country of countries) {
-                id = country._id
+    static getLastId(id) {
+
+        if(id=="undefine"){
+            let id = 0
+            if (countries.length > 0) {
+                for (let country of countries) {
+                    id = country._id
+                }
             }
+            return id
+        }else{
+            return id-1
         }
-        return id
+     
     }
     get name() {
         return this._name
