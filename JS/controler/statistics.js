@@ -21,7 +21,7 @@ window.onload = function () {
 function renderTable() {
     let r = 0
 
-
+    //Array created to save the data from the "users" array
     let normalUsers = [] 
     for (const user of users) {
         if(user._accountType==2){
@@ -34,11 +34,14 @@ function renderTable() {
         document.querySelector('#statsFilterTableBody').innerHTML += `<tr>
                                                                         <th scope="row">${r}</th>
                                                                         <td>${user._username}</td>
-                                                                        <td>${user._xp}</td>
+                                        d                                <td>${user._xp}</td>
                                                                     </tr>`
     }
 }
 
+/**
+ * Function to show the correct data of each user - show the correct avatar in the navbar
+ */
 function userData() {
     let id = ""
     if (sessionStorage.getItem("loggedUserId")) {

@@ -6,14 +6,16 @@ import User from '../models/userModels.js'
 
 let users = []
 
-// window.onload = function() {
-//     if (localStorage.getItem("users")) {
-//         users = JSON.parse(localStorage.getItem("users"))
-//     }
-// }
-
 let loggedUserId
 
+/**
+ * Event that add a new user
+ * @param {String} txtUsername return the username that was written
+ * @param {String} txtEmail return the email that was written
+ * @param {String} txtPassword return the password that was written
+ * @param {String} txtPasswordConf return the password confirm that was written
+ * @param {String} userType return the type of user that was chosen
+ */
 if (document.querySelector('#addUserBtn') != null) {
     document.querySelector('#addUserBtn').addEventListener("click", function () {
         let txtUsername = document.querySelector('#txtUserName').value
@@ -25,6 +27,11 @@ if (document.querySelector('#addUserBtn') != null) {
     })
 }
 
+/**
+ * Login Form
+ * @param {String} txtUsername return the username that was written
+ * @param {String} txtEmail return the email that was written
+ */
 if (document.querySelector('#signInForm') != null) {
     document.querySelector('#signInForm').addEventListener('submit', function (event) {
         let txtEmail = document.querySelector('#txtEmail').value
@@ -80,6 +87,9 @@ if (document.querySelector('#signInForm') != null) {
     })
 }
 
+/**
+ * Sign out function
+ */
 export function signOut() {
     location.reload()
     location.href = '/HTML/loginAndSigup.html'

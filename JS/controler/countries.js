@@ -6,13 +6,7 @@ let users = []
 let currentCountry
 
 window.onload = function () {
-
     confirmSystemHaker()
-
-
-
-
-
 
     if (localStorage.getItem("countries")) {
         countries = JSON.parse(localStorage.getItem("countries"))
@@ -23,29 +17,28 @@ window.onload = function () {
         id = JSON.parse(sessionStorage.getItem('loggedUserId'))
     }
 
-    let asd = ""
+    let countryId = ""
     if (sessionStorage.getItem("id")) {
-        asd = JSON.parse(sessionStorage.getItem('id'))
+        countryId = JSON.parse(sessionStorage.getItem('id'))
     }
-    console.log(asd);
 
     for (const country of countries) {
-        if (country._id == asd) {
-            console.log(country._points.length);
+        if (country._id == countryId) {
             ratingButtons()
-
             document.querySelector('.stars').setAttribute('data-rating', country._points.points);
         }
-
-
     }
-
 }
 
-// !This array get the countries from an expecific continent
+//This array gets the countries from an specific continent
 let continentCountrys = []
 
-// !Function that gives back the cards levels that the user have unlocked based on xp (obs: if it gives back 4 the user can see cards information from levels 1,2,3,4)
+/**
+ * Function that gives back the card levels that the user have unlocked based on xp (obs: if it gives back 4 the user can see cards information from levels 1,2,3,4)
+ * @param {Number} id returns the logged user id that is set on the sessionStorage
+ * @param {Number} value represents the country level, from 1 to 5
+ */
+//
 function renderCatalogByXP() {
     let value = 0
     let id = ""
@@ -54,8 +47,6 @@ function renderCatalogByXP() {
     }
     for (const user of users) {
         if (user._id == id) {
-            console.log(user._xp);
-
             if (user._xp >= 0 && user._xp <= 240) {
                 value = 1
             } else if (user._xp > 240 && user._xp <= 480) {
@@ -72,14 +63,16 @@ function renderCatalogByXP() {
     return value
 }
 
+/**
+ * Function that gives back the card levels that the user have unlocked based on xp (obs: if it gives back 4 the user can see cards information from levels 1,2,3,4)
+ * @param {Number} id returns the logged user id that is set on the sessionStorage
+ * @param {String} countries returns the countries that are set on the localStorage
+ * @param {String} users returns the users that are set on the localStorage
+ * @param {String} continentCatalogStyle returns the continent catalog style that will be set in the sessionStorage
+ */
 motherFunction()
-//!Since that windows on load wasn't working we based on this function to do all the work when the window loads 
+//Since that windows on load wasn't working we based on this function to do all the work when the window loading
 function motherFunction() {
-
-    // if (localStorage.countries) {
-    //     countries = JSON.parse(localStorage.countries)
-    // }
-
     if (localStorage.getItem("countries")) {
         countries = JSON.parse(localStorage.getItem("countries"))
     }
@@ -87,15 +80,14 @@ function motherFunction() {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
-    //!page is the page that you are in the countrie ,its main "job" is to help with the pagination
+
+    //page is the page that you are in the countries, the main "job" is to help with the pagination
     if (localStorage.getItem('page')) {
         localStorage.removeItem('page')
     }
 
-    continentCountrysFill()
-
+    continentCountriesFill()
     renderCatalog()
-    // !!!new
     ConstructPaginationButton()
     renderModalInfo()
     userData()
@@ -107,7 +99,7 @@ function motherFunction() {
 
 searchCountry()
 
-//botão de filtrar
+//Filter Button
 if (document.querySelector("#btnFilter") != null) {
     document.querySelector("#btnFilter").addEventListener("click", function (event) {
         renderCatalog()
@@ -115,12 +107,14 @@ if (document.querySelector("#btnFilter") != null) {
         event.preventDefault()
     })
 }
+
 /**
  * Function that render the catalog
- * @param {Number} quantity the position that it stops getting elements from the array to render and this value - 16 = to the the position where it starts
+ * @param {Number} quantity the position that stops getting elements from the array to render. And the value -> 16 = to the the position where it starts
  */
-// função que renderiza o catalogo
 function renderCatalog(quantity = 16) {
+
+    //Filters
     if (document.querySelector('#stlGenre')) {
         if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Crescente") {
             sortCountriesAscendent()
@@ -129,10 +123,11 @@ function renderCatalog(quantity = 16) {
         if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Decrescente") {
             sortCountriesDescendent()
         }
-        if(document.querySelector('#stlGenre').value=='ordenarPorVisitas'){
+        if (document.querySelector('#stlGenre').value == 'ordenarPorVisitas') {
             sortCountriesByVisit()
         }
     }
+
 
     if (quantity == 'prev' || quantity == 'next') {
         let value = 16;
@@ -250,17 +245,18 @@ function renderCatalog(quantity = 16) {
         document.querySelector("#containerCatalog").innerHTML = result
     }
 
+    //Change the CSS of the lock image
     $('.lockImg').css({
         'position': 'absolute',
         'align-content': 'center',
         'justify-content': 'center'
     });
-
+    //Change the CSS of the card background
     $('.africanCards').css({
         'background-color': 'rgb(255, 255, 255, .8)'
     })
 
-    // Programar botoes nas imagens dos modais
+    // Set all the image buttons to open the modal
     let countryBtn = document.getElementsByClassName("countryButton")
     for (const elem of countryBtn) {
         elem.addEventListener("click", function () {
@@ -271,19 +267,23 @@ function renderCatalog(quantity = 16) {
     ratingButtons()
     renderModalInfo()
 
-  
+
 }
 
+/**
+ * Function that set all the rating buttons
+ * @param {String} stars returns the stars (obs: are created when the catalog in rendered)
+ */
 function ratingButtons() {
     let stars = document.querySelectorAll('.stars');
     for (const elem of stars) {
         elem.addEventListener("click", function () {
-          rating(this.id)
+            rating(this.id)
 
 
-        //    if(man==true){
-        //     location.reload() 
-        //    }
+            //    if(man==true){
+            //     location.reload() 
+            //    }
 
 
             // 
@@ -291,80 +291,82 @@ function ratingButtons() {
     }
 }
 
-//initial setup
+/**
+ * Function that makes the rating system work
+ * @param {String} id returns the id of the current country that is being rated
+ * @param {String} countryId sets in the session storage the country that is going to be rated
+ * @param {String} userId sets in the session storage the user that is going to rate the country
+ * @param {String} stars returns the stars (obs: are created when the catalog in rendered)
+ * @param {Boolean} stop variable used to prevent the user rating twice the same country
+ * @param {Boolean} match variable used to prevent painting the wrong star
+ * @param {String} str variable used to represent the class star + the id that was gave to that specific star
+ * @param {Number} num variable used to represent the points on each country
+ * @param {Object} obj object that saves who rated the country and the rating
+ */
 function rating(id) {
-    let stop=false
+    let stop = false
     for (const country of countries) {
         if (country._id == id) {
             let stars = document.querySelectorAll('.star');
             const str = `.star_${id}`
             document.querySelectorAll(str).forEach(function (star) {
-                if(stop==true){
-                   return "nothing"
+                if (stop == true) {
+                    return "nothing"
                 }
                 star.addEventListener('click', function (ev) {
-                   
-                    let asd = ""
+
+                    let countryId = ""
                     if (sessionStorage.getItem("id")) {
-                        asd = JSON.parse(sessionStorage.getItem('id'))
+                        countryId = JSON.parse(sessionStorage.getItem('id'))
                     }
                     let span = ev.currentTarget;
                     const str = `.star_${id}`
                     let stars = document.querySelectorAll(str);
                     let match = false;
                     let num = 0;
+                    //For each stars...
                     stars.forEach(function (star, index) {
                         if (match) {
+                            //Remove class on the specific star
                             star.classList.remove('rated');
                         } else {
+                            //Add class on the specific star
                             star.classList.add('rated');
                         }
-                        //are we currently looking at the span that was clicked
+                        //We are currently looking at the span that was clicked
                         if (star === span) {
                             match = true;
+                            //index variable works has if it was the typical "i"
                             num = index + 1;
                         }
                     })
-                    let a = ""
+                    let userId = ""
                     if (sessionStorage.getItem("loggedUserId")) {
-                        a = JSON.parse(sessionStorage.getItem('loggedUserId'))
+                        userId = JSON.parse(sessionStorage.getItem('loggedUserId'))
                     }
-                    // for (const country of countries) {
-                    //     if (country._id == asd) {
-
 
                     if (country._points.length > 0) {
                         for (const classification of country._points) {
-                            let canAdd = true
-                            if (classification.user == a) {
-                                stop=true
-                                
-
+                            if (classification.user == userId) {
+                                stop = true
                                 break;
                             }
-                            // if(canAdd==true){
                             let obj = {
-                                user: a,
+                                user: userId,
                                 points: num
                             }
                             country._points.push(obj)
                             document.querySelector('.stars').setAttribute('data-rating', num);
-                            // }
                         }
                     } else if (country._points.length == 0) {
                         let obj = {
-                            user: a,
+                            user: userId,
                             points: num
                         }
                         country._points.push(obj)
                         document.querySelector('.stars').setAttribute('data-rating', num);
 
                     }
-
-                    // }
-                    // }
-
-
                     localStorage.setItem('countries', JSON.stringify(countries))
                 });
                 sessionStorage.setItem('id', JSON.stringify(country._id))
@@ -374,78 +376,17 @@ function rating(id) {
             let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
             //get the current data-target star - subtract 1 because it's an array
             let target = stars[rating - 1];
-           
+
             //Will trigger the function setRating - will trigger the star we clicked before
             //target.dispatchEvent(new MouseEvent('click'));
         }
     }
-// return true    
 }
 
-// function loadCSSstar() {
-//     let a = ""
-//     if (sessionStorage.getItem("loggedUserId")) {
-//         a = JSON.parse(sessionStorage.getItem('loggedUserId'))
-//     }
-
-//     for (const country of countries) {
-//         for (const points of country._points) {
-//             if (points.username == a) {
-//                 let stars = document.querySelectorAll('.star')
-//                 for (const star of stars) {
-//                     let match = false;
-//                     let num = 0;
-//                     if (match) {
-//                         star.classList.remove('rated');
-//                     } else {
-//                         star.classList.add('rated');
-//                     }
-//                     //are we currently looking at the span that was clicked
-//                     if (star === span) {
-//                         match = true;
-//                         num = index + 1;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-
-
-// function setRating(ev) {
-
-// }
-
-
-// function ratingStars(id) {
-
-//     console.log(id);
-//     const starTotal = 5;
-//     let a = ""
-//     if (sessionStorage.getItem("loggedUserId")) {
-//         a = JSON.parse(sessionStorage.getItem('loggedUserId'))
-//     }
-//     for (const user of users) {
-//         if (user._id == a) {
-//             for (const country of countries) {     
-//                 if (country._id == id) {
-//                     console.log(country._points[country._points]);
-//                     // 2
-//                     const starPercentage = (country._points[country._points] / starTotal) * 100;
-//                     // 3
-//                     const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
-//                     // 4                    
-//                     console.log(Number(starPercentageRounded));
-
-//                     country._points = starPercentageRounded
-//                     document.querySelector(`.${country._points} .stars-inner`).style.width = starPercentageRounded;
-//                 }
-//             }
-//         }
-//     }
-// }
-
-//função para trocar letras com caracteres especiais das letras (como acentos, cedilhas, etc por essa letra, simples.)
+/**
+ * Function that replace the accent characters
+ * @param {String} text represents each condition of replace
+ */
 export function removeAcento(text) {
     text = text.toLowerCase();
     text = text.replace(new RegExp('[ÁÀÂÃ]', 'gi'), 'a');
@@ -458,22 +399,30 @@ export function removeAcento(text) {
 }
 
 
-//Função que ordena o array de paises pelo nome, de forma crescente, no container
+/**
+ * Function sort the countries in an ascendent order
+ */
 function sortCountriesAscendent() {
     continentCountrys.sort(Country.ascendentAlphabeticOrder)
 }
 
-//Função que ordena o array de paises pelo nome, de forma decrescente, no container
+/**
+* Function sort the countries in an descendent order
+*/
 function sortCountriesDescendent() {
     continentCountrys.sort(Country.descendentAlphabeticOrder)
 }
 
-
-function sortCountriesByVisit(){
+/**
+ * Function sort the countries by the number of visits
+ */
+function sortCountriesByVisit() {
     continentCountrys.sort(Country.sortByMostVisited)
 }
 
-//funçao para procurar paises 
+/**
+ * Function that makes the countries search 
+ */
 function searchCountry() {
     $(document).ready(function () {
         $("#txtName").on("keyup", function () {
@@ -486,8 +435,9 @@ function searchCountry() {
 }
 
 /**
- * This function opens the modal with the information about one of the countries 
- * @param {Number} id This is The id of an country 
+ * This function opens the modal with the information about the country that was clicked
+ * @param {Number} id This is The id of the country that was clicked
+ * @param {Array} currentCountry Save the array set before in "countries"
  */
 function renderModalInfo(id) {
     for (const country of countries) {
@@ -496,20 +446,25 @@ function renderModalInfo(id) {
             document.querySelector("#modalFlag").src = country._flag
             document.querySelector("#infoInfo").innerHTML = country._information
             document.querySelector("#imgModal").src = country._location
+            //Increment the visits
             country._visit += 1
             const divComments = document.querySelector(".commentContainer")
-            //listar comentario(s) registados sobre o pais em causa
             divComments.innerHTML = ""
             localStorage.setItem('countries', JSON.stringify(countries))
             for (let i = 0; i < currentCountry._comments.length; i++) {
+                //Render comments in the correct section
                 divComments.innerHTML += `Utilizador: ${currentCountry._comments[i]._userId} | Comentário: "${currentCountry._comments[i]._comment}" | ${currentCountry._comments[i]._dateTime}<br><br>`
             }
-
         }
     }
     comment(id)
 }
 
+/**
+ * Function that render comments
+ * @param {Number} id This is The id of the country that was clicked
+ * @param {String} txtComment returns the value of the comment that was written
+ */
 function comment(id) {
     if (document.querySelector('#commentForm') != null) {
         document.querySelector('#commentForm').addEventListener('submit', function (event) {
@@ -541,10 +496,7 @@ function comment(id) {
     }
 }
 
-//codigo para adicionar comentarios
-
-
-//ordenar comentarios por data
+//Sort comments per date of creation
 const stlGenreComment = document.querySelector('#stlGenreComment')
 if (stlGenreComment != null) {
     stlGenreComment.addEventListener("change", function () {
@@ -557,7 +509,7 @@ if (stlGenreComment != null) {
             currentCountry._comments.sort(Comment.dateFromRecentToOld)
         }
 
-        //listar comentario(s) registados sobre o pais em causa
+        //List countries by the country you selected
         const divComments = document.querySelector(".commentContainer")
         divComments.innerHTML = ""
         for (let i = 0; i < currentCountry._comments.length; i++) {
@@ -569,6 +521,10 @@ if (stlGenreComment != null) {
     })
 }
 
+/**
+ * Function that will show the user data that was saved before
+ * @param {Number} id This is The id of the users that is logged
+ */
 function userData() {
     let id = ""
     if (sessionStorage.getItem("loggedUserId")) {
@@ -576,13 +532,12 @@ function userData() {
     }
     for (const user of users) {
         if (user._id == id) {
+            //Change the avatar in the navbar
             document.querySelector('.avatar').src = user._avatar
         }
     }
 }
 
-
-//!New
 /**
  * This Function builds the pagination buttons 
  */
@@ -631,7 +586,7 @@ function getPageSelection() {
 }
 
 // This function gets the elements from the array countries that are going to be showed based on the continent and  push them to the array continentCountrys
-function continentCountrysFill() {
+function continentCountriesFill() {
     if (document.querySelector('.continentTitle')) {
         let contName = document.querySelector('.continentTitle').innerHTML
         for (const country of countries) {
@@ -641,9 +596,6 @@ function continentCountrysFill() {
         }
     }
 }
-
-
-
 
 function onLoadRate() {
     let stars = document.querySelectorAll(".star")
@@ -662,7 +614,7 @@ function onLoadRate() {
                     for (const star of stars) {
 
                         if (star.id == country._id) {
-                            star.addEventListener("click",function(){
+                            star.addEventListener("click", function () {
                                 alert('Nao se pode votar mais do que uma vez')
                                 location.reload()
                             })
@@ -679,9 +631,11 @@ function onLoadRate() {
     }
 }
 
-function confirmSystemHaker(){
-    if (sessionStorage.getItem("loggedUserId")==false) {
+/**
+ * Function that will prevent hacking
+ */
+function confirmSystemHaker() {
+    if (sessionStorage.getItem("loggedUserId") == false) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
-

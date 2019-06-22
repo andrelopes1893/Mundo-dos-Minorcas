@@ -2,7 +2,9 @@ import {
     signOut
 } from '../controler/loginAndSignup.js'
 
-
+/**
+ * Function that prevents hacking
+ */
 function confirmSystemHaker(){
     if (sessionStorage.getItem("loggedUserId")==false) {
         location.href = '/HTML/loginAndSigup.html'
@@ -11,8 +13,10 @@ function confirmSystemHaker(){
 
 let suggestions = []
 
+//Sign out
 document.querySelector('#leaveAccount').addEventListener('click', signOut)
 
+//Set the location to the specific cards when clicked
 document.querySelector('.usersStats').addEventListener('click', function () {
     location.href = '/HTML/adminUsers.html'
 })
@@ -28,7 +32,9 @@ document.querySelector('.quizzesStats').addEventListener('click', function () {
 document.querySelector('.suggestionsStats').addEventListener('click', function () {
     location.href = '/HTML/adminSugestion.html'
 })
+//Set ended
 
+//Animation between page transitions
 window.addEventListener('beforeunload', function () {
     document.body.classList.add('animate-out')
 })
@@ -39,6 +45,7 @@ window.onload = function () {
         suggestions = JSON.parse(localStorage.getItem("suggestions"))
     }
 
+    //Notification system. If the admin has a suggestion to read, he will be notified
     for (const suggestion of suggestions) {
         if (suggestion._confirmed == false) {
             Swal.fire({

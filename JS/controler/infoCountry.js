@@ -19,6 +19,9 @@ $('.owl-carousel').owlCarousel({
 
 confirmSystemHaker();
 
+/**
+ * Function that prevents hacking
+ */
 function confirmSystemHaker(){
     if (sessionStorage.getItem("loggedUserId")==false) {
         location.href = '/HTML/loginAndSigup.html'

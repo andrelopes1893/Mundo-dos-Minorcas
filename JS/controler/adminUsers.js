@@ -6,14 +6,19 @@ import {
     newUserByAdmin
 } from '../models/main.js'
 
-let users = [];
+let users = []
 
 let userOutput=[]
+
+/**
+ * Function that will prevent hacking
+ */
 function confirmSystemHaker(){
     if (sessionStorage.getItem("loggedUserId")==false) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
+
 window.onload = function () {
     confirmSystemHaker()
     if (localStorage.getItem("users")) {
@@ -23,8 +28,17 @@ window.onload = function () {
     renderTable()
 }
 
+//Sign out
 document.querySelector('#leaveAccount').addEventListener('click', signOut)
 
+/**
+ * Form that will create users
+ * @param {String} txtUsername return the value of the username that was written
+ * @param {String} txtEmail return the value of the email that was written
+ * @param {String} txtPassword return the value of the password that was written
+ * @param {String} txtPasswordConf return the value of the password confirm that was written
+ * @param {String} userType return the value of the type of user that was chosen
+ */
 document.querySelector('#adminForm').addEventListener('submit', function (event) {
     const txtUsername = document.querySelector('#txtUsername').value
     const txtEmail = document.querySelector('#txtEmail').value
@@ -32,7 +46,6 @@ document.querySelector('#adminForm').addEventListener('submit', function (event)
     const txtPasswordConf = document.querySelector('#txtPasswordConf').value
     const userType = document.querySelector('#stlUsers').value
 
-    //!Function called here
     newUserByAdmin(txtUsername, txtEmail, txtPassword, txtPasswordConf, userType);
 
     $('#newUserModal').modal('hide');
@@ -41,26 +54,32 @@ document.querySelector('#adminForm').addEventListener('submit', function (event)
     event.preventDefault()
 })
 
+//Filter button
 document.querySelector('.filterUsers').addEventListener('click', function () {
     renderTable()
 })
 
+//Sort by xp
 function xpFilter() {
     userOutput.sort(User.mostXpFilter)
 }
 
+//Sort by ascendent alphabetic order
 function ascendentAlphabeticOder() {
     userOutput.sort(User.alphabeticOrder)
 }
 
-// !This function form the body of the table based on the users array
+/**
+ * Function that will render users table
+ */
 function renderTable() {
 
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
 
-     userOutput= users
+    //this variable will save the data from the users array
+    userOutput= users
 
     if (document.querySelector('#stlOrder').value == "") {
         ascendentAlphabeticOder()
@@ -89,7 +108,7 @@ function renderTable() {
                                         <td>${user._xp}</td>
                                         <td><button type="button" id="${user._id}" class="btn blockButton pt-2"><img src="/Images/lock.png" alt="Bloquear"></button></td>
                                         <td><button type="button" id="${user._username}" data-toggle="modal" data-target="#removeUser" class="btn remove"><img src="/Images/x.png" alt="Eliminar"></button></td>
-                                        <td>${type} - <p id="blockedState"></p></td>
+                                        <td>${type}<p id="blockedState"></p></td>
                                         <td><button type="button" id="${user._id}" class="btn change"><img src="/Images/changeUser.png" class="changeUser" alt="Mudar"></td>
                                     </tr>`
     });
@@ -99,6 +118,9 @@ function renderTable() {
     dataCards()
 }
 
+/**
+ * Function that will set all the remove buttons
+ */
 function removeButtons() {
     let removeBtns = document.getElementsByClassName("remove")
     for (const elem of removeBtns) {
@@ -108,6 +130,10 @@ function removeButtons() {
     }
 }
 
+/**
+ * Function to remove users
+ * @param {String} username parameter that will save the username that was written
+ */
 function removeUser(username) {
     if (document.querySelector('.yesButton') != null) {
         document.querySelector('.yesButton').addEventListener('click', function () {
@@ -135,6 +161,9 @@ function removeUser(username) {
     
 }
 
+/**
+ * Function that will set all the block buttons
+ */
 function block() {
     let editButtons = document.getElementsByClassName('blockButton')
     for (const elem of editButtons) {
@@ -144,6 +173,10 @@ function block() {
     }
 }
 
+/**
+ * 
+ * @param {String} id parameter that will save the specific user that we want to block
+ */
 function blockUser(id) {
     for (const user of users) {
         if (user._id == id) {
@@ -161,7 +194,6 @@ function blockUser(id) {
                     type: 'success',
                     title: '<span style="color:#FFFFFF">Utilizador desbloqueado!<span>'
                 })
-                // location.reload()
 
             } else {
                 user._loginBlock = true
@@ -179,10 +211,14 @@ function blockUser(id) {
                 })
             }
         }
-        // $('#blockUserModal').modal('hide')
     }
 }
 
+/**
+ * Function to set the changing type of users
+ * Type 1 - Admin
+ * Type 2 - Normal User
+ */
 function changeUsersTypeBtns() {
     let changeBtns = document.getElementsByClassName("btn change")
     for (const elem of changeBtns) {
@@ -192,6 +228,10 @@ function changeUsersTypeBtns() {
     }
 }
 
+/**
+ * Function to change the users type
+ * @param {Number} id parameter that returns the user id that we want to change type
+ */
 function changeUsersType(id) {
     for (const user of users) {
         if (user._id == id) {
@@ -230,6 +270,9 @@ function changeUsersType(id) {
     }
 }
 
+/**
+ * Function tht will set the correct information about users in the cards (card-deck)
+ */
 function dataCards() {
     let type = ""
     let adminCount = 0

@@ -123,10 +123,15 @@ export default class Question {
         }
     }
 
-    // !This makes the quizzes validation
-    static ConfirmQuizExistence(continent, categoria, answear) {
+    /**
+     * Function that will check if the quiz already exists
+     * @param {String} continent keeps that value of the continent
+     * @param {String} category keeps the value of the category
+     * @param {String} answer keeps the value of the answer
+     */
+    static ConfirmQuizExistence(continent, category, answer) {
         for (const quiz of quizzes) {
-            if (quiz._continent == continent && quiz._quizType == categoria && quiz._correctAnswer == answear) {
+            if (quiz._continent == continent && quiz._quizType == category && quiz._correctAnswer == answer) {
                 return true;
             }
         }

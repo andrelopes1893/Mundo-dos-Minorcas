@@ -20,11 +20,16 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
+
+/**
+ * Function that prevent hacking
+ */
 function confirmSystemHaker(){
     if (sessionStorage.getItem("loggedUserId")==false) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
+
 let users = []
 
 window.onload = function () {
@@ -35,10 +40,14 @@ window.onload = function () {
     userData()
 }
 
+//Animation between pages changes
 window.addEventListener('beforeunload', function () {
     document.body.classList.add('animate-out')
 })
 
+/**
+ * Function that will keep user data - place correct avatar in the navbar
+ */
 function userData() {
     let id = ""
     if (sessionStorage.getItem("loggedUserId")) {
@@ -51,6 +60,7 @@ function userData() {
     }
 }
 
+//Sign out
 if (document.getElementById('signOut') != null) {
     document.getElementById('signOut').addEventListener('click', function () {
         signOut()

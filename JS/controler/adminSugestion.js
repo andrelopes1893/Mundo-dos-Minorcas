@@ -20,13 +20,17 @@ window.onload = function () {
     notifications(countSuggestions)
 }
 
+//Sign out
 document.querySelector('#leaveAccount').addEventListener('click', signOut)
 
 let countSuggestions = 0
 
+/**
+ * Function that represents the suggestion notifications that the admin will be notified
+ * @param {Number} countSuggestions variable that represent the number of notifications that were done
+ */
 function notifications(countSuggestions) {
     renderTable(countSuggestions)
-    console.log(countSuggestions);
     
     for (const suggestion of suggestions) {
         if (suggestion._confirmed == false) {
@@ -57,6 +61,10 @@ function notifications(countSuggestions) {
     }
 }
 
+/**
+ * Function that renders the suggestion table
+ * @param {Number} countSuggestions variable that represent the number of notifications that were done
+ */
 function renderTable(countSuggestions) {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
@@ -69,6 +77,7 @@ function renderTable(countSuggestions) {
     let r = 0
     for (const suggestion of suggestions) {        
         r++
+        //If the suggestion was not confirmed yet
         if (suggestion._confirmed == false) {
             countSuggestions++
             document.querySelector('#suggestionsTableBody').innerHTML += `<tr>
@@ -87,6 +96,9 @@ function renderTable(countSuggestions) {
     notifications(countSuggestions)
 }
 
+/**
+ * Function that will set all the open modals buttons
+ */
 function openModals() {
     let openBtns = document.getElementsByClassName('open')
     for (const elem of openBtns) {
@@ -96,6 +108,10 @@ function openModals() {
     }
 }
 
+/**
+ * Function to show in the modal of the specific suggestion data
+ * @param {Number} id return the id of the suggestion that we wanna check
+ */
 function renderSuggestionModal(id) {
     for (const suggestion of suggestions) {
         if (suggestion._id == id) {
@@ -107,6 +123,9 @@ function renderSuggestionModal(id) {
     }
 }
 
+/**
+ * Function that will set all the reject buttons
+ */
 function rejectButtons() {
     let removeBtns = document.getElementsByClassName("remove")
     for (const elem of removeBtns) {
@@ -117,6 +136,10 @@ function rejectButtons() {
     }
 }
 
+/**
+ * Function to reject suggestions
+ * @param {Number} id return the id of the suggestion that we wanna reject
+ */
 function rejectSuggestion(id) {
     for (let i = 0; i < suggestions.length; i++) {        
         if (suggestions[i]._id == id) {
@@ -138,6 +161,9 @@ function rejectSuggestion(id) {
     renderTable()
 }
 
+/**
+ * Function that will set all the approve buttons
+ */
 function approveButtons() {
     let approveBtns = document.getElementsByClassName("acceptSuggestion")
     for (const elem of approveBtns) {
@@ -147,6 +173,10 @@ function approveButtons() {
     }
 }
 
+/**
+ * Function to approve suggestions
+ * @param {Number} id return the id of the suggestion that we wanna approve
+ */
 function approveSuggestion(id) {
     for (const suggestion of suggestions) {
         if (suggestion._id == id) {

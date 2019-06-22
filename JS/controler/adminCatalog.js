@@ -11,28 +11,40 @@ window.onload = function () {
         countries = JSON.parse(localStorage.countries)
     }
     renderTable()
-    infoCardsfill()
+    infoCardFill()
 }
 
-
+/**
+ * Function that will prevent hacking
+ */
 function confirmSystemHaker(){
     if (sessionStorage.getItem("loggedUserId")==false) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
 
+//Sign out
 if (document.querySelector('#leaveAccount') != null) {
     document.querySelector('#leaveAccount').addEventListener('click', signOut)
 }
 
+/**
+ * Form to create a new country
+ * @param {String} countryName return the value of the country that was written
+ * @param {String} countryCapital return the value of the capital that was written
+ * @param {String} countryContinent return the value of the continent that was written
+ * @param {String} countryLevel return the value of the level that was chosen
+ * @param {String} countryLanguage return the value of the language that was written
+ * @param {String} countryInfo return the value of the info that was written
+ * @param {String} countryLocation return the value of the location that was written
+ * @param {String} countryFlag return the value of the flag that was written
+ */
 if (document.querySelector('#createCountryForm') != null) {
     document.querySelector('#createCountryForm').addEventListener('submit', function (event) {
         const countryName = document.querySelector('#txtCountryName').value
         const countryCapital = document.querySelector('#txtCountryCapital').value
         const countryContinent = document.querySelector('#stlContinent').value
         const countryLevel = document.querySelector('#stlLevel').value
-        console.log(countryLevel);
-
         const countryLanguage = document.querySelector('#txtCountryLanguage').value
         const countryInfo = document.querySelector('#txtInfo').value
         const countryLocation = document.querySelector('#txtLocation').value
@@ -108,6 +120,9 @@ function renderTable() {
     }
 }
 
+/**
+ * Function to set all the remove buttons
+ */
 function removeButtons() {
     let removeBtns = document.getElementsByClassName("btn remove")
     for (const elem of removeBtns) {
@@ -118,6 +133,10 @@ function removeButtons() {
     }
 }
 
+/**
+ * Function to remove that country that was selected
+ * @param {String} name parameter that will save the country name that was written
+ */
 function removeCountry(name) {
     for (let i = 0; i < countries.length; i++) {
         if (countries[i]._name === name) {
@@ -139,16 +158,30 @@ function removeCountry(name) {
     $('#ModalEditCountry').modal('hide')
 }
 
+/**
+ * Function to check if the country added is repeated or not
+ * @param {String} name parameter that will save the country name that was written
+ */
 function isRepeated(name) {
     for (const country of countries) {
         if (country._name.toLowerCase() === name.toLowerCase()) {
-            alert('asd')
+            Swal.fire({
+                type: 'error',
+                title: 'O país já existe :(',
+                padding: '1rem',
+                background: '#CCCC33',
+                confirmButtonColor: '#29ABE2'
+            })
             return true
         }
     }
     return false
 }
 
+/**
+ * Function to edit the country we selected
+ * @param {String} countries return the data that is set on localStorage but the countries array
+ */
 function submitEdit(id) {
     document.getElementById('editCountry').addEventListener('click', function () {
         if (localStorage.countries) {
@@ -156,6 +189,7 @@ function submitEdit(id) {
         }
         for (const country of countries) {
             if (country._id == id) {
+                //Saving all the values
                 country._name = document.querySelector('#txtEditCountryName').value
                 country._continent = document.querySelector('#newSltContinent').value
                 country._level = document.querySelector('#stlLevelEdit').value
@@ -182,6 +216,9 @@ function submitEdit(id) {
     })
 }
 
+/**
+ * Function to set all the edit buttons
+ */
 function editButtons() {
     let editButtons = document.getElementsByClassName('editBtn')
     for (const elem of editButtons) {
@@ -193,6 +230,9 @@ function editButtons() {
     }
 }
 
+/**
+ * Function to show the correct data of the selected country when the modal is opened 
+ */
 function EditFormInfoAdd(id) {
     for (const country of countries) {
         if (country._id == id) {
@@ -208,8 +248,10 @@ function EditFormInfoAdd(id) {
     }
 }
 
-
-function infoCardsfill() {
+/**
+ * Function 
+ */
+function infoCardFill() {
     if (document.querySelector('#catalogQuantity') != null) {
         document.querySelector('#catalogQuantity').innerHTML = countries.length
     }
@@ -221,12 +263,5 @@ function infoCardsfill() {
         if (document.querySelector('#mostVisited') != null) {
             document.querySelector('#mostVisited').innerHTML = countriesSortbyVisit[0]._name
         }
-
-
     }
-
-
-
-
-
 }

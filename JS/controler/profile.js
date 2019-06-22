@@ -1,5 +1,3 @@
-import User from '../models/userModels.js'
-import Question from '../models/quizzesModels.js'
 import Suggestion from '../models/suggestionModels.js'
 import {
         signOut
@@ -7,14 +5,6 @@ import {
 
 export let suggestions = []
 export let users = []
-let currentSuggestion
-
-function confirmSystemHaker() {
-        if (sessionStorage.getItem("loggedUserId") == false) {
-                location.href = '/HTML/loginAndSigup.html'
-        }
-}
-
 
 window.onload = function () {
 
@@ -35,15 +25,34 @@ window.onload = function () {
         showCurrentXP()
 }
 
+/**
+ * Function that will prevent hacking 
+ */
+function confirmSystemHaker() {
+        if (sessionStorage.getItem("loggedUserId") == false) {
+                location.href = '/HTML/loginAndSigup.html'
+        }
+}
+
 cleanInputData()
 
+/**
+ * Sign out
+ */
 if (document.querySelector('#leaveAccount') != null) {
         document.querySelector('#leaveAccount').addEventListener('click', function () {
                 signOut()
-                console.log('123');
         })
 }
 
+/**
+ * Form that will submit the suggestions done by each user
+ * @param {Number} id returns the logged user id that is set on the sessionStorage
+ * @param {String} stlContinent return the value of the continent input
+ * @param {String} txtCountryName return the value of the country input
+ * @param {String} txtCountryCapital return the value of the capital input
+ * @param {String} txtCountryLanguage return the value of the language input
+ */
 document.querySelector('#suggestionForm').addEventListener('submit', function (event) {
         let stlContinent = document.querySelector('#stlContinent').value
         let txtCountryName = document.querySelector('#txtCountryName').value
@@ -65,6 +74,11 @@ document.querySelector('#suggestionForm').addEventListener('submit', function (e
         event.preventDefault()
 })
 
+/**
+ * Form that will submit the description field for user data changes
+ * @param {Number} id returns the logged user id that is set on the sessionStorage
+ * @param {String} txtDescription return the value of the description input
+ */
 document.querySelector('#descriptionForm').addEventListener('keyup', function () {
         let txtDescription = document.querySelector('#txtDescription').value
 
@@ -75,10 +89,11 @@ document.querySelector('#descriptionForm').addEventListener('keyup', function ()
 
         for (const user of users) {
                 if (user._id == id) {
+                        //If the user dont write nothing, the input will automatically write something for him/ her
                         if (txtDescription == "") {
                                 document.querySelector('#txtDescription').placeholder = 'Escreve uma descrição fixe!'
                         } else {
-
+                                //Otherwise the description will be saved
                                 document.querySelector('#txtDescription').value = txtDescription
                                 user._description = txtDescription
                         }
@@ -87,6 +102,13 @@ document.querySelector('#descriptionForm').addEventListener('keyup', function ()
         }
 })
 
+/**
+ * Form that will submit the user data changes
+ * @param {Number} id returns the logged user id that is set on the sessionStorage
+ * @param {String} txtUsername return the value of the username input
+ * @param {String} txtPassword return the value of the password input
+ * @param {String} txtCountry return the value of the country input
+ */
 document.querySelector('#profileForm').addEventListener('submit', function (event) {
         let txtUsername = document.querySelector('#txtUsername').value
         let txtPassword = document.querySelector('#txtPassword').value
@@ -99,6 +121,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
 
         for (const user of users) {
                 if (user._id == id) {
+                        // If username and passwords fields are empty an alert will be fired
                         if (txtUsername == '' || txtPassword == "") {
                                 Swal.fire({
                                         type: 'error',
@@ -114,6 +137,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                         }
                                 })
                         } else {
+                                // Otherwise, changes will be saved successfully
                                 const usernameToast = Swal.mixin({
                                         toast: true,
                                         position: 'bottom-end',
@@ -128,6 +152,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
                                 user._username = txtUsername
                                 user._password = txtPassword
                         }
+                        //This field is empty when the user creates an account, so the user will be free to choose is own country
                         document.querySelector('#txtCountry').value = txtCountry
                         user._country = txtCountry
                 }
@@ -136,6 +161,7 @@ document.querySelector('#profileForm').addEventListener('submit', function (even
         event.preventDefault()
 })
 
+// Return the girl avatars
 document.querySelector('.buttonGirl').addEventListener('click', function () {
         for (const user of users) {
                 document.querySelector('.avatarPlaceHolder').innerHTML = `<div class="row text-center">
@@ -200,6 +226,7 @@ document.querySelector('.buttonGirl').addEventListener('click', function () {
         });
 })
 
+// Return the boy avatars
 document.querySelector('.buttonBoy').addEventListener('click', function () {
         for (const user of users) {
                 document.querySelector('.avatarPlaceHolder').innerHTML = `<div class="row text-center">
@@ -264,6 +291,7 @@ document.querySelector('.buttonBoy').addEventListener('click', function () {
         });
 })
 
+// Return the boy avatars when the page is loaded
 function showAvatarOnload() {
         document.querySelector('.avatarPlaceHolder').innerHTML = `<div class="row text-center">
                                                                 <div class="col-3">
@@ -327,6 +355,9 @@ function showAvatarOnload() {
         });
 }
 
+/**
+ * @param {Number} id returns the logged user id that is set on the sessionStorage
+ */
 function avatarChange() {
         let profileBtns = document.querySelectorAll('.avatarButton')
         for (const elem of profileBtns) {
@@ -349,6 +380,10 @@ function avatarChange() {
         }
 }
 
+/**
+ * @param {Number} width save the width quantity that is going to be user afterwards in the progress bar 
+ * @param {Number} id rreturns the logged user id that is set on the sessionStorage
+ */
 function showCurrentXP() {
         let width = 1
         for (const user of users) {
@@ -431,6 +466,9 @@ function showCurrentXP() {
         }
 }
 
+/**
+ * Function that will clear input data when the text box is pressed
+ */
 function cleanInputData() {
         document.querySelector('#txtUsername').addEventListener('click', function () {
                 document.querySelector('#txtUsername').value = ""
@@ -445,6 +483,10 @@ function cleanInputData() {
         })
 }
 
+/**
+ * Function that will show on the text boxes all the user data already saved before
+ * @param {Number} id returns the logged user id that is set on the sessionStorage
+ */
 export function showUserData() {
         if (localStorage.getItem("users")) {
                 users = JSON.parse(localStorage.getItem("users"))
@@ -475,6 +517,9 @@ export function showUserData() {
         }
 }
 
+/**
+ * Function that won't let show the normal characters in the password text box
+ */
 function doNotShowPasswordData() {
         let text = document.getElementById("txtPassword");
         if (text.type === "password") {

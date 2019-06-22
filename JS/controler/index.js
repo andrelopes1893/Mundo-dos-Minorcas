@@ -3,11 +3,16 @@ import {
 } from '../controler/loginAndSignup.js'
 
 let users = []
+
+/**
+ * Function that prevents hacking
+ */
 function confirmSystemHaker(){
     if (sessionStorage.getItem("loggedUserId")==false) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
+
 window.onload = function () {
     confirmSystemHaker()
     if (localStorage.getItem("users")) {
@@ -16,7 +21,6 @@ window.onload = function () {
     userData()
 }
 
-// !this sis a jquery code and it makes the owl carousel work
 $('.owl-carousel').owlCarousel({
     loop: true,
     margin: 10,
@@ -34,6 +38,9 @@ $('.owl-carousel').owlCarousel({
     }
 })
 
+/**
+ * Function to load the user data - and place the correct avatar in the navbar
+ */
 function userData() {
     for (const user of users) {
         let id = ""
@@ -47,6 +54,7 @@ function userData() {
     }
 }
 
+//Sign out
 document.getElementById('signOut').addEventListener('click', function () {
     signOut()
 })
