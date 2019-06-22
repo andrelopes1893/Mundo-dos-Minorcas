@@ -531,6 +531,7 @@ div.card.africanCards {
     margin-top: 3%;
     margin-bottom: 5%;
     transition: all .2s ease-in-out;
+    width: 18rem;
 }
 
 div.card.africanCards:hover {
@@ -1447,6 +1448,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     div.col-lg-6.flagInfoText p {
         font-size: 1.1rem
     }
+
     body#quizzBody {
         background-color: #EEEBD0;
         overflow: scroll;
@@ -1497,6 +1499,7 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
         margin-right: 5%;
         margin-left: 5%;
     }
+
     body#quizzBody {
         background-color: #EEEBD0;
         overflow: scroll;
@@ -1728,16 +1731,29 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     div.col-lg-6.col-md-6.col-xs-6.d-flex.align-items-center {
         padding-left: 70px
     }
+
     /**CATALOG CARDS ADJUSTS*/
 
-
+    /* 
     div.card.africanCards{
         width: 10rem
+    } */
 
-
+    div.card.africanCards {
+        width: 14rem;
+       
     }
-
-
+    div.card.africanCards div.card-body p.card-text.paragraph {
+        padding-bottom: 3px;
+        font-weight: 700;
+        font-size: 1rem
+    }
+    .star {
+        padding: 0;
+        border-bottom: 0;
+        width: 0%;
+        font-size: 1.6rem
+    }
 }
 
 /*modal create button align to center*/
