@@ -3,7 +3,7 @@
  } from '../models/main.js'
 
  export default class User {
-     constructor(username, password, email, accountType = '1', avatar = '', description = '', loginBlock = false, xp = 0, unlockCountries = [], unlockAvatar = [], birthday, country, rating = [], currentLevels = [], playedQuizzes = []) {
+     constructor(username, password, email, accountType = '1', avatar = '', description = '', loginBlock = false, xp = 0, unlockCountries = [], country, rating = [], currentLevels = [], playedQuizzes = []) {
          this._id = User.getLastId() + 1
          this.username = username
          this.password = password
@@ -14,8 +14,6 @@
          this.loginBlock = loginBlock
          this.xp = xp
          this.unlockCountries = unlockCountries
-         this.unlockAvatar = unlockAvatar
-         this.birthday = birthday
          this.country = country
          this._rating = rating
          this.currentLevels = currentLevels
@@ -100,20 +98,6 @@
      }
      set unlockCountries(value) {
          this._unlockCountries = value
-     }
-
-     get unlockAvatar() {
-         return this._unlockAvatar
-     }
-     set unlockAvatar(value) {
-         this._unlockAvatar = value
-     }
-
-     get birthday() {
-         return this._birthday
-     }
-     set birthday(value) {
-         this._birthday = value
      }
 
      get country() {
