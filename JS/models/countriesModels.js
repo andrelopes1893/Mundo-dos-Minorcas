@@ -3,7 +3,7 @@ import {
 } from '../controler/adminCatalog.js'
 
 export default class Country {
-    constructor(name, capital, flag, language, continent, level, information = '', location = "",id="undefine", points = [], comments = [], visit = 0) {
+    constructor(name, capital, flag, language, continent, level, information = '', location = "", id = "undefine", points = [], comments = [], visit = 0) {
         this._id = Country.getLastId(id) + 1
         this.name = name
         this.continent = continent
@@ -22,7 +22,7 @@ export default class Country {
     }
     static getLastId(id) {
 
-        if(id=="undefine"){
+        if (id == "undefine") {
             let id = 0
             if (countries.length > 0) {
                 for (let country of countries) {
@@ -30,10 +30,10 @@ export default class Country {
                 }
             }
             return id
-        }else{
-            return id-1
+        } else {
+            return id - 1
         }
-     
+
     }
     get name() {
         return this._name
@@ -122,10 +122,10 @@ export default class Country {
 
     // Compara dois paises pelo seu nome. Faz uma ordenação alfabética crescente.
     static ascendentAlphabeticOrder(countryA, countryB) {
-        if (countryA._name < countryB._name){
+        if (countryA._name < countryB._name) {
             return -1;
         }
-        if (countryA._name > countryB._name){
+        if (countryA._name > countryB._name) {
             return 1;
         }
         return 0;
@@ -133,10 +133,10 @@ export default class Country {
 
     // Compara dois paises pelo seu nome. Faz uma ordenação alfabética decrescente.
     static descendentAlphabeticOrder(countryA, countryB) {
-        if (countryA._name < countryB._name){
+        if (countryA._name < countryB._name) {
             return 1;
         }
-        if (countryA._name > countryB._name){
+        if (countryA._name > countryB._name) {
             return -1;
         }
         return 0;
@@ -155,10 +155,10 @@ export default class Country {
 
     // Compara dois paises pelo seu nome. Faz uma ordenação alfabética decrescente por continente..
     static descendentContinentOrder(continentA, continentB) {
-        if (continentA._continent < continentB._continent){
+        if (continentA._continent < continentB._continent) {
             return 1;
         }
-        if (continentA._continent > continentB._continent){
+        if (continentA._continent > continentB._continent) {
             return -1;
         }
         return 0;
@@ -166,10 +166,10 @@ export default class Country {
 
 
     static sortByMostVisited(countryA, countryB) {
-        if (countryA._visit < countryB._visit){
+        if (countryA._visit < countryB._visit) {
             return 1;
         }
-        if (countryA._visit > countryB._visit){
+        if (countryA._visit > countryB._visit) {
             return -1;
         }
         return 0;

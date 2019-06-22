@@ -30,7 +30,9 @@ window.onload = function () {
 }
 
 //Sign out
-document.querySelector('#leaveAccount').addEventListener('click', signOut)
+if (document.querySelector('#leaveAccount') != null) {
+    document.querySelector('#leaveAccount').addEventListener('click', signOut)
+}
 
 let answers = []
 

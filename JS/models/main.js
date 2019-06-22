@@ -1,5 +1,7 @@
 import User from '../models/userModels.js'
 import Country from '../models/countriesModels.js'
+import Question from '../models/quizzesModels.js'
+
 export let users = []
 
 window.onload = function () {

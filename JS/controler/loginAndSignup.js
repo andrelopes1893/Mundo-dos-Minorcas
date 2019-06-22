@@ -4,7 +4,7 @@ import {
 
 import User from '../models/userModels.js'
 import Country from '../models/countriesModels.js'
-
+import Question from '../models/quizzesModels.js'
 
 let countries = []
 let quizzes = []
@@ -27,8 +27,16 @@ if (localStorage.getItem("countries")) {
     countries = JSON.parse(localStorage.getItem("countries"))
 } else {
     //obs: arrays: unlockCountries, rating, currentLevels, playedQuizzes, NÃO APAGAR
-    countries.push(new Country('Nuno', 'asdasd', 'nuno@gmail.com', '1', 'Escreve algo sobre ti', 1))
+    countries.push(new Country('Portugal', 'Lisboa', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/1280px-Flag_of_Portugal.svg.png', 'Português', 'Europa', 1, 'Portugal, oficialmente República Portuguesa, é um país soberano unitário localizado no sudoeste da Europa, cujo território se situa na zona ocidental da Península Ibérica e em arquipélagos no Atlântico Norte. O território português tem uma área total de 92 090 km², sendo delimitado a norte e leste por Espanha e a sul e oeste pelo oceano Atlântico, compreendendo uma parte continental e duas regiões autónomas: os arquipélagos dos Açores e da Madeira.', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Portugal_in_European_Union_%28extended_%2B_Savage_Islands%29_%28special_marker%29.svg/1280px-Portugal_in_European_Union_%28extended_%2B_Savage_Islands%29_%28special_marker%29.svg.pngs'))
     localStorage.setItem('countries', JSON.stringify(countries))
+}
+
+if (localStorage.getItem("quizzes")) {
+    quizzes = JSON.parse(localStorage.getItem("quizzes"))
+} else {
+    //obs: arrays: unlockCountries, rating, currentLevels, playedQuizzes, NÃO APAGAR
+    quizzes.push(new Question('Bandeiras', 'Africa', 1, 'Qual é o nome deste país?',  ['Angola', 'Portugal', 'Porto', 'Cabo Verde'], 'Cabo Verde', 5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Cape_Verde.svg/1920px-Flag_of_Cape_Verde.svg.png', 1))
+    localStorage.setItem('quizzes', JSON.stringify(quizzes))
 }
 
 

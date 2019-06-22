@@ -2,7 +2,7 @@ import {
     quizzes
 } from '../controler/adminQuizz.js'
 export default class Question {
-    constructor(quizType, continent, level = 1, question, answers = [], correctAnswer, pointXp, img,id="undefine") {
+    constructor(quizType, continent, level = 1, question, answers = [], correctAnswer, pointXp, img, id = "undefine") {
         this._id = Question.getLastId(id) + 1
         this.quizType = quizType
         this.continent = continent
@@ -17,7 +17,7 @@ export default class Question {
         return this._id
     }
     static getLastId(id) {
-        if(id=="undefine"){
+        if (id == "undefine") {
             let id = 0
             if (quizzes.length > 0) {
                 for (let quiz of quizzes) {
@@ -25,12 +25,10 @@ export default class Question {
                 }
             }
             return id
-
-        }else{
-            return id-1
+        } else {
+            return id - 1
         }
     }
-
 
     get continent() {
         return this._continent
