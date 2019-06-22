@@ -51,7 +51,7 @@ if (document.querySelector('#signInForm') != null) {
                 confirmButtonColor: '#29ABE2'
             })
         } else {
-            if (User.confirmUserExistent(txtEmail, txtPassword) == true) {
+            if (User.confirmUserExistent(txtEmail, txtPassword) == true) {                
                 loggedUserId = User.getIdByEmail(txtEmail)
                 sessionStorage.setItem('loggedUserId', JSON.stringify(loggedUserId))
             } else {

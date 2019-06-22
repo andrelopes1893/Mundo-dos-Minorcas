@@ -3,14 +3,13 @@ import {
 } from '../controler/profile.js'
 
 export default class Suggestion {
-    constructor(continent, country, capital, language, confirmedAdmin = false, confirmedUser = false) {
+    constructor(continent, country, capital, language, confirmed = false) {
         this._id = Suggestion.getLastId() + 1
         this.continent = continent
         this.country = country
         this.capital = capital
         this.language = language
-        this.confirmedAdmin = confirmedAdmin
-        this.confirmedUser = confirmedUser
+        this.confirmed = confirmed
     }
 
     get id() {
@@ -59,27 +58,10 @@ export default class Suggestion {
         this._language = value
     }
 
-    get confirmedAdmin() {
-        return this._confirmedAdmin
+    get confirmed() {
+        return this._confirmed
     }
-    set confirmedAdmin(value) {
-        this._confirmedAdmin = value
-    }
-
-    get confirmedUser() {
-        return this._confirmedUser
-    }
-    set confirmedUser(value) {
-        this._confirmedUser = value
-    }
-
-    static getIdBySuggestion(id) {
-        let asd = -1
-        for (const suggestion of suggestions) {
-            if (suggestion._id == id) {
-                asd = suggestion._id
-            }
-        }
-        return asd
+    set confirmed(value) {
+        this._confirmed = value
     }
 }

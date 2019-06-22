@@ -17,13 +17,47 @@ window.onload = function () {
         suggestions = JSON.parse(localStorage.getItem("suggestions"))
     }
     renderTable()
+    notifications(countSuggestions)
 }
 
 document.querySelector('#leaveAccount').addEventListener('click', signOut)
 
 let countSuggestions = 0
 
-function renderTable() {
+function notifications(countSuggestions) {
+    renderTable(countSuggestions)
+    console.log(countSuggestions);
+    
+    for (const suggestion of suggestions) {
+        if (suggestion._confirmed == false) {
+            if (suggestions.length == 1) {
+                Swal.fire({
+                    title: `<span style="color:#ffffff">Tens ${countSuggestions} sugestão por ler!<span>`,
+                    animation: true,
+                    customClass: {
+                        popup: 'animated tada'
+                    },
+                    background: '#CCCC33',
+                    confirmButtonColor: '#29ABE2',
+                    timer: 2000,
+                })
+            } else {
+                Swal.fire({
+                    title: `<span style="color:#ffffff">Tens ${countSuggestions} sugestões por ler!<span>`,
+                    animation: true,
+                    customClass: {
+                        popup: 'animated tada'
+                    },
+                    background: '#CCCC33',
+                    confirmButtonColor: '#29ABE2',
+                    timer: 2000,
+                })
+            }
+        }
+    }
+}
+
+function renderTable(countSuggestions) {
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }
@@ -35,18 +69,8 @@ function renderTable() {
     let r = 0
     for (const suggestion of suggestions) {        
         r++
-        if (suggestion._confirmedAdmin == false) {
+        if (suggestion._confirmed == false) {
             countSuggestions++
-            Swal.fire({
-                title: `<span style="color:#ffffff">Tens ${countSuggestions} sugestões por ler!<span>`,
-                animation: true,
-                customClass: {
-                    popup: 'animated tada'
-                },
-                background: '#CCCC33',
-                confirmButtonColor: '#29ABE2',
-                timer: 2000,
-            })
             document.querySelector('#suggestionsTableBody').innerHTML += `<tr>
                                             <th scope="row">${r}</th>
                                             <td>${suggestion._id}</td>
@@ -60,6 +84,7 @@ function renderTable() {
     rejectButtons()
     approveButtons()
     openModals()
+    notifications(countSuggestions)
 }
 
 function openModals() {
@@ -95,9 +120,7 @@ function rejectButtons() {
 function rejectSuggestion(id) {
     for (let i = 0; i < suggestions.length; i++) {        
         if (suggestions[i]._id == id) {
-            suggestions[i]._confirmedAdmin = true
-            suggestions[i].__confirmedUser = false
-            // suggestions.splice(i, 1)
+            suggestions.splice(i, 1)
             const toast = Swal.mixin({
                 toast: true,
                 position: 'bottom-end',
@@ -127,8 +150,7 @@ function approveButtons() {
 function approveSuggestion(id) {
     for (const suggestion of suggestions) {
         if (suggestion._id == id) {
-            suggestion._confirmedAdmin = true
-            suggestion._confirmedUser = true
+            suggestion._confirmed = true
             const toast = Swal.mixin({
                 toast: true,
                 position: 'bottom-end',
