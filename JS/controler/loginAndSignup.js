@@ -7,48 +7,15 @@ let users = []
 if (localStorage.getItem("users")) {
     users = JSON.parse(localStorage.getItem("users"))
 } else {
-    // //obs: arrays: unlockCountries, rating, currentLevels, playedQuizzes, NÃO APAGAR
-    let one = new User('Nuno', 'asdasd', 'nuno@gmail.com', '1', '../../Images/BoyAvatars/Avatar Principiante 1.png', 'Escreve algo sobre ti',1, false, 0, [], 'Portugal', [], [], [])
-    users.push(one)
-    let two = new User('Andre', 'sdfsdf', 'andre@gmail.com', '1', '../../Images/BoyAvatars/Avatar Principiante 1.png', 'Escreve algo sobre ti',2, false, 0, [], 'Portugal', [], [], [])
-    users.push(two)
+    //obs: arrays: unlockCountries, rating, currentLevels, playedQuizzes, NÃO APAGAR
+    users.push(new User('Nuno', 'asdasd', 'nuno@gmail.com', '1', '../../Images/BoyAvatars/Avatar Principiante 1.png', 'Escreve algo sobre ti', 1, false, 0, [], 'Portugal', [], [], []),
+                new User('Andre', 'sdfsdf', 'andre@gmail.com', '1', '../../Images/BoyAvatars/Avatar Principiante 1.png', 'Escreve algo sobre ti', 2, false, 0, [], 'Portugal', [], [], []),
+                new User('Tiago', 'dfgdfg', 'tiago@gmail.com', '1', '../../Images/BoyAvatars/Avatar Principiante 1.png', 'Escreve algo sobre ti', 3, false, 0, [], 'Portugal', [], [], []),
+                new User('Margarida', 'lulu13', 'puresaltitao@gmail.com', '2', '../../Images/BoyAvatars/Avatar Principiante 1.png', 'Escreve algo sobre ti', 4, false, 0, [], 'Portugal', [], [], []),
+                new User('Ines', 'inessousa', 'inespanda00@gmail.com', '2', '../../Images/BoyAvatars/Avatar Principiante 1.png', 'Escreve algo sobre ti', 5, false, 0, [], 'Portugal', [], [], []),
+    )
     localStorage.setItem('users', JSON.stringify(users))
-    // //  new User('Tiago', 'dfgdfg', 'tiago@gmail.com', '1', '../../Images/BoyAvatars/Avatar Principiante 1.png', 'Escreve algo sobre ti', false, 0, [], 'Portugal', [], [], [])
-    // //  new User('King', 'king123', 'king4564@gmail.com', '2', '../../Images/BoyAvatars/Avatar Principiante 1.png', 'Escreve algo sobre ti', false, 0, [], 'Portugal', [], [], [])
-    // //  new User('Margarida', 'lulu0001', 'puresaltao@gmail.com', '2', '../../Images/BoyAvatars/Avatar Principiante 1.png', 'Escreve algo sobre ti', false, 0, [], 'Portugal', [], [], [])
-    // pass.push(one)
-    // pass.push(two)
-    // for (let i = 0; i < 2; i++) {
-    //     if (i == 0) {
-    //         users.push(pass[i])
-    //         localStorage.setItem('users', JSON.stringify(users))
-    //     } else {
-    //         let newUsers = JSON.parse(localStorage.getItem("users"))
-    //         newUsers.push(pass[i])
-    //         localStorage.setItem('users', JSON.stringify(newUsers))
-    //     }
-
-
-    // }
-
-
-
 }
-
-// window.onload = function () {
-//     if (localStorage.getItem("users")) {
-//         users = JSON.parse(localStorage.getItem("users"))
-//     } else {
-//         users.push(new User('Nuno', 'asdasd', 'nuno@gmail.com', '1'),
-//                     new User('André', 'sdfsdf', 'andre@gmail.com', '1'),
-//                     new User('Tiago', 'dfgdfg', 'tiago@gmail.com', '2'),
-//                     new User('King', 'king123', 'king123@gmail.com', '2'),
-//                     new User('MrPure', 'adoropure', 'puresaltitante@gmail.com', '2'),
-//                     new User('Ines', 'inessousa00', 'ines00@gmail.com', '2'),
-//                     new User('Margarida', 'flores77', 'pandinha3@gmail.com', '2'))
-//         localStorage.setItem('users', JSON.stringify(users))
-//     }
-// }
 
 import User from '../models/userModels.js'
 
