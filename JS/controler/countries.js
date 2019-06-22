@@ -198,11 +198,11 @@ function renderCatalog(quantity = 16) {
                                     <p class="card-text paragraph">CAPITAL: <span>${continentCountrys[j]._capital}</span></p>
                                     <p class="card-text paragraph">LÍNGUA: <span>${continentCountrys[j]._language}</span></p>
                                     <div class="stars" data-rating="${continentCountrys[j]._points}" id="${continentCountrys[j]._id}">
-                                        <span class="star star_${continentCountrys[j]._id}">&nbsp;</span>
-                                        <span class="star star_${continentCountrys[j]._id}">&nbsp;</span>
-                                        <span class="star star_${continentCountrys[j]._id}">&nbsp;</span>
-                                        <span class="star star_${continentCountrys[j]._id}">&nbsp;</span>
-                                        <span class="star star_${continentCountrys[j]._id}">&nbsp;</span>
+                                        <span class="star star_${continentCountrys[j]._id}"  id="${continentCountrys[j]._id}">&nbsp;</span>
+                                        <span class="star star_${continentCountrys[j]._id}" id="${continentCountrys[j]._id}">&nbsp;</span>
+                                        <span class="star star_${continentCountrys[j]._id}" id="${continentCountrys[j]._id}">&nbsp;</span>
+                                        <span class="star star_${continentCountrys[j]._id}" id="${continentCountrys[j]._id}">&nbsp;</span>
+                                        <span class="star star_${continentCountrys[j]._id}" id="${continentCountrys[j]._id}">&nbsp;</span>
                                     </div>
                                 </div>
                             </div>
@@ -232,6 +232,7 @@ function renderCatalog(quantity = 16) {
                 break;
             }
         }
+
     }
 
     if (document.querySelector("#containerCatalog") != null) {
@@ -255,27 +256,43 @@ function renderCatalog(quantity = 16) {
             renderModalInfo(this.id)
         })
     }
+    onLoadRate()
     ratingButtons()
     renderModalInfo()
+
+  
 }
 
 function ratingButtons() {
     let stars = document.querySelectorAll('.stars');
     for (const elem of stars) {
         elem.addEventListener("click", function () {
-            rating(this.id)
+           let man =  rating(this.id)
+
+
+           if(man==true){
+            location.reload() 
+           }
+
+
+            // 
         })
     }
 }
 
 //initial setup
 function rating(id) {
+    let stop=false
     for (const country of countries) {
         if (country._id == id) {
             let stars = document.querySelectorAll('.star');
             const str = `.star_${id}`
             document.querySelectorAll(str).forEach(function (star) {
+                if(stop==true){
+                   return "nothing"
+                }
                 star.addEventListener('click', function (ev) {
+                   
                     let asd = ""
                     if (sessionStorage.getItem("id")) {
                         asd = JSON.parse(sessionStorage.getItem('id'))
@@ -301,26 +318,42 @@ function rating(id) {
                     if (sessionStorage.getItem("loggedUserId")) {
                         a = JSON.parse(sessionStorage.getItem('loggedUserId'))
                     }
-                    for (const user of users) {
-                        if (user._id == a) {
-                            for (const country of countries) {
-                                if (country._id == asd) {                                    
-                                    console.log(country._points.points);
-                                    
-                                    if (country._points.length > 0) {
-                                        alert('123')
-                                    } else if(country._points.length == 0){
-                                        document.querySelector('.stars').setAttribute('data-rating', num);
-                                        let obj = {
-                                            user: user._id,
-                                            points: num
-                                        }
-                                        country._points.push(obj)
-                                    }
-                                }
+                    // for (const country of countries) {
+                    //     if (country._id == asd) {
+
+
+                    if (country._points.length > 0) {
+                        for (const classification of country._points) {
+                            let canAdd = true
+                            if (classification.user == a) {
+                                stop=true
+                                
+
+                                break;
                             }
+                            // if(canAdd==true){
+                            let obj = {
+                                user: a,
+                                points: num
+                            }
+                            country._points.push(obj)
+                            document.querySelector('.stars').setAttribute('data-rating', num);
+                            // }
                         }
+                    } else if (country._points.length == 0) {
+                        let obj = {
+                            user: a,
+                            points: num
+                        }
+                        country._points.push(obj)
+                        document.querySelector('.stars').setAttribute('data-rating', num);
+
                     }
+
+                    // }
+                    // }
+
+
                     localStorage.setItem('countries', JSON.stringify(countries))
                 });
                 sessionStorage.setItem('id', JSON.stringify(country._id))
@@ -330,11 +363,13 @@ function rating(id) {
             let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
             //get the current data-target star - subtract 1 because it's an array
             let target = stars[rating - 1];
+           
             //Will trigger the function setRating - will trigger the star we clicked before
             //target.dispatchEvent(new MouseEvent('click'));
         }
     }
-}
+    
+return true}
 
 // function loadCSSstar() {
 //     let a = ""
@@ -590,3 +625,41 @@ function continentCountrysFill() {
         }
     }
 }
+
+
+
+
+function onLoadRate() {
+    let stars = document.querySelectorAll(".star")
+
+    let id = ""
+    if (sessionStorage.getItem("loggedUserId")) {
+        id = JSON.parse(sessionStorage.getItem('loggedUserId'))
+    }
+    for (const country of countries) {
+
+        if (country._points.length > 0) {
+
+            for (const classification of country._points) {
+                if (classification.user == id) {
+                    let toColor = []
+                    for (const star of stars) {
+
+                        if (star.id == country._id) {
+                            star.addEventListener("click",function(){
+                                alert('Nao se pode votar mais do que uma vez')
+                                location.reload()
+                            })
+                            toColor.push(star)
+                        }
+                    }
+                    for (let i = 0; i < classification.points; i++) {
+                        toColor[i].classList.add('rated');
+                    }
+                }
+
+            }
+        }
+    }
+}
+
