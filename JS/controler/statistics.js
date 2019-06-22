@@ -34,7 +34,7 @@ function renderTable() {
         document.querySelector('#statsFilterTableBody').innerHTML += `<tr>
                                                                         <th scope="row">${r}</th>
                                                                         <td>${user._username}</td>
-                                        d                                <td>${user._xp}</td>
+                                                                        <td>${user._xp}</td>
                                                                     </tr>`
     }
 }
