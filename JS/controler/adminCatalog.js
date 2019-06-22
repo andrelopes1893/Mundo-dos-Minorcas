@@ -16,7 +16,7 @@ window.onload = function () {
 
 
 function confirmSystemHaker(){
-    if (sessionStorage.getItem("loggedUserId")!=false) {
+    if (sessionStorage.getItem("loggedUserId")==false) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
@@ -83,6 +83,11 @@ function renderTable() {
         if (document.querySelector('#stlOrder').value == "Ordem Alfabetica Decrescente dos Continentes") {
             countryOutput.sort(Country.descendentContinentOrder)
         }
+        if (document.querySelector('#stlOrder').value == "OrdemDeVisitas") {
+            countryOutput.sort(Country.sortByMostVisited)
+        }
+
+        
         document.querySelector('#countriesTableBody').innerHTML = ''
 
         let r = 0

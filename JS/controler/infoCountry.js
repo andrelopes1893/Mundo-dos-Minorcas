@@ -20,7 +20,7 @@ $('.owl-carousel').owlCarousel({
 confirmSystemHaker();
 
 function confirmSystemHaker(){
-    if (sessionStorage.getItem("loggedUserId")!=false) {
+    if (sessionStorage.getItem("loggedUserId")==false) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }

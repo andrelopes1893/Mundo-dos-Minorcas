@@ -10,7 +10,7 @@ let users = [];
 
 let userOutput=[]
 function confirmSystemHaker(){
-    if (sessionStorage.getItem("loggedUserId")!=false) {
+    if (sessionStorage.getItem("loggedUserId")==false) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }

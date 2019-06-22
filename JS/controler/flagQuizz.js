@@ -7,7 +7,7 @@ document.querySelector('#quit').addEventListener('click', function () {
 })
 
 function confirmSystemHaker(){
-    if (sessionStorage.getItem("loggedUserId")!=false) {
+    if (sessionStorage.getItem("loggedUserId")==false) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
