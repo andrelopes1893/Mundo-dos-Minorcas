@@ -33,7 +33,6 @@ window.onload = function () {
         showUserData()
         showAvatarOnload()
         showCurrentXP()
-        suggestionStatus()
 }
 
 cleanInputData()
@@ -483,51 +482,4 @@ function doNotShowPasswordData() {
         } else {
                 text.type = "password";
         }
-}
-
-function suggestionStatus() {
-        let as = ""
-        if (sessionStorage.getItem('loggedUserId')) {
-                as = JSON.parse(sessionStorage.getItem("loggedUserId"))
-        }
-        let once = false
-
-        // currentSuggestion = Suggestion.getIdBySuggestion()
-        // sessionStorage.setItem('currentSuggestion', JSON.stringify(currentSuggestion))
-        // console.log(currentSuggestion);
-        return function () {
-                if (!once) {
-                        once = true
-                        for (const user of users) {
-                                if (user._id == as) {
-                                        for (const suggestion of suggestions) {
-                                                if (suggestion._confirmedAdmin == true && suggestion._confirmedUser == true) {
-                                                        Swal.fire({
-                                                                title: '<span style="color:#ffffff">A tua sugestão foi aceite!<span>',
-                                                                animation: true,
-                                                                customClass: {
-                                                                        popup: 'animated tada'
-                                                                },
-                                                                background: '#CCCC33',
-                                                                confirmButtonColor: '#29ABE2',
-                                                                timer: 3000,
-                                                        })
-                                                } else if (suggestion._confirmedUser == false) {
-                                                        Swal.fire({
-                                                                title: '<span style="color:#ffffff">A tua sugestão foi recusada!<span>',
-                                                                animation: true,
-                                                                customClass: {
-                                                                        popup: 'animated tada'
-                                                                },
-                                                                background: '#CCCC33',
-                                                                confirmButtonColor: '#29ABE2',
-                                                                timer: 3000,
-                                                        })
-                                                }
-                                        }
-                                }
-                        }
-                }
-        }
-
 }
