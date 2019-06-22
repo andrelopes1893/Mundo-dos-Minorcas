@@ -615,7 +615,7 @@ function onLoadRate() {
 
                         if (star.id == country._id) {
                             star.addEventListener("click", function () {
-                                alert('Nao se pode votar mais do que uma vez')
+                                alert('Não podes votar mais do que uma vez por país.')
                                 location.reload()
                             })
                             toColor.push(star)
