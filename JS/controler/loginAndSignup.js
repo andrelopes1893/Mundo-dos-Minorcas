@@ -2,6 +2,21 @@ import {
     newUserByAdmin
 } from '../models/main.js'
 
+window.onload = function () {
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"))
+    } else {
+        users.push(new User('Nuno', 'asdasd', 'nuno@gmail.com', '1'),
+                    new User('André', 'sdfsdf', 'andre@gmail.com', '1'),
+                    new User('Tiago', 'dfgdfg', 'tiago@gmail.com', '2'),
+                    new User('King', 'king123', 'king123@gmail.com', '2'),
+                    new User('MrPure', 'adoropure', 'puresaltitante@gmail.com', '2'),
+                    new User('Ines', 'inessousa00', 'ines00@gmail.com', '2'),
+                    new User('Margarida', 'flores77', 'pandinha3@gmail.com', '2'))
+        localStorage.setItem('users', JSON.stringify(users))
+    }
+}
+
 import User from '../models/userModels.js'
 
 let users = []
@@ -58,7 +73,7 @@ if (document.querySelector('#signInForm') != null) {
                 confirmButtonColor: '#29ABE2'
             })
         } else {
-            if (User.confirmUserExistent(txtEmail, txtPassword) == true) {                
+            if (User.confirmUserExistent(txtEmail, txtPassword) == true) {
                 loggedUserId = User.getIdByEmail(txtEmail)
                 sessionStorage.setItem('loggedUserId', JSON.stringify(loggedUserId))
             } else {
