@@ -9,7 +9,16 @@ export let suggestions = []
 export let users = []
 let currentSuggestion
 
+function confirmSystemHaker() {
+        if (sessionStorage.getItem("loggedUserId") != false) {
+                location.href = '/HTML/loginAndSigup.html'
+        }
+}
+
+
 window.onload = function () {
+
+        confirmSystemHaker()
         if (localStorage.getItem("users")) {
                 users = JSON.parse(localStorage.getItem("users"))
         }
@@ -486,7 +495,7 @@ function suggestionStatus() {
         // currentSuggestion = Suggestion.getIdBySuggestion()
         // sessionStorage.setItem('currentSuggestion', JSON.stringify(currentSuggestion))
         // console.log(currentSuggestion);
-        return function() {
+        return function () {
                 if (!once) {
                         once = true
                         for (const user of users) {
@@ -497,28 +506,28 @@ function suggestionStatus() {
                                                                 title: '<span style="color:#ffffff">A tua sugestão foi aceite!<span>',
                                                                 animation: true,
                                                                 customClass: {
-                                                                    popup: 'animated tada'
+                                                                        popup: 'animated tada'
                                                                 },
                                                                 background: '#CCCC33',
                                                                 confirmButtonColor: '#29ABE2',
                                                                 timer: 3000,
-                                                            })
-                                                } else if(suggestion._confirmedUser == false) {
+                                                        })
+                                                } else if (suggestion._confirmedUser == false) {
                                                         Swal.fire({
                                                                 title: '<span style="color:#ffffff">A tua sugestão foi recusada!<span>',
                                                                 animation: true,
                                                                 customClass: {
-                                                                    popup: 'animated tada'
+                                                                        popup: 'animated tada'
                                                                 },
                                                                 background: '#CCCC33',
                                                                 confirmButtonColor: '#29ABE2',
                                                                 timer: 3000,
-                                                            })
+                                                        })
                                                 }
                                         }
                                 }
                         }
                 }
         }
-        
+
 }

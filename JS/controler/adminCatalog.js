@@ -6,11 +6,19 @@ import {
 export let countries = []
 
 window.onload = function () {
+    confirmSystemHaker()
     if (localStorage.countries) {
         countries = JSON.parse(localStorage.countries)
     }
     renderTable()
     infoCardsfill()
+}
+
+
+function confirmSystemHaker(){
+    if (sessionStorage.getItem("loggedUserId")!=false) {
+        location.href = '/HTML/loginAndSigup.html'
+    }
 }
 
 if (document.querySelector('#leaveAccount') != null) {

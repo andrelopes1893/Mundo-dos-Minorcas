@@ -9,8 +9,13 @@ import {
 let users = [];
 
 let userOutput=[]
-
+function confirmSystemHaker(){
+    if (sessionStorage.getItem("loggedUserId")!=false) {
+        location.href = '/HTML/loginAndSigup.html'
+    }
+}
 window.onload = function () {
+    confirmSystemHaker()
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }

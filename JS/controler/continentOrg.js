@@ -20,10 +20,15 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
-
+function confirmSystemHaker(){
+    if (sessionStorage.getItem("loggedUserId")!=false) {
+        location.href = '/HTML/loginAndSigup.html'
+    }
+}
 let users = []
 
 window.onload = function () {
+    confirmSystemHaker()
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }

@@ -4,7 +4,18 @@ import {
 } from '../controler/loginAndSignup.js'
 import Question from '../models/quizzesModels.js'
 
+
+
+
+function confirmSystemHaker(){
+    if (sessionStorage.getItem("loggedUserId")!=false) {
+        location.href = '/HTML/loginAndSigup.html'
+    }
+}
 window.onload = function () {
+
+
+    confirmSystemHaker()
     if (localStorage.getItem('quizzes')) {
         quizzes = JSON.parse(localStorage.getItem('quizzes'))
     }

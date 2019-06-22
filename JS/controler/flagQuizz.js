@@ -5,6 +5,19 @@ document.querySelector('#quit').addEventListener('click', function () {
     location.href = '/HTML/quizz.html'
   
 })
+
+function confirmSystemHaker(){
+    if (sessionStorage.getItem("loggedUserId")!=false) {
+        location.href = '/HTML/loginAndSigup.html'
+    }
+}
+
+window.onload= function(){
+confirmSystemHaker()
+}
+
+
+
 QuizzGenerator()
 // *Working (Butt needs some adjustments)
 //! this function reads all the components of an  array and tells if the user have or not quizzes from that category and level(optional)

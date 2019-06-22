@@ -6,6 +6,14 @@ let users = []
 let currentCountry
 
 window.onload = function () {
+
+    confirmSystemHaker()
+
+
+
+
+
+
     if (localStorage.getItem("countries")) {
         countries = JSON.parse(localStorage.getItem("countries"))
     }
@@ -120,6 +128,9 @@ function renderCatalog(quantity = 16) {
 
         if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Decrescente") {
             sortCountriesDescendent()
+        }
+        if(document.querySelector('#stlGenre').value=='ordenarPorVisitas'){
+            sortCountriesByVisit()
         }
     }
 
@@ -457,6 +468,11 @@ function sortCountriesDescendent() {
     continentCountrys.sort(Country.descendentAlphabeticOrder)
 }
 
+
+function sortCountriesByVisit(){
+    continentCountrys.sort(Country.sortByMostVisited)
+}
+
 //funçao para procurar paises 
 function searchCountry() {
     $(document).ready(function () {
@@ -660,6 +676,12 @@ function onLoadRate() {
 
             }
         }
+    }
+}
+
+function confirmSystemHaker(){
+    if (sessionStorage.getItem("loggedUserId")!=false) {
+        location.href = '/HTML/loginAndSigup.html'
     }
 }
 

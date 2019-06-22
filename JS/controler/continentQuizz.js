@@ -5,7 +5,13 @@ import {
 let users = []
 
 let continentStyle = ''
+function confirmSystemHaker(){
+    if (sessionStorage.getItem("loggedUserId")!=false) {
+        location.href = '/HTML/loginAndSigup.html'
+    }
+}
 window.onload = function () {
+    confirmSystemHaker()
     if (sessionStorage.getItem('continentStyle')) {
         continentStyle = JSON.parse(sessionStorage.getItem('continentStyle'))
     }

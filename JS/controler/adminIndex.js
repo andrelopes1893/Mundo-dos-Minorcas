@@ -2,6 +2,13 @@ import {
     signOut
 } from '../controler/loginAndSignup.js'
 
+
+function confirmSystemHaker(){
+    if (sessionStorage.getItem("loggedUserId")!=false) {
+        location.href = '/HTML/loginAndSigup.html'
+    }
+}
+
 let suggestions = []
 
 document.querySelector('#leaveAccount').addEventListener('click', signOut)
@@ -27,6 +34,7 @@ window.addEventListener('beforeunload', function () {
 })
 
 window.onload = function () {
+    confirmSystemHaker()
     if (localStorage.getItem("suggestions")) {
         suggestions = JSON.parse(localStorage.getItem("suggestions"))
     }
