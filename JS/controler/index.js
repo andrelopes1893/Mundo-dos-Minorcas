@@ -3,12 +3,12 @@ import {
 } from '../controler/loginAndSignup.js'
 
 let users = []
-
+confirmSystemHaker()
 /**
  * Function that prevents hacking
  */
 function confirmSystemHaker(){
-    if (sessionStorage.getItem("loggedUserId")==false) {
+    if (sessionStorage.getItem("loggedUserId")==null) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
@@ -21,22 +21,6 @@ window.onload = function () {
     userData()
 }
 
-$('.owl-carousel').owlCarousel({
-    loop: true,
-    margin: 10,
-    nav: false,
-    responsive: {
-        0: {
-            items: 1
-        },
-        600: {
-            items: 1
-        },
-        1000: {
-            items: 1
-        }
-    }
-})
 
 /**
  * Function to load the user data - and place the correct avatar in the navbar

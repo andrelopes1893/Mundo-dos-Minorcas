@@ -6,7 +6,7 @@ let users = []
 
 let continentStyle = ''
 function confirmSystemHaker(){
-    if (sessionStorage.getItem("loggedUserId")==false) {
+    if (sessionStorage.getItem("loggedUserId")==null) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }

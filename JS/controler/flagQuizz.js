@@ -7,7 +7,7 @@ document.querySelector('#quit').addEventListener('click', function () {
 })
 
 function confirmSystemHaker(){
-    if (sessionStorage.getItem("loggedUserId")==false) {
+    if (sessionStorage.getItem("loggedUserId")==null) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
@@ -404,7 +404,7 @@ function QuizzGenerator() {
             for (const quizz of quizzes) {
                 if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level) {
                     document.querySelector('#questionHolder').innerHTML = quizz._question
-                    console.log(quizz._pointXp)
+               
                     document.querySelector('#quizzImg').src = quizz._img
                     for (let i = 0; i < 4; i++) {
                         if (generatedNumbers.length == 0) {
@@ -548,8 +548,6 @@ function checkLevelProgress(level) {
                 for (let j = 0; j < toDelite.length; j++) {
 
                     for (let i = 0; i < user._playedQuizzes.length; i++) {
-                        console.log(user._playedQuizzes[i])
-                        console.log(toDelite[j])
                         if (user._playedQuizzes[i] == toDelite[j]) {
                             user._playedQuizzes.splice([i], 1)
                             break;
@@ -580,15 +578,6 @@ function isCompleted(level) {
 }
 
 
-//!!!!!!!!!!! Not Working
-//!Function that add propriety to the exit button
-// function exit() {
-//     document.querySelector('#quit').addEventListener('click', function () {
-//         console.log('1223')
-//         location.href = '/HTML/quizz.html'
-      
-//     })
-// }
 
 
 

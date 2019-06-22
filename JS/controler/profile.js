@@ -29,7 +29,7 @@ window.onload = function () {
  * Function that will prevent hacking 
  */
 function confirmSystemHaker() {
-        if (sessionStorage.getItem("loggedUserId") == false) {
+        if (sessionStorage.getItem("loggedUserId") == null) {
                 location.href = '/HTML/loginAndSigup.html'
         }
 }

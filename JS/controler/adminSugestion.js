@@ -3,7 +3,15 @@ import { signOut } from "../controler/loginAndSignup.js";
 let users = []
 let suggestions = []
 
+function confirmSystemHaker(){
+    if (sessionStorage.getItem("loggedUserId")==null) {
+        location.href = '/HTML/loginAndSigup.html'
+    }
+}
+
 window.onload = function () {
+
+    confirmSystemHaker()
     if (localStorage.getItem("users")) {
         users = JSON.parse(localStorage.getItem("users"))
     }

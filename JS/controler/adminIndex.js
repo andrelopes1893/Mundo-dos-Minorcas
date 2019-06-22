@@ -6,7 +6,8 @@ import {
  * Function that prevents hacking
  */
 function confirmSystemHaker(){
-    if (sessionStorage.getItem("loggedUserId")==false) {
+    console.log(sessionStorage.getItem("loggedUserId"))
+    if (sessionStorage.getItem("loggedUserId")==null) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
