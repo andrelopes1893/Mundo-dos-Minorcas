@@ -1728,6 +1728,16 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
     div.col-lg-6.col-md-6.col-xs-6.d-flex.align-items-center {
         padding-left: 70px
     }
+    /**CATALOG CARDS ADJUSTS*/
+
+
+    div.card.africanCards{
+        width: 10rem
+
+
+    }
+
+
 }
 
 /*modal create button align to center*/
