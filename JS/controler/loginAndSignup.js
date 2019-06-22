@@ -2,6 +2,8 @@ import {
     newUserByAdmin
 } from '../models/main.js'
 
+import User from '../models/userModels.js'
+import Country from '../models/countriesModels.js'
 
 
 let countries = []
@@ -25,13 +27,10 @@ if (localStorage.getItem("countries")) {
     countries = JSON.parse(localStorage.getItem("countries"))
 } else {
     //obs: arrays: unlockCountries, rating, currentLevels, playedQuizzes, NÃO APAGAR
-    countries.push(new Country('Nuno', 'asdasd', 'nuno@gmail.com', '1', 'Escreve algo sobre ti', 1)
-    )
+    countries.push(new Country('Nuno', 'asdasd', 'nuno@gmail.com', '1', 'Escreve algo sobre ti', 1))
     localStorage.setItem('countries', JSON.stringify(countries))
 }
 
-import User from '../models/userModels.js'
-import Country from '../models/countriesModels.js'
 
 
 let loggedUserId
