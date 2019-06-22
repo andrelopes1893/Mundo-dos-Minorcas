@@ -3,8 +3,8 @@
  } from '../models/main.js'
 
  export default class User {
-     constructor(username, password, email, accountType = '1', avatar = '', description = '', loginBlock = false, xp = 0, unlockCountries = [], country, rating = [], currentLevels = [], playedQuizzes = []) {
-         this._id = User.getLastId() + 1
+     constructor(username, password, email, accountType = '1', avatar = '', description = '',id="undefine", loginBlock = false, xp = 0, unlockCountries = [], country, rating = [], currentLevels = [], playedQuizzes = []) {
+         this._id = User.getLastId(id) + 1
          this.username = username
          this.password = password
          this.email = email
@@ -22,12 +22,18 @@
      get id() {
          return this._id
      }
-     static getLastId() {
-         let lastId = 0
+     static getLastId(id) {
+
+        if(id=="undefine"){
+            let lastId = 0
          if (users.length != 0) {
              lastId = users[users.length - 1]._id
          }
          return lastId
+        }
+        else{
+            return id-1
+        }
      }
 
      get username() {
