@@ -43,6 +43,11 @@ body.Oceania {
     background-color: #B7541B;
 }
 
+iframe {
+    border: 20px solid #29abe2;
+    border-radius: 10px
+}
+
 .logo {
     width: 120px;
     height: 80px;
@@ -1741,13 +1746,15 @@ div.col-md-6.col-lg-2.text-center.mx-auto.my-4 div.row a {
 
     div.card.africanCards {
         width: 14rem;
-       
+
     }
+
     div.card.africanCards div.card-body p.card-text.paragraph {
         padding-bottom: 3px;
         font-weight: 700;
         font-size: 1rem
     }
+
     .star {
         padding: 0;
         border-bottom: 0;

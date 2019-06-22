@@ -2,6 +2,11 @@ body {
     font-family: Mali;
 }
 
+iframe {
+    border: 20px solid #29abe2;
+    border-radius: 10px
+}
+
 .logo {
     width: 120px;
     height: 80px;
@@ -351,6 +356,10 @@ footer p.copyrightParagraph {
 
 /* !SMALL PHONES FOCUS*/
 @media screen and (max-width: 376px) {
+    iframe {
+        height: 250px;
+        border: 10px solid #29abe2;
+    }
 
     /**NAVBAR */
     .nav-link {
@@ -402,6 +411,10 @@ footer p.copyrightParagraph {
 
 /* !PIXEL & IPHONE PLUS*/
 @media only screen and (max-width: 415px) and (min-width: 411px) {
+    iframe {
+        height: 250px;
+        border: 10px solid #29abe2;
+    }
 
     /* Navbar adjustment */
     .nav-link {
