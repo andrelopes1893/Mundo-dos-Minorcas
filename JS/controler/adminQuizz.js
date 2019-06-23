@@ -1,14 +1,13 @@
 export let quizzes = []
+import Question from '../models/quizzesModels.js'
 import {
     signOut
 } from '../controler/loginAndSignup.js'
-import Question from '../models/quizzesModels.js'
 
 /**
  * Function that will prevent hacking
  */
 function confirmSystemHaker() {
-    console.log(sessionStorage.getItem("loggedUserId"))
     if (sessionStorage.getItem("loggedUserId") == null) {
         location.href = '/HTML/loginAndSigup.html'
     } else {
@@ -16,12 +15,12 @@ function confirmSystemHaker() {
         let id = JSON.parse(sessionStorage.getItem("loggedUserId"))
         for (const user of users) {
 
-         if(user._id==id){
-             if(user._accountType==2){
-                localStorage.removeItem('loggedUserId');
-                location.href = '/HTML/loginAndSigup.html'
-             }
-         }
+            if (user._id == id) {
+                if (user._accountType == 2) {
+                    localStorage.removeItem('loggedUserId');
+                    location.href = '/HTML/loginAndSigup.html'
+                }
+            }
         }
     }
 }

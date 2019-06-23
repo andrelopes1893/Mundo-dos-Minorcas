@@ -640,17 +640,8 @@ function onLoadRate() {
                 if (classification.user == id) {
                     let toColor = []
                     for (const star of stars) {
-
                         if (star.id == country._id) {
                             star.addEventListener("click", function () {
-                                Swal.fire({
-                                    type: 'error',
-                                    title: 'Erro...',
-                                    text: 'Só podes votar uma vez! :)',
-                                    padding: '1rem',
-                                    background: '#CCCC33',
-                                    confirmButtonColor: '#29ABE2'
-                                })
                                 location.reload()
                             })
                             toColor.push(star)
@@ -662,7 +653,6 @@ function onLoadRate() {
                         }
                     }
                 }
-
             }
         }
     }
