@@ -3,20 +3,18 @@ let continentStyle = ''
 let ChosenQuizz = ''
 document.querySelector('#quit').addEventListener('click', function () {
     location.href = '/HTML/quizz.html'
-  
+
 })
 
-function confirmSystemHaker(){
-    if (sessionStorage.getItem("loggedUserId")==null) {
+function confirmSystemHaker() {
+    if (sessionStorage.getItem("loggedUserId") == null) {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
 
-window.onload= function(){
-confirmSystemHaker()
+window.onload = function () {
+    confirmSystemHaker()
 }
-
-
 
 QuizzGenerator()
 // *Working (Butt needs some adjustments)
@@ -290,7 +288,7 @@ function renderLevelButtons(playebleLevels, level) {
         holder.innerHTML += `<div class="col">
         <button type="button" class="btn levelSelection my-4" id="${playebleLevels[i]}" disabled>${playebleLevels[i]}</button></div>`
     }
-     selectLevel(level)
+    selectLevel(level)
 }
 
 function selectLevel(level) {
@@ -304,7 +302,7 @@ function selectLevel(level) {
 }
 
 // function ChosenLevel(id) {
-//     // ******************************************************************
+// ******************************************************************
 //     actualLevel(id)
 // }
 
@@ -341,15 +339,13 @@ function QuizzGenerator() {
         sessionStorage.setItem('ChosenQuizz', JSON.stringify(ChosenQuizz))
     }
 
-
-
     let position = Number(getActualLevel(continentStyle, ChosenQuizz)) + 1
     let level = position
 
 
-    let numbers= quantity(continentStyle, quizzes, ChosenQuizz, level)
+    let numbers = quantity(continentStyle, quizzes, ChosenQuizz, level)
 
-    levelInfoBuilder(level, continentStyle, ChosenQuizz,numbers)
+    levelInfoBuilder(level, continentStyle, ChosenQuizz, numbers)
     showCurrentXP()
     if (isCompleted(level)) {
         //countdown()
@@ -382,8 +378,6 @@ function QuizzGenerator() {
         // This create a new in case of the gamer cannot played de random game
         let timesInsideQuizzes = 0;
 
-
-
         //continent,quizzes, type
         if (confExistence(continentStyle, quizzes, ChosenQuizz, level) == false) {
             Swal.fire({
@@ -404,7 +398,7 @@ function QuizzGenerator() {
             for (const quizz of quizzes) {
                 if (quizz._id == game && quizz._continent.toUpperCase() == continentStyle.toUpperCase() && quizz._quizType == ChosenQuizz && quizz._level == level) {
                     document.querySelector('#questionHolder').innerHTML = quizz._question
-               
+
                     document.querySelector('#quizzImg').src = quizz._img
                     for (let i = 0; i < 4; i++) {
                         if (generatedNumbers.length == 0) {
@@ -437,14 +431,7 @@ function QuizzGenerator() {
                 }
             }
         }
-
-
-
-
     }
-
-
-
     // This is a number (id)
 }
 
@@ -471,8 +458,6 @@ function assignXpToThePlayer(xp) {
 }
 // !Falta
 //Function to make you go to the next level  
-
-
 
 //* Working
 /**
@@ -520,7 +505,6 @@ function checkLevelProgress(level) {
     //!Counts the amount of quizzes from that level that existe
     let howManyQuizz = 0
     for (const quizz of quizzes) {
-
         if (quizz._level == level && quizz._continent == continentStyle && quizz._quizType == ChosenQuizz) {
             howManyQuizz++
         }
@@ -541,8 +525,6 @@ function checkLevelProgress(level) {
     }
     if (howManyQuizz === cont) {
         for (const user of users) {
-
-
             if (user._id == loggedUserId) {
 
                 for (let j = 0; j < toDelite.length; j++) {
@@ -554,7 +536,6 @@ function checkLevelProgress(level) {
                         }
                     }
                 }
-
             }
         }
         localStorage.setItem('users', JSON.stringify(users))
@@ -577,10 +558,6 @@ function isCompleted(level) {
     return false
 }
 
-
-
-
-
 /**
  * build the information to update the user about his status inside the quizz           
  * @param {String} level the actual level that the user is inside in that quizz
@@ -589,7 +566,7 @@ function isCompleted(level) {
  * @param {Array} numbers array with the number of games existence in that level from that category and continent(second possition (1) inside the array ) and the number of quizzes from the same that the user has played (first possition (0) inside the array)
  */
 
-function levelInfoBuilder(level, continent, quizzType,numbers) {
+function levelInfoBuilder(level, continent, quizzType, numbers) {
     let quizzInfoHolder = document.querySelector('#actualLevel')
     let continentPlace = document.querySelector('#actualContinet')
     if (continent === 'Africa') {
@@ -661,14 +638,10 @@ function quantity(continent, quizzes, type, level) {
         }
     }
 
-
-
-
     let toReturn = []
     toReturn.push(play)
     toReturn.push(total)
     return toReturn
-
 }
 
 
@@ -677,80 +650,84 @@ function quantity(continent, quizzes, type, level) {
 function showCurrentXP() {
     let width = 1
     for (const user of users) {
-            let id = ""
-            if (sessionStorage.getItem('loggedUserId')) {
-                    id = JSON.parse(sessionStorage.getItem("loggedUserId"))
-            }else{
-                id=2
-            }
+        let id = ""
+        if (sessionStorage.getItem('loggedUserId')) {
+            id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        } else {
+            id = 2
+        }
 
-            if (user._id == id) {
-                    if (user._xp <= 20) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 20 && user._xp <= 80) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 80 && user._xp <= 160) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 160 && user._xp <= 240) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 240 && user._xp <= 320) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 320 && user._xp <= 400) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 400 && user._xp <= 480) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 480 && user._xp <= 560) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 560 && user._xp <= 640) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 640 && user._xp <= 720) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 720 && user._xp <= 800) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 800 && user._xp <= 880) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 880 && user._xp <= 960) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 1040 && user._xp <= 1120) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else if (user._xp > 1120 && user._xp <= 1199) {
-                            width += 6.25
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    } else {
-                            width = 100
-                            document.querySelector('.progress-bar').style.width = width + '%'
-                            document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
-                    }
+        if (user._id == id) {
+            if (user._xp <= 20) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 20 && user._xp <= 80) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 80 && user._xp <= 160) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 160 && user._xp <= 240) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 240 && user._xp <= 320) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 320 && user._xp <= 400) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 400 && user._xp <= 480) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 480 && user._xp <= 560) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 560 && user._xp <= 640) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 640 && user._xp <= 720) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 720 && user._xp <= 800) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 800 && user._xp <= 880) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 880 && user._xp <= 960) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 1040 && user._xp <= 1120) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else if (user._xp > 1120 && user._xp <= 1199) {
+                width += 6.25
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
+            } else {
+                width = 100
+                document.querySelector('.progress-bar').style.width = width + '%'
+                document.querySelector('#currentXpBar').innerHTML = user._xp + ' / 1200 xp'
             }
-
+        }
     }
 }
+
+//Animation between pages changes
+window.addEventListener('beforeunload', function () {
+    document.body.classList.add('animate-out')
+})

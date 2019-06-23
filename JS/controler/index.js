@@ -42,3 +42,8 @@ function userData() {
 document.getElementById('signOut').addEventListener('click', function () {
     signOut()
 })
+
+//Animation between pages changes
+window.addEventListener('beforeunload', function () {
+    document.body.classList.add('animate-out')
+})

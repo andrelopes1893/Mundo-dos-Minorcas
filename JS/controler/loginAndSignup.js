@@ -185,3 +185,8 @@ export function signOut() {
     location.href = '/HTML/loginAndSigup.html'
     sessionStorage.removeItem('loggedUserId')
 }
+
+//Animation between pages changes
+window.addEventListener('beforeunload', function () {
+    document.body.classList.add('animate-out')
+})

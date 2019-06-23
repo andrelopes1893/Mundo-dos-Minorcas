@@ -205,3 +205,8 @@ function approveSuggestion(id) {
     localStorage.setItem('suggestions', JSON.stringify(suggestions))
     renderTable()
 }
+
+//Animation between pages changes
+window.addEventListener('beforeunload', function () {
+    document.body.classList.add('animate-out')
+})

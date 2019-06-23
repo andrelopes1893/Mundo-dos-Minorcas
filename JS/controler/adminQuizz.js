@@ -186,3 +186,8 @@ function removeQuiz(quizzId) {
         $('#removeQuizz').modal('hide')
     })
 }
+
+//Animation between pages changes
+window.addEventListener('beforeunload', function () {
+    document.body.classList.add('animate-out')
+})

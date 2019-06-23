@@ -295,3 +295,8 @@ function dataCards() {
     document.querySelector('#adminUsers').innerHTML = '<img src="/Images/user.png" class="userImage" alt="Utilizador" style="width: 20%;"> ' + adminCount
     document.querySelector('#blockedAccounts').innerHTML = '<img src="/Images/user.png" class="userImage" alt="Utilizador" style="width: 20%;"> ' + blockCount
 }
+
+//Animation between pages changes
+window.addEventListener('beforeunload', function () {
+    document.body.classList.add('animate-out')
+})

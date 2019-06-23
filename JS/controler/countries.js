@@ -1,5 +1,8 @@
 import Country from "../models/countriesModels.js"
 import Comment from '../models/commentsModels.js'
+import {
+    signOut
+} from '../controler/loginAndSignup.js'
 
 let countries = []
 let users = []
@@ -123,6 +126,7 @@ function renderCatalog(quantity = 16) {
         if (document.querySelector('#stlGenre').value == "Ordem Alfabetica Decrescente") {
             sortCountriesDescendent()
         }
+
         if (document.querySelector('#stlGenre').value == 'ordenarPorVisitas') {
             sortCountriesByVisit()
         }
@@ -641,3 +645,15 @@ function confirmSystemHaker() {
         location.href = '/HTML/loginAndSigup.html'
     }
 }
+
+//Sign out
+if (document.getElementById('signOut') != null) {
+    document.getElementById('signOut').addEventListener('click', function () {
+        signOut()
+    })
+}
+
+//Animation between pages changes
+window.addEventListener('beforeunload', function () {
+    document.body.classList.add('animate-out')
+})

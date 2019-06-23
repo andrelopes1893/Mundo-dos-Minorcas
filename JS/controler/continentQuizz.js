@@ -102,3 +102,8 @@ if (document.getElementById('signOut') != null) {
         signOut()
     })
 }
+
+//Animation between pages changes
+window.addEventListener('beforeunload', function () {
+    document.body.classList.add('animate-out')
+})
