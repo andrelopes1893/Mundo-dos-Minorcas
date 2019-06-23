@@ -407,8 +407,8 @@ function sortCountriesAscendent() {
 }
 
 /**
-* Function sort the countries in an descendent order
-*/
+ * Function sort the countries in an descendent order
+ */
 function sortCountriesDescendent() {
     continentCountrys.sort(Country.descendentAlphabeticOrder)
 }
@@ -621,8 +621,10 @@ function onLoadRate() {
                             toColor.push(star)
                         }
                     }
-                    for (let i = 0; i < classification.points; i++) {
-                        toColor[i].classList.add('rated');
+                    if (toColor.length > 0) {
+                        for (let i = 0; i < classification.points; i++) {
+                            toColor[i].classList.add('rated');
+                        }
                     }
                 }
 
