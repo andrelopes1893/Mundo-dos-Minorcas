@@ -131,7 +131,7 @@ function renderTable() {
     }
 
     if (document.querySelector('#stlOrder') != null) {
-        if (document.querySelector('#stlOrder').value == '') {
+        if (document.querySelector('#stlOrder').value == 'Nivel') {
             quizzOutput.sort(Question.levelFilter)
         }
     }

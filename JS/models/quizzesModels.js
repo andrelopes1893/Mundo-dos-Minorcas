@@ -163,10 +163,10 @@ export default class Question {
 
     static levelFilter(quizA, quizB) {
         if (quizA._level < quizB._level) {
-            return -1;
+            return 1;
         }
         if (quizA._level > quizB._level) {
-            return 1;
+            return -1;
         }
         return 0;
     }

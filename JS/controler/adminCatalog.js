@@ -18,7 +18,6 @@ window.onload = function () {
  * Function that will prevent hacking
  */
 function confirmSystemHaker() {
-    console.log(sessionStorage.getItem("loggedUserId"))
     if (sessionStorage.getItem("loggedUserId") == null) {
         location.href = '/HTML/loginAndSigup.html'
     } else {
@@ -111,14 +110,15 @@ function renderTable() {
             countryOutput.sort(Country.sortByMostVisited)
         }
 
-        
-        document.querySelector('#countriesTableBody').innerHTML = ''
+        if (document.querySelector('#countriesTableBody') != null) {
+            document.querySelector('#countriesTableBody').innerHTML = ''
+        }
 
         let r = 0
         for (const country of countryOutput) {
-            console.log(country._level)
             r++
-            document.querySelector('#countriesTableBody').innerHTML += `<tr>
+            if (document.querySelector('#countriesTableBody') != null) {
+                document.querySelector('#countriesTableBody').innerHTML += `<tr>
                                                                             <th scope="row">${r}</th>
                                                                             <td>${country._continent}</td>
                                                                             <td>${country._name}</td>
@@ -126,6 +126,7 @@ function renderTable() {
                                                                             <td><button type="button" id="${country._id}" data-toggle="modal" data-target="#ModalEditCountry" class="btn editBtn"><img src="/Images/lock.png" alt="Editar"></button></td> 
                                                                             <td><button type="button" id="${country._name}" class="btn remove"><img src="/Images/x.png" alt="Remover"></button></td>
                                                                         </tr> `
+            }
         }
         removeButtons()
         editButtons()
