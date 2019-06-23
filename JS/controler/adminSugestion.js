@@ -3,9 +3,22 @@ import { signOut } from "../controler/loginAndSignup.js";
 let users = []
 let suggestions = []
 
-function confirmSystemHaker(){
-    if (sessionStorage.getItem("loggedUserId")==null) {
+function confirmSystemHaker() {
+    console.log(sessionStorage.getItem("loggedUserId"))
+    if (sessionStorage.getItem("loggedUserId") == null) {
         location.href = '/HTML/loginAndSigup.html'
+    } else {
+        let users = JSON.parse(localStorage.getItem("users"))
+        let id = JSON.parse(sessionStorage.getItem("loggedUserId"))
+        for (const user of users) {
+
+         if(user._id==id){
+             if(user._accountType==2){
+                localStorage.removeItem('loggedUserId');
+                location.href = '/HTML/loginAndSigup.html'
+             }
+         }
+        }
     }
 }
 
