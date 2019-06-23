@@ -479,21 +479,45 @@ function comment(id) {
                 as = JSON.parse(sessionStorage.getItem("loggedUserId"))
                 //inserir o comentario no array
                 if (txtComment == "") {
-                    alert("Para comentar tem que escrever um comentário.")
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Erro...',
+                        text: 'Para comentares tens de escrever algo!',
+                        padding: '1rem',
+                        background: '#CCCC33',
+                        confirmButtonColor: '#29ABE2'
+                    })
                 } else {
                     for (const country of countries) {
                         if (country._id == id) {
                             const newComment = new Comment(txtComment, id)
                             country._comments.push(newComment)
                             localStorage.setItem('countries', JSON.stringify(countries))
-                            alert("O teu comentário foi registado com sucesso!")
+                            const toast = Swal.mixin({
+                                toast: true,
+                                position: 'bottom-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                background: '#29ABE2'
+                            });
+                            toast.fire({
+                                type: 'success',
+                                title: '<span style="color:#FFFFFF">Comentário feito com sucesso!<span>'
+                            })
                             break;
                         }
                     }
 
                 }
             } else {
-                alert("Não é possível efetuar comentários sem primeiro iniciar sessão!\nSe ainda não tens conta, cria uma e anda divertir-te connosco.")
+                Swal.fire({
+                    type: 'error',
+                    title: 'Erro...',
+                    text: 'Não é possível efetuar comentários sem primeiro iniciar sessão!\nSe ainda não tens conta, cria uma e anda divertir-te connosco.!',
+                    padding: '1rem',
+                    background: '#CCCC33',
+                    confirmButtonColor: '#29ABE2'
+                })
             }
             event.preventDefault()
         })
@@ -619,7 +643,14 @@ function onLoadRate() {
 
                         if (star.id == country._id) {
                             star.addEventListener("click", function () {
-                                alert('Não podes votar mais do que uma vez por país.')
+                                Swal.fire({
+                                    type: 'error',
+                                    title: 'Erro...',
+                                    text: 'Só podes votar uma vez! :)',
+                                    padding: '1rem',
+                                    background: '#CCCC33',
+                                    confirmButtonColor: '#29ABE2'
+                                })
                                 location.reload()
                             })
                             toColor.push(star)
