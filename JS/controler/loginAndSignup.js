@@ -85,8 +85,8 @@ if (localStorage.getItem("quizzes")) {
     new Question('Bandeiras', 'Europa', 4, 'Qual é o nome deste país?', ['Holanda', 'Portugal', 'Angola', 'Inglaterra'], 'Inglaterra', 20, 'https://upload.wikimedia.org/wikipedia/commons/b/be/Flag_of_England.svg', 12),
     new Question('Bandeiras', 'Europa', 5, 'Qual é o nome deste país?', ['Índia', 'Itália', 'Portugal', 'Malta'], 'Malta', 25, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Malta.svg/1024px-Flag_of_Malta.svg.png', 13),
     new Question('Bandeiras', 'Europa', 5, 'Qual é o nome deste país?', ['Malta', 'Polónia', 'China', 'Áustria'], 'Áustria', 25, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/383px-Flag_of_Austria.svg.png', 14),
-    new Question('Capitais', 'Europa', 1, 'Qual é a capital deste país?', ['Berlim', 'Porto', 'Praia', 'Lisboa'], 'Lisboa', 25, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/1280px-Flag_of_Portugal.svg.png', 15),
-    new Question('Localizacao', 'Europa', 1, 'Qual destes países se localiza onde a imagem o mostra?', ['Malta', 'Polónia', 'China', 'Portugal'], 'Portugal', 25, 'https://www.researchgate.net/profile/Henrique_De_Castro/publication/314556531/figure/fig3/AS:470547432775685@1489198658850/Figura-3-Localizacao-de-Portugal-dentro-da-Europa-e-da-Uniao-Europeia-2007.png', 16),
+    new Question('Capitais', 'Europa', 1, 'Qual é a capital deste país?', ['Berlim', 'Porto', 'Praia', 'Lisboa'], 'Lisboa', 5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/1280px-Flag_of_Portugal.svg.png', 15),
+    new Question('Localizacao', 'Europa', 1, 'Qual destes países se localiza onde a imagem o mostra?', ['Malta', 'Polónia', 'China', 'Portugal'], 'Portugal', 5, 'https://www.researchgate.net/profile/Henrique_De_Castro/publication/314556531/figure/fig3/AS:470547432775685@1489198658850/Figura-3-Localizacao-de-Portugal-dentro-da-Europa-e-da-Uniao-Europeia-2007.png', 16),
     
     
     
