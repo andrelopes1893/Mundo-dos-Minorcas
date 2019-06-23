@@ -62,9 +62,6 @@ if (localStorage.getItem("countries")) {
         new Country('Fiji', 'Suva', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Fiji.svg/188px-Flag_of_Fiji.svg.png', 'Inglês', 'Oceania', 3, 'A República das Fíji ou das Fiji, por vezes escrito Fidji, anteriormente conhecida como República das Ilhas Fiji, é um país insular da Oceania, composto por 332 ilhas no Oceano Pacífico.', 'https://www.mapsland.com/maps/oceania/fiji/large-location-map-of-fiji-in-oceania.jpg', 33),
         new Country('Nova Zelândia', 'Wellington', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/188px-Flag_of_New_Zealand.svg.png', 'Inglês', 'Oceania', 3, 'Nova Zelândia é um país insular, oficialmente pertencente à Oceania, no sudoeste do Oceano Pacífico, formado por duas massas de terra principais e por numerosas ilhas menores, sendo as mais notáveis as ilhas Stewart e Chatham.', 'https://i1.wp.com/maps.maphill.com/new-zealand/location-maps/gray-map/highlighted-continent/gray-location-map-of-new-zealand-highlighted-continent.jpg', 34)
 
-
-
-
     )
     localStorage.setItem('countries', JSON.stringify(countries))
 }
