@@ -1838,6 +1838,21 @@ p#actualContinet {
         margin: 0%
     }
 
+    /**Country Information */
+    img#imgModal{
+        margin-left: 15px; 
+    }
+
+
+    div#countryModal div.modal-body div.col-lg-6.col-md-12.col-xs-12.infoParagraph.text-center{
+        font-size: 1rem;
+        padding: 7px
+    }
+    div#countryModal div.col-lg-6.col-md-12.col-xs-12.imgInfo div.commentContainer{
+        padding-left: 10px;
+        font-size: 1rem
+    }
+
 }
 
 /* !SMALL PHONES FOCUS*/
@@ -1882,6 +1897,20 @@ p#actualContinet {
 
     div.row.optionsRow {
         margin: 0%
+    }
+
+    /**Country Information */
+    img#imgModal{
+        margin-left: 15px; 
+    }
+
+    div#countryModal div.modal-body div.col-lg-6.col-md-12.col-xs-12.infoParagraph.text-center{
+        font-size: 1rem;
+        padding: 7px
+    }
+    div#countryModal div.col-lg-6.col-md-12.col-xs-12.imgInfo div.commentContainer{
+        padding-left: 10px;
+        font-size: 1rem
     }
 
 
